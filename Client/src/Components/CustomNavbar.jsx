@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Navbar, Nav, Dropdown, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faUser } from '@fortawesome/free-solid-svg-icons';
-// import axios from 'axios';
-import mind_logo from '../assets/Img/mind_logo.png'; // Adjust path as per your file structure
+import axios from 'axios'; // Make sure axios is imported
 
+import mind_logo from '../assets/Img/mind_logo.png'; // Adjust path as per your file structure
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom for client-side navigation
 
 function CustomNavbar() {
   const [loggedIn, setLoggedIn] = useState(false); // State to manage login status
@@ -17,6 +17,7 @@ function CustomNavbar() {
 
   const checkLoginStatus = async () => {
     try {
+      // Replace '/api/check-login-status' with your actual endpoint to check login status
       const response = await axios.get('/api/check-login-status');
       const isLoggedIn = response.data.isLoggedIn;
       setLoggedIn(isLoggedIn);
@@ -25,16 +26,12 @@ function CustomNavbar() {
     }
   };
 
-  const handleLogin = () => {
-  
-  };
-
   const handleLogout = () => {
     axios.post('/api/logout')
-     .then(() => {
+      .then(() => {
         setLoggedIn(false);
       })
-     .catch((error) => {
+      .catch((error) => {
         console.error(error);
       });
   };
@@ -56,34 +53,32 @@ function CustomNavbar() {
 
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto nav-elements mb-lg-0">
-          <Nav.Link className='nav-element' href="#home">Home</Nav.Link>
-          <Nav.Link className='nav-element' href="#aboutus">About us</Nav.Link>
-          <Nav.Link className='nav-element' href="#contact">Contact</Nav.Link>
-          <Nav.Link className='nav-element' href="#blog">Blog</Nav.Link>
-          <Nav.Link className='nav-element' href="#booknow">Book Now</Nav.Link>
+          <Nav.Link as={Link} to="/" className='nav-element'>Home</Nav.Link>
+          <Nav.Link as={Link} to="/aboutus" className='nav-element'>About us</Nav.Link>
+          <Nav.Link as={Link} to="/contact" className='nav-element'>Contact</Nav.Link>
+          <Nav.Link as={Link} to="/blog" className='nav-element'>Blog</Nav.Link>
+          <Nav.Link as={Link} to="/booknow" className='nav-element'>Book Now</Nav.Link>
         </Nav>
       </Navbar.Collapse>
 
       <div className="right-nav-elements d-flex align-items-center">
-      <Dropdown align="end">
-  <Dropdown.Toggle variant="light" id="dropdown-basic" className="user-icon" as={(props) => (
-    <Button {...props} className="dropdown-toggle" aria-label="User menu">
-      <FontAwesomeIcon icon={faUser} />
-    </Button>
-  )} />
+        <Dropdown align="end">
+          <Dropdown.Toggle variant="light" id="dropdown-basic" className="user-icon">
+            <FontAwesomeIcon icon={faUser} />
+          </Dropdown.Toggle>
 
-  <Dropdown.Menu>
-    {loggedIn? (
-      <>
-        <Dropdown.Item href="#profile">Profile</Dropdown.Item>
-        <Dropdown.Item href="#settings">Settings</Dropdown.Item>
-        <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
-      </>
-    ) : (
-      <Dropdown.Item href='/login'>Login</Dropdown.Item>
-    )}
-  </Dropdown.Menu>
-</Dropdown>
+          <Dropdown.Menu>
+            {loggedIn ? (
+              <>
+                <Dropdown.Item href="#profile">Profile</Dropdown.Item>
+                <Dropdown.Item href="#settings">Settings</Dropdown.Item>
+                <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
+              </>
+            ) : (
+              <Dropdown.Item href='/login'>Login</Dropdown.Item>
+            )}
+          </Dropdown.Menu>
+        </Dropdown>
       </div>
     </Navbar>
   );
