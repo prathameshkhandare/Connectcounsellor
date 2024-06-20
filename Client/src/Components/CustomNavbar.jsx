@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar, Nav, Form, FormControl, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faBars } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faBars,faUser } from '@fortawesome/free-solid-svg-icons';
 import mind_logo from '../assets/Img/mind_logo.png'; // Adjust path as per your file structure
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -33,17 +33,11 @@ function CustomNavbar() {
       </Navbar.Collapse>
 
       <div className="right-nav-elements d-flex align-items-center">
-        <Form className="d-flex align-items-center mb-2 mb-lg-0 search-box">
-          <FormControl
-            type="search"
-            placeholder="Search"
-            className="me-2"
-            aria-label="Search"
-          />
+     
           <Button variant="light" className="search-button">
-            <FontAwesomeIcon icon={faSearch} />
+            <FontAwesomeIcon icon={faUser} />
           </Button>
-        </Form>
+       
       </div>
     </Navbar>
   );
