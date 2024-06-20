@@ -81,6 +81,17 @@
   background-color: transparent;
 }
 
+.dropdown-toggle::after {
+  display: none;
+}
+.right-nav-elements{
+  margin-right: 20px;
+  
+}
+.user-icon{
+  border:rgb(216, 213, 207) 2px solid;
+  border-radius: 50%;
+}
 /* Collapsed Navbar */
 @media (max-width: 991.98px) {
   .navbar-collapse {
