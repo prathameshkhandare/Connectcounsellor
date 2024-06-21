@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-<<<<<<< HEAD
 
-=======
 import './Stylesheets/Courses.css'; // Import your external CSS file
 
->>>>>>> a69f6ae91edf55100f6bc0c5be7e1d4a7c49ad95
+
 const Courses = () => {
   const [categories] = useState(['Math', 'Science', 'History']);
   const [selectedCategory, setSelectedCategory] = useState('');
