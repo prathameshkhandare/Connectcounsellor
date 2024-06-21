@@ -93,7 +93,7 @@ const Courses = () => {
       <div className="card-container">
         {courses.map((course) => (
           <div key={course.id} className="card" style={{ width: '18rem', marginBottom: '20px' }}>
-            {/* <img className="card-img-top" src="..." alt="Card image cap" /> */}
+            <img className="card-img-top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS32oHx1gdhESrBK7M8azS6EUdfHOyrP9JioA&s" alt="Card image cap" />
             <div className="card-body">
               <h5 className="card-title">{course.title}</h5>
               <p className="card-text">{course.description}</p>

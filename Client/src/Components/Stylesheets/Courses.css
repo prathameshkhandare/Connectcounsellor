@@ -5,11 +5,18 @@
     padding: 0 20px;
     justify-content: flex-start; /* Ensure cards are aligned to the start */
   }
+  .card-img-top{
+    height: 150px;
+    width: 150px;
+    display: block; /* Ensure image is a block element */
+    margin-left:95px;
   
+   
+  }
   .card {
     flex: 0 1 calc(33.33% - 30px); /* Fix width to 25% minus gap */
     box-sizing: border-box;
-    height: 200px; 
+    height: 300px; 
   }
   
   @media (max-width: 1200px) {
