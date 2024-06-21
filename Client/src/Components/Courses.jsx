@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
-import '../Components/StyleSheets/Courses.css'
+<<<<<<< HEAD
+
+=======
+import './Stylesheets/Courses.css'; // Import your external CSS file
+
+>>>>>>> a69f6ae91edf55100f6bc0c5be7e1d4a7c49ad95
 const Courses = () => {
   const [categories] = useState(['Math', 'Science', 'History']);
   const [selectedCategory, setSelectedCategory] = useState('');
@@ -78,7 +83,7 @@ const Courses = () => {
   return (
     <>
       <hr />
-      <h4> Courses </h4>
+      <h4 className='heading-4'> Courses </h4>
 
       <div className="card-container">
         {courses.map((course) => (

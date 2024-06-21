@@ -1,7 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../Components/StyleSheets/Login.css'; // Make sure you import your CSS file with correct path
+<<<<<<< HEAD
+ // Make sure you import your CSS file with correct path
 
+=======
+
+import '../Components/Stylesheets/Login.css';
+>>>>>>> a69f6ae91edf55100f6bc0c5be7e1d4a7c49ad95
 const LoginForm = () => {
   const navigate = useNavigate();
 
