@@ -7,7 +7,7 @@
   }
   
   .card {
-    flex: 0 1 calc(25% - 30px); /* Fix width to 25% minus gap */
+    flex: 0 1 calc(33.33% - 30px); /* Fix width to 25% minus gap */
     box-sizing: border-box;
     height: 200px; 
   }
