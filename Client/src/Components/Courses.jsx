@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Courses.css'; // Import your external CSS file
+import './Stylesheets/Courses.css'; // Import your external CSS file
 
 const Courses = () => {
   const [categories] = useState(['Math', 'Science', 'History']);
