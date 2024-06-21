@@ -7,6 +7,7 @@ import Footer from './Components/Footer';
 import Login from './Components/Login';
 import Registration from './Components/Registration'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Courses from './Components/Courses';
 
 // Example components for routes
 const Home = () => {
@@ -14,7 +15,7 @@ const Home = () => {
     <>
       <CustomNavbar />
       <Banner />
-     
+     <Courses/>
       <Footer />
     </>
   );

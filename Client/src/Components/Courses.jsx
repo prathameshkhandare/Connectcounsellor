@@ -46,7 +46,24 @@ const Courses = () => {
       description: 'History of the United States',
       details: 'Key events and developments in the history of the United States.',
       isOpen: false
-    }
+    },
+
+    {
+        id: 7,
+        title: 'US History',
+        description: 'History of the United States',
+        details: 'Key events and developments in the history of the United States.',
+        isOpen: false
+      }
+,
+
+{
+    id: 8,
+    title: 'US History',
+    description: 'History of the United States',
+    details: 'Key events and developments in the history of the United States.',
+    isOpen: false
+  }
   ]);
 
   // Function to handle category selection
