@@ -79,7 +79,7 @@ const Courses = () => {
   return (
     <>
       <hr />
-      <h4> Courses </h4>
+      <h4 className='heading-4'> Courses </h4>
 
       <div className="card-container">
         {courses.map((course) => (

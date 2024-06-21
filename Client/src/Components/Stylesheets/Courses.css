@@ -1,7 +1,35 @@
-.card-container{
-    display:flex;
-    flex-direction: row;
-}
-.card-container * {
-    margin-left: 10px;
-}
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0 20px;
+  }
+  
+  .card {
+    flex: 1 1 calc(25% - 20px); /* Adjust width to 25% minus gap */
+    box-sizing: border-box;
+    height: 200px; 
+  }
+  
+  @media (max-width: 1200px) {
+    .card {
+      flex: 1 1 calc(33.33% - 20px); /* Adjust width for smaller screens */
+    }
+  }
+  
+  @media (max-width: 800px) {
+    .card {
+      flex: 1 1 calc(50% - 20px); /* Adjust width for smaller screens */
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .card {
+      flex: 1 1 calc(100% - 20px); /* Adjust width for smallest screens */
+    }
+  }
+  
+  .heading-4{
+    padding: 20px;
+
+  }
