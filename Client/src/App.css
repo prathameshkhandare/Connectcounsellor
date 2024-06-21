@@ -150,15 +150,6 @@ margin-top: 30px;
 }
 
 
-
-
-
-
-
-
-
-
-
 /* Footer */
 .footer {
   background-color: #f1f1f1;
@@ -226,70 +217,6 @@ margin-top: 30px;
 
 
 /*-------------------------------------Login css --------------------------------------------*/
-.login-form-container {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.login-form {
-  display: flex;
-  flex-direction: column;
-}
-
-.login-form-group {
-  margin-bottom: 15px;
-}
-
-.login-form-group label {
-  margin-bottom: 5px;
-}
-
-.login-form-group input {
-  width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
-}
-
-.login-button {
-  padding: 10px;
-  background-color: #28a745;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.login-button:hover {
-  background-color: #218838;
-}
-
-.login-signup-redirect {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-}
-
-.login-signup-redirect span {
-  align-self: center;
-}
-
-.login-signup-link {
-  color: #007bff;
-  cursor: pointer;
-  text-decoration: underline;
-  border: none;
-  background: none;
-  padding: 0;
-  margin: 0;
-}
-
-.login-signup-link:hover {
-  color: #0056b3;
-}
 
 
 

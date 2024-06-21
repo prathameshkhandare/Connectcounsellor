@@ -26,13 +26,13 @@ const Contactus = () => {
       </div>
       <div className="contact-info">
         <h3 className='contactus-heading'>Contact Us</h3>
-        <h3><FaMapMarkerAlt /> Address</h3>
+        <h4><FaMapMarkerAlt /> Address</h4>
         <p>Mind Therapy and Enviro Trust, house No 773, koulkhed,BSES Office,<br />  Main Road 
            Near Pocket 'A', akola, Maharashtra 44407, India</p>
-        <h3><FaWhatsapp /> WhatsApp</h3>
-        <p>+1234567890</p>
-        <h3><FaEnvelope /> Email</h3>
-        <p>contact@example.com</p>
+        <h4><FaWhatsapp /> WhatsApp</h4>
+        <p>+1234567890,76668238821,7365238732,736728191</p>
+        <h4><FaEnvelope /> Email</h4>
+        <p>contact@example.com,bhaiyuvirathod123@gmail.com, <br />rathodbhaveshpdp@gmail.com</p>
       </div>
     </div>
   );
