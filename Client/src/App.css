@@ -122,7 +122,7 @@
   }
 }
 
-/* Banner */
+/* -----------------------------Banner----------------------------- */
 .mhealth-img {
   margin-top: 50px;
   width: 100%;
@@ -225,10 +225,7 @@ margin-top: 30px;
 }
 
 
-/*Login css */
-.container{
- margin-top: 10%;
-}
+/*-------------------------------------Login css --------------------------------------------*/
 .login-form-container {
   max-width: 400px;
   margin: 0 auto;
@@ -243,24 +240,23 @@ margin-top: 30px;
   flex-direction: column;
 }
 
-.form-group {
+.login-form-group {
   margin-bottom: 15px;
 }
 
-.form-group label {
+.login-form-group label {
   margin-bottom: 5px;
 }
 
-.form-group input {
+.login-form-group input {
   width: 100%;
   padding: 8px;
   box-sizing: border-box;
-  border-radius: 5px ;
 }
 
 .login-button {
   padding: 10px;
-  background-color: #2f84c5;
+  background-color: #28a745;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -271,31 +267,36 @@ margin-top: 30px;
   background-color: #218838;
 }
 
-.signup-redirect {
+.login-signup-redirect {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
 }
 
-.signup-redirect span {
+.login-signup-redirect span {
   align-self: center;
 }
 
-.signup-link {
-  background: none;
-  border: none;
+.login-signup-link {
   color: #007bff;
   cursor: pointer;
   text-decoration: underline;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
 }
 
-.signup-link:hover {
+.login-signup-link:hover {
   color: #0056b3;
 }
 
 
 
-/*  Signup css */
+
+/*-------------------------- SignupForm.css -------------------------------------*/
+
+
 
 .signup-form-container {
   max-width: 400px;
@@ -311,15 +312,15 @@ margin-top: 30px;
   flex-direction: column;
 }
 
-.form-group {
+.signup-form-group {
   margin-bottom: 15px;
 }
 
-.form-group label {
+.signup-form-group label {
   margin-bottom: 5px;
 }
 
-.form-group input {
+.signup-form-group input {
   width: 100%;
   padding: 8px;
   box-sizing: border-box;
@@ -338,116 +339,32 @@ margin-top: 30px;
   background-color: #0056b3;
 }
 
-.login-redirect {
+.signup-login-redirect {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
 }
 
-.login-redirect span {
+.signup-login-redirect span {
   align-self: center;
 }
 
-.login-link {
-  background: none;
-  border: none;
+.signup-login-link {
   color: #007bff;
   cursor: pointer;
   text-decoration: underline;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
 }
 
-.login-link:hover {
+.signup-login-link:hover {
   color: #0056b3;
 }
 
 
 
+
 /* Contactus css */
 
-.contact-container {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  margin-left: 15%;
-  margin-top: 20px;
-  font-family: "Source Serif Pro", Sans-serif;;
-}
-
-.form-container {
-  width: 45%;
-}
-
-.contact-info {
-  width: 45%;
-}
-
-.Send-msg-heading{
-  color: #0f5285;
-  margin: 0 0 20px 0;
-  margin-left: 20%;
-
-
-}
-.contactus-heading{
-  color: #0f5285;
-  margin: 0 0 20px 0;
-  margin-left: 20%;
-
-}
-
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  font-size: 14px;
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-  color: #999;
-}
-
-.form-group textarea {
-  height: 100px;
-  resize: vertical;
-}
-
-button {
-  padding: 12px 40px;
-  width: 100%;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-.contact-info h3 {
-  margin-top: 20px;
-  color: #333;
-  display: flex;
-  align-items: center;
-}
-
-.contact-info p {
-  margin: 5px 0;
-}
-
-.contact-info svg {
-  margin-right: 8px;
-  vertical-align: middle;
-  color: #25d366;
-}

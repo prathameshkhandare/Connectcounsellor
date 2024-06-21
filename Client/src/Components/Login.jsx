@@ -31,7 +31,7 @@ const LoginForm = () => {
         </form>
         <div className="signup-redirect">
           <span>Don't have an account?</span>
-          <button onClick={redirectToSignup} className="sgbtn">Sign Up</button>
+          <button onClick={redirectToSignup} className="signup-link">Sign Up</button>
         </div>
       </div>
     </div>
