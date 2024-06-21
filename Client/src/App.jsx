@@ -5,6 +5,7 @@ import CustomNavbar from './Components/CustomNavbar';
 import Banner from './Components/Banner';
 import Footer from './Components/Footer';
 import Login from './Components/Login';
+import Registration from './Components/Registration'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 // Example components for routes
@@ -77,6 +78,7 @@ function App() {
           <Route path="/booknow" element={<BookNow />} />
           {/* Add route for Login page */}
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Registration/>} />
           {/* Add more routes as needed */}
         </Routes>
       </div>
