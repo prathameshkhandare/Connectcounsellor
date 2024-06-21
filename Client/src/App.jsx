@@ -6,8 +6,8 @@ import Banner from './Components/Banner';
 import Footer from './Components/Footer';
 import Login from './Components/Login';
 import Registration from './Components/Registration'
+import Contactus from './Components/Contactus';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Courses from './Components/Courses';
 
 // Example components for routes
 const Home = () => {
@@ -15,7 +15,6 @@ const Home = () => {
     <>
       <CustomNavbar />
       <Banner />
-     <Courses/>
       <Footer />
     </>
   );
@@ -27,17 +26,6 @@ const AboutUs = () => {
       <CustomNavbar />
       <Banner />
       <h1>About Us Page</h1>
-      <Footer />
-    </>
-  );
-};
-
-const Contact = () => {
-  return (
-    <>
-      <CustomNavbar />
-      <Banner />
-      <h1>Contact Page</h1>
       <Footer />
     </>
   );
@@ -65,8 +53,6 @@ const BookNow = () => {
   );
 };
 
-// Login component placeholder
-
 function App() {
   return (
     <Router>
@@ -74,13 +60,11 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/aboutus" element={<AboutUs />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/contact" element={<><CustomNavbar /><Contactus /><Footer /></>} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/booknow" element={<BookNow />} />
-          {/* Add route for Login page */}
           <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Registration/>} />
-          {/* Add more routes as needed */}
+          <Route path="/register" element={<Registration />} />
         </Routes>
       </div>
     </Router>
