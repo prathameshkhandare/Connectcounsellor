@@ -1,0 +1,40 @@
+.aboutus-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .slogan-section {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .aboutus-section {
+    display: flex;
+    margin-bottom: 40px;
+  }
+  
+  .aboutus-left {
+    flex: 1;
+    padding-right: 20px;
+  }
+  
+  .aboutus-right {
+    flex: 1;
+    padding-left: 20px;
+  }
+  
+  .aboutus-right img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .aboutus-section h3 {
+    color: #0f5285;
+  }
+  
+  .aboutus-section p {
+    line-height: 1.6;
+  }
+  

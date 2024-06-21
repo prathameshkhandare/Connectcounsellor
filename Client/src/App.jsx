@@ -8,6 +8,7 @@ import Login from './Components/Login';
 import Registration from './Components/Registration'
 import Contactus from './Components/Contactus';
 import Courses from './Components/Courses';
+import Aboutus from './Components/Aboutus';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 // Example components for routes
@@ -22,16 +23,16 @@ const Home = () => {
   );
 };
 
-const AboutUs = () => {
-  return (
-    <>
-      <CustomNavbar />
-      <Banner />
-      <h1>About Us Page</h1>
-      <Footer />
-    </>
-  );
-};
+// const AboutUs = () => {
+//   return (
+//     <>
+//       <CustomNavbar />
+//       <Banner />
+//       <h1>About Us Page</h1>
+//       <Footer />
+//     </>
+//   );
+// };
 
 const Blog = () => {
   return (
@@ -61,7 +62,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/aboutus" element={<><CustomNavbar /><Aboutus /><Footer /></>} />
           <Route path="/contact" element={<><CustomNavbar /><Contactus /><Footer /></>} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/booknow" element={<BookNow />} />
