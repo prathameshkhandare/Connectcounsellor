@@ -25,6 +25,14 @@ router.get('/api/courses/read', async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
+router.get('/api/courses/read/:id', async (req, res) => {
+    try {
+        const courses = await coursesModel.findOne({_id:req.params.id});
+       res.send(courses)
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
 
 
 

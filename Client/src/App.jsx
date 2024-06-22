@@ -12,6 +12,7 @@ import Aboutus from './Components/Aboutus';
 import Blog from './Components/Blog';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CookiePolicy from './Components/footer/CookiePolicy';
+import CourseInfo from './Components/CourseInfo';
 
 // Example components for routes
 const Home = () => {
@@ -53,6 +54,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Registration />} />
           <Route path="/cookiepolicy" element={<CookiePolicy />} />
+          <Route path="/courseInfo/:courseId" element={<CourseInfo />} />
         </Routes>
       </div>
     </Router>
