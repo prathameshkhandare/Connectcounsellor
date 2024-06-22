@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -20,11 +20,11 @@ function Footer() {
         <div className="footer-column">
           <h3>Legal</h3>
           <ul>
-            <li>Cookie Policy</li>
-            <li>Privacy Policy</li>
-            <li>Refund and Cancellation</li>
-            <li>Terms & Condition</li>
-            <li>Disclaimer Policy</li>
+          <li><Link to="/cookiepolicy">Cookie Policy</Link></li>
+            <li><Link to="/privacy-policy">Privacy Policy</Link></li>
+            <li><Link to="/refund-cancellation">Refund and Cancellation</Link></li>
+            <li><Link to="/terms-conditions">Terms & Condition</Link></li>
+            <li><Link to="/disclaimer-policy">Disclaimer Policy</Link></li>
           </ul>
         </div>
         <div className="footer-column">
