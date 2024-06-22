@@ -20,7 +20,7 @@ const CourseInfo = () => {
     };
     fetchCourse();
   }, [courseId]);
-  
+
   if (!course) {
     return <div>Loading...</div>;
   }
@@ -36,10 +36,16 @@ const CourseInfo = () => {
           <img src={course.image} alt={course.name} />
         </div>
         <div className="course-content">
-          <p className="course-description">{course.description}</p>
+          <h1 className="course-title">What You Will Learn</h1>
+          <ul className="course-learn-list">
+            {course.content && course.content.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
         </div>
-        <div className="course-action">
-          <button className="btn btn-primary">Enroll Now</button>
+        <div className="course-content">
+            <h1 className='course-title'> course description</h1>
+          <p className="course-description">{course.description}</p>
         </div>
       </div>
       <div className="course-sidebar">
@@ -54,6 +60,9 @@ const CourseInfo = () => {
         <div className="course-students">
           <h3>Students</h3>
           <p>975,558</p>
+        </div>
+        <div className="course-action">
+          <button className="btn btn-primary">Enroll Now</button>
         </div>
       </div>
     </div>

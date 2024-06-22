@@ -69,4 +69,13 @@
   .course-students p {
     color: #333;
   }
+
+  .course-learn-list {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  
+  .course-learn-list li {
+    margin-bottom: 10px;
+  }
   

@@ -5,6 +5,7 @@ const coursesSchema =mongoose.Schema({
     image :String,
     shortdescription: String,
     description: String,
+    content:[String],
     
 });
 

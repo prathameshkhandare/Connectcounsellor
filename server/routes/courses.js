@@ -10,6 +10,7 @@ router.get('/api/courses/write', async (req, res) => {
             image: "",
             shortdescription: "This is the world's best course",
             description: "This is the mind therapy course. Lorem ipsum dolor sit amet.",
+            content:["mind relaxation","how to be calm in panic situation", "meditation","mind relaxation","how to be calm in panic situation", "meditation"] 
         });
         res.send(`data saved successfully${c1}`)
     } catch (error) {
