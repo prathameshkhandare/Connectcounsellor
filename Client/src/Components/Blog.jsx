@@ -8,7 +8,7 @@ const Blog = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/blog/blogs');
+        const response = await axios.get('http://localhost:3000/api/blog/read');
         setBlogs(response.data);
         console.log(response.data);
 

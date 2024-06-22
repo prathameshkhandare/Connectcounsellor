@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const coursesModel = require('../models/courses');
 
-router.get('/', async (req, res) => {
+router.get('/api/courses/write', async (req, res) => {
     try {
         const c1 = await coursesModel.create({
             name: "Mind Therapy",
@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/courses', async (req, res) => {
+router.get('/api/courses/read', async (req, res) => {
     try {
         const courses = await coursesModel.find();
        res.send(courses)
@@ -25,6 +25,8 @@ router.get('/courses', async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
+
+
 
 
 module.exports = router;

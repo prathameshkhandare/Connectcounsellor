@@ -3,7 +3,7 @@ const router = express.Router();
 const blogModel = require('../models/blog');
 
 // Route to create a new blog entry
-router.get('/read', async (req, res) => {
+router.get('/api/blog/write', async (req, res) => {
     try {
         const c1 = await blogModel.create({
             title: "bhavesh ki shadi",
@@ -18,10 +18,8 @@ router.get('/read', async (req, res) => {
 });
 
 // A sample route to verify the setup
-router.get('/', async (req, res) => {
-    res.send("fake route");
-});
-router.get('/blogs', async (req, res) => {
+
+router.get('/api/blog/read', async (req, res) => {
     try {
         const blogs = await blogModel.find();
         res.status(200).json(blogs);
