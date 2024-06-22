@@ -2,7 +2,6 @@ import React from 'react';
 import '../Components/StyleSheets/Contactus.css'
 import { FaWhatsapp, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 
-
 const Contactus = () => {
   return (
     <div className="contact-container">
@@ -27,12 +26,12 @@ const Contactus = () => {
       <div className="contact-info">
         <h3 className='contactus-heading'>Contact Us</h3>
         <h4><FaMapMarkerAlt /> Address</h4>
-        <p>Mind Therapy and Enviro Trust, house No 773, koulkhed,BSES Office,<br />  Main Road 
-           Near Pocket 'A', akola, Maharashtra 44407, India</p>
+        <p>Mind Therapy and Enviro Trust, house No 773, Koulkhed, BSES Office,<br /> Main Road 
+           Near Pocket 'A', Akola, Maharashtra 44407, India</p>
         <h4><FaWhatsapp /> WhatsApp</h4>
-        <p>+1234567890,76668238821,7365238732,736728191</p>
+        <p>+1234567890, 76668238821, 7365238732, 736728191</p>
         <h4><FaEnvelope /> Email</h4>
-        <p>contact@example.com,bhaiyuvirathod123@gmail.com, <br />rathodbhaveshpdp@gmail.com</p>
+        <p>contact@example.com, bhaiyuvirathod123@gmail.com,<br /> rathodbhaveshpdp@gmail.com</p>
       </div>
     </div>
   );

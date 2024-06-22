@@ -23,16 +23,6 @@ const Home = () => {
   );
 };
 
-// const AboutUs = () => {
-//   return (
-//     <>
-//       <CustomNavbar />
-//       <Banner />
-//       <h1>About Us Page</h1>
-//       <Footer />
-//     </>
-//   );
-// };
 
 const Blog = () => {
   return (

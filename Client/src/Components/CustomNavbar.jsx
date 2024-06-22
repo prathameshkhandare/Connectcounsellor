@@ -47,9 +47,7 @@ function CustomNavbar() {
         />
       </Navbar.Brand>
 
-      <Navbar.Toggle aria-controls="basic-navbar-nav">
-        <FontAwesomeIcon icon={faBars} />
-      </Navbar.Toggle>
+      
 
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto nav-elements mb-lg-0">
@@ -66,6 +64,9 @@ function CustomNavbar() {
           <Dropdown.Toggle variant="light" id="dropdown-basic" className="user-icon">
             <FontAwesomeIcon icon={faUser} />
           </Dropdown.Toggle>
+          <Navbar.Toggle aria-controls="basic-navbar-nav">
+        <FontAwesomeIcon icon={faBars} />
+      </Navbar.Toggle>
 
           <Dropdown.Menu>
             {loggedIn ? (
