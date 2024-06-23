@@ -1,7 +1,13 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 function Footer() {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
   return (
     <div className="footer">
       <div className="footer-col-container">
@@ -20,7 +26,7 @@ function Footer() {
         <div className="footer-column">
           <h3>Legal</h3>
           <ul>
-          <li><Link to="/cookiepolicy">Cookie Policy</Link></li>
+            <li><Link to="/cookiepolicy">Cookie Policy</Link></li>
             <li><Link to="/privacy-policy">Privacy Policy</Link></li>
             <li><Link to="/refund-cancellation">Refund and Cancellation</Link></li>
             <li><Link to="/terms-conditions">Terms & Condition</Link></li>

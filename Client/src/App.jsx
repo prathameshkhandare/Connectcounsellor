@@ -14,6 +14,9 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import CookiePolicy from "./Components/footer/CookiePolicy";
 import CourseInfo from "./Components/CourseInfo";
 import PrivacyPolicy from "./Components/footer/PrivacyPolicy";
+import RefundAndCancellationPolicy from "./Components/footer/RefundAndCancellationPolicy";
+import TermsAndConditions from "./Components/footer/TermsAndConditions";
+import DisclaimerPolicy from "./Components/footer/DesclaimerPolicy";
 
 // Example components for routes
 const Home = () => {
@@ -105,6 +108,36 @@ function App() {
             }
           />
 
+          <Route
+            path="/terms-conditions"
+            element={
+              <>
+                <CustomNavbar />
+                <TermsAndConditions />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/refund-cancellation"
+            element={
+              <>
+                <CustomNavbar />
+                <RefundAndCancellationPolicy />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/disclaimer-policy"
+            element={
+              <>
+                <CustomNavbar />
+                <DisclaimerPolicy />
+                <Footer />
+              </>
+            }
+          />
           <Route path="/booknow" element={<BookNow />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Registration />} />
