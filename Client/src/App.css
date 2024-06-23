@@ -122,35 +122,177 @@
   }
 }
 
+
+/* -----------------------------Navbar End----------------------------- */
+
+
+
 /* -----------------------------Banner----------------------------- */
-.mhealth-img {
-  margin-top: 50px;
-  width: 100%;
-  max-width: 450px; /* Adjust width as needed */
-  height: auto; /* Maintain aspect ratio */
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+
+/* Add this to your Banner.css file */
+
+/* Keyframes for animations */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
-
-.uppter-courses-container{
-margin-top: 30px;
+@keyframes slideInLeft {
+  0% { transform: translateX(-50px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
 }
-.courses-container {
-  margin-top: 30px;
+
+@keyframes fadeInAndSlide {
+  0% { opacity: 0; transform: translateX(-20px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* Apply animations with delay to each word */
+.animated-word {
+  display: inline-block;
+  opacity: 0; /* Ensure text is hidden until animation starts */
+  animation: fadeInAndSlide 0.5s ease forwards;
+}
+
+/* Banner Container Styles */
+.banner-container {
+  position: relative;
   display: flex;
-  flex-direction: row;
-  justify-content: start;
-  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 80vh; 
+  background: url('https://img.freepik.com/premium-photo/real-paper-texture-background-backdrop-white_910131-1649.jpg') no-repeat center center;
+  background-size: cover;
+  box-sizing: border-box;
 }
 
-.courses-container > * {
-  margin-left: 20px; /* Adds margin to all elements */
+.quote {
+  position: absolute;
+  top: 40px;
+  width: 100%;
+  text-align: center;
+}
+
+.quote-text {
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+  margin-bottom: 10px;
+}
+
+.banner-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.banner-text {
+  flex: 1;
+  padding: 20px;
+  text-align: left;
+  color: #15053d;
+}
+
+.banner-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.banner-text p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.get-started-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.get-started-btn:hover {
+  background-color: #0056b3;
+}
+
+.banner-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mhealth-img {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .banner-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .banner-text, .banner-image {
+    max-width: 100%;
+  }
+
+  .banner-text {
+    padding: 10px 20px;
+  }
+
+  .banner-text h1 {
+    font-size: 2rem;
+  }
+
+  .banner-text p {
+    font-size: 1rem;
+  }
+
+  .get-started-btn {
+    font-size: 0.9rem;
+    padding: 10px 15px;
+  }
+
+  .quote {
+    top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-text h1 {
+    font-size: 1.8rem;
+  }
+
+  .banner-text p {
+    font-size: 0.9rem;
+  }
+
+  .get-started-btn {
+    font-size: 0.8rem;
+    padding: 8px 12px;
+  }
 }
 
 
-/* Navbar End */
+
+
+
+
+
+
+/* Banner end */
 
 
 

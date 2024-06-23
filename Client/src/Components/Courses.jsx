@@ -20,7 +20,7 @@ const Courses = () => {
 
   return (
     <>
-      <hr />
+      {/* <hr /> */}
       <h4 className='heading-4'> Courses </h4>
 
       <div className="card-container">
