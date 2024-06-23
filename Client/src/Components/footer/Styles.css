@@ -9,10 +9,36 @@ body {
 header {
     background-color: #9651c7;
     color: white;
-    padding: 10px 0;
+    
     text-align: center;
     font-size: 12px;
+    max-width: 800px;
+    margin: 0 auto;
+    
 }
+
+.header-container {
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-container h4 {
+    flex: 1;
+    text-align: center;
+    font-weight: 200px; /* add this line to make h1 font weight smaller */
+}
+
+
+.header-container {
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+
 
 main {
     padding: 20px;
@@ -26,7 +52,7 @@ section {
     margin-bottom: 20px;
 }
 
-h2 {
+h4 {
     color: #702cc9;
     margin-top: 0;
 }
@@ -36,11 +62,14 @@ p {
 }
 
 footer {
-    background-color: #8c14e1;
+    background-color: #bb6ef1;
     color: white;
     text-align: center;
     padding: 5px 0;
-    position: absolute;
+    /* position: absolute; */
     bottom: 0;
     width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
 }
+

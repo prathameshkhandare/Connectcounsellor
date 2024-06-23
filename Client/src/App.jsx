@@ -13,6 +13,7 @@ import Blog from "./Components/Blog";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import CookiePolicy from "./Components/footer/CookiePolicy";
 import CourseInfo from "./Components/CourseInfo";
+import PrivacyPolicy from "./Components/footer/PrivacyPolicy";
 
 // Example components for routes
 const Home = () => {
@@ -83,19 +84,32 @@ function App() {
               </>
             }
           />
+          <Route
+            path="/cookiepolicy"
+            element={
+              <>
+                <CustomNavbar />
+                <CookiePolicy />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/privacy-policy"
+            element={
+              <>
+                <CustomNavbar />
+                <PrivacyPolicy />
+                <Footer />
+              </>
+            }
+          />
 
           <Route path="/booknow" element={<BookNow />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Registration />} />
-          <Route path="/cookiepolicy" element={<CookiePolicy />} />
-          {/* <Route
-            path="/courseInfo/:courseId"
-            element=<>
-              <CustomNavbar />
-              <CourseInfo />
-              <Footer />
-            </>
-          /> */}
+        
+         
         </Routes>
       </div>
     </Router>

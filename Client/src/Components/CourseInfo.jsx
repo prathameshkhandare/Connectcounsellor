@@ -44,7 +44,7 @@ const CourseInfo = () => {
           </ul>
         </div>
         <div className="course-content">
-            <h1 className='course-title'> course description</h1>
+            <h1 className='course-title'> Course Description</h1>
           <p className="course-description">{course.description}</p>
         </div>
       </div>
