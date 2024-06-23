@@ -6,10 +6,10 @@ const blogModel = require('../models/blog');
 router.get('/api/blog/write', async (req, res) => {
     try {
         const c1 = await blogModel.create({
-            title: "LEARNING DSA ",
-            content: "dsA IS one of the msot improtant thing in the wolrd of compter engineering and software",
-            author: "prathmesh khandare",
-            image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS2-4iP4fkzLwwz3PhiHbeJopErb2P2V56iQ&s"
+            title: "“Fight Less, Love More: How to Resolve Marital Conflicts“",
+            content: "Resolving marital conflicts involves fostering open communication, active listening, and empathy. Understanding each other's perspectives and emotions can prevent misunderstandings and defensiveness. Practicing patience and compromise enables couples to find mutually agreeable solutions. Setting clear boundaries and respecting each other's needs promotes a healthy balance in relationships. Seeking professional guidance when needed encourages constructive problem-solving and strengthens marital bonds. Cultivating a supportive and nurturing environment enhances emotional intimacy and fosters long-term relationship satisfaction.",
+            author: "Dr Prathmesh Khandare Sexiologist",
+            image:"https://freshhope1.org/wp-content/uploads/2021/08/3-misconceptions-about-love.jpg"
         });
         
         res.send(`data saved successfully: ${c1}`);

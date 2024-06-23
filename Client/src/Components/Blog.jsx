@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import './Stylesheets/Blog.css'
+import './Stylesheets/Blog.css';
+
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
 
@@ -10,8 +11,6 @@ const Blog = () => {
       try {
         const response = await axios.get('http://localhost:3000/api/blog/read');
         setBlogs(response.data);
-        console.log(response.data);
-
       } catch (err) {
         console.error(err);
       }
@@ -24,10 +23,17 @@ const Blog = () => {
     <div className="blog-list">
       {blogs.map(blog => (
         <div className="blog-card" key={blog._id}>
-          <h3>{blog.title}</h3>
-          <p>{blog.content}</p>
-          <p><small>By {blog.author}</small></p>
-          <p><small>{new Date(blog.date).toLocaleDateString()}</small></p>
+          <img src={blog.image} alt={blog.title} className="blog-image" />
+          <div className="blog-content">
+            <div>
+              <h3>{blog.title}</h3>
+              <p>{blog.content}</p>
+            </div>
+            <div className="blog-meta">
+              <small>By {blog.author}</small>
+              <small className='blog-date'>{new Date(blog.date).toLocaleDateString()}</small>
+            </div>
+          </div>
         </div>
       ))}
     </div>

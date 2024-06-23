@@ -1,44 +1,83 @@
-/* Blog.css */
-
 .blog-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
-  }
-  
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  padding: 20px;
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: row;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for subtle depth */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition for transform and box-shadow */
+  overflow: hidden;
+  margin: 0 60px; /* Margin around the box */
+  padding: 20px; /* Padding inside the box */
+}
+
+.blog-card:hover {
+  transform: translateY(-5px); /* Lift card on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase box shadow on hover for depth effect */
+}
+
+.blog-image {
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  margin-right: 40px; /* Space between image and content */
+}
+
+.blog-content {
+  flex: 1;
+  padding: 0 20px; /* Padding inside the content box */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.blog-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #0044cc;
+}
+
+.blog-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+.blog-meta {
+  display: flex;
+  align-items: center; 
+  margin-top: 5px; /* Decrease the space between author name and date */
+}
+
+.blog-meta small {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+.blog-date {
+  margin-left: 10%; /* Adjust date margin */
+}
+
+@media (max-width: 768px) {
   .blog-card {
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
+      flex-direction: column;
   }
-  
-  .blog-card:hover {
-    transform: translateY(-5px);
+
+  .blog-card .blog-image {
+      width: 100%;
+      height: auto;
+      margin: 0; /* Remove margins for smaller screens */
+      margin-bottom: 20px; /* Space between image and content in mobile view */
   }
-  
-  .blog-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+
+  .blog-content {
+      width: 100%;
+      padding: 0; /* Remove padding for smaller screens */
   }
-  
-  .blog-card p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #444;
-  }
-  
-  .blog-card small {
-    font-size: 0.8rem;
-    color: #888;
-  }
-  
-  @media (max-width: 768px) {
-    .blog-list {
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-  }
-  
+}
