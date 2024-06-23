@@ -9,6 +9,7 @@ router.get('/api/blog/write', async (req, res) => {
             title: "LEARNING DSA ",
             content: "dsA IS one of the msot improtant thing in the wolrd of compter engineering and software",
             author: "prathmesh khandare",
+            image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRS2-4iP4fkzLwwz3PhiHbeJopErb2P2V56iQ&s"
         });
         
         res.send(`data saved successfully: ${c1}`);
