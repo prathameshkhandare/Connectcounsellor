@@ -88,14 +88,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Registration />} />
           <Route path="/cookiepolicy" element={<CookiePolicy />} />
-          {/* <Route
-            path="/courseInfo/:courseId"
-            element=<>
-              <CustomNavbar />
-              <CourseInfo />
-              <Footer />
-            </>
-          /> */}
+         
         </Routes>
       </div>
     </Router>
