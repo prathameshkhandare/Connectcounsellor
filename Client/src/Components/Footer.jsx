@@ -33,11 +33,11 @@ function Footer() {
         <div className="footer-column">
           <h3>Legal</h3>
           <ul>
-            <li><Link to="/cookiepolicy">Cookie Policy</Link></li>
-            <li><Link to="/privacy-policy">Privacy Policy</Link></li>
-            <li><Link to="/refund-cancellation">Refund and Cancellation</Link></li>
-            <li><Link to="/terms-conditions">Terms & Condition</Link></li>
-            <li><Link to="/disclaimer-policy">Disclaimer Policy</Link></li>
+            <li className="footer-list-item"><Link to="/cookiepolicy">Cookie Policy</Link></li>
+            <li className="footer-list-item"><Link to="/privacy-policy">Privacy Policy</Link></li>
+            <li className="footer-list-item"><Link to="/refund-cancellation">Refund and Cancellation</Link></li>
+            <li className="footer-list-item"><Link to="/terms-conditions">Terms & Condition</Link></li>
+            <li className="footer-list-item"><Link to="/disclaimer-policy">Disclaimer Policy</Link></li>
           </ul>
         </div>
         <div className="footer-column">

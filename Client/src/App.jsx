@@ -21,6 +21,7 @@ import RefundAndCancellationPolicy from "./Components/footer/RefundAndCancellati
 import TermsAndConditions from "./Components/footer/TermsAndConditions";
 import DisclaimerPolicy from "./Components/footer/DesclaimerPolicy";
 import AppInfo from "./Components/AppInfo";
+import Help from "./Components/Help";
 
 // Example components for routes
 const Home = () => {
@@ -150,6 +151,7 @@ function App() {
           <Route path="/booknow" element={<BookNow />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Registration />} />
+          <Route path="/Help" element={<>  <CustomNavbar /> <Help /> <Footer /> </> } />
         
          
         </Routes>
