@@ -84,7 +84,7 @@ function CustomNavbar() {
               <>
                 <Dropdown.Item href="#profile">Profile</Dropdown.Item>
                 <Dropdown.Item href="#settings">Settings</Dropdown.Item>
-                <Dropdown.Item href="#settings">Help</Dropdown.Item>
+                <Dropdown.Item href="/help">Help</Dropdown.Item>
                 
                 <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
               </>
