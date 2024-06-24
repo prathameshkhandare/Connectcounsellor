@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
 function Footer() {
   const location = useLocation();
@@ -14,13 +15,19 @@ function Footer() {
         <div className="footer-column">
           <h3>About Us</h3>
           <ul>
-            <li><a href="#about">About Us</a></li>
+           
             <li><a href="#advisors">Our Advisors</a></li>
           </ul>
           <div className="social-icons">
-            <span>Icon1</span>
-            <span>Icon2</span>
-            <span>Icon3</span>
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+              <FaLinkedin />
+            </a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+              <FaInstagram />
+            </a>
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+              <FaFacebook />
+            </a>
           </div>
         </div>
         <div className="footer-column">
