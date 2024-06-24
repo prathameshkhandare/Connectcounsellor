@@ -8,7 +8,7 @@ const AppInfo = () => {
   return (
     <div className="app-info">
       <div className="app-content">
-        <h2>Get the Counsillhub App</h2>
+        <h2>Get the CounselingHub App</h2>
         <p>Get access to mind therapy courses anywhere, anytime</p>
         <ul>
           <li><i className="fas fa-star"></i> Browse through a wide range of courses</li>
