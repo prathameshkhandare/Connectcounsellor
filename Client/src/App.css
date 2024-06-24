@@ -7,11 +7,12 @@
 
 /* Navbar */
 .navbar-bg {
-  background-color: #edeff2;
+  background-color: #fefeff;
   transition: background-color 0.3s ease;
   position: sticky;
   top: 0;
   z-index: 1000; /* Ensure the navbar is above other elements */
+  border-radius: 5px;
 }
 
 .navbar-scrolled {
