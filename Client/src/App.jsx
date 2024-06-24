@@ -7,6 +7,9 @@ import Footer from "./Components/Footer";
 import Login from "./Components/Login";
 import Registration from "./Components/Registration";
 import Contactus from "./Components/Contactus";
+import UserProfile from "./Components/UserProfile"
+
+import AccountSetting from "./Components/AccountSetting";
 import Courses from "./Components/Courses";
 import Aboutus from "./Components/Aboutus";
 import Blog from "./Components/Blog";
@@ -141,6 +144,10 @@ function App() {
               </>
             }
           />
+          <Route
+          path="/profile" element ={<> <CustomNavbar/><UserProfile/> <Footer/></>}></Route>
+          <Route
+          path="/AccountSetting" element ={<> <CustomNavbar/><AccountSetting/> <Footer/></>}></Route>
           <Route path="/booknow" element={<BookNow />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Registration />} />

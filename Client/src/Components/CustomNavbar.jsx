@@ -82,9 +82,10 @@ function CustomNavbar() {
           <Dropdown.Menu>
             {loggedIn ? (
               <>
-                <Dropdown.Item href="#profile">Profile</Dropdown.Item>
-                <Dropdown.Item href="#settings">Settings</Dropdown.Item>
+                <Dropdown.Item as={Link} to="/profile">Profile</Dropdown.Item>
+                <Dropdown.Item as={Link} to ="/AccountSetting">Account Setting</Dropdown.Item>
                 <Dropdown.Item href="/help">Help</Dropdown.Item>
+
                 
                 <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
               </>

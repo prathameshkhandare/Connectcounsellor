@@ -1,0 +1,106 @@
+.profile-container {
+    display: flex;
+    font-family: Arial, sans-serif;
+    min-height: 100vh; /* Ensure it takes the full height of the viewport */
+    padding: 20px;
+}
+
+.profile-sidebar {
+    width: 250px;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin-left: 13%;
+}
+
+.profile-pic {
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    margin: 0 auto 20px;
+}
+
+.profile-name {
+    text-align: center;
+    color: rgb(1, 1, 47);
+    font-weight: bold;
+}
+
+.profile-menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.profile-menu li {
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+.profile-menu li.active {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.profile-main {
+    flex-grow: 1;
+    background-color: #ffffff;
+    margin-left: 1px;
+    border: 1px solid #ccc;
+    padding: 20px ; 
+}
+
+.profile-main h2,
+.profile-main p {
+    text-align: center;
+}
+
+.profile-main p {
+    margin-top: 0;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.profile-main .form-group {
+    margin-bottom: 20px;
+  
+    
+}
+
+.profile-main input[type="text"],
+.profile-main textarea,
+.profile-main select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.profile-main textarea {
+    height: 100px;
+    resize: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .profile-container {
+        flex-direction: column;
+    }
+
+    .profile-sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ccc;
+        margin-left: 0; /* Adjusted for responsiveness */
+    }
+
+    .profile-main {
+        padding: 10px;
+        margin-left: 0; /* Adjusted for responsiveness */
+    }
+}
