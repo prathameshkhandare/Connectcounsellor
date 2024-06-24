@@ -16,7 +16,7 @@
 }
 
 .navbar-scrolled {
-  background-color: #9eaece; /* Change this to the color you want when scrolled */
+  background-color: #fcfdff; /* Change this to the color you want when scrolled */
 }
 
 .navbar-collapse {
@@ -38,7 +38,7 @@
 }
 
 .nav-elements {
-  margin-left: 20%;
+  margin-left: 25%;
 }
 
 .form-control,
