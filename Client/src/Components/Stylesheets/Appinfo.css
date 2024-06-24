@@ -1,0 +1,91 @@
+.app-info {
+    width: 72%;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start; /* Ensure both text and image align at the top */
+}
+
+.app-images {
+    flex: 1;
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align items at the start */
+    align-items: center;
+    max-width: 30%;
+}
+
+.app-images img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    object-fit: contain;
+}
+
+.app-content {
+    flex: 2;
+    margin: 20px;
+}
+
+.app-content h2 {
+    margin-top: 0;
+    font-weight: bold;
+    color: #333;
+}
+
+.app-content p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #666;
+}
+
+.app-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.app-content li {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #666;
+}
+
+.app-content li i {
+    font-size: 18px;
+    color: #337ab7;
+    margin-right: 10px;
+}
+
+.app-store-buttons {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.app-store-buttons a {
+    margin: 0 10px;
+}
+
+.app-store-buttons img {
+    height: 40px;
+    width: auto;
+    margin: 0 10px;
+}
+
+.app-store-logo {
+    width: 20%;
+    margin: 20px;
+}
+
+.app-store-logo img {
+    width: 100%;
+    height: auto;
+}

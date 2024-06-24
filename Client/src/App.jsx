@@ -17,6 +17,7 @@ import PrivacyPolicy from "./Components/footer/PrivacyPolicy";
 import RefundAndCancellationPolicy from "./Components/footer/RefundAndCancellationPolicy";
 import TermsAndConditions from "./Components/footer/TermsAndConditions";
 import DisclaimerPolicy from "./Components/footer/DesclaimerPolicy";
+import AppInfo from "./Components/AppInfo";
 
 // Example components for routes
 const Home = () => {
@@ -25,6 +26,7 @@ const Home = () => {
       <CustomNavbar />
       <Banner />
       <Courses />
+      <AppInfo/>
       <Footer />
     </>
   );
