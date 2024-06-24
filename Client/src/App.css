@@ -7,7 +7,15 @@
 
 /* Navbar */
 .navbar-bg {
-  background-color: #e8eff7;
+  background-color: #edeff2;
+  transition: background-color 0.3s ease;
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Ensure the navbar is above other elements */
+}
+
+.navbar-scrolled {
+  background-color: #9eaece; /* Change this to the color you want when scrolled */
 }
 
 .navbar-collapse {
@@ -16,18 +24,19 @@
 
 .nav-link.ms-lg-4 {
   margin-left: 30px; /* Adjust spacing between nav links */
-  
 }
-.Logo-img{
-  margin-left: 50px;
 
+.Logo-img {
+  margin-left: 50px;
 }
-.nav-element{
+
+.nav-element {
   margin-left: 40px;
- font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
- font-weight: 600;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
 }
-.nav-elements{
+
+.nav-elements {
   margin-left: 20%;
 }
 
@@ -45,23 +54,13 @@
   padding: 5px 10px; /* Adjust padding as needed */
 }
 
-.search-box {
-  position: relative;
-  right: 50px;
-}
 
-.search-button {
-  border-radius: 5px;
-  padding: 3px 10px; /* Adjust padding as needed */
-  background-color: white;
-  border: 2px solid rgb(226, 228, 228);
-}
 
 /* Hover Effects */
 .form-control:hover,
 .form-control:focus,
 .search-button:hover {
-  border-color: skyblue;
+  border-color: rgb(249, 252, 253);
   background-color: white;
 }
 
@@ -69,9 +68,8 @@
 @media (max-width: 767px) {
   .search-bar-wrapper {
     position: relative;
-
     top: -3px; /* Adjust position as needed */
-   margin-left: 20px;
+    margin-left: 20px;
   }
 }
 
@@ -84,15 +82,16 @@
 .dropdown-toggle::after {
   display: none;
 }
-.right-nav-elements{
+
+.right-nav-elements {
   margin-right: 20px;
-  
 }
 
-.user-icon{
-  border:rgb(216, 213, 207) 2px solid;
+.user-icon {
+  border: rgb(216, 213, 207) 2px solid;
   border-radius: 50%;
 }
+
 /* Collapsed Navbar */
 @media (max-width: 991.98px) {
   .navbar-collapse {
@@ -121,6 +120,9 @@
     margin-bottom: 5px; /* Adjust spacing between menu items */
   }
 }
+
+
+
 
 
 /* -----------------------------Navbar End----------------------------- */
@@ -378,6 +380,7 @@
 .footer {
   background-color: #f1f1f1;
   padding: 20px;
+  
 }
 
 .footer-col-container {
@@ -385,6 +388,7 @@
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin-left: 10%;
 }
 
 .footer-column {
@@ -407,9 +411,27 @@
   margin-bottom: 5px;
 }
 
+.footer-column a {
+  text-decoration: none; /* Removes the underline */
+  color: inherit; /* Inherits the color from parent element */
+}
+
+.footer-column a:hover {
+  color:  rgb(20, 78, 101); /* Optional: change link color on hover */
+}
+
 .social-icons {
   display: flex;
   gap: 10px;
+}
+
+.social-icons a {
+  color: inherit;
+  font-size: 1.5em; /* Adjust size as needed */
+}
+
+.social-icons a:hover {
+  color:  rgb(20, 78, 101); /* Optional: change icon color on hover */
 }
 
 .Copyright-section {
@@ -438,6 +460,7 @@
     margin: 10px 0;
   }
 }
+
 
 
 
