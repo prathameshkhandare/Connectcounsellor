@@ -1,8 +1,29 @@
-/* General reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Notification Badge */
+.notification-badge {
+  cursor: pointer;
+  margin-right: 15px;
+  font-size: 1.2rem;
+}
+
+.notification-badge svg {
+  margin-right: 5px;
+}
+
+/* Popover */
+.notifications-popover {
+  max-width: 300px; /* Adjust width */
+  max-height: 400px; /* Adjust height */
+  overflow-y: auto;
+  /* transform: translateX(-50px) translateY(10px) !important; Adjust this value to float left and below */
+}
+
+.notifications-popover .popover-header {
+  background-color: #007bff;
+  color: white;
+}
+
+.notifications-popover .popover-body {
+  padding: 10px;
 }
 
 /* Navbar */
@@ -55,8 +76,6 @@
   padding: 5px 10px; /* Adjust padding as needed */
 }
 
-
-
 /* Hover Effects */
 .form-control:hover,
 .form-control:focus,
@@ -91,6 +110,7 @@
 .user-icon {
   border: rgb(216, 213, 207) 2px solid;
   border-radius: 50%;
+  margin-right: 40px;
 }
 
 /* Collapsed Navbar */
@@ -126,6 +146,10 @@
 
 
 
+
+
+
+
 /* -----------------------------Navbar End----------------------------- */
 
 
@@ -135,16 +159,14 @@
 /* Add this to your Banner.css file */
 
 /* Keyframes for animations */
-@keyframes fadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@keyframes slideInLeft {
-  0% { transform: translateX(-50px); opacity: 0; }
-  100% { transform: translateX(0); opacity: 1; }
-}
-
+/* Animations */
 @keyframes fadeInAndSlide {
   0% { opacity: 0; transform: translateX(-20px); }
   100% { opacity: 1; transform: translateX(0); }
@@ -163,25 +185,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column; /* Stack elements vertically */
   width: 100%;
   min-height: 80vh; 
   background: url('https://img.freepik.com/premium-photo/real-paper-texture-background-backdrop-white_910131-1649.jpg') no-repeat center center;
   background-size: cover;
   box-sizing: border-box;
+  padding: 20px;
 }
 
 .quote {
-  position: absolute;
-  top: 40px;
   width: 100%;
   text-align: center;
+  margin-bottom: 20px; /* Add space between quote and banner content */
 }
 
 .quote-text {
   font-size: 0.9rem;
   color: #666;
   font-style: italic;
-  margin-bottom: 10px;
 }
 
 .banner-content {
@@ -269,7 +291,7 @@
   }
 
   .quote {
-    top: 10px;
+    margin-bottom: 10px; /* Ensure space between quote and banner content */
   }
 }
 

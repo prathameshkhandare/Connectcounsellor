@@ -10,6 +10,8 @@ import Contactus from "./Components/Contactus";
 import UserProfile from "./Components/UserProfile"
 
 import AccountSetting from "./Components/AccountSetting";
+import Notifications from "./Components/Notifications";
+
 import Courses from "./Components/Courses";
 import Aboutus from "./Components/Aboutus";
 import Blog from "./Components/Blog";
@@ -148,6 +150,8 @@ function App() {
           path="/profile" element ={<> <CustomNavbar/><UserProfile/> <Footer/></>}></Route>
           <Route
           path="/AccountSetting" element ={<> <CustomNavbar/><AccountSetting/> <Footer/></>}></Route>
+          <Route
+          path="/Notifications" element ={<> <CustomNavbar/><Notifications/> <Footer/></>}></Route>
           <Route path="/booknow" element={<BookNow />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Registration />} />

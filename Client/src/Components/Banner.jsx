@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import mindTherapy from "../assets/Img/mindTherapy.webp";
 
-
 const animateText = (text) => {
   return text.split(" ").map((word, index) => (
     <span key={index} className="animated-word" style={{ animationDelay: `${index * 0.2}s` }}>
