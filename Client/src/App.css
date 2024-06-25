@@ -1,14 +1,14 @@
-/* Notification Badge */
 .notification-badge {
   cursor: pointer;
   margin-right: 15px;
   font-size: 1.2rem;
+  background-color: rgb(249, 246, 246) !important;
 }
 
 .notification-badge svg {
   margin-right: 5px;
+  color: white;
 }
-
 /* Popover */
 .notifications-popover {
   max-width: 300px; /* Adjust width */

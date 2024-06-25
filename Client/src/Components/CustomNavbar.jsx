@@ -56,13 +56,19 @@ function CustomNavbar() {
 
   const popover = (
     <Popover id="popover-notifications" className="notifications-popover">
-      <Popover.Header as="h3">Notifications</Popover.Header>
-      <Popover.Body>
-        <p>You have new notifications.</p>
-        {/* Add your notification content here */}
+      <Popover.Header as="h3" style={{ backgroundColor: 'black', color: 'white' }}>Notifications</Popover.Header>
+      <Popover.Body style={{ maxHeight: '500px', overflowY: 'auto' }}>
+        <p>You have new notifications:</p>
+        <ul>
+          <li>Notification 1: Lorem ipsum dolor sit amet.</li>
+          <li>Notification 2: Consectetur adipiscing elit.</li>
+          <li>Notification 3: Nulla vitae elit libero.</li>
+        </ul>
       </Popover.Body>
     </Popover>
   );
+  
+
 
   return (
     <>
@@ -94,8 +100,8 @@ function CustomNavbar() {
             rootClose
             trigger="click"
           >
-            <Badge pill variant="primary" className="notification-badge" onClick={handleNotificationsClick}>
-              <FontAwesomeIcon icon={faBell} /> {/* Example notification count */}
+            <Badge pill className="notification-badge" onClick={handleNotificationsClick}>
+              <FontAwesomeIcon icon={faBell} style={{ color: 'black' }} /> {/* Example notification count */}
             </Badge>
           </OverlayTrigger>
 
