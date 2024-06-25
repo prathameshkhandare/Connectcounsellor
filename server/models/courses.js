@@ -6,6 +6,7 @@ const coursesSchema =mongoose.Schema({
     shortdescription: String,
     description: String,
     content:[String],
+    category:   String,
     
 });
 

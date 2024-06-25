@@ -1,20 +1,53 @@
+.heading-4 {
+  padding: 10px;
+  text-align: center;
+}
+.categories-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.category-button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  background-color: #f0f0f0;
+  color: #333;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.category-button:hover {
+  background-color: #e0e0e0;
+}
+
+.category-button.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.category-button.active:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
 .card-container {
   display: flex;
   flex-wrap: wrap;
-  
+  justify-content: flex-start;
 }
-.heading-4{
-  padding: 10px;
-  margin-left: 46%;
-}
+
 .card {
   width: 20%;
   margin: 20px;
   display: inline-block;
   background-color: rgb(243, 239, 244);
-  
-  overflow: hidden
+  overflow: hidden;
 }
+
 .card-img-wrapper {
   padding-left: 30px;
   padding-right: 30px;
@@ -26,8 +59,6 @@
   height: 180px;
   object-fit: cover;
   border-radius: 10px;
-  
- 
 }
 
 .card-body {
@@ -93,47 +124,7 @@
   color: #666;
 }
 
-/* Add this to make single card align to left */
-.card-container {
-  justify-content: flex-start;
-}
-
-
-.details-popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.popup-content {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  width: 50%;
-  position: relative;
-}
-
-.close-button {
-  font-size: 24px;
-  font-weight: bold;
-  color: #aaa;
-  z-index: 1;
-}
-
-.close-button:hover {
-  color: #000;
-}
-
-
-
 /* Tablet styles (max-width: 768px) */
-
 @media (max-width: 768px) {
   .card {
     width: 33.33%;
@@ -160,7 +151,6 @@
 }
 
 /* Mobile styles (max-width: 480px) */
-
 @media (max-width: 480px) {
   .card {
     width: 50%;

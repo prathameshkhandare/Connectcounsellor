@@ -6,11 +6,12 @@ const coursesModel = require('../models/courses');
 router.get('/api/courses/write', async (req, res) => {
     try {
         const c1 = await coursesModel.create({
-            name: "Mind Therapy",
+            name: "mind cal",
             image: "",
             shortdescription: "This is the world's best course",
             description: "This is the mind therapy course. Lorem ipsum dolor sit amet.",
-            content:["mind relaxation","how to be calm in panic situation", "meditation","mind relaxation","how to be calm in panic situation", "meditation"] 
+            content:["mind relaxation","how to be calm in panic situation", "meditation","mind relaxation","how to be calm in panic situation", "meditation"] ,
+            category: "mind therapy"
         });
         res.send(`data saved successfully${c1}`)
     } catch (error) {

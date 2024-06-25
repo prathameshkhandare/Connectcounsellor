@@ -5,12 +5,18 @@ import { Link } from 'react-router-dom';
 
 const Courses = () => {
   const [courses, setCourses] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('All');
 
   useEffect(() => {
     const fetchCourses = async () => {
       try {
         const response = await axios.get('http://localhost:3000/api/courses/read');
         setCourses(response.data);
+
+        // Extract unique categories from courses
+        const uniqueCategories = [...new Set(response.data.map(course => course.category))];
+        setCategories(['All', ...uniqueCategories]);
       } catch (error) {
         console.error('Error fetching courses:', error);
       }
@@ -18,13 +24,28 @@ const Courses = () => {
     fetchCourses();
   }, []);
 
+  const filteredCourses = selectedCategory === 'All'
+    ? courses
+    : courses.filter(course => course.category === selectedCategory);
+
   return (
     <>
-      {/* <hr /> */}
       <h4 className='heading-4'> Courses </h4>
 
+      <div className="categories-container">
+        {categories.map((category) => (
+          <button
+            key={category}
+            className={`category-button ${selectedCategory === category ? 'active' : ''}`}
+            onClick={() => setSelectedCategory(category)}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
       <div className="card-container">
-        {courses.map((course, index) => (
+        {filteredCourses.map((course, index) => (
           <div key={course._id} className={`card ${index % 3 === 0 ? 'card-first' : ''}`}>
             <div className="card-img-wrapper">
               <img src={course.image} alt={course.name} className="card-img" />
