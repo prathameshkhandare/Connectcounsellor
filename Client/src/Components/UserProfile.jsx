@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 import "../Components/StyleSheets/UserProfile.css";
-// import profilepic from "../assets/Img/profile.jpg"
-
-import { Link } from 'react-router-dom';
 
 function UserProfile() {
   const [profile, setProfile] = useState({
@@ -11,8 +8,11 @@ function UserProfile() {
     email: '',
     hobby: '',
     language: 'English (US)',
-    website: ''
+    website: '',
+    profilePic: '' // New state variable for profile picture URL
   });
+
+  const [isPicSet, setIsPicSet] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -22,14 +22,50 @@ function UserProfile() {
     });
   };
 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setProfile({
+          ...profile,
+          profilePic: reader.result
+        });
+        setIsPicSet(true);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const getInitials = () => {
+    const { firstName, lastName } = profile;
+    return `${firstName.charAt(0)}${lastName.charAt(0)}`.toUpperCase();
+  };
+
   return (
     <div className="profile-container">
       <aside className="profile-sidebar">
-        <div className="profile-pic">Br</div>
-        <div className="profile-name">Bhavesh Vinod Rathod</div>
+        <div className="profile-pic-container">
+          <div className="profile-pic">
+            {profile.profilePic ? (
+              <img src={profile.profilePic} alt="Profile" />
+            ) : (
+              <span>{getInitials()}</span>
+            )}
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleImageChange}
+              className="profile-pic-input"
+            />
+            <div className="profile-pic-overlay">
+              Select Image
+            </div>
+          </div>
+        </div>
+        <div className="profile-name">{`${profile.firstName} ${profile.lastName}`}</div>
         <ul className="profile-menu">
           <li className="active">Profile</li>
-          
           <li>Account Security</li>
           <li>Payment methods</li>
           <li>Privacy</li>
