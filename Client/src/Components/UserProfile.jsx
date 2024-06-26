@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import "../Components/StyleSheets/UserProfile.css";
+// import profilepic from "../assets/Img/profile.jpg"
+
 import { Link } from 'react-router-dom';
 
 function UserProfile() {
@@ -23,11 +25,11 @@ function UserProfile() {
   return (
     <div className="profile-container">
       <aside className="profile-sidebar">
-        <div className="profile-pic">BR</div>
+        <div className="profile-pic">Br</div>
         <div className="profile-name">Bhavesh Vinod Rathod</div>
         <ul className="profile-menu">
           <li className="active">Profile</li>
-          <li>Photo</li>
+          
           <li>Account Security</li>
           <li>Payment methods</li>
           <li>Privacy</li>
