@@ -10,9 +10,9 @@
     flex-wrap: nowrap;
     justify-content: center;
     align-items: flex-start; /* Ensure both text and image align at the top */
-}
-
-.app-images {
+  }
+  
+  .app-images {
     flex: 1;
     margin: 20px;
     display: flex;
@@ -20,72 +20,114 @@
     justify-content: flex-start; /* Align items at the start */
     align-items: center;
     max-width: 30%;
-}
-
-.app-images img {
+  }
+  
+  .app-images img {
     max-width: 100%;
     height: auto;
     margin-bottom: 10px;
     border-radius: 10px;
     object-fit: contain;
-}
-
-.app-content {
+  }
+  
+  .app-content {
     flex: 2;
     margin: 20px;
-}
-
-.app-content h2 {
+  }
+  
+  .app-content h2 {
     margin-top: 0;
     font-weight: bold;
     color: #333;
-}
-
-.app-content p {
+  }
+  
+  .app-content p {
     margin-bottom: 20px;
     font-size: 16px;
     color: #666;
-}
-
-.app-content ul {
+  }
+  
+  .app-content ul {
     list-style: none;
     padding: 0;
     margin: 0;
-}
-
-.app-content li {
+  }
+  
+  .app-content li {
     margin-bottom: 10px;
     font-size: 16px;
     color: #666;
-}
-
-.app-content li i {
+  }
+  
+  .app-content li i {
     font-size: 18px;
     color: #337ab7;
     margin-right: 10px;
-}
-
-.app-store-buttons {
+  }
+  
+  .app-store-buttons {
     margin-top: 20px;
     text-align: center;
-}
-
-.app-store-buttons a {
+  }
+  
+  .app-store-buttons a {
     margin: 0 10px;
-}
-
-.app-store-buttons img {
+  }
+  
+  .app-store-buttons img {
     height: 40px;
     width: auto;
     margin: 0 10px;
-}
-
-.app-store-logo {
+  }
+  
+  .app-store-logo {
     width: 20%;
     margin: 20px;
-}
-
-.app-store-logo img {
+  }
+  
+  .app-store-logo img {
     width: 100%;
     height: auto;
-}
+  }
+  
+  /* Tablet styles (max-width: 768px) */
+  @media (max-width: 768px) {
+    .app-info {
+      flex-direction: column;
+      align-items: center;
+      width: 90%;
+    }
+    .app-images, .app-content {
+      max-width: 100%;
+      margin: 10px 0;
+    }
+    .app-store-logo {
+      width: 30%;
+      margin: 10px 0;
+    }
+  }
+  
+  /* Mobile styles (max-width: 480px) */
+  @media (max-width: 480px) {
+    .app-info {
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      padding: 10px;
+    }
+    .app-images, .app-content {
+      max-width: 100%;
+      margin: 10px 0;
+    }
+    .app-content p, .app-content li {
+      font-size: 14px;
+    }
+    .app-store-logo {
+      width: 40%;
+      margin: 10px 0;
+    }
+    .app-store-buttons img {
+      height: 30px;
+    }
+  }
+  

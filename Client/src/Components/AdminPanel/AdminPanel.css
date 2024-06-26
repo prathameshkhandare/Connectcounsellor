@@ -1,0 +1,178 @@
+.admin-panel {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .admin-panel-navbar {
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .admin-panel-navbar a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+  }
+  
+  .admin-panel-navbar a:hover {
+    text-decoration: underline;
+  }
+  
+  .admin-panel-content {
+    padding: 20px;
+  }
+  
+  .admin-panel-blog-management {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .admin-panel-blog-list {
+    width: 65%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .admin-panel-new-blog {
+    width: 35%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .admin-panel-new-blog input,
+  .admin-panel-new-blog textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .admin-panel-new-blog textarea {
+    resize: none; /* Make the textarea non-resizable */
+  }
+  
+  .admin-panel-button {
+    padding: 10px;
+    background-color: #337ab7;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .admin-panel-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .admin-panel-button.delete {
+    background-color: #d9534f;
+  }
+  
+  .admin-panel-button.delete:hover {
+    background-color: #c9302c;
+  }
+  
+  .admin-panel-blog-list ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .admin-panel-blog-list li {
+    background-color: #f7f7f7;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    position: relative;
+  }
+  
+  .admin-panel-blog-list li img {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  .admin-panel-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #dff0d8;
+    color: #3c763d;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  .admin-panel-blog-management {
+    position: relative; /* Ensure it's a positioned container for absolute positioning */
+  }
+  
+  .admin-panel-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #0e66e9;
+    color: #edf1ed;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  .admin-panel-course-management {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .admin-panel-new-course {
+    width: 35%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .admin-panel-course-list {
+    width: 65%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .admin-panel-new-course input,
+  .admin-panel-new-course textarea {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .admin-panel-new-course textarea {
+    resize: none;
+  }
+  
+  .admin-panel-course-list ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .admin-panel-course-list li {
+    background-color: #f7f7f7;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  

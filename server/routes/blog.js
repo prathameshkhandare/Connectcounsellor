@@ -3,20 +3,24 @@ const router = express.Router();
 const blogModel = require('../models/blog');
 
 // Route to create a new blog entry
-router.get('/api/blog/write', async (req, res) => {
-    try {
-        const c1 = await blogModel.create({
-            title: "“Fight Less, Love More: How to Resolve Marital Conflicts“",
-            content: "Resolving marital conflicts involves fostering open communication, active listening, and empathy. Understanding each other's perspectives and emotions can prevent misunderstandings and defensiveness. Practicing patience and compromise enables couples to find mutually agreeable solutions. Setting clear boundaries and respecting each other's needs promotes a healthy balance in relationships. Seeking professional guidance when needed encourages constructive problem-solving and strengthens marital bonds. Cultivating a supportive and nurturing environment enhances emotional intimacy and fosters long-term relationship satisfaction.",
-            author: "Dr Prathmesh Khandare Sexiologist",
-            image:"https://freshhope1.org/wp-content/uploads/2021/08/3-misconceptions-about-love.jpg"
+
+    router.post('/api/blog/write', async (req, res) => {
+        try {
+        const blog= await blogModel.create({
+            title: req.body.title,
+            content: req.body.content,
+            author: req.body.author,
+            image: req.body.image,
         });
-        
-        res.send(`data saved successfully: ${c1}`);
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-});
+      
+      
+          
+          res.status(201).json(blog);
+        } catch (error) {
+          res.status(400).json({ message: error.message });
+        }
+      });
+
 
 
 
@@ -31,12 +35,39 @@ router.get('/api/blog/read', async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 });
-
-router.get('/api/blog/delete', async (req, res) => {
+router.get('/api/blog/read/:id', async (req, res) => {
     try {
-        const blogs = await blogModel.deleteMany({});
-        // res.status(200).json(blogs);
-        res.send("done")
+        id=req.params.id;
+        const blogs = await blogModel.findOne({_id:id});
+        res.status(200).json(blogs);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+});
+
+// router.get('/api/blog/delete', async (req, res) => {
+//     try {
+//         const blogs = await blogModel.deleteMany({});
+//         // res.status(200).json(blogs);
+//         res.send("done")
+//     } catch (error) {
+//         res.status(500).json({ error: error.message });
+//     }
+// });
+
+// for deleting one
+router.delete('/api/blog/delete/:id', async (req, res) => {
+    try {
+        id=req.params.id;
+        const blog = await blogModel.deleteOne({_id:id});
+        if(!blog){
+            return res.status(404).send({ message: 'Blog not found' });
+        }
+        
+      
+res.status(200).json({ message: 'Blog deleted successfully' });
+
+        
     } catch (error) {
         res.status(500).json({ error: error.message });
     }

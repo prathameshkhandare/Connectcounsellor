@@ -43,7 +43,6 @@ const Courses = () => {
           </button>
         ))}
       </div>
-
       <div className="card-container">
         {filteredCourses.map((course, index) => (
           <div key={course._id} className={`card ${index % 3 === 0 ? 'card-first' : ''}`}>
@@ -53,6 +52,8 @@ const Courses = () => {
             <div className="card-body">
               <h5 className="card-title">{course.name}</h5>
               <p className="card-text">{course.shortdescription}</p>
+            </div>
+            <div className="card-footer">
               <Link to={`/courseInfo/${course._id}`} className="btn btn-primary">Details</Link>
             </div>
           </div>

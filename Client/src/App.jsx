@@ -24,7 +24,9 @@ import TermsAndConditions from "./Components/footer/TermsAndConditions";
 import DisclaimerPolicy from "./Components/footer/DesclaimerPolicy";
 import AppInfo from "./Components/AppInfo";
 import Help from "./Components/Help";
-
+import AdminPanel from "./Components/AdminPanel/AdminPanel";
+import CourseManagement from "./Components/AdminPanel/CourseManagement";
+import BlogManagement from "./Components/AdminPanel/BlogManagement";
 // Example components for routes
 const Home = () => {
   return (
@@ -156,7 +158,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Registration />} />
           <Route path="/Help" element={<>  <CustomNavbar /> <Help /> <Footer /> </> } />
-        
+            <Route path="/adminpanel/" element={<>   <AdminPanel /> </> } />
+            <Route path="/admin/courses" element={<>   <AdminPanel /> <CourseManagement/> </> } />
+            <Route path="/admin/blogs" element={<>   <AdminPanel /> <BlogManagement/> </> } />
          
         </Routes>
       </div>
