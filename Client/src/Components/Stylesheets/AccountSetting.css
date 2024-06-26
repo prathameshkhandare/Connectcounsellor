@@ -1,0 +1,84 @@
+
+.settings-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+   
+}
+
+.settings-container .email-section {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    margin-bottom: 20px; /* Add margin bottom to create space */
+}
+
+.settings-container .email-section .email-address {
+    border: 1px solid #ccc; /* Added border to email address section */
+    padding: 10px; /* Added padding to email address section */
+    border-radius: 4px; /* Added border radius to email address section */
+    background-color: #fff; /* Added background color to email address section */
+}
+
+.settings-container h2 {
+    text-align: center;
+    color: #333;
+}
+
+.settings-container p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group p {
+    font-size: 16px;
+    color: #333;
+}
+
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #555;
+}
