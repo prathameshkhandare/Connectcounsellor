@@ -4,7 +4,7 @@ import './AdminPanel.css';
 
 const CourseManagement = () => {
   const [courses, setCourses] = useState([]);
-  const [newCourse, setNewCourse] = useState({ name: '', image: '', shortdescription: '', description: '', content: [], category: '' });
+  const [newCourse, setNewCourse] = useState({ name: '', image: '', shortdescription: '', description: '', content: '', category: '' });
 
   useEffect(() => {
     fetchCourses();
@@ -12,7 +12,7 @@ const CourseManagement = () => {
 
   const fetchCourses = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/courses');
+      const response = await axios.get('http://localhost:3000/api/courses/read');
       setCourses(response.data);
     } catch (error) {
       console.error('Error fetching courses:', error);
@@ -21,17 +21,13 @@ const CourseManagement = () => {
 
   const addCourse = async () => {
     try {
-      const response = await axios.post('http://localhost:3000/api/courses', newCourse);
+      const contentArray = newCourse.content.split(',').map(item => item.trim());
+      const response = await axios.post('http://localhost:3000/api/courses/write', { ...newCourse, content: contentArray });
       setCourses([...courses, response.data]);
-      setNewCourse({ name: '', image: '', shortdescription: '', description: '', content: [], category: '' });
+      setNewCourse({ name: '', image: '', shortdescription: '', description: '', content: '', category: '' });
     } catch (error) {
       console.error('Error adding course:', error);
     }
-  };
-
-  const handleContentChange = (e) => {
-    const contentArray = e.target.value.split(',').map(item => item.trim());
-    setNewCourse({ ...newCourse, content: contentArray });
   };
 
   return (
@@ -61,11 +57,11 @@ const CourseManagement = () => {
           value={newCourse.description}
           onChange={(e) => setNewCourse({ ...newCourse, description: e.target.value })}
         />
-        <input
-          type="text"
+        <textarea
           placeholder="Content (comma separated)"
-          value={newCourse.content.join(', ')}
-          onChange={handleContentChange}
+          value={newCourse.content}
+          onChange={(e) => setNewCourse({ ...newCourse, content: e.target.value })}
+          rows={5}
         />
         <input
           type="text"
