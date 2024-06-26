@@ -132,23 +132,17 @@
     resize: none;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .profile-container {
-        flex-direction: column;
-    }
+.profile-main button[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff; /* Adjust color as needed */
+    color: #fff;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
 
-    .profile-sidebar {
-        width: 100%;
-        border-right: none;
-        border-bottom: 1px solid #ccc;
-        margin-left: 0;
-        /* Adjusted for responsiveness */
-    }
-
-    .profile-main {
-        padding: 10px;
-        margin-left: 0;
-        /* Adjusted for responsiveness */
-    }
+.profile-main button[type="submit"]:hover {
+    background-color: #0056b3; /* Darker shade for hover */
 }
