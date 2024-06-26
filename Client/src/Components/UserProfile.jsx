@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import "../Components/StyleSheets/UserProfile.css";
 
+
 function UserProfile() {
   const [profile, setProfile] = useState({
     firstName: '',
@@ -42,6 +43,13 @@ function UserProfile() {
     return `${firstName.charAt(0)}${lastName.charAt(0)}`.toUpperCase();
   };
 
+  const handleSave = (e) => {
+    e.preventDefault();
+    // Add your save logic here, such as sending data to backend or updating state
+    console.log('Saving profile changes:', profile);
+    alert('Profile saved successfully!');
+  };
+
   return (
     <div className="profile-container">
       <aside className="profile-sidebar">
@@ -63,14 +71,12 @@ function UserProfile() {
             </div>
           </div>
         </div>
-        <div className="profile-name">{`${profile.firstName} ${profile.lastName}`}</div>
+        <div className="profile-name">{`${profile.firstName} ${profile.lastName}`}</div> 
         <ul className="profile-menu">
-          <li className="active">Profile</li>
+          <li>Profile</li>
           <li>Account Security</li>
-          <li>Payment methods</li>
           <li>Privacy</li>
           <li>Notifications</li>
-          <li>Close account</li>
         </ul>
       </aside>
       <main className="profile-main">
@@ -123,6 +129,7 @@ function UserProfile() {
               {/* Add more language options as needed */}
             </select>
           </div>
+          <button type="submit" onClick={handleSave}>Save</button>
         </form>
       </main>
     </div>
