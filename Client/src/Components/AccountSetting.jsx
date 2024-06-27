@@ -32,7 +32,7 @@ function AccountSetting() {
       <h2>Account</h2>
       <p>Edit your account settings and change your password here.</p>
       <div className="email-section">
-        <form onSubmit={handleSubmit}>
+        <form className='Account-form' onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Email:</label>
             <div className="email-address">
