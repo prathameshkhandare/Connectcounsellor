@@ -7,15 +7,13 @@ import { Link } from 'react-router-dom';
 import mind_logo from '../assets/Img/mind_logo.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 function CustomNavbar() {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false); // Initial state is false
   const [scrolled, setScrolled] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
 
   useEffect(() => {
-    checkLoginStatus();
-
+    checkLoginStatus(); // Check login status on component mount
     const handleScroll = () => {
       if (window.scrollY > 100) {
         setScrolled(true);
@@ -23,31 +21,35 @@ function CustomNavbar() {
         setScrolled(false);
       }
     };
-
     window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const checkLoginStatus = async () => {
-    try {
-      const response = await axios.get('/api/check-login-status');
-      const isLoggedIn = response.data.isLoggedIn;
-      setLoggedIn(isLoggedIn);
-    } catch (error) {
-      console.error(error);
+    const token = localStorage.getItem('token'); // Retrieve token from local storage
+    if (token) {
+      try {
+        // Send a request to backend to verify token and get user details
+        const response = await axios.get('http://localhost:3000/api/check-login-status', {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        if (response.data.isLoggedIn) {
+          setLoggedIn(true); // Set logged in state to true if token is valid
+        } else {
+          setLoggedIn(false); // Set logged in state to false if token is not valid
+        }
+      } catch (error) {
+        console.error('Error checking login status:', error);
+        setLoggedIn(false); // Set logged in state to false on error or invalid token
+      }
+    } else {
+      setLoggedIn(false); // No token found, set logged in state to false
     }
   };
 
   const handleLogout = () => {
-    axios.post('/api/logout')
-      .then(() => {
-        setLoggedIn(false);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    localStorage.removeItem('token'); // Remove token from local storage
+    setLoggedIn(false); // Set logged in state to false on logout
   };
 
   const handleNotificationsClick = () => {
@@ -67,8 +69,6 @@ function CustomNavbar() {
       </Popover.Body>
     </Popover>
   );
-  
-
 
   return (
     <>
@@ -93,7 +93,7 @@ function CustomNavbar() {
         </Navbar.Collapse>
 
         <div className="right-nav-elements d-flex align-items-center">
-          <OverlayTrigger 
+          <OverlayTrigger
             placement="bottom"
             overlay={popover}
             show={showNotifications}
@@ -117,8 +117,8 @@ function CustomNavbar() {
               {loggedIn ? (
                 <>
                   <Dropdown.Item as={Link} to="/profile">Profile</Dropdown.Item>
-                  <Dropdown.Item as={Link} to="/AccountSetting">Account Setting</Dropdown.Item>
-                  <Dropdown.Item as={Link} to="/Notifications">Notifications</Dropdown.Item>
+                  <Dropdown.Item as={Link} to="/account-setting">Account Setting</Dropdown.Item>
+                  <Dropdown.Item as={Link} to="/notifications">Notifications</Dropdown.Item>
                   <Dropdown.Item href="/help">Help</Dropdown.Item>
                   <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
                 </>
