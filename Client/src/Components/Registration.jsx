@@ -1,13 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import axios from 'axios';
 
 const SignupForm = () => {
   const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    username: '',
+    phone: '',
+    email: '',
+    password: ''
+  });
 
-  const handleSignup = (event) => {
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSignup = async (event) => {
     event.preventDefault();
-    // Handle signup logic here
+    try {
+      const response = await axios.post('http://localhost:3000/api/register', formData); // Update the URL as per your backend API
+        // await  console.log('User registered:', response.data);
+      // Redirect to login page after successful registration
+      navigate('/login');
+    } catch (error) {
+      console.error('Error registering user:', error);
+    }
   };
 
   const redirectToLogin = () => {
@@ -20,19 +37,19 @@ const SignupForm = () => {
         <h2>Sign Up</h2>
         <div className="signup-form-group">
           <label htmlFor="username">Username:</label>
-          <input type="text" id="username" name="username" required />
+          <input type="text" id="username" name="username" value={formData.username} onChange={handleChange} required />
         </div>
         <div className="signup-form-group">
           <label htmlFor="phone">Phone:</label>
-          <input type="tel" id="phone" name="phone" required />
+          <input type="tel" id="phone" name="phone" value={formData.phone} onChange={handleChange} required />
         </div>
         <div className="signup-form-group">
           <label htmlFor="email">Email:</label>
-          <input type="email" id="email" name="email" required />
+          <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
         </div>
         <div className="signup-form-group">
           <label htmlFor="password">Password:</label>
-          <input type="password" id="password" name="password" required />
+          <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} required />
         </div>
         <button type="submit" className="signup-button">Sign Up</button>
       </form>
