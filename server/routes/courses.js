@@ -40,6 +40,19 @@ router.get('/api/courses/read/:id', async (req, res) => {
     }
 });
 
+router.delete('/api/courses/delete/:courseId', async (req, res) => {
+    try {
+      const courseId = req.params.courseId;
+      const course = await coursesModel.findOneAndDelete({ _id: courseId });
+      if (!course) {
+        return res.status(404).send('Course not found');
+      }
+      res.status(200).json({ message: 'Course deleted successfully' });
+    } catch (error) {
+      console.error('Error deleting course:', error);
+      res.status(500).json({ error: error.message });
+    }
+  });
 
 
 

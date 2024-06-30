@@ -30,10 +30,21 @@ const CourseManagement = () => {
     }
   };
 
+  const deleteCourse = async (courseId) => {
+    try {
+      await axios.delete(`http://localhost:3000/api/courses/delete/${courseId}`);
+      const updatedCourses = courses.filter(course => course._id !== courseId);
+      setCourses(updatedCourses);
+    } catch (error) {
+      console.error('Error deleting course:', error);
+    }
+  };
+
   return (
     <div className="admin-panel-course-management">
       <h2>Manage Courses</h2>
       <div className="admin-panel-new-course">
+        <h3>Add New Course</h3>
         <input
           type="text"
           placeholder="Course Name"
@@ -75,7 +86,10 @@ const CourseManagement = () => {
         <h3>Course List</h3>
         <ul>
           {courses.map((course) => (
-            <li key={course._id}>{course.name}</li>
+            <li key={course._id}>
+              {course.name}
+              <button className="admin-panel-button admin-panel-delete-button" onClick={() => deleteCourse(course._id)}>Delete</button>
+            </li>
           ))}
         </ul>
       </div>
