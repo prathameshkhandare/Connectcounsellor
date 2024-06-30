@@ -49,6 +49,8 @@ const CourseInfo = () => {
         </div>
       </div>
       <div className="course-sidebar">
+
+      
         <div className="course-instructor">
           <h3>Instructor</h3>
           <p>{course.instructor}</p>
