@@ -77,13 +77,6 @@ const loginController = async (req, res) => {
 
 
 // for authentication after login 
-
-
-
-
-// controllers/authController.js
-
-
 const checkLoginStatus = async (req, res) => {
     try {
       let token = req.headers.authorization?.split(' ')[1]; // Assuming Bearer token
@@ -121,5 +114,27 @@ const checkLoginStatus = async (req, res) => {
 
 
 
+  const getUserDetails = async (req, res) => {
+    try {
+        const token = req.headers.authorization.split(' ')[1];
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const user = await userModel.findById(decoded.id).select('-password');
 
-module.exports = { registerController, loginController ,checkLoginStatus};
+        if (!user) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        res.status(200).json({ user });
+    } catch (error) {
+        res.status(500).json({ message: 'Server error' });
+    }
+};
+
+
+
+
+
+
+
+
+module.exports = { registerController, loginController ,checkLoginStatus,getUserDetails};
