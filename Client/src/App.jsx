@@ -27,6 +27,8 @@ import Help from "./Components/Help";
 import AdminPanel from "./Components/AdminPanel/AdminPanel";
 import CourseManagement from "./Components/AdminPanel/CourseManagement";
 import BlogManagement from "./Components/AdminPanel/BlogManagement";
+import PrivateRoute from "./Components/PrivateRoute";
+
 // Example components for routes
 const Home = () => {
   return (
@@ -53,7 +55,7 @@ const BookNow = () => {
 
 function App() {
   return (
-    <Router>
+        <Router>
       <div className="App">
         <Routes>
           <Route exact path="/" element={<Home />} />
@@ -158,9 +160,11 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Registration />} />
           <Route path="/Help" element={<>  <CustomNavbar /> <Help /> <Footer /> </> } />
+          <Route element={<PrivateRoute />}>
             <Route path="/adminpanel/" element={<>   <AdminPanel /> </> } />
             <Route path="/admin/courses" element={<>   <AdminPanel /> <CourseManagement/> </> } />
             <Route path="/admin/blogs" element={<>   <AdminPanel /> <BlogManagement/> </> } />
+            </Route>
          
         </Routes>
       </div>
