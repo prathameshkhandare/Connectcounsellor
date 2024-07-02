@@ -10,7 +10,7 @@ const SignupForm = () => {
     email: '',
     password: ''
   });
-
+  const [errorMessage, setErrorMessage] = useState('');
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -21,8 +21,25 @@ const SignupForm = () => {
       const response = await axios.post('http://localhost:3000/api/register', formData); // Update the URL as per your backend API
         // await  console.log('User registered:', response.data);
       // Redirect to login page after successful registration
-      navigate('/login');
+      // Clear error message on successful registration
+      if(response.status === '201'){
+        navigate('/login'); // Redirect to login page on successful registration
+      }
+  
     } catch (error) {
+      if (error.response && error.response.status === 400) {
+        setErrorMessage(error.response.data.message); // Set error message on failed registration
+          setFormData({
+            username: '',
+            phone: '',
+            email: '',
+            password: ''
+          })
+
+
+      } else {
+        setErrorMessage('Error registering. Please try again.');
+      }
       console.error('Error registering user:', error);
     }
   };
@@ -35,7 +52,9 @@ const SignupForm = () => {
     <div className="signup-form-container">
       <form onSubmit={handleSignup} className="signup-form">
         <h2>Sign Up</h2>
+        
         <div className="signup-form-group">
+        {errorMessage && <p >{errorMessage}</p>}
           <label htmlFor="username">Username:</label>
           <input type="text" id="username" name="username" value={formData.username} onChange={handleChange} required />
         </div>
