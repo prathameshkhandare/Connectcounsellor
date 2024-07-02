@@ -22,7 +22,9 @@ const SignupForm = () => {
         // await  console.log('User registered:', response.data);
       // Redirect to login page after successful registration
       // Clear error message on successful registration
-      if(response.status === '201'){
+    
+      if(response.status === 201){
+       
         navigate('/login'); // Redirect to login page on successful registration
       }
   
