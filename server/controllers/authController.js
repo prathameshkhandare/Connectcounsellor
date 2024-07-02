@@ -9,8 +9,9 @@ const registerController = async function (req, res) {
 
     try {
         // Check if user already exists
-        let user = await userModel.findOne({ email });
-        if (user) {
+        let useremail = await userModel.findOne({ email });
+        let userphone = await userModel.findOne({ phone });
+        if (useremail && userphone) {
             return res.status(400).json({ message: "User already exists" });
         }
 
@@ -54,9 +55,10 @@ const loginController = async (req, res) => {
             return res.status(400).json({ message: 'invalid credentials' });
         }
 
-        if (!user) {
-            return res.status(400).json({ message: 'User not found' });
-        }
+        //redundant code below 
+        // if (!user) {
+        //     return res.status(400).json({ message: 'User not found' });
+        // }
       
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
