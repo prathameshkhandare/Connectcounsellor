@@ -14,7 +14,10 @@ const userSchema = mongoose.Schema({
     },
     phone: { type: String, required: true, },
     password: { type: String, required: true },
-    role: String,
+    role:{
+        type:String,
+        default: 'user'
+    }
 
 });
 

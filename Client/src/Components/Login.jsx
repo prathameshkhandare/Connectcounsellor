@@ -10,6 +10,7 @@ const LoginForm = () => {
         password: ''
     });
     const [userRole, setUserRole] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -17,6 +18,7 @@ const LoginForm = () => {
 
     const handleLogin = async (event) => {
         event.preventDefault();
+        setErrorMessage(''); // Clear any previous error messages
         try {
             const response = await axios.post('http://localhost:3000/api/login', formData);
             if (response.status === 200) {
@@ -27,6 +29,16 @@ const LoginForm = () => {
                 fetchUserDetails();
             }
         } catch (error) {
+            if (error.response && error.response.status === 400) {
+                setErrorMessage(error.response.data.message);
+                setFormData({
+                    emailorphone: '',
+                    password: ''
+                });
+            } else {
+                setErrorMessage('Error logging in. Please try again.');
+
+            }
             console.error('Error logging in user:', error);
         }
     };
@@ -74,6 +86,7 @@ const LoginForm = () => {
             <div className="login-form-container">
                 <form onSubmit={handleLogin} className="login-form">
                     <h2>Login</h2>
+                    {errorMessage && <p className="error-message">{errorMessage}</p>}
                     <div className="login-form-group">
                         <label htmlFor="email">Email or mobile</label>
                         <input

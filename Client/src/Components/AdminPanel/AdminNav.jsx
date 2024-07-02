@@ -1,11 +1,13 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link ,useNavigate} from 'react-router-dom';
 import './AdminPanel.css';
 
 const AdminNav = () => {
+
+  const navigate = useNavigate(); // Use navigate hook to navigate between routes
   const handleLogout = () => {
     localStorage.removeItem('token'); // Remove token from local storage
-    
+    navigate('/login'); // Navigate to login page on logout
   };
   return (
     <div className="admin-panel-navbar">

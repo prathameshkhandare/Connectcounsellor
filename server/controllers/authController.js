@@ -54,9 +54,10 @@ const loginController = async (req, res) => {
             return res.status(400).json({ message: 'invalid credentials' });
         }
 
-        if (!user) {
-            return res.status(400).json({ message: 'User not found' });
-        }
+        //redundant code below 
+        // if (!user) {
+        //     return res.status(400).json({ message: 'User not found' });
+        // }
       
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
