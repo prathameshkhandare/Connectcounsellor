@@ -44,8 +44,18 @@ const LoginForm = () => {
                 setUserRole(response.data.user.role);
             }
         } catch (error) {
-            console.error('Error fetching user details:', error);
-        }
+          if (error.response) {
+              // Server responded with a status other than 200 range
+              console.error('Error logging in user response error:', error.response.data);
+          } else if (error.request) {
+              // Request was made but no response received
+              console.error('Error logging in user no response:', error.request);
+          } else {
+              // Something else happened in setting up the request
+              console.error('Error logging in user general error:', error.message);
+          }
+          console.error('Full error object:', error);
+      }
     };
 
     useEffect(() => {
