@@ -153,7 +153,7 @@ function App() {
           <Route
           path="/profile" element ={<> <CustomNavbar/><UserProfile/> <Footer/></>}></Route>
           <Route
-          path="/AccountSetting" element ={<> <CustomNavbar/><AccountSetting/> <Footer/></>}></Route>
+          path="/account-setting" element ={<> <CustomNavbar/><AccountSetting/> <Footer/></>}></Route>
           <Route
           path="/Notifications" element ={<> <CustomNavbar/><Notifications/> <Footer/></>}></Route>
           <Route path="/booknow" element={<BookNow />} />
