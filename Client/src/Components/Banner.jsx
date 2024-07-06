@@ -24,7 +24,8 @@ function Banner() {
         <div className="banner-text">
           <h1>{animateText("Welcome to Mental Health Awareness")}</h1>
           <p>{animateText("Join us in spreading awareness about the importance of mental health. Let's create a supportive community together.")}</p>
-          <button className="get-started-btn">Let's Get Started</button>
+          <button className="get-started-btn" onClick={() => window.scrollBy(0, window.innerHeight * 0.78)}>Let's Get Started</button>
+
         </div>
         <div className="banner-image">
           <img src={mindTherapy} className="mhealth-img" alt="mind therapy" />
