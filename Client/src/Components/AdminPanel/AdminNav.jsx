@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link ,useNavigate} from 'react-router-dom';
 import './AdminPanel.css';
-
+import { useAuth } from '../../store/AuthContex';
 const AdminNav = () => {
-
+  const { removeTokenLS} =useAuth();
   const navigate = useNavigate(); // Use navigate hook to navigate between routes
   const handleLogout = () => {
-    localStorage.removeItem('token'); // Remove token from local storage
-    navigate('/login'); // Navigate to login page on logout
+    removeTokenLS();
+    navigate('/login')// Navigate to login page on logout
   };
   return (
     <div className="admin-panel-navbar">

@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../Components/Stylesheets/Login.css';
-
+import { useAuth } from '../store/AuthContex';
 const LoginForm = () => {
     const navigate = useNavigate();
+    const {storeTokenLS} = useAuth();
     const [formData, setFormData] = useState({
         emailorphone: '',
         password: ''
@@ -23,8 +24,9 @@ const LoginForm = () => {
             const response = await axios.post('http://localhost:3000/api/login', formData);
             if (response.status === 200) {
                 console.log('User logged in:', response.data);
-                localStorage.setItem('token', response.data.token);
+             
 
+                storeTokenLS(response.data.token);
                 // Fetch user details after login
                 fetchUserDetails();
             }

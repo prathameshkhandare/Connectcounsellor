@@ -18,10 +18,8 @@ const SignupForm = () => {
   const handleSignup = async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3000/api/register', formData); // Update the URL as per your backend API
-        // await  console.log('User registered:', response.data);
-      // Redirect to login page after successful registration
-      // Clear error message on successful registration
+      const response = await axios.post('http://localhost:3000/api/register', formData); 
+       
     
       if(response.status === 201){
        
