@@ -1,0 +1,72 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+
+.appointment-booking {
+  max-width: 500px;
+  margin: auto;
+  margin-top:30px;
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-in-out;
+  padding-top: 35px;
+  padding-bottom: 30px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.appointment-booking h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.appointment-booking form .form-group {
+  margin-bottom: 15px;
+}
+
+.appointment-booking label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.appointment-booking input,
+.appointment-booking .date-picker {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+.appointment-booking input:focus,
+.appointment-booking .date-picker:focus {
+  border-color: #007bff;
+}
+
+.appointment-booking button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.appointment-booking button:hover {
+  background-color: #218838;
+}
