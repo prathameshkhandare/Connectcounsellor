@@ -10,6 +10,8 @@ const AppointmentBooking = () => {
     date: new Date(),
   });
 
+  const [message, setMessage] = useState('');
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -19,16 +21,31 @@ const AppointmentBooking = () => {
     setFormData({ ...formData, date });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission (e.g., send data to backend)
-    console.log('Booking appointment for:', formData);
+    
+    try {
+      const response = await fetch('http://localhost:3000/api/appointments/book', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.status === 200) {
+        setMessage('Appointment booked successfully');
+      } else {
+        setMessage('Error booking appointment');
+      }
+    } catch (error) {
+      console.error('Error booking appointment:', error);
+      setMessage('Error booking appointment');
+    }
   };
 
   return (
-  
     <div className="appointment-booking">
-        
       <h3 className="animated fadeInDown">Book an Appointment</h3>
       <form onSubmit={handleSubmit} className="animated fadeInUp">
         <div className="form-group">
@@ -44,7 +61,7 @@ const AppointmentBooking = () => {
         <div className="form-group">
           <label>Phone:</label>
           <input
-            type="tel"
+            type="text"
             name="phone"
             value={formData.phone}
             onChange={handleChange}
@@ -64,6 +81,7 @@ const AppointmentBooking = () => {
           Book Appointment
         </button>
       </form>
+      {message && <p>{message}</p>}
     </div>
   );
 };
