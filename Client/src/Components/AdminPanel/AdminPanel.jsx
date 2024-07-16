@@ -13,7 +13,7 @@ const AdminPanel = () => {
       <AdminNav />
       
       <div className="admin-panel-content">
-       
+      
       </div>
     </div>
   );

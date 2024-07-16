@@ -8,7 +8,7 @@ import Login from "./Components/Login";
 import Registration from "./Components/Registration";
 import Contactus from "./Components/Contactus";
 import UserProfile from "./Components/UserProfile"
-
+import AppointmentBooking from "./Components/AppointmentBooking";
 import AccountSetting from "./Components/AccountSetting";
 import Notifications from "./Components/Notifications";
 
@@ -46,8 +46,8 @@ const BookNow = () => {
   return (
     <>
       <CustomNavbar />
-      <Banner />
-      <h1>Book Now Page</h1>
+     
+      <AppointmentBooking/>
       <Footer />
     </>
   );

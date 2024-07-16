@@ -42,6 +42,7 @@ const LoginForm = () => {
 
             }
             console.error('Error logging in user:', error);
+            console.log(error)
         }
     };
 

@@ -139,4 +139,5 @@ const checkLoginStatus = async (req, res) => {
 
 
 
+
 module.exports = { registerController, loginController ,checkLoginStatus,getUserDetails};

@@ -20,14 +20,17 @@
     justify-content: flex-start; /* Align items at the start */
     align-items: center;
     max-width: 30%;
+    
   }
   
   .app-images img {
-    max-width: 100%;
+    max-width: 200%;
     height: auto;
     margin-bottom: 10px;
+    margin-left: 60%;
     border-radius: 10px;
     object-fit: contain;
+    background: transparent;
   }
   
   .app-content {
@@ -74,15 +77,27 @@
     margin: 0 10px;
   }
   
-  .app-store-buttons img {
+  /* .app-store-buttons img {
     height: 40px;
     width: auto;
     margin: 0 10px;
-  }
+  } */
+ .Android-play-store{
+  height: 60px;
+  width: auto;
+  margin: 0 10px  ;
+  
+ }
+ .ios-play-store{
+  height: 40px;
+  width: auto;
+  margin: 0 10px;
+  margin-right: 120px;
+ }
   
   .app-store-logo {
     width: 20%;
-    margin: 20px;
+    margin: 10px;
   }
   
   .app-store-logo img {
