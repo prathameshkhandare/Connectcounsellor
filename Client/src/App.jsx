@@ -11,7 +11,7 @@ import UserProfile from "./Components/UserProfile"
 import AppointmentBooking from "./Components/AppointmentBooking";
 import AccountSetting from "./Components/AccountSetting";
 import Notifications from "./Components/Notifications";
-
+import UserCourses from "./Components/UserCourses";
 import Courses from "./Components/Courses";
 import Aboutus from "./Components/Aboutus";
 import Blog from "./Components/Blog";
@@ -155,7 +155,9 @@ function App() {
           path="/profile" element ={<> <CustomNavbar/><UserProfile/> <Footer/></>}></Route>
           <Route
           path="/account-setting" element ={<> <CustomNavbar/><AccountSetting/> <Footer/></>}></Route>
+          <Route path = '/UserCourses' element = {<> <CustomNavbar/> <UserCourses/>  <Footer/> </>}></Route>
           <Route
+         
           path="/Notifications" element ={<> <CustomNavbar/><Notifications/> <Footer/></>}></Route>
           <Route path="/booknow" element={<BookNow />} />
           <Route path="/login" element={<Login />} />
