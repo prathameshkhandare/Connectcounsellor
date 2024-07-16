@@ -11,7 +11,7 @@ const AdminPanel = () => {
   return (
     <div className="admin-panel">
       <AdminNav />
-      <AdminBanner />
+      
       <div className="admin-panel-content">
       
       </div>
