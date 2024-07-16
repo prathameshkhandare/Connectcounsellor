@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import '../Components/StyleSheets/AppointmentBooking.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-
+import { useNavigate } from 'react-router-dom';
 const AppointmentBooking = () => {
+  const Navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -34,7 +35,11 @@ const AppointmentBooking = () => {
       });
 
       if (response.status === 200) {
-        setMessage('Appointment booked successfully');
+        setMessage('Appointment booking requested successfully');
+        setTimeout(() => {
+          
+          Navigate('/');
+        }, 3000);
       } else {
         setMessage('Error booking appointment');
       }

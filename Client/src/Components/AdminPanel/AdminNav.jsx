@@ -14,6 +14,7 @@ const AdminNav = () => {
       <Link to="/admin-home">Home</Link>
       <Link to="/admin/courses">Manage Courses</Link>
       <Link to="/admin/blogs">Manage Blogs</Link>
+      <Link to="/admin/Appointment">Check Appointments</Link>
       <button onClick={handleLogout}  
       
       style={{
