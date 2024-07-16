@@ -11,6 +11,7 @@ const AdminNav = () => {
   };
   return (
     <div className="admin-panel-navbar">
+      <Link to="/admin-home">Home</Link>
       <Link to="/admin/courses">Manage Courses</Link>
       <Link to="/admin/blogs">Manage Blogs</Link>
       <button onClick={handleLogout}  
