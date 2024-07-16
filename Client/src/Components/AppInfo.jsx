@@ -28,7 +28,7 @@ const AppInfo = () => {
       <div className="app-images">
         <img src={app_info_1} alt="App Image 1" />
         {/* <img src={app_info_2} alt="App Image 2" /> */}
-      </div>
+      </div> 
       <div className="app-store-logo">
         {/* <img src={logo} alt="Counsillhub Logo" /> */}
       </div>
