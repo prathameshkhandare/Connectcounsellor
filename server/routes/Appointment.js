@@ -4,20 +4,47 @@ const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 const router = express.Router();
-const {AppointmentController} =require('../controllers/appointmentController')
-const {getAppointment} =require('../controllers/appointmentController')
 
+const {getAppointment,updateAppointmentStatus,AppointmentController} =require('../controllers/appointmentController')
+const {authenticateToken} = require('../middleware/authMiddleware');
 // Email transporter configuration
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
+// const transporter = nodemailer.createTransport({
+//   service: 'gmail',
+//   auth: {
+//     user: process.env.EMAIL_USER,
+//     pass: process.env.EMAIL_PASS,
+//   },
+// });
+//important 
+// import the root to authenticate the token so that we can gttet req.user.id 
+// 
 
-router.post('/api/appointments/book', AppointmentController);
-router.get('/api/appointments/get',getAppointment);
+
+
+router.post('/api/appointments/book', authenticateToken,AppointmentController);
+
+
+router.get('/api/appointments/get',authenticateToken,getAppointment);
+
+router.post('/api/appointments/:id',authenticateToken ,updateAppointmentStatus);
+
+// 
+
+// 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Endpoint to book an appointment
 // router.post('/api/appointments/book', async (req, res) => {

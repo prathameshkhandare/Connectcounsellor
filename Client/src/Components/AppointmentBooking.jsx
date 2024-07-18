@@ -3,12 +3,12 @@ import '../Components/StyleSheets/AppointmentBooking.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useNavigate } from 'react-router-dom';
+
 const AppointmentBooking = () => {
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
     date: new Date(),
+    reason: ''
   });
 
   const [message, setMessage] = useState('');
@@ -26,10 +26,12 @@ const AppointmentBooking = () => {
     e.preventDefault();
     
     try {
+      const token = localStorage.getItem('token');
       const response = await fetch('http://localhost:3000/api/appointments/book', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+           'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify(formData),
       });
@@ -37,11 +39,10 @@ const AppointmentBooking = () => {
       if (response.status === 200) {
         setMessage('Appointment booking requested successfully');
         setTimeout(() => {
-          
-          Navigate('/');
+          navigate('/');
         }, 3000);
       } else {
-        setMessage('Error booking appointment');
+        setMessage('Error booking appointment another status');
       }
     } catch (error) {
       console.error('Error booking appointment:', error);
@@ -54,21 +55,11 @@ const AppointmentBooking = () => {
       <h3 className="animated fadeInDown">Book an Appointment</h3>
       <form onSubmit={handleSubmit} className="animated fadeInUp">
         <div className="form-group">
-          <label>Name:</label>
+          <label>Reason for Appointment:</label>
           <input
             type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label>Phone:</label>
-          <input
-            type="text"
-            name="phone"
-            value={formData.phone}
+            name="reason"
+            value={formData.reason}
             onChange={handleChange}
             required
           />
