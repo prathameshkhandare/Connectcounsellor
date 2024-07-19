@@ -1,19 +1,64 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "../Components/StyleSheets/UserProfile.css";
-
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 function UserProfile() {
+  const [userId, setUserId] = useState(null);
   const [profile, setProfile] = useState({
     firstName: '',
     lastName: '',
     email: '',
     hobby: '',
     language: 'English (US)',
-    website: '',
-    profilePic: '' // New state variable for profile picture URL
+    profilePic: ''
   });
 
   const [isPicSet, setIsPicSet] = useState(false);
+
+  useEffect(() => {
+    const userDetails = async () => {
+      const token = localStorage.getItem('token'); // Retrieve token from local storage
+      if (token) {
+        try {
+          // Send a request to backend to verify token and get user details
+          const response = await axios.get('http://localhost:3000/api/userdetails', {
+            headers: { Authorization: `Bearer ${token}` }
+          });
+
+          const userData = response.data.user; // Adjust based on actual API response structure
+          setUserId(userData._id);
+        } catch (error) {
+          console.log('Error fetching user details:', error);
+        }
+      }
+    };
+
+    userDetails();
+  }, []);
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      if (!userId) return; // Don't fetch if userId is not available
+
+      try {
+        const response = await fetch(`http://localhost:3000/api/user/profile/read/${userId}`);
+        const data = await response.json();
+        setProfile({
+          firstName: data.firstName || '',
+          lastName: data.lastName || '',
+          email: data.email || '',
+          hobby: data.hobby || '',
+          language: data.language || 'English (US)',
+          profilePic: data.profilePic || ''
+        });
+      } catch (error) {
+        console.log('Error in fetching user profile:', error);
+      }
+    };
+
+    fetchProfile();
+  }, [userId]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -40,14 +85,40 @@ function UserProfile() {
 
   const getInitials = () => {
     const { firstName, lastName } = profile;
-    return `${firstName.charAt(0)}${lastName.charAt(0)}`.toUpperCase();
+    const firstInitial = firstName ? firstName.charAt(0) : '';
+    const lastInitial = lastName ? lastName.charAt(0) : '';
+    return `${firstInitial}${lastInitial}`.toUpperCase();
   };
 
-  const handleSave = (e) => {
+  const handleSave = async (e) => {
     e.preventDefault();
-    // Add your save logic here, such as sending data to backend or updating state
-    console.log('Saving profile changes:', profile);
-    alert('Profile saved successfully!');
+
+    try {
+      const response = await fetch(`http://localhost:3000/api/user/profile/write/${userId}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(profile)
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text(); // Read the response as text
+        throw new Error(`HTTP error! Status: ${response.status}, Message: ${errorText}`);
+      }
+
+      const data = await response.json();
+      console.log('Saving profile changes:', data);
+      
+      if (userId) {
+        alert('Profile updated successfully!');
+      } else {
+        alert('Profile saved successfully!');
+      }
+    } catch (error) {
+      console.log('Error in saving profile:', error);
+      alert('Error in saving profile');
+    }
   };
 
   return (
@@ -71,48 +142,48 @@ function UserProfile() {
             </div>
           </div>
         </div>
-        <div className="profile-name">{`${profile.firstName} ${profile.lastName}`}</div> 
+        <div className="profile-name">{`${profile.firstName} ${profile.lastName}`}</div>
         <ul className="profile-menu">
-          <li>Profile</li>
-          <li>Account Security</li>
-          <li>Privacy</li>
-          <li>Notifications</li>
+          <li><Link to="/Profile">Profile</Link></li>
+          <li><Link to="/account-setting">Account Security</Link></li>
+          <li><Link to="/Notifications">Notifications</Link></li>
+          <li><Link to="/UserCourses">My courses</Link></li>
         </ul>
       </aside>
       <main className="profile-main">
         <h2>Public profile</h2>
         <p>Add information about yourself</p>
-        <form>
+        <form onSubmit={handleSave}>
           <div className="form-group">
             <label>Basics:</label>
             <input
               type="text"
               name="firstName"
-              value={profile.firstName}
+              value={profile.firstName || ''}
               onChange={handleChange}
               placeholder="First Name"
             />
             <input
               type="text"
               name="lastName"
-              value={profile.lastName}
+              value={profile.lastName || ''}
               onChange={handleChange}
               placeholder="Last Name"
             />
             <input
               type="text"
               name="email"
-              value={profile.email}
+              value={profile.email || ''}
               onChange={handleChange}
               placeholder="Email"
               maxLength="60"
             />
           </div>
           <div className="form-group">
-            <label>Add a hobbies:</label>
+            <label>Add a hobby:</label>
             <textarea
               name="hobby"
-              value={profile.hobby}
+              value={profile.hobby || ''}
               onChange={handleChange}
               placeholder="Hobbies"
             />
@@ -121,7 +192,7 @@ function UserProfile() {
             <label>Language:</label>
             <select
               name="language"
-              value={profile.language}
+              value={profile.language || 'English (US)'}
               onChange={handleChange}
             >
               <option value="English (US)">English (US)</option>
@@ -129,7 +200,7 @@ function UserProfile() {
               {/* Add more language options as needed */}
             </select>
           </div>
-          <button type="submit" onClick={handleSave}>Save</button>
+          <button type="submit">Save</button>
         </form>
       </main>
     </div>

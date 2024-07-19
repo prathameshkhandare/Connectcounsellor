@@ -87,11 +87,15 @@
 .profile-menu li {
     padding: 10px 0;
     cursor: pointer;
+   
+   
+
 }
 
 .profile-menu li.active {
     font-weight: bold;
     color: #007bff;
+   
 }
 
 .profile-main {

@@ -1,0 +1,31 @@
+.user-courses {
+    padding: 20px;
+  }
+  
+  .course-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .course-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .course-item h4 {
+    margin: 0 0 10px;
+  }
+  
+  .course-item p {
+    margin: 0 0 5px;
+  }
+  
+  .course-item span {
+    display: block;
+    color: #888;
+    font-size: 0.9em;
+  }
+  

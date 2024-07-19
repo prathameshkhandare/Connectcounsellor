@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser')
 require('dotenv').config();
 
 const cors = require('cors');
@@ -12,6 +13,11 @@ const port = process.env.PORT || 3000;
 const BlogRoute = require('./routes/blog');
 const authRoute = require('./routes/authRoute');
 const appointmentRoutes = require('./routes/Appointment');
+const UserprofileRoutes = require('./routes/UserProfile')
+
+
+app.use(bodyParser.json({ limit: '10mb' }));
+app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
 
 // Middleware
 app.use(cors());
@@ -23,6 +29,7 @@ app.use(BlogRoute);
 app.use(coursesRoute);
 app.use(authRoute);
 app.use(appointmentRoutes);
+app.use(UserprofileRoutes)
 
 
 app.listen(port, () => console.log(`Server listening on port ${port}!`));
