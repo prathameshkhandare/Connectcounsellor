@@ -13,12 +13,7 @@ const port = process.env.PORT || 3000;
 const BlogRoute = require('./routes/blog');
 const authRoute = require('./routes/authRoute');
 const appointmentRoutes = require('./routes/Appointment');
-const UserprofileRoutes = require('./routes/UserProfile')
-
-
-app.use(bodyParser.json({ limit: '10mb' }));
-app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }));
-
+// const {authenticateToken} = require('./middleware/authenticate'); 
 // Middleware
 app.use(cors());
 app.use(express.json()); // To parse JSON bodies

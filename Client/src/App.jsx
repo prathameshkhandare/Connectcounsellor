@@ -11,7 +11,7 @@ import UserProfile from "./Components/UserProfile"
 import AppointmentBooking from "./Components/AppointmentBooking";
 import AccountSetting from "./Components/AccountSetting";
 import Notifications from "./Components/Notifications";
-import UserCourses from "./Components/UserCourses";
+// import UserCourses from "./Components/UserCourses";
 import Courses from "./Components/Courses";
 import Aboutus from "./Components/Aboutus";
 import Blog from "./Components/Blog";
@@ -29,6 +29,7 @@ import CourseManagement from "./Components/AdminPanel/CourseManagement";
 import BlogManagement from "./Components/AdminPanel/BlogManagement";
 import PrivateRoute from "./Components/PrivateRoute";
 import AdminBanner from "./Components/AdminPanel/AdminBanner";
+import AppointmentsList from "./Components/AdminPanel/Appointment";
 // Example components for routes
 const Home = () => {
   return (
@@ -154,7 +155,7 @@ function App() {
           path="/profile" element ={<> <CustomNavbar/><UserProfile/> <Footer/></>}></Route>
           <Route
           path="/account-setting" element ={<> <CustomNavbar/><AccountSetting/> <Footer/></>}></Route>
-          <Route path = '/UserCourses' element = {<> <CustomNavbar/> <UserCourses/>  <Footer/> </>}></Route>
+          {/* <Route path = '/UserCourses' element = {<> <CustomNavbar/> <UserCourses/>  <Footer/> </>}></Route> */}
           <Route
          
           path="/Notifications" element ={<> <CustomNavbar/><Notifications/> <Footer/></>}></Route>
@@ -166,6 +167,7 @@ function App() {
             <Route path="/adminpanel/" element={<>   <AdminPanel /> </> } />
             <Route path="/admin/courses" element={<>   <AdminPanel /> <CourseManagement/> </> } />
             <Route path="/admin/blogs" element={<>   <AdminPanel /> <BlogManagement/> </> } />
+            <Route path="/admin/Appointment" element={<>   <AdminPanel /> <AppointmentsList/> </> } />
             <Route path="/admin-home" element={<>   <AdminPanel /> <AdminBanner /> </> } />
 
 

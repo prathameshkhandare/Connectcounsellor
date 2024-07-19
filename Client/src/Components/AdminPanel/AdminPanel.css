@@ -216,3 +216,75 @@
 
     margin-top: 20px;
   }
+
+
+
+/* appointment css */
+/* Global styles */
+.admin_appointment_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Ensures the container takes at least the full height of the viewport */
+  background-color: #f8f9fa;
+}
+
+.admin_appointment_content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 800px; /* Adjust this value to control the maximum width of the container */
+}
+
+.admin_appointment_title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center; /* Center the title */
+  color: #333; /* Make sure the title color is visible */
+}
+
+.admin_appointment_list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.admin_appointment_item {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.admin_appointment_details p {
+  margin: 0;
+  padding: 5px 0;
+  text-align: justify; /* Justify the text within the container */
+}
+
+.admin_appointment_buttons {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+
+.admin_appointment_button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.admin_appointment_button.accept {
+  background-color: #28a745;
+}
+
+.admin_appointment_button.reject {
+  background-color: #dc3545;
+}
+
+.admin_appointment_button:hover {
+  opacity: 0.8;
+}
