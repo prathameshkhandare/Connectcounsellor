@@ -13,7 +13,8 @@ const port = process.env.PORT || 3000;
 const BlogRoute = require('./routes/blog');
 const authRoute = require('./routes/authRoute');
 const appointmentRoutes = require('./routes/Appointment');
-const UserprofileRoutes = require('./routes/UserProfile')
+const UserprofileRoutes = require('./routes/UserProfile');
+const accountsettingRoute = require('./routes/Acountsetting')
 // const {authenticateToken} = require('./middleware/authenticate'); 
 // Middleware
 app.use(cors());
@@ -25,7 +26,8 @@ app.use(BlogRoute);
 app.use(coursesRoute);
 app.use(authRoute);
 app.use(appointmentRoutes);
-app.use(UserprofileRoutes)
+app.use(UserprofileRoutes);
+app.use(accountsettingRoute)
 
 
 app.listen(port, () => console.log(`Server listening on port ${port}!`));
