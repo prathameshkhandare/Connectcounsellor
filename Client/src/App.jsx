@@ -30,6 +30,8 @@ import BlogManagement from "./Components/AdminPanel/BlogManagement";
 import PrivateRoute from "./Components/PrivateRoute";
 import AdminBanner from "./Components/AdminPanel/AdminBanner";
 import AppointmentsList from "./Components/AdminPanel/Appointment";
+import ForgotPass from "./Components/ForgotPass";
+import ResetPassword from "./Components/ResetPassword";
 // Example components for routes
 const Home = () => {
   return (
@@ -161,6 +163,8 @@ function App() {
           path="/Notifications" element ={<> <CustomNavbar/><Notifications/> <Footer/></>}></Route>
           <Route path="/booknow" element={<BookNow />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/resetPassword" element={<ResetPassword />} />
+          <Route path="/forgotpassword" element={<ForgotPass/>} />
           <Route path="/register" element={<Registration />} />
           <Route path="/Help" element={<>  <CustomNavbar /> <Help /> <Footer /> </> } />
           <Route element={<PrivateRoute />}>
@@ -169,10 +173,7 @@ function App() {
             <Route path="/admin/blogs" element={<>   <AdminPanel /> <BlogManagement/> </> } />
             <Route path="/admin/Appointment" element={<>   <AdminPanel /> <AppointmentsList/> </> } />
             <Route path="/admin-home" element={<>   <AdminPanel /> <AdminBanner /> </> } />
-
-
-
-            </Route>
+           </Route>
          
         </Routes>
       </div>

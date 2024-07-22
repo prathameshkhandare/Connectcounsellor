@@ -93,6 +93,9 @@ const LoginForm = () => {
     const redirectToSignup = () => {
         navigate('/register');
     };
+    const redirecttoForgotpassword = () => {
+        navigate('/forgotpassword');
+    };
 
     return (
         <div className="container">
@@ -125,9 +128,11 @@ const LoginForm = () => {
                     <button type="submit" className="login-button">Login</button>
                 </form>
                 <div className="login-signup-redirect">
+                
                     <span>Don't have an account?</span>
-                    <button onClick={redirectToSignup} className="login-signup-link">Sign Up</button>
+                    <button onClick={redirecttoForgotpassword} className="login-signup-link">forgot password</button>
                 </div>
+                <button onClick={redirectToSignup} className="login-signup-link">Sign Up</button>
             </div>
         </div>
     );
