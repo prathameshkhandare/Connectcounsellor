@@ -25,7 +25,15 @@ const SignupForm = () => {
        
         navigate('/login'); // Redirect to login page on successful registration
       }
-  
+      else{
+        setErrorMessage('something went wrong !...');
+        setFormData({
+          username: '',
+          phone: '',
+          email: '',
+          password: ''
+        })
+      }
     } catch (error) {
       if (error.response && error.response.status === 400) {
         setErrorMessage(error.response.data.message); // Set error message on failed registration

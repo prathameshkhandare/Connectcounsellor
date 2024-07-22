@@ -13,6 +13,7 @@ const port = process.env.PORT || 3000;
 const BlogRoute = require('./routes/blog');
 const authRoute = require('./routes/authRoute');
 const appointmentRoutes = require('./routes/Appointment');
+const UserprofileRoutes = require('./routes/UserProfile')
 // const {authenticateToken} = require('./middleware/authenticate'); 
 // Middleware
 app.use(cors());

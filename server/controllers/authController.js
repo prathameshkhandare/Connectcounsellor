@@ -2,6 +2,8 @@
 const bcrypt = require('bcrypt')
 const userModel = require('../models/userModel');
 const jwt = require('jsonwebtoken')
+const sendMail = require('../Util/mailer');
+const crypto = require('crypto');
 // Register new user
 const registerController = async function (req, res) {
 
@@ -132,12 +134,69 @@ const checkLoginStatus = async (req, res) => {
     }
 };
 
+const generateOTP = () => {
+    return Math.floor(100000 + Math.random() * 900000).toString(); // Generate a 6-digit OTP
+  };
+
+const forgotPassword = async (req, res) => {
+  const { email } = req.body;
+
+  try {
+    const user = await userModel.findOne({ email });
+    if (!user) {
+      return res.status(400).json({ error: 'something went wrong' });
+    }
+
+    const otp = generateOTP();
+    user.resetPasswordOTP = crypto.createHash('sha256').update(otp).digest('hex');
+    user.resetPasswordExpires = Date.now() + 600000; // 10 minutes
+
+    await user.save();
+
+    const message = `You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n
+      Please use the following OTP to reset your password:\n\n
+      ${otp}\n\n
+      If you did not request this, please ignore this email and your password will remain unchanged.\n`;
+
+    try {
+      await sendMail(user.email, 'Password Reset OTP', message);
+      res.status(200).json({ message: 'An email has been sent to ' + user.email + ' with further instructions.' });
+    } catch (err) {
+      res.status(500).json({ error: 'Error sending the email. Please try again later.' });
+    }
+  } catch (err) {
+    res.status(500).json({ error: 'Something went wrong. Please try again later.' });
+  }
+};
+
+  const resetPassword = async (req, res) => {
+    const { email, otp, newPassword } = req.body;
+    const hashedOTP = crypto.createHash('sha256').update(otp).digest('hex');
+  
+    try {
+      const user = await userModel.findOne({
+        email,
+        resetPasswordOTP: hashedOTP,
+        resetPasswordExpires: { $gt: Date.now() },
+      });
+  
+      if (!user) {
+        return res.status(400).json({ error: 'Invalid or expired OTP.' });
+      }
+  
+      const salt = await bcrypt.genSalt(10);
+      const hash = await bcrypt.hash(newPassword, salt);
+  
+      user.password = hash;
+      user.resetPasswordOTP = undefined;
+      user.resetPasswordExpires = undefined;
+      await user.save();
+  
+      res.status(200).json({ message: 'Password has been reset successfully.' });
+    } catch (err) {
+      res.status(500).json({ error: 'Something went wrong. Please try again later.' });
+    }
+  };
 
 
-
-
-
-
-
-
-module.exports = { registerController, loginController ,checkLoginStatus,getUserDetails};
+module.exports = { registerController, loginController ,checkLoginStatus,getUserDetails,forgotPassword, resetPassword};
