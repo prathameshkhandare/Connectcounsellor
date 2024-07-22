@@ -18,7 +18,7 @@ const authRoute = require('./routes/authRoute');
 const appointmentRoutes = require('./routes/Appointment')
 const UserprofileRoutes = require('./routes/UserProfile')
 
-const UserprofileRoutes = require('./routes/UserProfile');
+// const UserprofileRoutes = require('./routes/UserProfile');
 const accountsettingRoute = require('./routes/Acountsetting')
 
 // const {authenticateToken} = require('./middleware/authenticate'); 
