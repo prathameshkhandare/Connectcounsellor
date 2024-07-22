@@ -1,67 +1,89 @@
 import React, { useState } from 'react';
-import "../Components/StyleSheets/AccountSetting.css";
+import '../Components/StyleSheets/AccountSetting.css';
 
-function AccountSetting() {
-  const [password, setPassword] = useState({
+const AccountSetting = () => {
+  const [formData, setFormData] = useState({
+    currentPassword: '',
     newPassword: '',
-    confirmPassword: ''
+    confirmNewPassword: ''
   });
-
-  const [emailAddress] = useState('bhaiyuvirathod123@gmail.com'); // Example dynamic email address
+  const [message, setMessage] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setPassword({
-      ...password,
-      [name]: value
-    });
+    setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Add your password update logic here
-    if (password.newPassword === password.confirmPassword) {
-      console.log('Password updated successfully');
-    } else {
-      console.log('Passwords do not match');
+
+    if (formData.newPassword !== formData.confirmNewPassword) {
+      setMessage('New password do not match');
+      return;
+    }
+
+    try {
+      const token = localStorage.getItem('token');
+      const response = await fetch('http://localhost:3000/api/user/change-password', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.status === 200) {
+        setMessage('Password changed successfully');
+      } else {
+        const data = await response.json();
+        setMessage(data.message || 'Error changing password');
+      }
+    } catch (error) {
+      console.error('Error changing password:', error);
+      setMessage('Error changing password');
     }
   };
 
   return (
-    <div className="settings-container">
-      <h2>Account</h2>
-      <p>Edit your account settings and change your password here.</p>
-      <div className="email-section">
-        <form className='Account-form' onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label>Email:</label>
-            <div className="email-address">
-              <p>Your email address is <strong>{emailAddress}</strong></p>
-            </div>
-          </div>
-          <div className="form-group">
-            <input
-              type="password"
-              name="newPassword"
-              value={password.newPassword}
-              onChange={handleChange}
-              placeholder="Enter new password"
-            />
-          </div>
-          <div className="form-group">
-            <input
-              type="password"
-              name="confirmPassword"
-              value={password.confirmPassword}
-              onChange={handleChange}
-              placeholder="Re-type new password"
-            />
-          </div>
-          <button type="submit">Change password</button>
-        </form>
-      </div>
+    <div className="account-setting">
+      <h3>Account Settings</h3>
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label>Current Password:</label>
+          <input
+            type="password"
+            name="currentPassword"
+            value={formData.currentPassword}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label>New Password:</label>
+          <input
+            type="password"
+            name="newPassword"
+            value={formData.newPassword}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label>Confirm New Password:</label>
+          <input
+            type="password"
+            name="confirmNewPassword"
+            value={formData.confirmNewPassword}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <button type="submit">Change Password</button>
+      </form>
+      {message && <p>{message}</p>}
     </div>
   );
-}
+};
 
 export default AccountSetting;
