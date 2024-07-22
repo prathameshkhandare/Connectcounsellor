@@ -69,9 +69,9 @@
     z-index: 5;
 }
 
-.profile-pic:hover .profile-pic-overlay {
+/* .profile-pic:hover .profile-pic-overlay {
     opacity: 1;
-}
+} */
 
 .profile-name {
     text-align: center;
@@ -149,4 +149,19 @@
 
 .profile-main button[type="submit"]:hover {
     background-color: #0056b3; /* Darker shade for hover */
+}
+
+
+.message-container {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    margin-top: 10px;
+    font-size: 16px;
+    color: green;
+}
+
+.message-container.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
