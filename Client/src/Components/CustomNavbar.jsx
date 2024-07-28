@@ -3,7 +3,7 @@ import { Navbar, Nav, Dropdown, Badge, Popover, OverlayTrigger } from 'react-boo
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faUser, faBell } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link ,useNavigate} from 'react-router-dom';
 import mind_logo from '../assets/Img/mind_logo.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -11,7 +11,7 @@ function CustomNavbar() {
   const [loggedIn, setLoggedIn] = useState(false); // Initial state is false
   const [scrolled, setScrolled] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
-
+const Navigate=useNavigate();
   useEffect(() => {
     checkLoginStatus(); // Check login status on component mount
     const handleScroll = () => {
@@ -49,7 +49,8 @@ function CustomNavbar() {
 
   const handleLogout = () => {
     localStorage.removeItem('token'); // Remove token from local storage
-    setLoggedIn(false); // Set logged in state to false on logout
+    setLoggedIn(false);
+    Navigate('/') // Set logged in state to false on logout
   };
 
   const handleNotificationsClick = () => {

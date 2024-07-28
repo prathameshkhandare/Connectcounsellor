@@ -152,9 +152,11 @@ function App() {
                 <Footer />
               </>
             }
-          />
+            />
+          <Route element={<PrivateRoute requiredRole="user" />}>
           <Route
           path="/profile" element ={<> <CustomNavbar/><UserProfile/> <Footer/></>}></Route>
+          
           <Route
           path="/account-setting" element ={<> <CustomNavbar/><AccountSetting/> <Footer/></>}></Route>
           {/* <Route path = '/UserCourses' element = {<> <CustomNavbar/> <UserCourses/>  <Footer/> </>}></Route> */}
@@ -162,13 +164,14 @@ function App() {
          
           path="/Notifications" element ={<> <CustomNavbar/><Notifications/> <Footer/></>}></Route>
           <Route path="/booknow" element={<BookNow />} />
-          <Route path="/login" element={<Login />} />
           <Route path="/resetPassword" element={<ResetPassword />} />
+          </Route>
           <Route path="/forgotpassword" element={<ForgotPass/>} />
           <Route path="/register" element={<Registration />} />
           <Route path="/Help" element={<>  <CustomNavbar /> <Help /> <Footer /> </> } />
-          <Route element={<PrivateRoute />}>
-            <Route path="/adminpanel/" element={<>   <AdminPanel /> </> } />
+          <Route path="/login" element={<Login />} />
+          <Route element={<PrivateRoute requiredRole="admin" />}>
+            <Route path="/adminpanel" element={<>   <AdminPanel /> </> } />
             <Route path="/admin/courses" element={<>   <AdminPanel /> <CourseManagement/> </> } />
             <Route path="/admin/blogs" element={<>   <AdminPanel /> <BlogManagement/> </> } />
             <Route path="/admin/Appointment" element={<>   <AdminPanel /> <AppointmentsList/> </> } />
