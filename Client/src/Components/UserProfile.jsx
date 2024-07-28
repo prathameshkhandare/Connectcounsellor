@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 function UserProfile() {
+  const [message, setMessage] = useState('');
   const [userId, setUserId] = useState(null);
   const [profile, setProfile] = useState({
     firstName: '',
@@ -11,10 +12,10 @@ function UserProfile() {
     email: '',
     hobby: '',
     language: 'English (US)',
-    profilePic: ''
+    // profilePic: ''
   });
 
-  const [isPicSet, setIsPicSet] = useState(false);
+  // const [isPicSet, setIsPicSet] = useState(false);
 
   useEffect(() => {
     const userDetails = async () => {
@@ -50,7 +51,7 @@ function UserProfile() {
           email: data.email || '',
           hobby: data.hobby || '',
           language: data.language || 'English (US)',
-          profilePic: data.profilePic || ''
+          // profilePic: data.profilePic || ''
         });
       } catch (error) {
         console.log('Error in fetching user profile:', error);
@@ -68,20 +69,26 @@ function UserProfile() {
     });
   };
 
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setProfile({
-          ...profile,
-          profilePic: reader.result
-        });
-        setIsPicSet(true);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
+  // const handleImageChange = (e) => {
+  //   const file = e.target.files[0];
+  //   if (file) {
+
+  //     // const maxSize = 5* 1024*1024;
+  //     // if(file.size > maxSize){
+  //       setMessage('image should not greater than 5mb size')
+  //       return;
+  //     }
+  //     const reader = new FileReader();
+  //     reader.onloadend = () => {
+  //       setProfile({
+  //         ...profile,
+  //         profilePic: reader.result
+  //       });
+  //       setIsPicSet(true);
+  //     };
+  //     reader.readAsDataURL(file);
+  //   }
+  // };
 
   const getInitials = () => {
     const { firstName, lastName } = profile;
@@ -111,13 +118,19 @@ function UserProfile() {
       console.log('Saving profile changes:', data);
       
       if (userId) {
-        alert('Profile updated successfully!');
+        setMessage('Profile updated successfully!');
       } else {
-        alert('Profile saved successfully!');
+        setMessage('Profile saved successfully!');
       }
+
+      // Hide the message after 3 seconds
+      setTimeout(() => setMessage(''), 3000);
     } catch (error) {
       console.log('Error in saving profile:', error);
-      alert('Error in saving profile');
+      setMessage('Error in saving profile');
+
+      // Hide the message after 3 seconds
+      setTimeout(() => setMessage(''), 3000);
     }
   };
 
@@ -131,12 +144,12 @@ function UserProfile() {
             ) : (
               <span>{getInitials()}</span>
             )}
-            <input
+            {/* <input
               type="file"
               accept="image/*"
               onChange={handleImageChange}
               className="profile-pic-input"
-            />
+            /> */}
             <div className="profile-pic-overlay">
               Select Image
             </div>
@@ -201,6 +214,9 @@ function UserProfile() {
             </select>
           </div>
           <button type="submit">Save</button>
+          <div className={`message-container ${message ? 'visible' : ''}`}>
+            {message}
+          </div>
         </form>
       </main>
     </div>

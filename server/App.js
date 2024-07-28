@@ -10,12 +10,15 @@ const coursesRoute = require('./routes/courses');
 const app = express();
 const port = process.env.PORT || 3000;
 
+// app.use(express.json({ limit: '50mb' }));
+// app.use(express.urlencoded({ limit: '50mb', extended: true }));
+
 const BlogRoute = require('./routes/blog');
 const authRoute = require('./routes/authRoute');
 const appointmentRoutes = require('./routes/Appointment')
 // const UserprofileRoutes = require('./routes/UserProfile')
 
-const UserprofileRoutes = require('./routes/UserProfile');
+// const UserprofileRoutes = require('./routes/UserProfile');
 const accountsettingRoute = require('./routes/Acountsetting')
 
 // const {authenticateToken} = require('./middleware/authenticate'); 
