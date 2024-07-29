@@ -1,5 +1,8 @@
 import React from 'react';
 import './Stylesheets/AppInfo.css';
+// App.js or index.js
+
+
 import app_info_1 from "../assets/Img/app-info-1n.png";
 
 // import logo from "../assets/Img/counsillhub-logo.png";
@@ -11,10 +14,10 @@ const AppInfo = () => {
         <h2>Get the CounselingHub App</h2>
         <p>Get access to mind therapy courses anywhere, anytime</p>
         <ul>
-          <li><i className="fas fa-star"></i> Browse through a wide range of courses</li>
-          <li><i className="fas fa-star"></i> Enroll and start learning instantly</li>
-          <li><i className="fas fa-star"></i> Track your progress on the go</li>
-          <li><i className="fas fa-star"></i> Download course materials with a single tap</li>
+          <li> Browse through a wide range of courses</li>
+          <li> Enroll and start learning instantly</li>
+          <li> Track your progress on the go</li>
+          <li> Download course materials with a single tap</li>
         </ul>
         <div className="app-store-buttons">
           <a href="#">

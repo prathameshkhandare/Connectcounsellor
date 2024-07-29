@@ -25,6 +25,8 @@
 .notifications-popover .popover-body {
   padding: 10px;
 }
+/* notification end */
+
 
 /* Navbar */
 .navbar-bg {
@@ -55,11 +57,33 @@
 .nav-element {
   margin-left: 40px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-weight: 600;
+  font-weight: 650;
+  position: relative; /* Required for positioning the pseudo-element */
+}
+
+.nav-element::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 3px; /* Height of the underline */
+  background-color: #000; /* Color of the underline */
+  border-radius: 3px; /* Curved borders */
+  transition: width 0.5s;
+  position: absolute;
+  bottom: -1px; /* Adjust the gap between underline and element */
+  left: 0;
+}
+
+.nav-element:hover::after {
+  width: 100%; /* Full width on hover */
 }
 
 .nav-elements {
   margin-left: 25%;
+}
+
+.nav-elements:hover {
+  text-decoration: none; /* Remove default underline */
 }
 
 .form-control,
@@ -88,7 +112,7 @@
 @media (max-width: 767px) {
   .search-bar-wrapper {
     position: relative;
-    top: -3px; /* Adjust position as needed */
+    top: -3px;
     margin-left: 20px;
   }
 }
@@ -141,6 +165,7 @@
     margin-bottom: 5px; /* Adjust spacing between menu items */
   }
 }
+
 
 
 
