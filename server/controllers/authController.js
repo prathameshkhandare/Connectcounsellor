@@ -97,7 +97,7 @@ const checkLoginStatus = async (req, res) => {
       // Verify token
       jwt.verify(token, process.env.JWT_SECRET, async (err, decoded) => {
         if (err) {
-          return res.status(403).json({ isLoggedIn: false });
+          return res.status(401).json({ isLoggedIn: false });
         }
   
         // Token is valid, now check if user exists or fetch user details
