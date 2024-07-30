@@ -29,6 +29,7 @@ function UserProfile() {
 
           const userData = response.data.user; // Adjust based on actual API response structure
           setUserId(userData._id);
+           console.log(userData._id)
         } catch (error) {
           console.log('Error fetching user details:', error);
         }
@@ -41,9 +42,15 @@ function UserProfile() {
   useEffect(() => {
     const fetchProfile = async () => {
       if (!userId) return; // Don't fetch if userId is not available
-
+      console.log('Fetching Profile for User ID:', userId);
       try {
-        const response = await fetch(`http://localhost:3000/api/user/profile/read/${userId}`);
+        const token = localStorage.getItem('token');
+        const response = await fetch(`http://localhost:3000/api/user/profile/read/${userId}`, {
+          headers: {
+            'Authorization': `Bearer ${token}`
+          }
+        });
+
         const data = await response.json();
         setProfile({
           firstName: data.firstName || '',
@@ -101,10 +108,12 @@ function UserProfile() {
     e.preventDefault();
 
     try {
+      const token = localStorage.getItem('token')
       const response = await fetch(`http://localhost:3000/api/user/profile/write/${userId}`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify(profile)
       });
