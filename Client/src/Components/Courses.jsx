@@ -51,7 +51,7 @@ const Courses = () => {
             </div>
             <div className="card-body">
               <h5 className="card-title">{course.name}</h5>
-              <p className="card-text">{course.shortdescription}</p>
+              {/* <p className="card-text">{course.shortdescription}</p> */}
             </div>
             <div className="card-footer">
               <Link to={`/courseInfo/${course._id}`} className="btn btn-primary">Details</Link>
