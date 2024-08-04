@@ -153,7 +153,7 @@ const handleEnrollment = async () => {
           <img src={course.image} alt={course.name} />
         </div>
         <div className="course-content">
-          <h1 className="course-title">What You Will Learn</h1>
+          <h6 className="course-title">This course includes : </h6>
           <ul className="course-learn-list">
             {course.content && course.content.map((item, index) => (
               <li key={index}>{item}</li>
@@ -161,7 +161,7 @@ const handleEnrollment = async () => {
           </ul>
         </div>
         <div className="course-content">
-            <h1 className='course-title'> Course Description</h1>
+            <h6 className='course-title'> Course Description</h6>
           <p className="course-description">{course.description}</p>
         </div>
       </div>
@@ -174,11 +174,11 @@ const handleEnrollment = async () => {
         </div>
         <div className="course-ratings">
           <h3>Rating</h3>
-          <p>4.7 (209,135 ratings)</p>
+          <p>4.5 (10,400 ratings)</p>
         </div>
         <div className="course-students">
-          <h3>Students</h3>
-          <p>975,558</p>
+          <h3>Clients</h3>
+          <p>1200</p>
         </div>
         <div className="course-action">
           <button className="btn btn-primary" onClick={handleEnrollment}>Enroll Now</button>

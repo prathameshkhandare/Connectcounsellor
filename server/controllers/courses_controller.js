@@ -1,6 +1,8 @@
 const coursesModel = require('../models/courses');
 
 
+
+
 const writeCourse = async (req, res) => {
     try {
         const course = await coursesModel.create({
@@ -51,4 +53,22 @@ const deleteCourse = async (req, res) => {
     }
 };
 
-module.exports = { writeCourse, readCourse, readcourseById, deleteCourse };
+const updateCourse = async(req,res)=>{
+    try{
+        const{courseId} = req.params;
+        const updateCourse = req.body;
+
+        const course = await coursesModel.findByIdAndUpdate(courseId,updateCourse,{new:true});
+
+        if(!course){
+            return res.status(400).json({message : 'course not found'});
+        }
+        res.json(course);
+    }
+    catch(error){
+        res.status(500).json({message : 'error updating course',error})
+    }
+};
+
+
+module.exports = { writeCourse, readCourse, readcourseById, deleteCourse ,updateCourse};
