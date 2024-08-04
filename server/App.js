@@ -20,7 +20,8 @@ const appointmentRoutes = require('./routes/Appointment')
 
 const UserprofileRoutes = require('./routes/UserProfile');
 const accountsettingRoute = require('./routes/Acountsetting')
-
+const paymentRoutes = require('./routes/payment')
+const enrollmentRoute = require('./routes/EnrollmentRoute');
 // const {authenticateToken} = require('./middleware/authenticate'); 
 // Middleware
 app.use(cors());
@@ -34,6 +35,6 @@ app.use(authRoute);
 app.use(appointmentRoutes);
 app.use(UserprofileRoutes);
 app.use(accountsettingRoute)
-
-
+app.use(paymentRoutes);
+app.use(enrollmentRoute);
 app.listen(port, () => console.log(`Server listening on port ${port}!`));

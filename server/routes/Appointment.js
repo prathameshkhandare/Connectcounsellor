@@ -7,17 +7,7 @@ const router = express.Router();
 
 const {getAppointment,updateAppointmentStatus,AppointmentController} =require('../controllers/appointmentController')
 const {authenticateToken} = require('../middleware/authMiddleware');
-// Email transporter configuration
-// const transporter = nodemailer.createTransport({
-//   service: 'gmail',
-//   auth: {
-//     user: process.env.EMAIL_USER,
-//     pass: process.env.EMAIL_PASS,
-//   },
-// });
-//important 
-// import the root to authenticate the token so that we can gttet req.user.id 
-// 
+
 
 
 
