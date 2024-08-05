@@ -7,6 +7,10 @@ const coursesSchema =mongoose.Schema({
     description: String,
     content:[String],
     category:   String,
+    price:{
+        type: Number,
+        default: 1200,
+    }
     
 });
 

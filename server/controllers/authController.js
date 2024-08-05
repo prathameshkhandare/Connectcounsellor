@@ -129,6 +129,7 @@ const checkLoginStatus = async (req, res) => {
         }
 
         res.status(200).json({ user });
+        // console.log("current user :"+ JSON.stringify(user))
     } catch (error) {
         res.status(500).json({ message: 'Server error' });
     }

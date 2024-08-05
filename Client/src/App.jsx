@@ -165,10 +165,9 @@ function App() {
          
           path="/Notifications" element ={<> <CustomNavbar/><Notifications/> <Footer/></>}></Route>
           <Route path="/booknow" element={<BookNow />} />
-          <Route path="/resetPassword" element={<ResetPassword />} />
+       
           </Route>
-          <Route path="/forgotpassword" element={<ForgotPass/>} />
-          <Route path="/register" element={<Registration />} />
+      
           <Route path="/Help" element={<>  <CustomNavbar /> <Help /> <Footer /> </> } />
           <Route path="/login" element={<Login />} />
           <Route element={<PrivateRoute requiredRole="admin" />}>
@@ -178,7 +177,9 @@ function App() {
             <Route path="/admin/Appointment" element={<>   <AdminPanel /> <AppointmentsList/> </> } />
             <Route path="/admin-home" element={<>   <AdminPanel /> <AdminBanner /> </> } />
            </Route>
-         
+           <Route path="/forgotpassword" element={<ForgotPass/>} />
+           <Route path="/register" element={<Registration />} />
+           <Route path="/resetPassword" element={<ResetPassword />} />
         </Routes>
       </div>
     </Router>
