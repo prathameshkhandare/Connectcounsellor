@@ -69,8 +69,10 @@ const updateCourse = async () => {
 
 
   return (
+    <>
+    <h2 className='manage-course-heading'>Manage Courses</h2>
     <div className="admin-panel-course-management">
-      <h2>Manage Courses</h2>
+      
       <div className="admin-panel-new-course">
         <h3>Add New Course</h3>
         <input
@@ -115,9 +117,11 @@ const updateCourse = async () => {
         <ul>
           {courses.map((course) => (
             <li key={course._id}>
-              {course.name}
-              <button className="admin-panel-button admin-panel-edit-button" onClick={() => openEditModal(course)}>Edit</button>
-              <button className="admin-panel-button admin-panel-delete-button" onClick={() => deleteCourse(course._id)}>Delete</button>
+              <span>{course.name}</span>
+        <div className="admin-panel-button-container">
+          <button className="admin-panel-button admin-panel-edit-button" onClick={() => openEditModal(course)}>Edit</button>
+          <button className="admin-panel-button admin-panel-delete-button" onClick={() => deleteCourse(course._id)}>Delete</button>
+        </div>
             </li>
           ))}
         </ul>
@@ -186,6 +190,7 @@ const updateCourse = async () => {
 
 
     </div>
+    </>
   );
 };
 

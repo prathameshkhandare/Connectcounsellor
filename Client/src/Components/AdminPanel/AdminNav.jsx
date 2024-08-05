@@ -15,18 +15,7 @@ const AdminNav = () => {
       <Link to="/admin/courses">Manage Courses</Link>
       <Link to="/admin/blogs">Manage Blogs</Link>
       <Link to="/admin/Appointment">Check Appointments</Link>
-      <button onClick={handleLogout}  
-      
-      style={{
-        backgroundColor: 'red', // Background color
-        color: 'white', // Text color
-        border: 'none', // No border
-        padding: '10px 20px', // Padding
-        borderRadius: '5px', // Rounded corners
-        cursor: 'pointer', // Pointer cursor on hover
-        fontSize: '16px', // Font size
-      }}
-      > logout</button>
+      <button onClick={handleLogout}   className='admin-logout-btn'> logout</button>
       
       
     </div>
