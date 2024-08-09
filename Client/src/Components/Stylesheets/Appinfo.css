@@ -1,4 +1,10 @@
 
+* {
+  /* body: 0; */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .app-info {
     width: 72%;
     margin: 40px auto;
@@ -117,8 +123,10 @@
     margin: 10px 0;
   }
   .app-images img {
-    width: 10% !important;
-    height: 90px;
+    width: 300% !important;
+   height: 200% !important;
+   margin-left:100%;
+   margin-top: 40px;
     object-fit: cover;
   }
   .app-store-logo {
@@ -126,20 +134,20 @@
     margin: 10px 0;
   }
   .app-store-buttons {
-    /* margin: 20px 20px; */
-    /* display: flex; */
+    margin: 20px 20px;
+    display: flex;
     height: 50px;
     width: 50px;
   }
   .Android-play-store{
-    height: 43px !important;
+    height: 55px !important;
     width: auto;
-    margin: -5px 10px ;
+    margin: -7px 10px ;
     
    }
     
    .ios-play-store{
-    height: 40px;
+    height: 38px;
     width: auto;
     margin: 0 5px;
     /* margin-right: 50px; */
@@ -156,7 +164,7 @@
       align-items: center;
       width: 100%;
       height: 60%;
-      padding: 10px;
+      padding-bottom: 10px;
     }
     .app-images, .app-content {
       max-width: 100%;
@@ -164,8 +172,10 @@
     
     }
     .app-images img {
-      max-width: 100%; /* Ensuring the image scales down appropriately */
-      margin-right: 65%;
+      width: 80% !important;
+    height: 80% !important;
+    margin-right: 100% !important;
+   
       
     }
     .app-store-buttons {

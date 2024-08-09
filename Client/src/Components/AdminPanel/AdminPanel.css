@@ -1,227 +1,259 @@
-.admin-panel {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .admin-panel-navbar {
-    background-color: #333;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .admin-panel-navbar a {
-    color: white;
-    margin: 0 15px;
-    text-decoration: none;
-  }
-  
-  .admin-panel-navbar a:hover {
-    text-decoration: underline;
-  }
-  
-  .admin-panel-content {
-    padding: 20px;
-  }
-  
-  .admin-panel-blog-management {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-  }
-  
-  .admin-panel-blog-list {
-    width: 65%;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .admin-panel-new-blog {
-    width: 35%;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .admin-panel-new-blog input,
-  .admin-panel-new-blog textarea {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  .admin-panel-new-blog textarea {
-    resize: none; /* Make the textarea non-resizable */
-  }
-  
-  .admin-panel-button {
-    padding: 10px;
-    background-color: #337ab7;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .admin-panel-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .admin-panel-button.delete {
-    background-color: #d9534f;
-  }
-  
-  .admin-panel-button.delete:hover {
-    background-color: #c9302c;
-  }
-  
-  .admin-panel-blog-list ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .admin-panel-blog-list li {
-    background-color: #f7f7f7;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    position: relative;
-  }
-  
-  .admin-panel-blog-list li img {
-    display: block;
-    margin-top: 10px;
-  }
-  
-  .admin-panel-message {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #dff0d8;
-    color: #3c763d;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
+* {
+  /* body: 0; */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  .admin-panel-blog-management {
-    position: relative; /* Ensure it's a positioned container for absolute positioning */
-  }
-  
-  .admin-panel-message {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #0e66e9;
-    color: #edf1ed;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-  }
-  
-  .admin-panel-course-management {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-  }
-  
-  .admin-panel-new-course {
-    width: 35%;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .admin-panel-course-list {
-    width: 65%;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .admin-panel-new-course input,
-  .admin-panel-new-course textarea {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  .admin-panel-new-course textarea {
-    resize: none;
-  }
-  
-  .admin-panel-course-list ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .admin-panel-course-list li {
-    background-color: #f7f7f7;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .admin-panel-button {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 1rem;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 4px;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
-  .admin-panel-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .admin-panel-delete-button {
-    background-color: #dc3545;
-    color: #fff;
-    padding: 8px 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .admin-panel-delete-button:hover {
-    background-color: #c82333;
-  }
-  
+* .admin-panel {
+  display: flex;
+  flex-direction: column;
+}
 
-  .admin-panel-adminbaner-h2{
-    color: #9f18c9;
-    font-size: 30px;
+* .admin-panel-navbar {
+  background-color: #333;
+  padding: 10px;
+  text-align: center;
+}
 
-    margin-top: 20px;
-  }
+* .admin-panel-navbar a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+}
+
+* .admin-panel-navbar a:hover {
+  text-decoration: underline;
+}
+
+* .admin-panel-content {
+  padding: 10px;
+}
+
+* .admin-panel-blog-management {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+* .admin-panel-blog-list {
+  width: 65%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+* .admin-panel-new-blog {
+  width: 35%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+* .admin-panel-new-blog input,
+* .admin-panel-new-blog textarea {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+* .admin-panel-new-blog textarea {
+  resize: none; /* Make the textarea non-resizable */
+}
+
+* .admin-panel-button {
+  padding: 10px;
+  background-color: #337ab7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+* .admin-panel-button:hover {
+  background-color: #0056b3;
+}
+
+* .admin-panel-button.delete {
+  background-color: #d9534f;
+}
+
+* .admin-panel-button.delete:hover {
+  background-color: #c9302c;
+}
+
+* .admin-panel-blog-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+* .admin-panel-blog-list li {
+  background-color: #f7f7f7;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  position: relative;
+}
+
+* .admin-panel-blog-list li img {
+  display: block;
+  margin-top: 10px;
+}
+
+* .admin-panel-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #dff0d8;
+  color: #3c763d;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+* .admin-panel-blog-management {
+  position: relative; /* Ensure it's a positioned container for absolute positioning */
+}
+
+* .admin-panel-message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #0e66e9;
+  color: #edf1ed;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+/* admin panel course  css*/
+
+* .admin-panel-course-management {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+.manage-course-heading{
+  margin-left: 40%;
+  margin-bottom: 20px;
+}
+
+* .admin-panel-new-course {
+  display: flex;
+
+  flex-direction: column;
+  width: 50%;
+  margin-left: 50px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+* .admin-panel-course-list {
+  width: 50%;
+  margin-right: 50px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+* .admin-panel-new-course input,
+* .admin-panel-new-course textarea {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+* .admin-panel-new-course textarea {
+  resize: none;
+}
+
+* .admin-panel-course-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.admin-panel-course-list li {
+  background-color: #f7f7f7;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 
+.admin-panel-button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.admin-panel-button-container {
+  display: flex;
+  gap: 10px; /* Adjust gap as needed */
+}
+.admin-panel-edit-button {
+  background-color: #007bff;
 
-/* appointment css */
-/* Global styles */
-.admin_appointment_container {
+}
+
+* .admin-panel-button:hover {
+  background-color: #0056b3;
+}
+
+.admin-panel-delete-button {
+  background-color: #dc3545;
+}
+.admin-panel-button:hover {
+  opacity: 0.8;
+}
+.admin-panel-delete-button:hover {
+  background-color: #c82333;
+}
+
+.admin-panel-edit-button:hover {
+  background-color: #0056b3;
+}
+/* */
+
+* .admin-panel-adminbaner-h2 {
+  color: #9f18c9;
+  font-size: 30px;
+  margin-top: 10px;
+  margin-left: 60px;
+}
+.admin-logout-btn{
+      background-color: red;
+        color: white;
+        border: none; 
+        padding: 10px 20px;
+        border-radius: 5px; 
+        cursor: pointer; 
+        font-size: 16px;
+}
+
+/* Appointment CSS */
+* .admin_appointment_container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -229,7 +261,7 @@
   background-color: #f8f9fa;
 }
 
-.admin_appointment_content {
+* .admin_appointment_content {
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
@@ -238,38 +270,38 @@
   max-width: 800px; /* Adjust this value to control the maximum width of the container */
 }
 
-.admin_appointment_title {
+* .admin_appointment_title {
   font-size: 24px;
   margin-bottom: 20px;
   text-align: center; /* Center the title */
   color: #333; /* Make sure the title color is visible */
 }
 
-.admin_appointment_list {
+* .admin_appointment_list {
   list-style-type: none;
   padding: 0;
 }
 
-.admin_appointment_item {
+* .admin_appointment_item {
   margin-bottom: 20px;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
 
-.admin_appointment_details p {
+* .admin_appointment_details p {
   margin: 0;
   padding: 5px 0;
   text-align: justify; /* Justify the text within the container */
 }
 
-.admin_appointment_buttons {
+* .admin_appointment_buttons {
   margin-top: 10px;
   display: flex;
   gap: 10px;
 }
 
-.admin_appointment_button {
+* .admin_appointment_button {
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
@@ -277,14 +309,61 @@
   color: #fff;
 }
 
-.admin_appointment_button.accept {
+* .admin_appointment_button.accept {
   background-color: #28a745;
 }
 
-.admin_appointment_button.reject {
+* .admin_appointment_button.reject {
   background-color: #dc3545;
 }
 
-.admin_appointment_button:hover {
+* .admin_appointment_button:hover {
   opacity: 0.8;
+}
+
+/* Tablet styles (max-width: 768px) */
+@media (max-width: 768px) {
+  * .admin-panel-blog-management,
+  * .admin-panel-course-management {
+    flex-direction: column;
+  }
+
+  * .admin-panel-blog-list,
+  * .admin-panel-new-blog,
+  * .admin-panel-course-list,
+  * .admin-panel-new-course {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  * .admin_appointment_content {
+    width: 100%;
+  }
+}
+
+/* Mobile styles (max-width: 480px) */
+@media (max-width: 480px) {
+  * .admin-panel-navbar a {
+    display: block;
+    margin: 10px 0;
+  }
+
+  * .admin-panel-content {
+    padding: 10px;
+  }
+
+  * .admin-panel-blog-list li,
+  * .admin-panel-course-list li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  * .admin_appointment_buttons {
+    flex-direction: column;
+  }
+
+  * .admin_appointment_button {
+    width: 100%;
+    text-align: center;
+  }
 }

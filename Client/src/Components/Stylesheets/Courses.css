@@ -5,13 +5,14 @@
 
 .categories-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 20px;
 }
 
 .category-button {
   padding: 10px 20px;
-  margin: 0 10px;
+  margin: 10px; /* Adjust the margin to create space around the buttons */
   background-color: #337ab7;
   color: white;
   border: none;
@@ -19,15 +20,17 @@
   cursor: pointer;
 }
 
-.category-button.active, .category-button:hover {
+.category-button.active,
+.category-button:hover {
   background-color: #0056b3;
 }
 
 .card-container {
-  margin-left: 50px;
+ 
   display: flex;
+
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .card {
