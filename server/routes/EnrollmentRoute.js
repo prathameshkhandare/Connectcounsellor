@@ -8,6 +8,6 @@ router.post('/api/course-enrollment', createEnrollment);
 // GET route to fetch all enrolled users by course ID
 router.get('/api/course/:courseId/enrolled', getEnrolledUsersByCourseId);
 router.get('/api/course-enrollment', getEnrolledUsersByCourseId);
-
+// router.get('/api/getallenrolledusers',getAllUsers)
 // Export the router
 module.exports = router;
