@@ -9,12 +9,12 @@
   margin-right: 5px;
   color: white;
 }
-/* Popover */
+
 .notifications-popover {
-  max-width: 300px; /* Adjust width */
-  max-height: 400px; /* Adjust height */
+  max-width: 300px; 
+  max-height: 400px; 
   overflow-y: auto;
-  /* transform: translateX(-50px) translateY(10px) !important; Adjust this value to float left and below */
+  
 }
 
 .notifications-popover .popover-header {
@@ -25,12 +25,12 @@
 .notifications-popover .popover-body {
   padding: 10px;
 }
-/* notification end */
+
 
 
 /* Navbar */
 .navbar-bg {
-  background-color: #fefeff;
+  background-color: #ffffff;
   transition: background-color 0.3s ease;
   position: sticky;
   top: 0;
@@ -39,7 +39,8 @@
 }
 
 .navbar-scrolled {
-  background-color: #fcfdff; /* Change this to the color you want when scrolled */
+  background-color: #fcfdff; 
+  margin-top: -1px;
 }
 
 .navbar-collapse {
@@ -214,7 +215,8 @@
   flex-direction: column; /* Stack elements vertically */
   width: 100%;
   min-height: 80vh; 
-  background: url('https://img.freepik.com/premium-photo/real-paper-texture-background-backdrop-white_910131-1649.jpg') no-repeat center center;
+  /* background: url('https://img.freepik.com/premium-photo/real-paper-texture-background-backdrop-white_910131-1649.jpg') no-repeat center center; */
+  background-color: #ffffff;
   background-size: cover;
   box-sizing: border-box;
   padding: 20px;
@@ -355,11 +357,17 @@
 /*-------------------------- SignupForm.css -------------------------------------*/
 
 
+.signup-container {
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+  margin-top: 80px;
+}
 
 .signup-form-container {
   max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
+  margin: 30px auto;
+  padding: 10px 20px 10px 20px;
   border: 1px solid #ccc;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -367,21 +375,24 @@
 
 .signup-form {
   display: flex;
+  margin: 2px;
   flex-direction: column;
 }
 
 .signup-form-group {
-  margin-bottom: 15px;
+  margin-bottom: 8px;
 }
 
 .signup-form-group label {
-  margin-bottom: 5px;
+  margin-bottom: 2px;
 }
 
 .signup-form-group input {
   width: 100%;
   padding: 8px;
   box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .signup-button {
@@ -397,29 +408,38 @@
   background-color: #0056b3;
 }
 
+.signup-login-box {
+  margin: 20px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+
 .signup-login-redirect {
   display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
 }
 
 .signup-login-redirect span {
-  align-self: center;
+  margin-right: 10px;
 }
 
 .signup-login-link {
   color: #007bff;
   cursor: pointer;
-  text-decoration: underline;
   border: none;
   background: none;
   padding: 0;
-  margin: 0;
+  margin: 0px 10px;
 }
 
 .signup-login-link:hover {
   color: #0056b3;
+  text-decoration: underline;
 }
+
 
 
 
@@ -429,7 +449,7 @@
 .footer {
   background-color: #f1f1f1;
   padding: 20px;
-  
+  margin-bottom: -26px;
 }
 
 .footer-col-container {
@@ -546,14 +566,19 @@
 
 
 /* forgot password page  */
+
 .forgotpass-container {
   width: 400px;
   min-height: 300px;
   margin: 0 auto;
-  margin-top: 40px;
+  margin-top: 20px;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
+}
+.forgot-pass-head{
+  margin-top: 100px;
+  font-size: 25px;
 }
 
 .forgotpass-form-container {
@@ -565,7 +590,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
- 
 }
 
 .forgotpass-form-group {
@@ -579,10 +603,12 @@
   text-align: left;
 }
 
-.forgotpass-form-group input {
+.forgot-pass-input {
   width: 100%;
   padding: 8px;
   box-sizing: border-box;
+  border: 1px solid #ccc; /* Ensure the input border color matches the container border */
+  border-radius: 5px;
 }
 
 .forgotpass-button {
@@ -610,7 +636,12 @@
 }
 
 .forgotpass-login-redirect {
-  margin-top: 15px;
+  margin-top: 60px;
+  border: 1px solid #ccc; /* Ensure the border matches the main container */
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  
 }
 
 .forgotpass-login-link {
@@ -618,13 +649,21 @@
   border: none;
   color: #007bff;
   cursor: pointer;
-  text-decoration: underline;
+  /* text-decoration: underline; */
   padding: 0;
 }
 
 .forgotpass-login-link:hover {
   color: #0056b3;
+  text-decoration: underline; 
 }
+
+.forgot-pass-head {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
 /* forgot password end */
 
 
@@ -641,6 +680,10 @@
 
 .reset-password-header {
   margin-bottom: 20px;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
 }
 
 .reset-password-form {

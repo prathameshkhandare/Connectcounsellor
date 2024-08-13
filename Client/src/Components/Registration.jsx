@@ -57,12 +57,12 @@ const SignupForm = () => {
   };
 
   return (
+    <div className="container">
+    <p className='signup-container'>Signup to Connect Counsellor</p>
     <div className="signup-form-container">
       <form onSubmit={handleSignup} className="signup-form">
-        <h2>Sign Up</h2>
-        
         <div className="signup-form-group">
-        {errorMessage && <p >{errorMessage}</p>}
+          {errorMessage && <p>{errorMessage}</p>}
           <label htmlFor="username">Username:</label>
           <input type="text" id="username" name="username" value={formData.username} onChange={handleChange} required />
         </div>
@@ -80,12 +80,15 @@ const SignupForm = () => {
         </div>
         <button type="submit" className="signup-button">Sign Up</button>
       </form>
-      <div className="signup-login-redirect">
-        <span>Already have an account?</span>
-        <button onClick={redirectToLogin} className="signup-login-link">Login</button>
+      <div className="signup-login-box">
+        <div className="signup-login-redirect">
+          <span>Already have an account?</span>
+          <button onClick={redirectToLogin} className="signup-login-link">Login</button>
+        </div>
       </div>
     </div>
+  </div>
   );
-};
+};  
 
 export default SignupForm;

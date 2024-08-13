@@ -10,21 +10,51 @@
   flex-direction: column;
 }
 
-* .admin-panel-navbar {
+
+.admin-panel-navbar {
   background-color: #333;
   padding: 10px;
   text-align: center;
+  position: relative;
 }
 
-* .admin-panel-navbar a {
+.admin-panel-navbar .menu-icon {
+  display: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+.admin-panel-navbar .nav-links {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.admin-panel-navbar a {
   color: white;
   margin: 0 15px;
   text-decoration: none;
 }
 
-* .admin-panel-navbar a:hover {
+.admin-panel-navbar a:hover {
   text-decoration: underline;
 }
+
+.admin-logout-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  margin: 0 15px;
+}
+
+
+
+
+/* navbar end*/
 
 * .admin-panel-content {
   padding: 10px;
@@ -214,6 +244,15 @@
 }
 .admin-panel-edit-button {
   background-color: #007bff;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
 
 }
 
@@ -223,6 +262,15 @@
 
 .admin-panel-delete-button {
   background-color: #dc3545;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
 }
 .admin-panel-button:hover {
   opacity: 0.8;
@@ -251,6 +299,63 @@
         cursor: pointer; 
         font-size: 16px;
 }
+
+
+/*edit course css */
+
+.edit-course-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.edit-course-container h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.button-group {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.admin-panel-button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.admin-panel-button:hover {
+  background-color: #0056b3;
+}
+
 
 /* Appointment CSS */
 * .admin_appointment_container {
@@ -335,6 +440,23 @@
     width: 100%;
     margin-bottom: 20px;
   }
+  * .admin-panel-new-course {
+    width: 100%;
+    margin-bottom: 20px;
+    margin-left: 1px;
+
+  }
+  * .admin-panel-course-list{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+ *.manage-course-heading{
+  margin-left: 1px;
+  text-align: center;
+ }
+
 
   * .admin_appointment_content {
     width: 100%;
@@ -342,6 +464,34 @@
 }
 
 /* Mobile styles (max-width: 480px) */
+
+/* navbar media query*/
+@media (max-width: 768px) {
+  .admin-panel-navbar .menu-icon {
+    display: block;
+  }
+
+  .admin-panel-navbar .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    text-align: center;
+  }
+
+  .admin-panel-navbar .nav-links.show {
+    display: flex;
+  }
+
+  .admin-panel-navbar a,
+  .admin-logout-btn {
+    margin: 10px 0;
+  }
+}
+/* ---- */
 @media (max-width: 480px) {
   * .admin-panel-navbar a {
     display: block;

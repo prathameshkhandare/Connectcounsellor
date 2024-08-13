@@ -169,6 +169,7 @@ const CourseInfo = () => {
           <p className="course-description">{course.description}</p>
         </div>
       </div>
+      <hr />
       <div className="course-sidebar">
         <div className="course-instructor">
           <h3>price</h3>

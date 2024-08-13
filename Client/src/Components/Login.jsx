@@ -99,9 +99,11 @@ const LoginForm = () => {
 
     return (
         <div className="container">
+            <p className='login-heading'>Login to Connect Counsellor</p>
             <div className="login-form-container">
+            
                 <form onSubmit={handleLogin} className="login-form">
-                    <h2>Login</h2>
+                    
                     {errorMessage && <p className="error-message">{errorMessage}</p>}
                     <div className="login-form-group">
                         <label htmlFor="email">Email or mobile</label>
@@ -127,12 +129,16 @@ const LoginForm = () => {
                     </div>
                     <button type="submit" className="login-button">Login</button>
                 </form>
+                
+                <div className="login-extra-container">
+                <button onClick={redirecttoForgotpassword} className="login-forgotpass-link">forgot password?</button>
                 <div className="login-signup-redirect">
                 
                     <span>Don't have an account?</span>
-                    <button onClick={redirecttoForgotpassword} className="login-signup-link">forgot password</button>
+                    <button onClick={redirectToSignup} className="login-signup-link">Create an account</button>
+                   
                 </div>
-                <button onClick={redirectToSignup} className="login-signup-link">Sign Up</button>
+                </div>
             </div>
         </div>
     );

@@ -12,24 +12,19 @@ function UserProfile() {
     email: '',
     hobby: '',
     language: 'English (US)',
-    // profilePic: ''
   });
-
-  // const [isPicSet, setIsPicSet] = useState(false);
 
   useEffect(() => {
     const userDetails = async () => {
-      const token = localStorage.getItem('token'); // Retrieve token from local storage
+      const token = localStorage.getItem('token');
       if (token) {
         try {
-          // Send a request to backend to verify token and get user details
           const response = await axios.get('http://localhost:3000/api/userdetails', {
             headers: { Authorization: `Bearer ${token}` }
           });
 
-          const userData = response.data.user; // Adjust based on actual API response structure
+          const userData = response.data.user;
           setUserId(userData._id);
-           console.log(userData._id)
         } catch (error) {
           console.log('Error fetching user details:', error);
         }
@@ -41,8 +36,7 @@ function UserProfile() {
 
   useEffect(() => {
     const fetchProfile = async () => {
-      if (!userId) return; // Don't fetch if userId is not available
-      console.log('Fetching Profile for User ID:', userId);
+      if (!userId) return;
       try {
         const token = localStorage.getItem('token');
         const response = await fetch(`http://localhost:3000/api/user/profile/read/${userId}`, {
@@ -58,7 +52,6 @@ function UserProfile() {
           email: data.email || '',
           hobby: data.hobby || '',
           language: data.language || 'English (US)',
-          // profilePic: data.profilePic || ''
         });
       } catch (error) {
         console.log('Error in fetching user profile:', error);
@@ -75,27 +68,6 @@ function UserProfile() {
       [name]: value
     });
   };
-
-  // const handleImageChange = (e) => {
-  //   const file = e.target.files[0];
-  //   if (file) {
-
-  //     // const maxSize = 5* 1024*1024;
-  //     // if(file.size > maxSize){
-  //       setMessage('image should not greater than 5mb size')
-  //       return;
-  //     }
-  //     const reader = new FileReader();
-  //     reader.onloadend = () => {
-  //       setProfile({
-  //         ...profile,
-  //         profilePic: reader.result
-  //       });
-  //       setIsPicSet(true);
-  //     };
-  //     reader.readAsDataURL(file);
-  //   }
-  // };
 
   const getInitials = () => {
     const { firstName, lastName } = profile;
@@ -119,26 +91,21 @@ function UserProfile() {
       });
 
       if (!response.ok) {
-        const errorText = await response.text(); // Read the response as text
+        const errorText = await response.text();
         throw new Error(`HTTP error! Status: ${response.status}, Message: ${errorText}`);
       }
 
       const data = await response.json();
-      console.log('Saving profile changes:', data);
-      
       if (userId) {
         setMessage('Profile updated successfully!');
       } else {
         setMessage('Profile saved successfully!');
       }
 
-      // Hide the message after 3 seconds
       setTimeout(() => setMessage(''), 3000);
     } catch (error) {
       console.log('Error in saving profile:', error);
       setMessage('Error in saving profile');
-
-      // Hide the message after 3 seconds
       setTimeout(() => setMessage(''), 3000);
     }
   };
@@ -153,23 +120,15 @@ function UserProfile() {
             ) : (
               <span>{getInitials()}</span>
             )}
-            {/* <input
-              type="file"
-              accept="image/*"
-              onChange={handleImageChange}
-              className="profile-pic-input"
-            /> */}
-            <div className="profile-pic-overlay">
-              Select Image
-            </div>
+            <div className="profile-pic-overlay">Select Image</div>
           </div>
         </div>
         <div className="profile-name">{`${profile.firstName} ${profile.lastName}`}</div>
         <ul className="profile-menu">
-          <li><Link to="/Profile">Profile</Link></li>
-          <li><Link to="/account-setting">Account Security</Link></li>
-          <li><Link to="/Notifications">Notifications</Link></li>
-          <li><Link to="/UserCourses">My courses</Link></li>
+          <li className="profile-menu-links"><Link to="/Profile">Profile</Link></li>
+          <li className="profile-menu-links"><Link to="/account-setting">Account Security</Link></li>
+          <li className="profile-menu-links"><Link to="/Notifications">Notifications</Link></li>
+          <li className="profile-menu-links"><Link to="/UserCourses">My courses</Link></li>
         </ul>
       </aside>
       <main className="profile-main">
@@ -219,7 +178,6 @@ function UserProfile() {
             >
               <option value="English (US)">English (US)</option>
               <option value="English (UK)">English (UK)</option>
-              {/* Add more language options as needed */}
             </select>
           </div>
           <button type="submit">Save</button>

@@ -33,16 +33,19 @@ const ForgotPass = () => {
     }
   };
 
+
   return (
+    <>
+    <p className="forgot-pass-head">forgot password</p>
     <div className="forgotpass-container">
       <div className="forgotpass-form-container">
         <form onSubmit={handleSubmit} className="forgotpass-form">
-          <h2>Forgot Password</h2>
+        
           {message && <p className="forgotpass-success-message">{message}</p>}
           {error && <p className="forgotpass-error-message">{error}</p>}
           <div className="forgotpass-form-group">
             <label htmlFor="email">Email Address</label>
-            <input
+            <input className="forgot-pass-input"
               type="email"
               id="email"
               name="email"
@@ -63,6 +66,7 @@ const ForgotPass = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

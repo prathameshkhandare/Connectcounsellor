@@ -28,8 +28,10 @@ const ResetPassword = () => {
   };
 
   return (
+    <>
+    <p className="reset-password-header">Reset Password with OTP</p>
     <div className="reset-password-container">
-      <h2 className="reset-password-header">Reset Password with OTP</h2>
+      
       {message && <p className="reset-password-success-message">{message}</p>}
       {error && <p className="reset-password-error-message">{error}</p>}
       <form onSubmit={handleSubmit} className="reset-password-form">
@@ -66,6 +68,7 @@ const ResetPassword = () => {
         <button type="submit" className="reset-password-button">Reset Password</button>
       </form>
     </div>
+    </>
   );
 };
 

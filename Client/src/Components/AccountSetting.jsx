@@ -46,12 +46,13 @@ const AccountSetting = () => {
   };
 
   return (
-    <div className="account-setting">
+    <div className="account-settings-container">
       <h3>Account Settings</h3>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
+      <form onSubmit={handleSubmit} className="account-settings-form">
+        <div className="account-settings-form-group">
           <label>Current Password:</label>
           <input
+            className='account-settings-input'
             type="password"
             name="currentPassword"
             value={formData.currentPassword}
@@ -59,9 +60,10 @@ const AccountSetting = () => {
             required
           />
         </div>
-        <div className="form-group">
+        <div className="account-settings-form-group">
           <label>New Password:</label>
           <input
+            className='account-settings-input'
             type="password"
             name="newPassword"
             value={formData.newPassword}
@@ -69,9 +71,10 @@ const AccountSetting = () => {
             required
           />
         </div>
-        <div className="form-group">
+        <div className="account-settings-form-group">
           <label>Confirm New Password:</label>
           <input
+            className='account-settings-input'
             type="password"
             name="confirmNewPassword"
             value={formData.confirmNewPassword}
@@ -79,9 +82,9 @@ const AccountSetting = () => {
             required
           />
         </div>
-        <button type="submit">Change Password</button>
+        <button type="submit" className='account-settings-button'>Change Password</button>
       </form>
-      {message && <p>{message}</p>}
+      {message && <p className="account-settings-message">{message}</p>}
     </div>
   );
 };

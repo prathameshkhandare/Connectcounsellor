@@ -1,6 +1,13 @@
+
+.login-heading{
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  font-size: 25px;
+}
 .login-form-container {
     max-width: 400px;
-    margin: 0 auto;
+    margin: 30px auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -40,27 +47,51 @@
   .login-button:hover {
     background-color: #218838;
   }
+
+  .login-extra-container{
+    border: 1px solid #ccc;
+    margin-top: 15px;
+    border-radius: 5px;
+  }
   
   .login-signup-redirect {
     display: flex;
-    justify-content: space-between;
+    margin-left: 15px;
+   
     margin-top: 20px;
   }
   
   .login-signup-redirect span {
     align-self: center;
   }
-  
-  .login-signup-link {
+  .login-forgotpass-link{
     background: none;
     border: none;
     color: #007bff;
     cursor: pointer;
+    margin:0px 30% ;
+    padding-top: 10px;
+
+  }
+  .login-forgotpass-link:hover{
     text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .login-signup-link {
+
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    
+    margin-left: 15px;
+    /* text-decoration: underline; */
   }
   
   .login-signup-link:hover {
     color: #0056b3;
+    text-decoration: underline;
   }
   
 
