@@ -25,8 +25,13 @@ const BlogManagement = () => {
   };
 
   const addBlog = async () => {
+    const token = localStorage.getItem('token');
     try {
-      const response = await axios.post('http://localhost:3000/api/blog/write', newBlog);
+      const response = await axios.post('http://localhost:3000/api/blog/write', newBlog,{
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
       setBlogs([...blogs, response.data]);
       setNewBlog({ title: '', content: '', author: '', image: '' });
     } catch (error) {
@@ -36,7 +41,11 @@ const BlogManagement = () => {
 
   const deleteBlog = async (id) => {
     try {
-      const response = await axios.delete(`http://localhost:3000/api/blog/delete/${id}`);
+      const response = await axios.delete(`http://localhost:3000/api/blog/delete/${id}`,{
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
       setBlogs(blogs.filter(blog => blog._id !== id));
       setMessage(response.data.message);
       setShowMessage(true);

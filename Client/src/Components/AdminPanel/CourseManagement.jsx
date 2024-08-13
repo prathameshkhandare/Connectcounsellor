@@ -27,7 +27,11 @@ const CourseManagement = () => {
   const addCourse = async () => {
     try {
       const contentArray = newCourse.content.split(',').map(item => item.trim());
-      const response = await axios.post('http://localhost:3000/api/courses/write', { ...newCourse, content: contentArray });
+      const response = await axios.post('http://localhost:3000/api/courses/write', { ...newCourse, content: contentArray },{
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
       setCourses([...courses, response.data]);
       setNewCourse({ name: '', image: '', shortdescription: '', description: '', content: '', category: '' });
     } catch (error) {
@@ -37,7 +41,11 @@ const CourseManagement = () => {
 
   const deleteCourse = async (courseId) => {
     try {
-      await axios.delete(`http://localhost:3000/api/courses/delete/${courseId}`);
+      await axios.delete(`http://localhost:3000/api/courses/delete/${courseId} {
+          headers: {
+            'Authorization': Bearer ${token}
+          }
+        }`);
       const updatedCourses = courses.filter(course => course._id !== courseId);
       setCourses(updatedCourses);
     } catch (error) {
