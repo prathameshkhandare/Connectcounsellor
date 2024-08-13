@@ -21,13 +21,8 @@
     "react-datepicker": "^7.3.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.2.1",
-<<<<<<< HEAD
-    "react-router-dom": "^6.23.1",
-    "swiper": "^11.1.9"
-=======
     "react-modal": "^3.16.1",
     "react-router-dom": "^6.23.1"
->>>>>>> e2ff4505e2d5dbf0709a7155b65cb343fd3b942d
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

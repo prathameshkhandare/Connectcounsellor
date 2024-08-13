@@ -50,10 +50,16 @@ const CourseInfo = () => {
     const receiptId = `C${courseId.substring(0, 10)}U${userid.substring(0, 10)}`; // Ensure courseId and userid are defined
 
     try {
+      const token = localStorage.getItem('token');
+      if(!token) {throw new Error('Token not found')}
         // Call your backend to create a payment order
         const orderResponse = await axios.post("http://localhost:3000/api/create", {
             amount: amount,
             receiptId: receiptId,
+        },{
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         });
         const { orderId: razorpayOrderId } = orderResponse.data;
 

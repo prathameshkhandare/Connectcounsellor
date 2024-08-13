@@ -57,6 +57,7 @@ const LoginForm = () => {
             if (response.status === 200) {
                 console.log('User details:', response.data.user);
                 setUserRole(response.data.user.role);
+                console.log('User role:', response.data.user.role)
             }
         } catch (error) {
           if (error.response) {
