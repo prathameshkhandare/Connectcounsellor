@@ -93,16 +93,7 @@ function App() {
               </>
             }
           />
-          <Route
-            path="/courseInfo/:courseId"
-            element={
-              <>
-                <CustomNavbar />
-                <CourseInfo/>
-                <Footer />
-              </>
-            }
-          />
+          
           <Route
             path="/cookiepolicy"
             element={
@@ -157,7 +148,16 @@ function App() {
           <Route element={<PrivateRoute requiredRole="user" />}>
           <Route
           path="/profile" element ={<> <CustomNavbar/><UserProfile/> <Footer/></>}></Route>
-          
+          <Route
+            path="/courseInfo/:courseId"
+            element={
+              <>
+                <CustomNavbar />
+                <CourseInfo/>
+                <Footer />
+              </>
+            }
+          />
           <Route
           path="/account-setting" element ={<> <CustomNavbar/><AccountSetting/> <Footer/></>}></Route>
           {/* <Route path = '/UserCourses' element = {<> <CustomNavbar/> <UserCourses/>  <Footer/> </>}></Route> */}

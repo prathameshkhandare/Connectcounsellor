@@ -1,3 +1,5 @@
+const mongoose = require('mongoose');
+
 const Enrollment = require('../models/Enrollment');  // Import the Enrollment model
 const User = require('../models/userModel');  // Import the User model (make sure you have a User model)
 
@@ -43,9 +45,13 @@ const createEnrollment = async (req, res) => {
 
 // Fetch all users enrolled in a specific course by course ID
 const getEnrolledUsersByCourseId = async (req, res) => {
-  const { courseId } = req.params;
+  // const { courseId } = req.params;
+  const { courseId } = req.body;
 
   try {
+      if (!mongoose.isValidObjectId(courseId)) {
+    return res.status(400).json({ message: 'Invalid Course ID format.' }); // Bad Request if courseId is not a valid ObjectId
+  }
     // Find enrollments by courseId and populate user details
     const enrollments = await Enrollment.find({ courseId })
       .populate('userId', 'username email')  // Specify fields to return from the User model
