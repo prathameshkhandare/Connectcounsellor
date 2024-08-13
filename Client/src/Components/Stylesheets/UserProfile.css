@@ -1,27 +1,30 @@
+/* Profile Container */
 .profile-container {
     display: flex;
     font-family: Arial, sans-serif;
     min-height: 100vh;
-    /* Ensure it takes the full height of the viewport */
     padding: 20px;
-}
-
-.profile-sidebar {
+  }
+  
+  /* Sidebar */
+  .profile-sidebar {
     width: 250px;
     background-color: #f5f5f5;
     padding: 20px;
     border: 1px solid #ccc;
     margin-left: 13%;
-}
-
-.profile-pic-container {
+  }
+  
+  /* Profile Picture Container */
+  .profile-pic-container {
     position: relative;
     width: 100px;
     height: 100px;
     margin: 0 auto 20px;
-}
-
-.profile-pic {
+  }
+  
+  /* Profile Picture */
+  .profile-pic {
     width: 100px;
     height: 100px;
     background-color: #ccc;
@@ -32,26 +35,10 @@
     font-size: 36px;
     overflow: hidden;
     position: relative;
-}
-
-.profile-pic img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.profile-pic-input {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    cursor: pointer;
-    z-index: 10;
-}
-
-.profile-pic-overlay {
+  }
+  
+  /* Profile Picture Overlay */
+  .profile-pic-overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -67,101 +54,140 @@
     opacity: 0;
     transition: opacity 0.3s;
     z-index: 5;
-}
-
-/* .profile-pic:hover .profile-pic-overlay {
+  }
+  
+  /* Profile Picture Hover Effect */
+  /*
+  .profile-pic:hover .profile-pic-overlay {
     opacity: 1;
-} */
-
-.profile-name {
+  }
+  */
+  
+  /* Profile Name */
+  .profile-name {
     text-align: center;
     color: rgb(1, 1, 47);
     font-weight: bold;
-}
-
-.profile-menu {
+  }
+  
+  /* Profile Menu */
+  .profile-menu {
+    margin-top: 5px;
     list-style-type: none;
     padding: 0;
-}
-
-.profile-menu li {
+  }
+  
+  /* Profile Menu Links */
+  .profile-menu-links a {
+    
+    display: block;
     padding: 10px 0;
     cursor: pointer;
-   
-   
-
-}
-
-.profile-menu li.active {
+    text-decoration: none !important;
+    color: black !important;
+  }
+  
+  /* Active Profile Menu Link */
+  .profile-menu li.active {
     font-weight: bold;
     color: #007bff;
-   
-}
-
-.profile-main {
+  }
+  
+  /* Main Profile Section */
+  .profile-main {
     flex-grow: 1;
     background-color: #ffffff;
     margin-left: 1px;
     border: 1px solid #ccc;
     padding: 20px;
-}
-
-.profile-main h2,
-.profile-main p {
+  }
+  
+  .profile-main h2,
+  .profile-main p {
     text-align: center;
-}
-
-.profile-main p {
+  }
+  
+  .profile-main p {
     margin-top: 0;
     border-bottom: 2px solid #ccc;
     padding-bottom: 10px;
-}
-
-.profile-main .form-group {
+  }
+  
+  .profile-main .form-group {
     margin-bottom: 20px;
-}
-
-.profile-main input[type="text"],
-.profile-main textarea,
-.profile-main select {
+  }
+  
+  .profile-main input[type="text"],
+  .profile-main textarea,
+  .profile-main select {
     width: 100%;
     padding: 10px;
     margin-top: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-}
-
-.profile-main textarea {
+  }
+  
+  .profile-main textarea {
     height: 100px;
     resize: none;
-}
-
-.profile-main button[type="submit"] {
+  }
+  
+  .profile-main button[type="submit"] {
     padding: 10px 20px;
     border: none;
-    background-color: #007bff; /* Adjust color as needed */
+    background-color: #007bff;
     color: #fff;
     font-size: 16px;
     border-radius: 4px;
     cursor: pointer;
     margin-top: 10px;
-}
-
-.profile-main button[type="submit"]:hover {
-    background-color: #0056b3; /* Darker shade for hover */
-}
-
-
-.message-container {
+  }
+  
+  .profile-main button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Message Container */
+  .message-container {
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.3s ease, transform 0.3s ease;
     margin-top: 10px;
     font-size: 16px;
     color: green;
-}
-
-.message-container.visible {
+  }
+  
+  .message-container.visible {
     opacity: 1;
     transform: translateY(0);
-}
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .profile-container {
+      flex-direction: column;
+      padding: 10px;
+    }
+  
+    .profile-sidebar {
+      width: 100%;
+      margin-left: 0;
+      margin-bottom: 20px;
+    }
+  
+    .profile-main {
+      margin-left: 0;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .profile-sidebar,
+    .profile-main {
+      padding: 10px;
+    }
+  
+    .profile-menu-links a {
+      padding: 8px 0;
+    }
+  }
+  

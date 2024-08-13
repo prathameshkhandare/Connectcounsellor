@@ -165,6 +165,7 @@ const handleEnrollment = async () => {
           <p className="course-description">{course.description}</p>
         </div>
       </div>
+      <hr />
       <div className="course-sidebar">
 
       

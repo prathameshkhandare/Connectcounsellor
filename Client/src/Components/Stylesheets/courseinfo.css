@@ -1,3 +1,4 @@
+/* Existing styles */
 .course-info-container {
   display: flex;
   justify-content: space-between;
@@ -108,4 +109,52 @@
 
 .btn-primary:hover {
   background-color: #0056b3;
+}
+
+/* Responsive styles */
+
+/* Tablet styles (max-width: 768px) */
+@media (max-width: 768px) {
+  .course-info-container {
+    flex-direction: column;
+    max-width: 90%;
+  }
+
+  .course-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .course-sidebar {
+    flex: 0 0 auto;
+    border-left: none;
+    padding-left: 0;
+    margin-top: 20px;
+  }
+
+  .course-details {
+    padding-right: 0;
+  }
+}
+
+/* Mobile styles (max-width: 480px) */
+@media (max-width: 480px) {
+  .course-title {
+    font-size: 1.5rem;
+  }
+
+  .course-description {
+    font-size: 0.9rem;
+  }
+
+  .course-image {
+    width: 100%;
+    height: auto;
+  }
+
+  .btn-primary {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+  
 }

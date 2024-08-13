@@ -1,23 +1,34 @@
-import React from 'react';
-import { Link ,useNavigate} from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './AdminPanel.css';
 import { useAuth } from '../../store/AuthContex';
+
 const AdminNav = () => {
-  const { removeTokenLS} =useAuth();
-  const navigate = useNavigate(); // Use navigate hook to navigate between routes
+  const { removeTokenLS } = useAuth();
+  const navigate = useNavigate();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const handleLogout = () => {
     removeTokenLS();
-    navigate('/login')// Navigate to login page on logout
+    navigate('/login');
   };
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <div className="admin-panel-navbar">
-      <Link to="/admin-home">Home</Link>
-      <Link to="/admin/courses">Manage Courses</Link>
-      <Link to="/admin/blogs">Manage Blogs</Link>
-      <Link to="/admin/Appointment">Check Appointments</Link>
-      <button onClick={handleLogout}   className='admin-logout-btn'> logout</button>
-      
-      
+      <div className="menu-icon" onClick={toggleMenu}>
+        {isMenuOpen ? '✖' : '☰'}
+      </div>
+      <div className={`nav-links ${isMenuOpen ? 'show' : ''}`}>
+        <Link to="/admin-home" onClick={toggleMenu}>Home</Link>
+        <Link to="/admin/courses" onClick={toggleMenu}>Manage Courses</Link>
+        <Link to="/admin/blogs" onClick={toggleMenu}>Manage Blogs</Link>
+        <Link to="/admin/Appointment" onClick={toggleMenu}>Check Appointments</Link>
+        <button onClick={() => { handleLogout(); toggleMenu(); }} className='admin-logout-btn'>Logout</button>
+      </div>
     </div>
   );
 };

@@ -119,8 +119,8 @@ const updateCourse = async () => {
             <li key={course._id}>
               <span>{course.name}</span>
         <div className="admin-panel-button-container">
-          <button className="admin-panel-button admin-panel-edit-button" onClick={() => openEditModal(course)}>Edit</button>
-          <button className="admin-panel-button admin-panel-delete-button" onClick={() => deleteCourse(course._id)}>Delete</button>
+          <button className=" admin-panel-edit-button" onClick={() => openEditModal(course)}>Edit</button>
+          <button className=" admin-panel-delete-button" onClick={() => deleteCourse(course._id)}>Delete</button>
         </div>
             </li>
           ))}
@@ -135,47 +135,75 @@ const updateCourse = async () => {
             // ariaHideApp={false}
             >
 
-            <h3> Edit Course Details</h3>
-            <input type="text"
-            placeholder='course name'
-            value={editCourse.name}
-            onChange={(e)=> setEditCourse({...editCourse,name:e.target.value})}
-            
-            />
+<div className="edit-course-container">
+      <h3>Edit Course Details</h3>
+      <div className="form-group">
+        <label>Course Name:</label>
+        <input 
+          type="text" 
+          placeholder="Course Name" 
+          value={editCourse.name} 
+          onChange={(e) => setEditCourse({ ...editCourse, name: e.target.value })} 
+        />
+      </div>
 
-            <input type="text"
-            placeholder='image url'
-            value={editCourse.image}
-            onChange={(e)=> setEditCourse({...editCourse,image : e.target.value})}
-            />
+      <div className="form-group">
+        <label>Image URL:</label>
+        <input 
+          type="text" 
+          placeholder="Image URL" 
+          value={editCourse.image} 
+          onChange={(e) => setEditCourse({ ...editCourse, image: e.target.value })} 
+        />
+      </div>
 
-            <input type="text" 
-            placeholder='short description'
-            value={editCourse.shortdescription}
-            onChange={(e)=> setEditCourse({...editCourse,shortdescription:e.target.value})}
-            />
+      <div className="form-group">
+        <label>Short Description:</label>
+        <input 
+          type="text" 
+          placeholder="Short Description" 
+          value={editCourse.shortdescription} 
+          onChange={(e) => setEditCourse({ ...editCourse, shortdescription: e.target.value })} 
+        />
+      </div>
 
-            <input type="text"
-            placeholder='description'
-            value={editCourse.description}
-            onChange={(e)=> setEditCourse({...editCourse,description:e.target.value})}
-            />
+      <div className="form-group">
+        <label>Description:</label>
+        <input 
+          type="text" 
+          placeholder="Description" 
+          value={editCourse.description} 
+          onChange={(e) => setEditCourse({ ...editCourse, description: e.target.value })} 
+        />
+      </div>
 
-            <textarea 
-            placeholder='Content (comma seperated)'
-            value={editCourse.content}
-            onChange={(e)=>setEditCourse({...editCourse,content:e.target.value}) } rows={5}
-            ></textarea>
+      <div className="form-group">
+        <label>Content (comma separated):</label>
+        <textarea 
+          placeholder="Content (comma separated)" 
+          value={editCourse.content} 
+          onChange={(e) => setEditCourse({ ...editCourse, content: e.target.value })} 
+          rows={5}
+        ></textarea>
+      </div>
 
-            <input type="text"
-            placeholder='category'
-            value={editCourse.category}
-            onChange={(e)=> setEditCourse({...editCourse,category : e.target.value})} />
+      <div className="form-group">
+        <label>Category:</label>
+        <input 
+          type="text" 
+          placeholder="Category" 
+          value={editCourse.category} 
+          onChange={(e) => setEditCourse({ ...editCourse, category: e.target.value })} 
+        />
+      </div>
 
+      <div className="button-group">
+        <button className="admin-panel-button" onClick={updateCourse}>Update Course</button>
+        <button className="admin-panel-button" onClick={closeEditModal}>Cancel</button>
+      </div>
+    </div>
+  
 
-
-<button className="admin-panel-button" onClick={updateCourse}>Update Course</button>
-          <button className="admin-panel-button" onClick={closeEditModal}>Cancel</button>
 
 
 

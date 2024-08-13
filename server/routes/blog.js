@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const {authenticateToken} = require('../middleware/authMiddleware');
+// const {authenticateToken} = require('../middleware/authMiddleware');
 
 
 const {writeBlog,getAllBlogs,getBlogById,deleteBlog} = require('../controllers/blog_controller')
 
 // Route to create a new blog entry
-router.post('/api/blog/write', authenticateToken, writeBlog);
+router.post('/api/blog/write', writeBlog);
 
 // Sample route to verify the setup
 router.get('/api/blog/read', getAllBlogs);

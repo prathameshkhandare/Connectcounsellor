@@ -54,6 +54,7 @@ const Courses = () => {
               {/* <p className="card-text">{course.shortdescription}</p> */}
             </div>
             <div className="card-footer">
+              
               <Link to={`/courseInfo/${course._id}`} className="btn btn-primary">Details</Link>
             </div>
           </div>
