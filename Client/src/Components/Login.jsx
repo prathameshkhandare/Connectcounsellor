@@ -3,9 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../Components/Stylesheets/Login.css';
 import { useAuth } from '../store/AuthContex';
+
 const LoginForm = () => {
     const navigate = useNavigate();
-    const {storeTokenLS} = useAuth();
+    const { storeTokenLS } = useAuth();
     const [formData, setFormData] = useState({
         emailorphone: '',
         password: ''
@@ -24,25 +25,29 @@ const LoginForm = () => {
             const response = await axios.post('http://localhost:3000/api/login', formData);
             if (response.status === 200) {
                 console.log('User logged in:', response.data);
-             
-
                 storeTokenLS(response.data.token);
                 // Fetch user details after login
                 fetchUserDetails();
             }
         } catch (error) {
-            if (error.response && error.response.status === 400) {
-                setErrorMessage(error.response.data.message);
+            if (error.response) {
+                if (error.response.status === 401) {
+                    // User has not verified email
+                    setErrorMessage('Your email has not been verified. ' + error.response.data.message);
+                } else if (error.response.status === 400) {
+                    setErrorMessage(error.response.data.message);
+                } else {
+                    setErrorMessage('Error logging in. Please try again.');
+                }
+                // Reset form data on error
                 setFormData({
                     emailorphone: '',
                     password: ''
                 });
             } else {
                 setErrorMessage('Error logging in. Please try again.');
-
             }
             console.error('Error logging in user:', error);
-            console.log(error)
         }
     };
 
@@ -57,21 +62,15 @@ const LoginForm = () => {
             if (response.status === 200) {
                 console.log('User details:', response.data.user);
                 setUserRole(response.data.user.role);
-                console.log('User role:', response.data.user.role)
+                console.log('User role:', response.data.user.role);
             }
         } catch (error) {
-          if (error.response) {
-              // Server responded with a status other than 200 range
-              console.error('Error logging in user response error:', error.response.data);
-          } else if (error.request) {
-              // Request was made but no response received
-              console.error('Error logging in user no response:', error.request);
-          } else {
-              // Something else happened in setting up the request
-              console.error('Error logging in user general error:', error.message);
-          }
-          console.error('Full error object:', error);
-      }
+            if (error.response && error.response.status === 401) {
+                setErrorMessage('Unauthorized access. Please log in again.');
+            } else {
+                console.error('Error fetching user details:', error);
+            }
+        }
     };
 
     useEffect(() => {
@@ -94,6 +93,7 @@ const LoginForm = () => {
     const redirectToSignup = () => {
         navigate('/register');
     };
+    
     const redirecttoForgotpassword = () => {
         navigate('/forgotpassword');
     };
@@ -102,9 +102,7 @@ const LoginForm = () => {
         <div className="container">
             <p className='login-heading'>Login to Connect Counsellor</p>
             <div className="login-form-container">
-            
                 <form onSubmit={handleLogin} className="login-form">
-                    
                     {errorMessage && <p className="error-message">{errorMessage}</p>}
                     <div className="login-form-group">
                         <label htmlFor="email">Email or mobile</label>
@@ -130,15 +128,13 @@ const LoginForm = () => {
                     </div>
                     <button type="submit" className="login-button">Login</button>
                 </form>
-                
+
                 <div className="login-extra-container">
-                <button onClick={redirecttoForgotpassword} className="login-forgotpass-link">forgot password?</button>
-                <div className="login-signup-redirect">
-                
-                    <span>Don't have an account?</span>
-                    <button onClick={redirectToSignup} className="login-signup-link">Create an account</button>
-                   
-                </div>
+                    <button onClick={redirecttoForgotpassword} className="login-forgotpass-link">Forgot password?</button>
+                    <div className="login-signup-redirect">
+                        <span>Don't have an account?</span>
+                        <button onClick={redirectToSignup} className="login-signup-link">Create an account</button>
+                    </div>
                 </div>
             </div>
         </div>
