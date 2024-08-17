@@ -1,3 +1,4 @@
+
 .heading-4 {
   padding: 15px 20px;
   color: rgb(14, 14, 133);
@@ -7,6 +8,7 @@
   background-repeat: no-repeat;
   background-size: 270px; /* Ensure the image scales properly */
   background-position: center;
+  background-color: white;
   text-align: center;
   display: flex; /* Flexbox for alignment */
   align-items: center; /* Vertical alignment */
@@ -20,17 +22,6 @@
   
 
 }
-/* 
-.heading-4::before {
-  content: 'Courses';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -70%); 
-  color: rgb(14, 14, 133);
-  font-size: 24px;
-  font-weight: bold;
-}   */
 
 
 
@@ -39,21 +30,22 @@
   flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 20px;
+  background-color: white;
 }
 
 .category-button {
   padding: 10px 20px;
   margin: 10px; /* Adjust the margin to create space around the buttons */
-  background-color: #337ab7;
+  background-color: #0096ff;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 20px;
   cursor: pointer;
 }
 
 .category-button.active,
 .category-button:hover {
-  background-color: #0056b3;
+  background-color: #0663c7;
 }
 
 .card-container {
@@ -62,6 +54,7 @@
 
   flex-wrap: wrap;
   justify-content: center;
+  background-color: white;
 }
 
 .card {
@@ -70,7 +63,7 @@
   border: none;
   border-radius: 20px;
   display: inline-block;
-  background-color: rgb(243, 239, 244);
+  background-color: white;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -88,12 +81,14 @@
   width: 100%;
   height: 180px;
   object-fit: cover;
+  margin-top: 12px;
   border-radius: 10px;
 }
 
 .card-body {
   padding: 30px;
   flex-grow: 1;
+  background-color: white;
 }
 
 .card-title {
@@ -115,17 +110,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color:white;
 }
 
-.btn-primary {
-  background-color: #337ab7;
+.Details-btn-primary {
+  background-color: #0096ff;
   color: #fff;
   border: none;
-  padding: 10px 20px;
+  text-decoration: none;
+  padding: 10px 35px;
   font-size: 16px;
   cursor: pointer;
+  border-radius: 20px;
 }
-
+.Details-btn-primary :hover{
+  background-color: #0663c7;
+}
 
 
 /* Tablet styles (max-width: 768px) */
