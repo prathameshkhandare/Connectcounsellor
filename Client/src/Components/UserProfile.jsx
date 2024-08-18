@@ -5,7 +5,7 @@ import axios from 'axios';
 
 function UserProfile() {
   const [message, setMessage] = useState('');
-  const [userId, setUserId] = useState(null);
+  
   const [profile, setProfile] = useState({
     firstName: '',
     lastName: '',
@@ -96,12 +96,9 @@ function UserProfile() {
       }
 
       const data = await response.json();
-      if (userId) {
-        setMessage('Profile updated successfully!');
-      } else {
+      
         setMessage('Profile saved successfully!');
-      }
-
+      
       setTimeout(() => setMessage(''), 3000);
     } catch (error) {
       console.log('Error in saving profile:', error);
