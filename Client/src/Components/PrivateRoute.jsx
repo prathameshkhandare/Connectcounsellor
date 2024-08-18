@@ -10,7 +10,7 @@ const PrivateRoute = ({ requiredRole }) => {
 
   const update = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/check-login-status', {
+      const response = await axios.get('http://localhost:3000/api/userdetails', {
         headers: {
           Authorization: `Bearer ${token}`,
         },

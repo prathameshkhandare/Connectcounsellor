@@ -11,6 +11,7 @@ function CustomNavbar() {
   const [loggedIn, setLoggedIn] = useState(false); // Initial state is false
   const [scrolled, setScrolled] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
+  
 const Navigate=useNavigate();
   useEffect(() => {
     checkLoginStatus(); // Check login status on component mount
@@ -26,27 +27,18 @@ const Navigate=useNavigate();
   }, []);
 
   const checkLoginStatus = async () => {
-    const token = localStorage.getItem('token'); // Retrieve token from local storage
-    if (token) {
-      try {
-        // Send a request to backend to verify token and get user details
-        const response = await axios.get('http://localhost:3000/api/check-login-status', {
-          headers: { Authorization: `Bearer ${token}` }
-        });
-        if (response.data.isLoggedIn) {
-          setLoggedIn(true); // Set logged in state to true if token is valid
-        } else {
-          setLoggedIn(false); // Set logged in state to false if token is not valid
-        }
-      } catch (error) {
-        console.error('Error checking login status:', error);
-        setLoggedIn(false); // Set logged in state to false on error or invalid token
-      }
-    } else {
-      setLoggedIn(false); // No token found, set logged in state to false
+    const token = localStorage.getItem('token');
+  
+    if(token){
+      // User is logged in, update loggedIn state
+      setLoggedIn(true);
     }
-  };
-
+    else{
+      setLoggedIn(false); // User is not logged in, update loggedIn state
+    }
+  }
+      
+ 
   const handleLogout = () => {
     localStorage.removeItem('token'); // Remove token from local storage
     setLoggedIn(false);

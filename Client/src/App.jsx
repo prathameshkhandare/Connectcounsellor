@@ -33,6 +33,7 @@ import AdminBanner from "./Components/AdminPanel/AdminBanner";
 import AppointmentsList from "./Components/AdminPanel/Appointment";
 import ForgotPass from "./Components/ForgotPass";
 import ResetPassword from "./Components/ResetPassword";
+import OtpVerification from "./Components/OtpVerification";
 // Example components for routes
 const Home = () => {
   return (
@@ -180,6 +181,7 @@ function App() {
            <Route path="/forgotpassword" element={<ForgotPass/>} />
            <Route path="/register" element={<Registration />} />
            <Route path="/resetPassword" element={<ResetPassword />} />
+           <Route path="/verifyotp" element={<OtpVerification />} />
         </Routes>
       </div>
     </Router>
