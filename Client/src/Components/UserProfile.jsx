@@ -5,7 +5,7 @@ import axios from 'axios';
 
 function UserProfile() {
   const [message, setMessage] = useState('');
-  const [userId, setUserId] = useState(null);
+  
   const [profile, setProfile] = useState({
     firstName: '',
     lastName: '',
@@ -14,32 +14,32 @@ function UserProfile() {
     language: 'English (US)',
   });
 
-  useEffect(() => {
-    const userDetails = async () => {
-      const token = localStorage.getItem('token');
-      if (token) {
-        try {
-          const response = await axios.get('http://localhost:3000/api/userdetails', {
-            headers: { Authorization: `Bearer ${token}` }
-          });
 
-          const userData = response.data.user;
-          setUserId(userData._id);
-        } catch (error) {
-          console.log('Error fetching user details:', error);
-        }
-      }
-    };
+  //   const userDetails = async () => {
+  //     const token = localStorage.getItem('token');
+  //     if (token) {
+  //       try {
+  //         const response = await axios.get('http://localhost:3000/api/userdetails', {
+  //           headers: { Authorization: `Bearer ${token}` }
+  //         });
 
-    userDetails();
-  }, []);
+  //         const userData = response.data.user;
+  //         setUserId(userData._id);
+  //       } catch (error) {
+  //         console.log('Error fetching user details:', error);
+  //       }
+  //     }
+  //   };
+
+  //   userDetails();
+  // }, []);
 
   useEffect(() => {
     const fetchProfile = async () => {
-      if (!userId) return;
+     
       try {
         const token = localStorage.getItem('token');
-        const response = await fetch(`http://localhost:3000/api/user/profile/read/${userId}`, {
+        const response = await fetch(`http://localhost:3000/api/user/profile/read`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -59,7 +59,7 @@ function UserProfile() {
     };
 
     fetchProfile();
-  }, [userId]);
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -81,7 +81,7 @@ function UserProfile() {
 
     try {
       const token = localStorage.getItem('token')
-      const response = await fetch(`http://localhost:3000/api/user/profile/write/${userId}`, {
+      const response = await fetch(`http://localhost:3000/api/user/profile/write`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -96,12 +96,9 @@ function UserProfile() {
       }
 
       const data = await response.json();
-      if (userId) {
-        setMessage('Profile updated successfully!');
-      } else {
+      
         setMessage('Profile saved successfully!');
-      }
-
+      
       setTimeout(() => setMessage(''), 3000);
     } catch (error) {
       console.log('Error in saving profile:', error);

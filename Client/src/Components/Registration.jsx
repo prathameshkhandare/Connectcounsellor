@@ -27,9 +27,18 @@ const SignupForm = () => {
 
             if (response.status === 200) {
                 setSuccess(response.data.message);
+<<<<<<< HEAD
                 setTimeout(() => {
                     navigate('/verifyotp', { state: { formData } });
                 }, 2000);
+=======
+                setTimeout((e) => {
+                  
+                navigate('/verifyotp', { state: { formData } }); 
+                
+                // Pass formData to the verify OTP page
+                },2000)
+>>>>>>> 7d03b37b9c47d1e99b5ac5fe4657594b2681c81f
             } else {
                 setErrorMessage('Something went wrong! Please try again.');
             }

@@ -2,14 +2,16 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 import './Stylesheets/Blog.css';
-
+const apiurl = import.meta.env.VITE_API_URL;
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
+  
 
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await axios.get('https://backendhost-auin.onrender.com/api/blog/read');
+
+        const response = await axios.get(`${apiurl}/api/blog/read`);
         setBlogs(response.data);
       } catch (err) {
         console.error(err);
