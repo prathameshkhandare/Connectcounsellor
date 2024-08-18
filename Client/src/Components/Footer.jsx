@@ -15,7 +15,6 @@ function Footer() {
         <div className="footer-column">
           <h3>About Us</h3>
           <ul>
-           
             <li><a href="#advisors">Our Advisors</a></li>
           </ul>
           <div className="social-icons">
@@ -56,7 +55,7 @@ function Footer() {
           Copyright © 2024 All rights reserved by
           <span className="website-name"> Connect Counsellor</span>
         </p>
-        <span>Developed and maintain by <b>Bhavesh Rathod & Prathmesh Khandare</b></span>
+        <span>Developed and maintained by <b>Bhavesh Rathod & Prathmesh Khandare</b></span>
       </div>
     </div>
   );
