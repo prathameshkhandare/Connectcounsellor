@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import mindTherapy from "../assets/Img/mindTherapy.webp";
-
+import doctorsymbol from "../assets/Img/doctor_symbol2.jpg"
 
 
 const animateText = (text) => {
@@ -18,7 +18,10 @@ function Banner() {
   }, []);
 
   return (
+    <>
+    <img  className="doctor-symbol" src={doctorsymbol} alt="" />
     <div className="banner-container">
+      
       <div className="quote">
         <p className="quote-text">"Your mental health is a priority. Take care of yourself first, because when you're at your best, everyone around you benefits too."</p>
       </div>
@@ -36,6 +39,7 @@ function Banner() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

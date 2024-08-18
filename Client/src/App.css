@@ -188,6 +188,20 @@
   box-sizing: border-box;
 }
 
+
+.doctor-symbol{
+  height: 50px;
+  width: 50px;
+  animation: upDown 2s ease-in-out infinite; /* Add animation */
+  margin-left: 100px;
+  background-color: transparent;
+}
+
+/* Animation for up-and-down movement */
+@keyframes upDown {
+  0%, 100% { transform: translateY(0); } /* Start and end position */
+  50% { transform: translateY(-10px); } /* Middle position (up) */
+}
 /* Animations */
 @keyframes fadeInAndSlide {
   0% { opacity: 0; transform: translateX(-20px); }
@@ -210,7 +224,7 @@
   flex-direction: column; /* Stack elements vertically */
   width: 100%;
   min-height: 80vh; 
-  /* background: url('https://img.freepik.com/premium-photo/real-paper-texture-background-backdrop-white_910131-1649.jpg') no-repeat center center; */
+  
   background-color: #ffffff;
   background-size: cover;
   box-sizing: border-box;
@@ -355,48 +369,85 @@
 .signup-container {
   display: flex;
   justify-content: center;
-  font-size: 25px;
-  margin-top: 80px;
+  font-size: 20px;
+  margin-top: 50px;
 }
 
 .signup-form-container {
-  max-width: 400px;
+  display: flex;
+  max-width: 1900px; /* Increased container width */
   margin: 30px auto;
-  padding: 10px 20px 10px 20px;
-  border: 1px solid #ccc;
+  padding: 30px; /* Increased padding */
+  padding-left: 70px;
+  border: 1px solid #ddd;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.signup-form-left {
+  flex: 1;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  height: 400px;
+  width: 400px;
+  margin-top: 40px;
+}
+
+.signup-form-left img {
+  width: 120%;
+  height: auto;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  margin-right: 40px;
+}
+
+.signup-form-right {
+  flex: 1;
+  padding: 50px; /* Increased padding */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  text-align: center; /* Center text */
 }
 
 .signup-form {
+  width: 100%; /* Ensure the form takes up full width */
   display: flex;
-  margin: 2px;
   flex-direction: column;
+  align-items: center; /* Center align the form elements */
 }
 
 .signup-form-group {
-  margin-bottom: 8px;
-}
-
-.signup-form-group label {
-  margin-bottom: 2px;
+  margin-bottom: 20px;
+  width: 100%; /* Ensure input fields take full width */
 }
 
 .signup-form-group input {
   width: 100%;
-  padding: 8px;
+  padding-left: 10px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-size: 16px; /* Reduced font size */
   box-sizing: border-box;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
 .signup-button {
+  width: 100%; /* Ensure button takes full width */
   padding: 10px;
   background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-top: 10px;
+  font-size: 15px;
 }
 
 .signup-button:hover {
@@ -404,21 +455,9 @@
 }
 
 .signup-login-box {
-  margin: 20px 0;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  margin-top: 20px;
   text-align: center;
-}
-
-.signup-login-redirect {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.signup-login-redirect span {
-  margin-right: 10px;
+  font-size: 16px;
 }
 
 .signup-login-link {
@@ -427,7 +466,7 @@
   border: none;
   background: none;
   padding: 0;
-  margin: 0px 10px;
+  margin-left: 20px;
 }
 
 .signup-login-link:hover {
@@ -435,6 +474,68 @@
   text-decoration: underline;
 }
 
+.registration-heading {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  text-align: center; /* Ensure heading text is centered */
+  width: 100%; /* Ensure heading takes up full width */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .signup-form-container {
+    flex-direction: column; /* Stack elements vertically on small screens */
+    padding: 20px; /* Reduce padding */
+    max-width: 90%; /* Adjust max width for better fit */
+  }
+
+  .signup-form-left {
+    width: 100%; /* Full width for mobile */
+    height: auto; /* Allow height to adjust */
+    margin-top: 0; /* Reset margin */
+  }
+
+  .signup-form-left img {
+    width: 100%; /* Full width for images */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 0; /* Reset margin */
+  }
+
+  .signup-form-right {
+    padding: 20px; /* Reduce padding for mobile */
+  }
+
+  .signup-button {
+    padding: 12px; /* Increase button padding */
+    font-size: 16px; /* Adjust font size */
+  }
+
+  .signup-form-group input {
+    padding: 12px; /* Increase input padding */
+  }
+
+  .registration-heading {
+    font-size: 1.5rem; /* Adjust heading size for mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .signup-container {
+    font-size: 18px; /* Adjust font size for very small screens */
+  }
+
+  .signup-button {
+    font-size: 14px; /* Adjust button font size */
+  }
+
+  .signup-login-box {
+    font-size: 14px; /* Adjust font size for login box */
+  }
+
+  .signup-form-group {
+    margin-bottom: 15px; /* Reduce margin for inputs */
+  }
+}
 
 
 
