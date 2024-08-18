@@ -1,54 +1,81 @@
 * {
-  /* body: 0; */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-* .admin-panel {
-  display: flex;
-  flex-direction: column;
-}
-
-
 .admin-panel-navbar {
-  background-color: #333;
-  padding: 10px;
+  display: flex;
+  align-items: center;
+  background-color: #fffdfd;
+  padding: 10px 20px;
   text-align: center;
   position: relative;
+  border-bottom: 2px solid black;
+  font-family: 'Poppins', sans-serif; /* Example of a good-looking font */
+}
+.logo{
+  height: 50px;
+  width: 50px;
 }
 
 .admin-panel-navbar .menu-icon {
   display: none;
   font-size: 24px;
-  color: white;
+  color: rgb(4, 4, 4);
   cursor: pointer;
 }
 
 .admin-panel-navbar .nav-links {
   display: flex;
-
+  flex-grow: 1;
   justify-content: center;
   align-items: center;
   z-index: 1000;
 }
 
 .admin-panel-navbar a {
-  color: white;
+  color: rgb(4, 2, 46);
   margin: 0 15px;
   text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  font-size: 16px;
+  font-weight:600;
 }
 
-.admin-panel-navbar a:hover {
-  text-decoration: underline;
+.admin-panel-navbar a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(6, 6, 6);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.admin-panel-navbar a:hover::after {
+  transform: scaleX(1);
+  margin-top: 2px;
+  transform-origin: bottom left;
+  height: 3px;
+}
+
+.admin-panel-navbar .logo {
+  margin-right: auto;
 }
 
 .admin-logout-btn {
   background: none;
   border: none;
-  color: white;
+  color: black;
   cursor: pointer;
-  margin: 0 15px;
+  margin-left: auto;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 
