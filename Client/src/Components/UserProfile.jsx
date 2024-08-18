@@ -12,46 +12,32 @@ function UserProfile() {
     email: '',
     hobby: '',
     language: 'English (US)',
+    DOB: '',
+    Address: '',
+    Gender: '',
   });
-
-
-  //   const userDetails = async () => {
-  //     const token = localStorage.getItem('token');
-  //     if (token) {
-  //       try {
-  //         const response = await axios.get('http://localhost:3000/api/userdetails', {
-  //           headers: { Authorization: `Bearer ${token}` }
-  //         });
-
-  //         const userData = response.data.user;
-  //         setUserId(userData._id);
-  //       } catch (error) {
-  //         console.log('Error fetching user details:', error);
-  //       }
-  //     }
-  //   };
-
-  //   userDetails();
-  // }, []);
 
   useEffect(() => {
     const fetchProfile = async () => {
-     
       try {
         const token = localStorage.getItem('token');
-        const response = await fetch(`http://localhost:3000/api/user/profile/read`, {
+        const response = await axios.get('http://localhost:3000/api/user/profile/read', {
           headers: {
-            'Authorization': `Bearer ${token}`
-          }
+            Authorization: `Bearer ${token}`,
+          },
         });
-
-        const data = await response.json();
+        
+        const data = response.data;
+        console.log('User profile:', data);
         setProfile({
           firstName: data.firstName || '',
           lastName: data.lastName || '',
           email: data.email || '',
           hobby: data.hobby || '',
           language: data.language || 'English (US)',
+          DOB:data.DOB ? data.DOB.split('T')[0] : '',
+          Address: data.Address || '',
+          Gender: data.Gender || '',
         });
       } catch (error) {
         console.log('Error in fetching user profile:', error);
@@ -80,25 +66,27 @@ function UserProfile() {
     e.preventDefault();
 
     try {
-      const token = localStorage.getItem('token')
-      const response = await fetch(`http://localhost:3000/api/user/profile/write`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify(profile)
-      });
+      const token = localStorage.getItem('token');
+   
+      const response = await axios.post(
+        'http://localhost:3000/api/user/profile/write',
+        profile,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
-      if (!response.ok) {
-        const errorText = await response.text();
-        throw new Error(`HTTP error! Status: ${response.status}, Message: ${errorText}`);
+      if (response.status === 200) {
+        setMessage('Profile saved successfully!');
+      } else {
+        console.log(response.message);
+        console.log("response not okey")
+        setMessage('Error in saving profile');
       }
 
-      const data = await response.json();
-      
-        setMessage('Profile saved successfully!');
-      
       setTimeout(() => setMessage(''), 3000);
     } catch (error) {
       console.log('Error in saving profile:', error);
@@ -112,12 +100,7 @@ function UserProfile() {
       <aside className="profile-sidebar">
         <div className="profile-pic-container">
           <div className="profile-pic">
-            {profile.profilePic ? (
-              <img src={profile.profilePic} alt="Profile" />
-            ) : (
-              <span>{getInitials()}</span>
-            )}
-            <div className="profile-pic-overlay">Select Image</div>
+            <span>{getInitials()}</span>
           </div>
         </div>
         <div className="profile-name">{`${profile.firstName} ${profile.lastName}`}</div>
@@ -137,31 +120,64 @@ function UserProfile() {
             <input
               type="text"
               name="firstName"
-              value={profile.firstName || ''}
+              value={profile.firstName}
               onChange={handleChange}
               placeholder="First Name"
             />
             <input
               type="text"
               name="lastName"
-              value={profile.lastName || ''}
+              value={profile.lastName}
               onChange={handleChange}
               placeholder="Last Name"
             />
             <input
               type="text"
               name="email"
-              value={profile.email || ''}
+              value={profile.email}
               onChange={handleChange}
               placeholder="Email"
               maxLength="60"
+              disabled
             />
+          </div>
+          <div className="form-group">
+            <label>Date of Birth:</label>
+            <input
+              type="date"
+              name="DOB"
+              value={profile.DOB}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="form-group">
+            <label>Address:</label>
+            <textarea
+              name="Address"
+              value={profile.Address}
+              onChange={handleChange}
+              placeholder="Address"
+            />
+          </div>
+          <div className="form-group">
+            <label>Gender:</label>
+            <select
+              name="Gender"
+              value={profile.Gender}
+              onChange={handleChange}
+            >
+              <option value="">Select Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              
+              <option value="Other">Other</option>
+            </select>
           </div>
           <div className="form-group">
             <label>Add a hobby:</label>
             <textarea
               name="hobby"
-              value={profile.hobby || ''}
+              value={profile.hobby}
               onChange={handleChange}
               placeholder="Hobbies"
             />
@@ -170,7 +186,7 @@ function UserProfile() {
             <label>Language:</label>
             <select
               name="language"
-              value={profile.language || 'English (US)'}
+              value={profile.language}
               onChange={handleChange}
             >
               <option value="English (US)">English (US)</option>
