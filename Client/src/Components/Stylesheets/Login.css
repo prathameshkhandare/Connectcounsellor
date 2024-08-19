@@ -1,8 +1,8 @@
 .login-form-container {
   display: flex;
   max-width: 800px;
-  min-height: 400px;
-  margin: 60px auto;
+  min-height: 500px;
+  margin: 90px auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -55,7 +55,7 @@
 
 .login-button {
   padding: 10px;
-  background-color: #1b96b5;
+  background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 5px;

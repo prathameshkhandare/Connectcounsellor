@@ -7,9 +7,11 @@ const Appointment = () => {
 
   useEffect(() => {
     const fetchAppointments = async () => {
+      const API_URL = import.meta.env.VITE_API_URL; // Define the base API URL
+      
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:3000/api/appointments/get', {
+        const response = await axios.get(`${API_URL}/api/appointments/get`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -34,7 +36,7 @@ const Appointment = () => {
     }
 
     try {
-      await axios.post(`http://localhost:3000/api/appointments/${id}`, { status }, {
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/appointments/${id}`, { status }, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -62,28 +64,27 @@ const Appointment = () => {
 
   return (
     <>
-    
       <h1 className="admin_appointment_title">Appointment Requests</h1>
-    <div className="admin_appointment_container">
-      <ul className="admin_appointment_list">
-        {appointments.map(app => (
-          <li key={app._id} className="admin_appointment_item">
-            <div className="admin_appointment_details">
-              <p className="admin_appointment_user">User: {app.userId.username}</p>
-              <p className="admin_appointment_date">Date: {new Date(app.date).toLocaleString()}</p>
-              <p className="admin_appointment_reason">Reason: {app.reason}</p>
-              <p className="admin_appointment_status">Status: {app.status}</p>
-              {app.status === 'pending' && (
-                <div className="admin_appointment_buttons">
-                  <button className="admin_appointment_button accept" onClick={() => handleStatusChange(app._id, 'accepted')}>Accept</button>
-                  <button className="admin_appointment_button reject" onClick={() => handleStatusChange(app._id, 'rejected')}>Reject</button>
-                </div>
-              )}
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
+      <div className="admin_appointment_container">
+        <ul className="admin_appointment_list">
+          {appointments.map(app => (
+            <li key={app._id} className="admin_appointment_item">
+              <div className="admin_appointment_details">
+                <p className="admin_appointment_user">User: {app.userId.username}</p>
+                <p className="admin_appointment_date">Date: {new Date(app.date).toLocaleString()}</p>
+                <p className="admin_appointment_reason">Reason: {app.reason}</p>
+                <p className="admin_appointment_status">Status: {app.status}</p>
+                {app.status === 'pending' && (
+                  <div className="admin_appointment_buttons">
+                    <button className="admin_appointment_button accept" onClick={() => handleStatusChange(app._id, 'accepted')}>Accept</button>
+                    <button className="admin_appointment_button reject" onClick={() => handleStatusChange(app._id, 'rejected')}>Reject</button>
+                  </div>
+                )}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 };

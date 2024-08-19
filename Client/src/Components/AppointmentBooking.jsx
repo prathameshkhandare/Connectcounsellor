@@ -13,6 +13,9 @@ const AppointmentBooking = () => {
 
   const [message, setMessage] = useState('');
 
+  // Store the API URL in a variable
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -27,11 +30,11 @@ const AppointmentBooking = () => {
     
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:3000/api/appointments/book', {
+      const response = await fetch(`${API_URL}/api/appointments/book`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-           'Authorization': `Bearer ${token}`
+          'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify(formData),
       });
@@ -42,7 +45,7 @@ const AppointmentBooking = () => {
           navigate('/');
         }, 3000);
       } else {
-        setMessage('Error booking appointment another status');
+        setMessage('Error booking appointment: another status');
       }
     } catch (error) {
       console.error('Error booking appointment:', error);

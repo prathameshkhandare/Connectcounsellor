@@ -9,6 +9,9 @@ const AccountSetting = () => {
   });
   const [message, setMessage] = useState('');
 
+  // Store the API URL in a variable
+  const API_URL = import.meta.env.VITE_API_URL;
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -24,7 +27,7 @@ const AccountSetting = () => {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch('http://localhost:3000/api/user/change-password', {
+      const response = await fetch(`${API_URL}/api/user/change-password`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

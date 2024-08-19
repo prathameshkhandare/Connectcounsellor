@@ -9,8 +9,10 @@ const PrivateRoute = ({ requiredRole }) => {
   const [unauthorized, setUnauthorized] = useState(false);
 
   const update = async () => {
+    const API_URL = import.meta.env.VITE_API_URL; // Define the base API URL
+
     try {
-      const response = await axios.get('http://localhost:3000/api/userdetails', {
+      const response = await axios.get(`${API_URL}/api/userdetails`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -39,13 +41,9 @@ const PrivateRoute = ({ requiredRole }) => {
     }
   }, [token]);
 
- 
-
   if (isValid === null) {
     return <div>Loading...</div>;
   }
-
- 
 
   // Check if the user's role matches the required role
   if (requiredRole && role !== requiredRole) {

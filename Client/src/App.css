@@ -142,6 +142,23 @@
   border-radius: 50%;
   margin-right: 40px;
 }
+/* Login Button */
+.navbar-login-button {
+  background-color: #f6f8fb; /* White-blue background */
+  color: #0d0d0d; /* Text color */
+  border: 2px solid #007bff; /* Border matching the white-blue background */
+  padding: 5px 16px; /* Padding for the button */
+  border-radius: 10px; /* Rounded corners */
+  font-weight: 600; /* Bold text */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  /* color: white; */
+}
+
+.navbar-login-button:hover {
+  background-color: #007bff; /* Dark blue background on hover */
+  color: white; /* White text on hover */
+}
+
 
 /* Collapsed Navbar */
 @media (max-width: 991.98px) {
@@ -213,6 +230,7 @@
   display: inline-block;
   opacity: 0; /* Ensure text is hidden until animation starts */
   animation: fadeInAndSlide 0.5s ease forwards;
+  
 }
 
 /* Banner Container Styles */
@@ -241,6 +259,7 @@
   font-size: 0.9rem;
   color: #666;
   font-style: italic;
+  
 }
 
 .banner-content {
@@ -346,6 +365,32 @@
     padding: 8px 12px;
   }
 }
+/* Existing styles */
+.connectcounselloradvertise {
+  display: block;
+  margin: 20px auto; /* Center the image horizontally with some margin from top and bottom */
+  width: 90%; /* Increase the size from the left and right */
+  max-width: 1000px; /* Set a maximum width to control the image size */
+  border-radius: 15px; /* Add a border radius for a rounded effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow for better appearance */
+}
+
+
+/* Responsive styles (if needed) */
+@media (max-width: 768px) {
+  .connectcounselloradvertise {
+    width: 90%; /* Adjust the width for smaller screens */
+    padding: 0 5px; /* Reduce padding for small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .connectcounselloradvertise {
+    width: 80%; /* Further adjust the width for very small screens */
+    padding: 0; /* Remove padding on very small screens */
+  }
+}
+
 
 
 
@@ -375,8 +420,8 @@
 
 .signup-form-container {
   display: flex;
-  max-width: 1900px; /* Increased container width */
-  margin: 30px auto;
+  max-width: 1500px; /* Increased container width */
+  margin: 10px auto;
   padding: 30px; /* Increased padding */
   padding-left: 70px;
   border: 1px solid #ddd;
@@ -660,22 +705,45 @@
 /* forgot password page  */
 
 .forgotpass-container {
-  width: 400px;
-  min-height: 300px;
-  margin: 0 auto;
-  margin-top: 20px;
+
+  width: 700px; /* Increased container width */
+  min-height: 450px; /* Increased container height */
+  margin: 0px auto;
+  margin-top: 80px;
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border: 1px solid #ddd;
+  border-radius: 10px; /* Increased the border radius */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Added subtle shadow for depth */
 }
-.forgot-pass-head{
-  margin-top: 100px;
-  font-size: 25px;
+
+.forgotpass-left {
+  flex: 1;
+  padding-right: 20px; /* Increased padding */
+}
+
+.forgotpass-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.forgotpass-right {
+  flex: 1;
+  padding-left: 20px; /* Increased padding */
+}
+
+.forgot-pass-head {
+  text-align: center;
+  font-size: 28px; /* Increased font size */
+  margin-bottom: 30px;
+  color: #007bff; /* Matching the border color */
 }
 
 .forgotpass-form-container {
   text-align: center;
-  margin: 10px;
 }
 
 .forgotpass-form {
@@ -697,20 +765,21 @@
 
 .forgot-pass-input {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   box-sizing: border-box;
-  border: 1px solid #ccc; /* Ensure the input border color matches the container border */
+  border: 1px solid #ccc; /* Match the container border */
   border-radius: 5px;
 }
 
 .forgotpass-button {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   background-color: #007bff;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
 }
 
 .forgotpass-button:hover {
@@ -718,7 +787,7 @@
 }
 
 .forgotpass-success-message {
-  color: green;
+  color: #007bff;
   text-align: center;
 }
 
@@ -728,8 +797,8 @@
 }
 
 .forgotpass-login-redirect {
-  margin-top: 60px;
-  border: 1px solid #ccc; /* Ensure the border matches the main container */
+  margin-top: 20px;
+  /* border: 1px solid #ccc; */
   border-radius: 5px;
   padding: 10px;
   text-align: center;
@@ -741,20 +810,29 @@
   border: none;
   color: #007bff;
   cursor: pointer;
-  /* text-decoration: underline; */
   padding: 0;
+  margin-left: 8px;
 }
 
 .forgotpass-login-link:hover {
   color: #0056b3;
-  text-decoration: underline; 
+  text-decoration: underline;
 }
 
-.forgot-pass-head {
-  text-align: center;
-  font-size: 24px;
-  margin-bottom: 20px;
+@media (max-width: 768px) {
+  .forgotpass-container {
+    flex-direction: column;
+  }
+
+  .forgotpass-left, .forgotpass-right {
+    padding: 0;
+  }
+
+  .forgotpass-left {
+    margin-bottom: 20px;
+  }
 }
+
 
 /* forgot password end */
 

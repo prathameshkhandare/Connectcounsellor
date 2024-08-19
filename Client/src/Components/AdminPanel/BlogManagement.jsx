@@ -15,9 +15,9 @@ const BlogManagement = () => {
   }, []);
 
   const fetchBlogs = async () => {
+    const API_URL = import.meta.env.VITE_API_URL; // Define the base API URL
     try {
-      const response = await axios.get('http://localhost:3000/api/blog/read');
-     
+      const response = await axios.get(`${API_URL}/api/blog/read`);
       setBlogs(response.data);
     } catch (error) {
       console.error('Error fetching blogs:', error);
@@ -26,8 +26,9 @@ const BlogManagement = () => {
 
   const addBlog = async () => {
     const token = localStorage.getItem('token');
+    const API_URL = import.meta.env.VITE_API_URL; // Define the base API URL
     try {
-      const response = await axios.post('http://localhost:3000/api/blog/write', newBlog,{
+      const response = await axios.post(`${API_URL}/api/blog/write`, newBlog, {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -40,8 +41,10 @@ const BlogManagement = () => {
   };
 
   const deleteBlog = async (id) => {
+    const token = localStorage.getItem('token');
+    const API_URL = import.meta.env.VITE_API_URL; // Define the base API URL
     try {
-      const response = await axios.delete(`http://localhost:3000/api/blog/delete/${id}`,{
+      const response = await axios.delete(`${API_URL}/api/blog/delete/${id}`, {
         headers: {
           'Authorization': `Bearer ${token}`
         }

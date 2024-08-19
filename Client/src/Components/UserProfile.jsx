@@ -14,32 +14,13 @@ function UserProfile() {
     language: 'English (US)',
   });
 
-
-  //   const userDetails = async () => {
-  //     const token = localStorage.getItem('token');
-  //     if (token) {
-  //       try {
-  //         const response = await axios.get('http://localhost:3000/api/userdetails', {
-  //           headers: { Authorization: `Bearer ${token}` }
-  //         });
-
-  //         const userData = response.data.user;
-  //         setUserId(userData._id);
-  //       } catch (error) {
-  //         console.log('Error fetching user details:', error);
-  //       }
-  //     }
-  //   };
-
-  //   userDetails();
-  // }, []);
-
   useEffect(() => {
     const fetchProfile = async () => {
-     
+      const API_URL = import.meta.env.VITE_API_URL; // Define the base API URL
+      
       try {
         const token = localStorage.getItem('token');
-        const response = await fetch(`http://localhost:3000/api/user/profile/read`, {
+        const response = await fetch(`${API_URL}/api/user/profile/read`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -78,10 +59,11 @@ function UserProfile() {
 
   const handleSave = async (e) => {
     e.preventDefault();
+    const API_URL = import.meta.env.VITE_API_URL; // Define the base API URL
 
     try {
-      const token = localStorage.getItem('token')
-      const response = await fetch(`http://localhost:3000/api/user/profile/write`, {
+      const token = localStorage.getItem('token');
+      const response = await fetch(`${API_URL}/api/user/profile/write`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -96,9 +78,7 @@ function UserProfile() {
       }
 
       const data = await response.json();
-      
-        setMessage('Profile saved successfully!');
-      
+      setMessage('Profile saved successfully!');
       setTimeout(() => setMessage(''), 3000);
     } catch (error) {
       console.log('Error in saving profile:', error);

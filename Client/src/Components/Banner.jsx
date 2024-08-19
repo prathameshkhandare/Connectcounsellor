@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import mindTherapy from "../assets/Img/mindTherapy.webp";
 import doctorsymbol from "../assets/Img/doctor_symbol2.jpg"
-
+import ccadvertise from "../assets/Img/connectcounselloradvertise.png"
 
 const animateText = (text) => {
   return text.split(" ").map((word, index) => (
@@ -19,7 +19,7 @@ function Banner() {
 
   return (
     <>
-    <img  className="doctor-symbol" src={doctorsymbol} alt="" />
+    
     <div className="banner-container">
       
       <div className="quote">
@@ -35,10 +35,13 @@ function Banner() {
         <div className="banner-image">
           <img src={mindTherapy} className="mhealth-img" alt="mind therapy" />
          
-
+          
         </div>
+        
       </div>
+      
     </div>
+    <img src={ccadvertise} className="connectcounselloradvertise" alt="" />
     </>
   );
 }

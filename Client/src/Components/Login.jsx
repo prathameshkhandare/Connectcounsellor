@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../Components/Stylesheets/Login.css';
 import { useAuth } from '../store/AuthContex';
-import signinGif from "../assets/Img/signinGif.gif"
-import logo from "../assets/Img/mind_logo.png"
+import signinGif from "../assets/Img/signinGif.gif";
+import logo from "../assets/Img/mind_logo.png";
 
 const LoginForm = () => {
     const navigate = useNavigate();
@@ -16,6 +16,9 @@ const LoginForm = () => {
     const [userRole, setUserRole] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
 
+    // Store the API URL in a variable
+    const API_URL = import.meta.env.VITE_API_URL;
+
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
@@ -24,7 +27,7 @@ const LoginForm = () => {
         event.preventDefault();
         setErrorMessage('');
         try {
-            const response = await axios.post('http://localhost:3000/api/login', formData);
+            const response = await axios.post(`${API_URL}/api/login`, formData);
             if (response.status === 200) {
                 storeTokenLS(response.data.token);
                 fetchUserDetails();
@@ -51,7 +54,7 @@ const LoginForm = () => {
     const fetchUserDetails = async () => {
         const token = localStorage.getItem('token');
         try {
-            const response = await axios.get('http://localhost:3000/api/userdetails', {
+            const response = await axios.get(`${API_URL}/api/userdetails`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -88,52 +91,49 @@ const LoginForm = () => {
     const redirectToSignup = () => {
         navigate('/register');
     };
-    
+
     const redirecttoForgotpassword = () => {
         navigate('/forgotpassword');
     };
 
     return (
         <>
-       <div className="logo">
-       <img src={logo} alt="" />
-       </div>
-        <div className="login-form-container">
-          
-            <img src={signinGif} alt="Login Image" className="login-image" />
-            <form onSubmit={handleLogin} className="login-form">
-                {errorMessage && <p className="error-message">{errorMessage}</p>}
-                <p className="login-heading">Login to connect counsellor</p>
-                <div className="login-form-group">
-                    <input
-                        type="text"
-                        name="emailorphone"
-                        value={formData.emailorphone}
-                        onChange={handleChange}
-                        placeholder="Email or mobile"
-                        required
-                    />
-                </div>
-                <div className="login-form-group">
-                    <input
-                        type="password"
-                        name="password"
-                        value={formData.password}
-                        onChange={handleChange}
-                        placeholder="Password"
-                        required
-                    />
-                </div>
-                <button type="submit" className="login-button">Login</button>
-                <div className="login-extra-container">
-                    <button onClick={redirecttoForgotpassword} className="login-forgotpass-link">Forgot password?</button>
-                    <div className="login-signup-redirect">
-                        <span>Don't have an account?</span>
-                        <button onClick={redirectToSignup} className="login-signup-link">Create an account</button>
+            
+            <div className="login-form-container">
+                <img src={signinGif} alt="Login Image" className="login-image" />
+                <form onSubmit={handleLogin} className="login-form">
+                    {errorMessage && <p className="error-message">{errorMessage}</p>}
+                    <p className="login-heading">Login to connect counsellor</p>
+                    <div className="login-form-group">
+                        <input
+                            type="text"
+                            name="emailorphone"
+                            value={formData.emailorphone}
+                            onChange={handleChange}
+                            placeholder="Email or mobile"
+                            required
+                        />
                     </div>
-                </div>
-            </form>
-        </div>
+                    <div className="login-form-group">
+                        <input
+                            type="password"
+                            name="password"
+                            value={formData.password}
+                            onChange={handleChange}
+                            placeholder="Password"
+                            required
+                        />
+                    </div>
+                    <button type="submit" className="login-button">Login</button>
+                    <div className="login-extra-container">
+                        <button onClick={redirecttoForgotpassword} className="login-forgotpass-link">Forgot password?</button>
+                        <div className="login-signup-redirect">
+                            <span>Don't have an account?</span>
+                            <button onClick={redirectToSignup} className="login-signup-link">Create an account</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </>
     );
 };

@@ -17,23 +17,22 @@ const OtpVerification = () => {
 
     const handleOtpSubmit = async (e) => {
         e.preventDefault();
-    
+        
+        const API_URL = import.meta.env.VITE_API_URL; // Define the base API URL
+
         try {
-           
-    
-            const response = await axios.post('http://localhost:3000/api/verify-otp', {
+            const response = await axios.post(`${API_URL}/api/verify-otp`, {
                 otp,
                 ...userDetails, // Spread user details to send along with OTP
             });
-    
+
             if (response.status === 200) {
                 setSuccessMessage('OTP verified successfully! You can now log in.');
                 setErrorMessage('');
-              
-              setTimeout(() => {
-                navigate('/login');
-              },200)
-                // Redirect to the login page
+                
+                setTimeout(() => {
+                    navigate('/login');
+                }, 200); // Redirect to the login page after 200ms
             }
         } catch (error) {
             console.error('Error verifying OTP:', error); // Log error for debugging
