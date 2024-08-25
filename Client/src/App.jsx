@@ -34,12 +34,15 @@ import AppointmentsList from "./Components/AdminPanel/Appointment";
 import ForgotPass from "./Components/ForgotPass";
 import ResetPassword from "./Components/ResetPassword";
 import OtpVerification from "./Components/OtpVerification";
+import WebinarInfo from "./Components/WebinarInfo";
+import Webinars from "./Components/Webinar";
 // Example components for routes
 const Home = () => {
   return (
     <>
       <CustomNavbar />
       <Banner />
+      <Webinars/>
       <Courses />
       <AppInfo/>
       <Footer />
@@ -147,6 +150,8 @@ function App() {
             }
             />
           <Route element={<PrivateRoute requiredRole="user" />}>
+          <Route
+          path="/webinarinfo/:id" element ={<> <CustomNavbar/><WebinarInfo/> <Footer/></>}></Route>
           <Route
           path="/profile" element ={<> <CustomNavbar/><UserProfile/> <Footer/></>}></Route>
           <Route
