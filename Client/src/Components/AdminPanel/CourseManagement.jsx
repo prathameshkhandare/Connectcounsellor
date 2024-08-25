@@ -96,11 +96,11 @@ const CourseManagement = () => {
     try {
       const API_URL = import.meta.env.VITE_API_URL;
       
-      // Check if editCourse.content is a string, if not provide a fallback
+    
       const contentArray = 
         typeof editCourse.content === 'string' 
           ? editCourse.content.split(',').map((item) => item.trim()) 
-          : editCourse.content; // If it's already an array or undefined
+          : editCourse.content; // 
   
       const response = await axios.put(
         `http://localhost:3000/api/courses/update/${editCourse._id}`,
@@ -111,7 +111,7 @@ const CourseManagement = () => {
           },
         }
       );
-  
+      
       const updatedCourses = courses.map((course) =>
         course._id === editCourse._id ? response.data : course
       );
