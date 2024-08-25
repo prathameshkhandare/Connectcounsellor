@@ -23,7 +23,7 @@ const SignupForm = () => {
     const handleSignup = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post('http://localhost:3000/api/register', formData);
+            const response = await axios.post('https://backendhost-auin.onrender.com/api/register', formData);
 
             if (response.status === 200) {
                 setSuccess(response.data.message);

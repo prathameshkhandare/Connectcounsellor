@@ -21,7 +21,7 @@ const OtpVerification = () => {
         try {
            
     
-            const response = await axios.post('http://localhost:3000/api/verify-otp', {
+            const response = await axios.post('https://backendhost-auin.onrender.com/api/verify-otp', {
                 otp,
                 ...userDetails, // Spread user details to send along with OTP
             });
