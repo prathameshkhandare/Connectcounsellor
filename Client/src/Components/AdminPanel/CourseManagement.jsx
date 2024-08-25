@@ -15,6 +15,8 @@ const CourseManagement = () => {
     content: '',
     category: '',
     price: '',
+    author : '',
+    youtubeLink : '',
   });
   const [editCourse, setEditCourse] = useState(null);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -40,7 +42,7 @@ const CourseManagement = () => {
     try {
       const contentArray = newCourse.content.split(',').map((item) => item.trim());
       const response = await axios.post(
-        `${API_URL}/api/courses/write`,
+        `http://localhost:3000/api/courses/write`,
         { ...newCourse, content: contentArray },
         {
           headers: {
@@ -57,6 +59,8 @@ const CourseManagement = () => {
         content: '',
         category: '',
         price : '',
+        author : '',
+        youtubeLink : '',
       });
     } catch (error) {
       console.error('Error adding course:', error);
@@ -89,12 +93,17 @@ const CourseManagement = () => {
   };
 
   const updateCourse = async () => {
-
     try {
       const API_URL = import.meta.env.VITE_API_URL;
-      const contentArray = editCourse.content.split(',').map((item) => item.trim());
+      
+      // Check if editCourse.content is a string, if not provide a fallback
+      const contentArray = 
+        typeof editCourse.content === 'string' 
+          ? editCourse.content.split(',').map((item) => item.trim()) 
+          : editCourse.content; // If it's already an array or undefined
+  
       const response = await axios.put(
-        `${API_URL}/api/courses/update/${editCourse._id}`,
+        `http://localhost:3000/api/courses/update/${editCourse._id}`,
         { ...editCourse, content: contentArray },
         {
           headers: {
@@ -102,15 +111,18 @@ const CourseManagement = () => {
           },
         }
       );
+  
       const updatedCourses = courses.map((course) =>
         course._id === editCourse._id ? response.data : course
       );
+      
       setCourses(updatedCourses);
       closeEditModal();
     } catch (error) {
       console.error('Error updating course:', error);
     }
   };
+  
 
   const handleCategorySelect = (category) => {
     setNewCourse({ ...newCourse, category });
@@ -179,15 +191,23 @@ const CourseManagement = () => {
     </ul>
   )}
 </div>
-
-
-
           <input
             type="text"
             placeholder="Price"
             value={newCourse.price}
             onChange={(e) => setNewCourse({ ...newCourse, price: e.target.value })}
           />
+
+          <input type="text"
+          placeholder='Author'
+          value = {newCourse.author}
+          onChange={(e)=> setNewCourse ({...newCourse,author :e.target.value})} 
+          />
+
+          <input type="text"
+          placeholder='Youtube Link' 
+          value={newCourse.youtubeLink}
+          onChange={(e)=> setNewCourse({...newCourse,youtubeLink :e.target.value})}/>
           <button className="admin-panel-button" onClick={addCourse}>Add Course</button>
         </div>
         <div className="admin-panel-course-list">
@@ -214,7 +234,7 @@ const CourseManagement = () => {
             <div className="edit-course-container">
               <h3>Edit Course Details</h3>
               <div className="form-group">
-                <label>Course Name:</label>
+                
                 <input
                   type="text"
                   placeholder="Course Name"
@@ -224,7 +244,7 @@ const CourseManagement = () => {
               </div>
 
               <div className="form-group">
-                <label>Image URL:</label>
+              
                 <input
                   type="text"
                   placeholder="Image URL"
@@ -234,7 +254,7 @@ const CourseManagement = () => {
               </div>
 
               <div className="form-group">
-                <label>Short Description:</label>
+                
                 <input
                   type="text"
                   placeholder="Short Description"
@@ -244,7 +264,7 @@ const CourseManagement = () => {
               </div>
 
               <div className="form-group">
-                <label>Description:</label>
+                
                 <input
                   type="text"
                   placeholder="Description"
@@ -254,7 +274,7 @@ const CourseManagement = () => {
               </div>
 
               <div className="form-group">
-                <label>Content (comma separated):</label>
+               
                 <textarea
                   placeholder="Content (comma separated)"
                   value={editCourse.content}
@@ -264,7 +284,7 @@ const CourseManagement = () => {
               </div>
 
               <div className="form-group">
-                <label>Category:</label>
+              
                 <input
                   type="text"
                   placeholder="Category"
@@ -273,12 +293,24 @@ const CourseManagement = () => {
                 />
 
                 <div className="form-group">
-                  <label>Price: </label>
+                 
                   <input type="text"
                   placeholder='price'
                   value={editCourse.price}
                   onChange={(e)=> setEditCourse({...editCourse,price:e.target.value})}
                    />
+                </div>
+                <div className="form-group">
+                <input type="text"
+                placeholder='author'
+                value={editCourse.author}
+                onChange={(e)=> setEditCourse({...editCourse,author :e.target.value})} />
+                </div>
+                <div className="form-group">
+                  <input type="text"
+                  placeholder='Youtube Link'
+                  value={editCourse.youtubeLink}
+                  onChange={(e)=> setEditCourse({...editCourse,youtubeLink : e.target.value})} />
                 </div>
               </div>
 

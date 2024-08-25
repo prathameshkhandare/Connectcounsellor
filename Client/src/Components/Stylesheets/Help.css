@@ -1,67 +1,105 @@
 .help-container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    font-size: 16px;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+}
+
+.help-title {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 1.2em;
+}
+
+.help-main-title {
+  font-size: 1.5em;
+}
+
+.help-faq-section {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.help-faq-section:last-child {
+  border-bottom: none;
+}
+
+.help-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.help-list-item {
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.help-list-item:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 10px;
+  height: 10px;
+  background-color: #337ab7;
+  border-radius: 50%;
+}
+
+.help-link {
+  text-decoration: none;
+  color: #337ab7;
+  transition: color 0.2s ease;
+}
+
+.help-link:hover {
+  color: #23527c;
+}
+
+.help-paragraph {
+  margin-bottom: 20px;
+}
+
+/* Responsive Styles */
+
+/* Tablet styles (max-width: 768px) */
+@media (max-width: 768px) {
+  .help-container {
+      padding: 15px; /* Adjust padding for smaller screens */
   }
-  
   .help-title {
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 10px;
-    font-size: 1.2em;
+      font-size: 1.1em; /* Slightly smaller font size */
   }
-  
   .help-main-title {
-    font-size: 1.5em;
+      font-size: 1.4em; /* Slightly smaller font size */
   }
-  
-  .help-faq-section {
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .help-faq-section:last-child {
-    border-bottom: none;
-  }
-  
-  .help-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
   .help-list-item {
-    margin-bottom: 10px;
-    padding-left: 20px;
-    position: relative;
+      padding-left: 15px; /* Reduce padding for list items */
   }
-  
-  .help-list-item:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 10px;
-    width: 10px;
-    height: 10px;
-    background-color: #337ab7;
-    border-radius: 50%;
+}
+
+/* Mobile styles (max-width: 480px) */
+@media (max-width: 480px) {
+  .help-container {
+      margin: 20px auto; /* Reduce margin for mobile */
+      padding: 10px; /* Further reduce padding for mobile */
   }
-  
-  .help-link {
-    text-decoration: none;
-    color: #337ab7;
-    transition: color 0.2s ease;
+  .help-title {
+      font-size: 1em; /* Smaller font size for titles */
   }
-  
-  .help-link:hover {
-    color: #23527c;
+  .help-main-title {
+      font-size: 1.2em; /* Smaller font size for main titles */
   }
-  
+  .help-list-item {
+      padding-left: 10px; /* Further reduce padding for list items */
+  }
   .help-paragraph {
-    margin-bottom: 20px;
+      font-size: 14px; /* Slightly smaller font size for paragraphs */
   }
+}

@@ -22,8 +22,9 @@ const AdminBanner = () => {
                     },
                 });
 
-                if (response.data && response.data.user.username) {
-                    setAdmin(response.data.user);
+                if (response.data && response.data.user) {
+
+                    setAdmin(response.data.user.firstName);
                 } else {
                     console.log('Username not found in response');
                 }
@@ -43,7 +44,7 @@ const AdminBanner = () => {
 
     return (
         <div>
-            <h2 className='admin-panel-adminbaner-h2'> Welcome, {admin.username}! </h2>
+            <h2 className='admin-panel-adminbaner-h2'> Welcome, {admin}! </h2>
         </div>
     );
 };

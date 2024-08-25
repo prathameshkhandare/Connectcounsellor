@@ -54,17 +54,28 @@
 }
 
 .login-button {
+  display: inline-block;
   padding: 10px;
-  background-color: #007bff;
+  font-size: 1rem; /* Ensure consistent font size */
   color: #fff;
+  background-color: #007bff; /* Fallback color */
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  background-image: linear-gradient(90deg, #0056b3 50%, #007bff 50%);
+  background-size: 200%; /* Control the size for the animation effect */
+  background-position: right; /* Start from the right */
+  transition: background-position 0.5s ease-in-out; /* Animation transition */
 }
 
 .login-button:hover {
-  background-color: #1b5db8;
+  background-position: left; /* Move the gradient on hover */
 }
+
+.login-button:not(:hover) {
+  transition: none; /* Disable transition when not hovering */
+}
+
 
 .login-extra-container {
   border: 1px solid #ccc;

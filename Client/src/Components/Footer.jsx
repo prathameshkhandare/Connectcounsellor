@@ -55,7 +55,8 @@ function Footer() {
           Copyright © 2024 All rights reserved by
           <span className="website-name"> Connect Counsellor</span>
         </p>
-        <span>Developed and maintained by <b>Bhavesh Rathod & Prathmesh Khandare</b></span>
+        
+        <span>Designed and Developed By <b>Bhavesh Rathod & Prathmesh Khandare</b></span>
       </div>
     </div>
   );

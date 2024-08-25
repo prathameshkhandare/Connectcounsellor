@@ -1,17 +1,17 @@
 import React from 'react';
 import './Stylesheets/AppInfo.css';
-// App.js or index.js
+
 
 
 import app_info_1 from "../assets/Img/app-info-1n.png";
 
-// import logo from "../assets/Img/counsillhub-logo.png";
+
 
 const AppInfo = () => {
   return (
     <div className="app-info">
       <div className="app-content">
-        <h2>Get the CounselingHub App</h2>
+        <h2>Get the Connect Counsellor App</h2>
         <p>Get access to mind therapy courses anywhere, anytime</p>
         <ul>
           <li> Browse through a wide range of courses</li>

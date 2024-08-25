@@ -25,7 +25,7 @@ const SignupForm = () => {
     const handleSignup = async (event) => {
         event.preventDefault();
         try {
-            // Use the stored API_URL variable
+            const API_URL = import.meta.env.VITE_API_URL;
             const response = await axios.post(`${API_URL}/api/register`, formData);
 
             if (response.status === 200) {

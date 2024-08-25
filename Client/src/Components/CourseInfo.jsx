@@ -143,7 +143,7 @@ const CourseInfo = () => {
       try {
         console.log("Fetching course with courseId:", courseId);
         const response = await axios.get(
-          `${API_URL}/api/courses/read/${courseId}`
+          `http://localhost:3000/api/courses/read/${courseId}`
         );
         console.log("Response:", response.data);
         setCourse(response.data);
@@ -166,9 +166,23 @@ const CourseInfo = () => {
           <h1 className="course-title">{course.name}</h1>
           <p className="course-subtitle">{course.shortdescription}</p>
         </div>
+        
         <div className="course-image">
-          <img src={course.image} alt={course.name} />
-        </div>
+  {course.youtubeLink ? (
+    <iframe
+      src={course.youtubeLink.replace("watch?v=", "embed/")}
+      title="YouTube video player"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    ></iframe>
+  ) : (
+    <img src={course.image} alt={course.name} />
+  )}
+</div>
+
+
+
+        
         <div className="course-content">
           <h6 className="course-title">This course includes:</h6>
           <ul className="course-learn-list">
@@ -176,25 +190,42 @@ const CourseInfo = () => {
               course.content.map((item, index) => <li key={index}>{item}</li>)}
           </ul>
         </div>
+        
         <div className="course-content">
           <h6 className="course-title">Course Description</h6>
           <p className="course-description">{course.description}</p>
         </div>
       </div>
+      
       <hr />
+      
       <div className="course-sidebar">
         <div className="course-instructor">
           <h3>Price</h3>
           <p>{course.price}</p>
         </div>
+        
+        <div className="course-category">
+          <h3>Category</h3>
+          <p>{course.category}</p>
+        </div>
+        
+        <div className="course-author">
+          <h3>Author</h3>
+          <p>{course.author}</p>
+        </div>
+        
+        
         <div className="course-ratings">
           <h3>Rating</h3>
           <p>4.5 (10,400 ratings)</p>
         </div>
+        
         <div className="course-students">
           <h3>Clients</h3>
           <p>1200</p>
         </div>
+        
         <div className="course-action">
           <button className="btn btn-primary" onClick={handleEnrollment}>
             Enroll Now
@@ -203,6 +234,8 @@ const CourseInfo = () => {
       </div>
     </div>
   );
+  
+  
 };
 
 export default CourseInfo;

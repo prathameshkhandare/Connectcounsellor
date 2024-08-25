@@ -1,0 +1,175 @@
+/* OTP Verification Main Container */
+.otp-verify-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+/* Content Box Divided into Two Parts */
+.otpverify-content {
+    display: flex;
+    width: 60%;
+    min-height: 450px;
+    background-color: white;
+    box-shadow: 0 0.2px 4px 1px rgba(40, 40, 40, 0.2);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* Left Side - Image */
+.otpverify-image-container {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.otp-image {
+    width: 95%;
+    height: 350px;
+}
+
+/* Right Side - Form */
+.otpverify-form-container {
+    width: 50%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.otp-verify-heading {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.otpverify-form-group {
+    margin-bottom: 20px;
+}
+
+.otpverify-form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.otpverify-form-group input:focus {
+    border-color: #007bff;
+}
+
+.otpverify-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: #007bff; /* Default background color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-image: linear-gradient(90deg, #0056b3 50%, #007bff 50%); /* Gradient background */
+    background-size: 200%; /* Make the gradient larger */
+    background-position: right; /* Start position of the gradient */
+    transition: background-position 0.5s ease-in-out; /* Transition for hover effect */
+}
+
+.otpverify-button:hover {
+    background-position: left; /* Change the gradient position on hover */
+}
+
+.otpverify-button:not(:hover) {
+    transition: none; /* Remove transition when not hovering */
+}
+
+
+.otp-login-box {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.otp-login-redirect span {
+    font-size: 0.9rem;
+    color: #050505;
+}
+
+.otpverify-login-link {
+    background: none;
+    border: none;
+    color: #007bff;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.otpverify-login-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Error and Success Messages */
+.error-message {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.success-message {
+    color: green;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .otp-verify-container {
+        height: auto; /* Adjust height to fit content */
+        padding: 10px;
+    }
+
+    .otpverify-content {
+        width: 100%; /* Use full width */
+        box-shadow: none; /* Remove box shadow */
+        border-radius: 0; /* Remove rounded edges */
+        flex-direction: column;
+        background-color: transparent; /* Remove background color */
+    }
+
+    .otpverify-image-container,
+    .otpverify-form-container {
+        width: 100%;
+    }
+
+    .otp-image {
+        width: 100%;
+        height: auto; /* Adjust height for better fit */
+        margin-bottom: 20px;
+    }
+
+    .otp-verify-heading {
+        font-size: 1.2rem; /* Decreased font size */
+    }
+
+    .otpverify-form-group input {
+        font-size: 0.9rem; /* Decreased font size */
+    }
+
+    .otpverify-button {
+        font-size: 0.9rem; /* Decreased font size */
+    }
+
+    .otpverify-login-link {
+        font-size: 0.9rem; /* Decreased font size */
+    }
+}

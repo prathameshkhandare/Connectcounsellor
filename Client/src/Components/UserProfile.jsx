@@ -19,9 +19,10 @@ function UserProfile() {
 
   useEffect(() => {
     const fetchProfile = async () => {
+      const API_URL = import.meta.env.VITE_API_URL;
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:3000/api/user/profile/read', {
+        const response = await axios.get(`${API_URL}/api/user/profile/read`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -70,7 +71,7 @@ function UserProfile() {
       const token = localStorage.getItem('token');
    
       const response = await axios.post(
-        'http://localhost:3000/api/user/profile/write',
+        `${API_URL}/api/user/profile/write`,
         profile,
         {
           headers: {

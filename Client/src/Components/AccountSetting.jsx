@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../Components/StyleSheets/AccountSetting.css';
+import ResetpassGif from "../assets/Img/Resetpassword.gif"
 
 const AccountSetting = () => {
   const [formData, setFormData] = useState({
@@ -47,47 +48,56 @@ const AccountSetting = () => {
       setMessage('Error changing password');
     }
   };
-
+ 
   return (
     <div className="account-settings-container">
-      <h3>Account Settings</h3>
-      <form onSubmit={handleSubmit} className="account-settings-form">
-        <div className="account-settings-form-group">
-          <label>Current Password:</label>
-          <input
-            className='account-settings-input'
-            type="password"
-            name="currentPassword"
-            value={formData.currentPassword}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="account-settings-form-group">
-          <label>New Password:</label>
-          <input
-            className='account-settings-input'
-            type="password"
-            name="newPassword"
-            value={formData.newPassword}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="account-settings-form-group">
-          <label>Confirm New Password:</label>
-          <input
-            className='account-settings-input'
-            type="password"
-            name="confirmNewPassword"
-            value={formData.confirmNewPassword}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <button type="submit" className='account-settings-button'>Change Password</button>
-      </form>
-      {message && <p className="account-settings-message">{message}</p>}
+      <div className="account-settings-image">
+        {/* You can replace this with an actual image path */}
+        <img src={ResetpassGif} alt="Account Settings" />
+      </div>
+      <div className="account-settings-form-container">
+        <h3>Account Settings</h3>
+        <form onSubmit={handleSubmit} className="account-settings-form">
+          <div className="account-settings-form-group">
+            
+            <input
+              className='account-settings-input'
+              type="password"
+              name="currentPassword"
+              placeholder='current password'
+              value={formData.currentPassword}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="account-settings-form-group">
+            
+            <input
+              className='account-settings-input'
+              type="password"
+              name="newPassword"
+              placeholder='New Password'
+              value={formData.newPassword}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="account-settings-form-group">
+           
+            <input
+              className='account-settings-input'
+              type="password"
+              name="confirmNewPassword"
+              placeholder='Confirm New Password'
+              value={formData.confirmNewPassword}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <button type="submit" className='account-settings-button'>Change Password</button>
+        </form>
+        {message && <p className="account-settings-message">{message}</p>}
+      </div>
     </div>
   );
 };

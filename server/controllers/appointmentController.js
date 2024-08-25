@@ -1,20 +1,45 @@
-// controllers/appointmentController.js
 const AppointmentModel = require('../models/Appointment');
 const nodemailer = require('nodemailer');
 const UserModel = require('../models/userModel');
-const AppointmentController = async function (req, res) {
-  let { reason, date } = req.body;
-  const userId = req.user._id;
+const cron = require('node-cron');
 
+// Booking an Appointment with Slot
+const AppointmentController = async function (req, res) {
+  let { reason, date, slot } = req.body; // Added slot in the request body
+  const userId = req.user._id;
+  console.log(slot);
+  
   try {
-    const newAppointment = await AppointmentModel.create({ userId, reason, date });
+    // Format the incoming date to exclude the time (YYYY-MM-DD)
+    const formattedDate = new Date(date).toISOString().split('T')[0];
+
+    // Check if the slot is already booked for the selected date (ignoring time)
+    const existingAppointment = await AppointmentModel.findOne({ 
+      date: formattedDate, 
+      slot 
+    });
+
+    if (existingAppointment) {
+      return res.status(409).json({ message: "This slot is already booked. Please select another slot." });
+    }
+
+    // Create a new appointment with the formatted date
+    const newAppointment = await AppointmentModel.create({ 
+      userId, 
+      reason, 
+      date: formattedDate, 
+      slot 
+    });
+    
     res.status(200).json({ message: "Appointment booked successfully" });
+    
   } catch (err) {
     console.error('Error in AppointmentController:', err.message);
     res.status(500).json({ message: "Error booking appointment" });
   }
 };
 
+// Get all appointments
 const getAppointment = async function (req, res) {
   try {
     const appointments = await AppointmentModel.find().populate('userId', 'username');
@@ -25,7 +50,7 @@ const getAppointment = async function (req, res) {
   }
 };
 
-
+// Update appointment status
 const updateAppointmentStatus = async function (req, res) {
   const { id } = req.params;
   const { status } = req.body;
@@ -87,5 +112,24 @@ const updateAppointmentStatus = async function (req, res) {
   }
 };
 
+// Cron job to update appointment statuses daily at midnight
+cron.schedule('0 0 * * *', async () => {
+  try {
+    const currentDate = new Date();
+    const appointments = await AppointmentModel.find({
+      date: { $lt: currentDate },
+      status: 'pending'
+    });
+
+    appointments.forEach(async (appointment) => {
+      appointment.status = 'completed'; // Mark as completed if the date has passed
+      await appointment.save();
+    });
+
+    console.log('Daily cron job: Appointment statuses updated');
+  } catch (err) {
+    console.error('Error in cron job:', err.message);
+  }
+});
 
 module.exports = { AppointmentController, getAppointment, updateAppointmentStatus };

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar, Nav, Dropdown, Badge, Popover, OverlayTrigger } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faUser, faBell } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faBell } from '@fortawesome/free-solid-svg-icons';
 import { Link ,useNavigate} from 'react-router-dom';
 import mind_logo from '../assets/Img/mind_logo.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
