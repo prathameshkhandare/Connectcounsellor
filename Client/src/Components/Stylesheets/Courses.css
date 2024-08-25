@@ -34,19 +34,32 @@
 }
 
 .category-button {
+  display: inline-block;
   padding: 10px 20px;
   margin: 10px; /* Adjust the margin to create space around the buttons */
-  background-color: #0096ff;
   color: white;
   border: none;
   border-radius: 20px;
   cursor: pointer;
+  background-image: linear-gradient(90deg, #0663c7 50%, #0096ff 50%); /* Gradient effect */
+  background-size: 200%; /* Allow for the animation */
+  background-position: right; /* Start with the hover effect off-screen */
+  transition: background-position 0.5s ease-in-out; /* Smooth transition */
 }
 
-.category-button.active,
 .category-button:hover {
+  background-position: left; /* Slide in the hover effect */
+}
+
+.category-button:not(:hover) {
+  transition: none; /* Remove transition when not hovering */
+}
+
+
+.category-button.active{
   background-color: #0663c7;
 }
+
 
 .card-container {
  
@@ -114,18 +127,28 @@
 }
 
 .Details-btn-primary {
-  background-color: #0096ff;
-  color: #fff;
-  border: none;
-  text-decoration: none;
+  display: inline-block;
   padding: 10px 35px;
   font-size: 16px;
-  cursor: pointer;
+  color: #fff;
+  border: none;
   border-radius: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  background-image: linear-gradient(90deg, #0663c7 50%, #0096ff 50%); /* Gradient effect */
+  background-size: 200%; /* Allow for the animation */
+  background-position: right; /* Start with the hover effect off-screen */
+  transition: background-position 0.5s ease-in-out; /* Smooth transition */
 }
-.Details-btn-primary :hover{
-  background-color: #0663c7;
+
+.Details-btn-primary:hover {
+  background-position: left; /* Slide in the hover effect */
 }
+
+.Details-btn-primary:not(:hover) {
+  transition: none; /* Remove transition when not hovering */
+}
+
 
 
 /* Tablet styles (max-width: 768px) */

@@ -6,13 +6,21 @@
   cursor: pointer;
   margin-right: 15px;
   font-size: 1.2rem;
-  background-color: rgb(249, 246, 246) !important;
+  background-color: rgb(255, 255, 255) !important; /* Keep the white background */
+  border: 2px solid rgb(216, 213, 207); /* Add a border around the badge */
+  border-radius: 40%; /* Make the badge circular */
+  padding: 9px 12px; /* Adjust padding to give space around the icon */
+  padding-right: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .notification-badge svg {
   margin-right: 5px;
-  color: white;
+  color: black; /* Ensure the icon is visible on the white background */
 }
+
 
 .notifications-popover {
   max-width: 300px; 
@@ -34,7 +42,7 @@
 
 /* Navbar */
 .navbar-bg {
-  background-color: #ffffff;
+  background-color:#ffffff;
   transition: background-color 0.3s ease;
   position: sticky;
   top: 0;
@@ -43,7 +51,7 @@
 }
 
 .navbar-scrolled {
-  background-color: #fcfdff; 
+border-bottom: 1px #ccc;
   margin-top: -1px;
 }
 
@@ -58,6 +66,7 @@
 .Logo-img {
   margin-left: 50px;
 }
+
 
 .nav-element {
   margin-left: 40px;
@@ -78,6 +87,7 @@
   position: absolute;
   bottom: -1px; /* Adjust the gap between underline and element */
   left: 0;
+  
 }
 
 .nav-element:hover::after {
@@ -138,10 +148,35 @@
 }
 
 .user-icon {
-  border: rgb(216, 213, 207) 2px solid;
+  background-color: white !important; /* Initial background color */
+  border: 2px solid rgb(216, 213, 207);
   border-radius: 50%;
   margin-right: 40px;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  color: black !important; /* Initial icon color */
 }
+
+
+
+
+
+/* Login Button */
+.navbar-login-button {
+  background-color: #f6f8fb; /* White-blue background */
+  color: #0d0d0d; /* Text color */
+  border: 2px solid #007bff; /* Border matching the white-blue background */
+  padding: 5px 16px; /* Padding for the button */
+  border-radius: 10px; /* Rounded corners */
+  font-weight: 600; /* Bold text */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  /* color: white; */
+}
+
+.navbar-login-button:hover {
+  background-color: #007bff; /* Dark blue background on hover */
+  color: white; /* White text on hover */
+}
+
 
 /* Collapsed Navbar */
 @media (max-width: 991.98px) {
@@ -213,6 +248,7 @@
   display: inline-block;
   opacity: 0; /* Ensure text is hidden until animation starts */
   animation: fadeInAndSlide 0.5s ease forwards;
+  
 }
 
 /* Banner Container Styles */
@@ -241,6 +277,7 @@
   font-size: 0.9rem;
   color: #666;
   font-style: italic;
+  
 }
 
 .banner-content {
@@ -274,16 +311,24 @@
   padding: 10px 20px;
   font-size: 1rem;
   color: #fff;
-  background-color: #007bff;
+  background-color: #007bff; /* Base color */
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-position 0.5s ease-in-out; /* Animation effect */
+  background-image: linear-gradient(90deg, #0056b3 50%, #007bff 50%); /* Gradient background */
+  background-size: 200%; /* Allow for animation */
+  background-position: right; /* Start position */
 }
 
 .get-started-btn:hover {
-  background-color: #0056b3;
+  background-position: left; /* Change position on hover */
 }
+
+.get-started-btn:not(:hover) {
+  transition: none; /* Reset transition when not hovering */
+}
+
 
 .banner-image {
   flex: 1;
@@ -346,6 +391,32 @@
     padding: 8px 12px;
   }
 }
+/* Existing styles */
+.connectcounselloradvertise {
+  display: block;
+  margin: 20px auto; /* Center the image horizontally with some margin from top and bottom */
+  width: 90%; /* Increase the size from the left and right */
+  max-width: 1000px; /* Set a maximum width to control the image size */
+  border-radius: 15px; /* Add a border radius for a rounded effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow for better appearance */
+}
+
+
+/* Responsive styles (if needed) */
+@media (max-width: 768px) {
+  .connectcounselloradvertise {
+    width: 90%; /* Adjust the width for smaller screens */
+    padding: 0 5px; /* Reduce padding for small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .connectcounselloradvertise {
+    width: 80%; /* Further adjust the width for very small screens */
+    padding: 0; /* Remove padding on very small screens */
+  }
+}
+
 
 
 
@@ -375,8 +446,8 @@
 
 .signup-form-container {
   display: flex;
-  max-width: 1900px; /* Increased container width */
-  margin: 30px auto;
+  max-width: 1500px; /* Increased container width */
+  margin: 10px auto;
   padding: 30px; /* Increased padding */
   padding-left: 70px;
   border: 1px solid #ddd;
@@ -441,18 +512,27 @@
 .signup-button {
   width: 100%; /* Ensure button takes full width */
   padding: 10px;
-  background-color: #007bff;
+  background-color: #007bff; /* Base color */
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
   font-size: 15px;
+  background-image: linear-gradient(90deg, #0056b3 50%, #007bff 50%); /* Gradient background */
+  background-size: 200%; /* Allow for animation */
+  background-position: right; /* Start position */
+  transition: background-position 0.5s ease-in-out; /* Animation effect */
 }
 
 .signup-button:hover {
-  background-color: #0056b3;
+  background-position: left; /* Change position on hover */
 }
+
+.signup-button:not(:hover) {
+  transition: none; /* Reset transition when not hovering */
+}
+
 
 .signup-login-box {
   margin-top: 20px;
@@ -660,22 +740,45 @@
 /* forgot password page  */
 
 .forgotpass-container {
-  width: 400px;
-  min-height: 300px;
-  margin: 0 auto;
-  margin-top: 20px;
+
+  width: 700px; /* Increased container width */
+  min-height: 450px; /* Increased container height */
+  margin: 0px auto;
+  margin-top: 80px;
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border: 1px solid #ddd;
+  border-radius: 10px; /* Increased the border radius */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Added subtle shadow for depth */
 }
-.forgot-pass-head{
-  margin-top: 100px;
-  font-size: 25px;
+
+.forgotpass-left {
+  flex: 1;
+  padding-right: 20px; /* Increased padding */
+}
+
+.forgotpass-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.forgotpass-right {
+  flex: 1;
+  padding-left: 20px; /* Increased padding */
+}
+
+.forgot-pass-head {
+  text-align: center;
+  font-size: 28px; /* Increased font size */
+  margin-bottom: 30px;
+  color: #007bff; /* Matching the border color */
 }
 
 .forgotpass-form-container {
   text-align: center;
-  margin: 10px;
 }
 
 .forgotpass-form {
@@ -697,28 +800,38 @@
 
 .forgot-pass-input {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   box-sizing: border-box;
-  border: 1px solid #ccc; /* Ensure the input border color matches the container border */
+  border: 1px solid #ccc; /* Match the container border */
   border-radius: 5px;
 }
 
 .forgotpass-button {
   width: 100%;
-  padding: 10px;
-  background-color: #007bff;
+  padding: 12px;
+  background-color: #007bff; /* Base color */
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
+  background-image: linear-gradient(90deg, #0056b3 50%, #007bff 50%); /* Gradient background */
+  background-size: 200%; /* Allow for animation */
+  background-position: right; /* Start position */
+  transition: background-position 0.5s ease-in-out; /* Animation effect */
 }
 
 .forgotpass-button:hover {
-  background-color: #0056b3;
+  background-position: left; /* Change position on hover */
 }
 
+.forgotpass-button:not(:hover) {
+  transition: none; /* Reset transition when not hovering */
+}
+
+
 .forgotpass-success-message {
-  color: green;
+  color: #007bff;
   text-align: center;
 }
 
@@ -728,8 +841,8 @@
 }
 
 .forgotpass-login-redirect {
-  margin-top: 60px;
-  border: 1px solid #ccc; /* Ensure the border matches the main container */
+  margin-top: 20px;
+  /* border: 1px solid #ccc; */
   border-radius: 5px;
   padding: 10px;
   text-align: center;
@@ -741,33 +854,47 @@
   border: none;
   color: #007bff;
   cursor: pointer;
-  /* text-decoration: underline; */
   padding: 0;
+  margin-left: 8px;
 }
 
 .forgotpass-login-link:hover {
   color: #0056b3;
-  text-decoration: underline; 
+  text-decoration: underline;
 }
 
-.forgot-pass-head {
-  text-align: center;
-  font-size: 24px;
-  margin-bottom: 20px;
+@media (max-width: 768px) {
+  .forgotpass-container {
+    flex-direction: column;
+  }
+
+  .forgotpass-left, .forgotpass-right {
+    padding: 0;
+  }
+
+  .forgotpass-left {
+    margin-bottom: 20px;
+  }
 }
+
 
 /* forgot password end */
 
 
 /*  Reset password  */
-/* src/components/ResetPasswordWithOTP.css */
+
 .reset-password-container {
-  max-width: 400px;
+  max-width: 800px;
   margin: auto;
+  margin-top: 100px;
+  min-height: 500px;
   padding: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
   border-radius: 8px;
-  background-color: #f9f9f9;
+  background-color: #ffffff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
 }
 
 .reset-password-header {
@@ -775,7 +902,23 @@
   font-size: 25px;
   display: flex;
   justify-content: center;
-  margin-top: 100px;
+  
+}
+
+.reset-password-left {
+  flex: 1;
+  padding: 20px;
+}
+
+.reset-password-left img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.reset-password-right {
+  flex: 1;
+  padding: 20px;
 }
 
 .reset-password-form {
@@ -787,14 +930,9 @@
   margin-bottom: 15px;
 }
 
-.reset-password-form-group label {
-  display: block;
-  margin-bottom: 5px;
-}
-
 .reset-password-form-group input {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
@@ -803,15 +941,24 @@
   padding: 10px 15px;
   border: none;
   border-radius: 4px;
-  background-color: #007bff;
+  background-color: #007bff; /* Base color */
   color: white;
   font-size: 16px;
   cursor: pointer;
+  background-image: linear-gradient(90deg, #0056b3 50%, #007bff 50%); /* Gradient background */
+  background-size: 200%; /* Allow for animation */
+  background-position: right; /* Start position */
+  transition: background-position 0.5s ease-in-out; /* Animation effect */
 }
 
 .reset-password-button:hover {
-  background-color: #0056b3;
+  background-position: left; /* Change position on hover */
 }
+
+.reset-password-button:not(:hover) {
+  transition: none; /* Reset transition when not hovering */
+}
+
 
 .reset-password-success-message {
   color: #28a745;
@@ -820,6 +967,14 @@
 .reset-password-error-message {
   color: #dc3545;
 }
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .reset-password-container {
+    display: none;
+  }
+}
+
 
 
 /* reset password end */

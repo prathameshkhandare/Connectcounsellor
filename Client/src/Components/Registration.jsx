@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
-import singupgif from "../assets/Img/signupgif.gif"
+import singupgif from "../assets/Img/signupgif.gif";
 
 const SignupForm = () => {
     const navigate = useNavigate();
@@ -15,7 +14,10 @@ const SignupForm = () => {
     });
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccess] = useState('');
-    
+
+    // Store the API URL in a variable
+    const API_URL = import.meta.env.VITE_API_URL;
+
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
@@ -23,16 +25,14 @@ const SignupForm = () => {
     const handleSignup = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post('https://backendhost-auin.onrender.com/api/register', formData);
+            const API_URL = import.meta.env.VITE_API_URL;
+            const response = await axios.post(`${API_URL}/api/register`, formData);
 
             if (response.status === 200) {
                 setSuccess(response.data.message);
-                setTimeout((e) => {
-                  
-                navigate('/verifyotp', { state: { formData } }); 
-                
-                // Pass formData to the verify OTP page
-                },2000)
+                setTimeout(() => {
+                    navigate('/verifyotp', { state: { formData } });
+                }, 2000);
             } else {
                 setErrorMessage('Something went wrong! Please try again.');
             }
@@ -68,13 +68,11 @@ const SignupForm = () => {
                     {errorMessage && <p className="error-message">{errorMessage}</p>}
                     {successMessage && <p className="success-message">{successMessage}</p>}
                     <form onSubmit={handleSignup} className="signup-form">
-
-                    <div className="signup-form-group">
-                        <input type="text" name="firstName" id="firstName" placeholder='Firstname'
-                        value={formData.firstName} onChange={handleChange} required/>
-                    </div>
                         <div className="signup-form-group">
-
+                            <input type="text" name="firstName" id="firstName" placeholder='Firstname'
+                                value={formData.firstName} onChange={handleChange} required />
+                        </div>
+                        <div className="signup-form-group">
                             <input
                                 type="text"
                                 id="lastName"

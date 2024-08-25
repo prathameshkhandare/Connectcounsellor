@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar, Nav, Dropdown, Badge, Popover, OverlayTrigger } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faUser, faBell } from '@fortawesome/free-solid-svg-icons';
-import axios from 'axios';
+import { faUser, faBell } from '@fortawesome/free-solid-svg-icons';
 import { Link ,useNavigate} from 'react-router-dom';
 import mind_logo from '../assets/Img/mind_logo.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,7 +11,8 @@ function CustomNavbar() {
   const [scrolled, setScrolled] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
   
-const Navigate=useNavigate();
+  const navigate = useNavigate();
+
   useEffect(() => {
     checkLoginStatus(); // Check login status on component mount
     const handleScroll = () => {
@@ -28,21 +28,13 @@ const Navigate=useNavigate();
 
   const checkLoginStatus = async () => {
     const token = localStorage.getItem('token');
-  
-    if(token){
-      // User is logged in, update loggedIn state
-      setLoggedIn(true);
-    }
-    else{
-      setLoggedIn(false); // User is not logged in, update loggedIn state
-    }
+    setLoggedIn(!!token); // Update loggedIn state based on token presence
   }
-      
- 
+
   const handleLogout = () => {
     localStorage.removeItem('token'); // Remove token from local storage
-    setLoggedIn(false);
-    Navigate('/') // Set logged in state to false on logout
+    setLoggedIn(false); // Set logged in state to false on logout
+    navigate('/'); // Navigate to home or login page
   };
 
   const handleNotificationsClick = () => {
@@ -86,40 +78,36 @@ const Navigate=useNavigate();
         </Navbar.Collapse>
 
         <div className="right-nav-elements d-flex align-items-center">
-          <OverlayTrigger
-            placement="bottom"
-            overlay={popover}
-            show={showNotifications}
-            rootClose
-            trigger="click"
-          >
-            <Badge pill className="notification-badge" onClick={handleNotificationsClick}>
-              <FontAwesomeIcon icon={faBell} style={{ color: 'black' }} /> {/* Example notification count */}
-            </Badge>
-          </OverlayTrigger>
+          {loggedIn ? (
+            <>
+              <OverlayTrigger
+                placement="bottom"
+                overlay={popover}
+                show={showNotifications}
+                rootClose
+                trigger="click"
+              >
+                <Badge pill className="notification-badge" onClick={handleNotificationsClick}>
+                  <FontAwesomeIcon icon={faBell} style={{ color: 'black' }} /> {/* Example notification count */}
+                </Badge>
+              </OverlayTrigger>
 
-          <Dropdown align="end">
-            <Dropdown.Toggle variant="light" id="dropdown-basic" className="user-icon">
-              <FontAwesomeIcon icon={faUser} />
-            </Dropdown.Toggle>
-            <Navbar.Toggle aria-controls="basic-navbar-nav">
-              <FontAwesomeIcon icon={faBars} />
-            </Navbar.Toggle>
-
-            <Dropdown.Menu>
-              {loggedIn ? (
-                <>
+              <Dropdown align="end">
+                <Dropdown.Toggle variant="light" id="dropdown-basic" className="user-icon">
+                  <FontAwesomeIcon icon={faUser} />
+                </Dropdown.Toggle>
+                <Dropdown.Menu>
                   <Dropdown.Item as={Link} to="/profile">Profile</Dropdown.Item>
                   <Dropdown.Item as={Link} to="/account-setting">Account Setting</Dropdown.Item>
                   <Dropdown.Item as={Link} to="/notifications">Notifications</Dropdown.Item>
                   <Dropdown.Item href="/help">Help</Dropdown.Item>
                   <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
-                </>
-              ) : (
-                <Dropdown.Item href='/login'>Login</Dropdown.Item>
-              )}
-            </Dropdown.Menu>
-          </Dropdown>
+                </Dropdown.Menu>
+              </Dropdown>
+            </>
+          ) : (
+            <Nav.Link as={Link} to="/login"className="navbar-login-button">Login</Nav.Link>
+          )}
         </div>
       </Navbar>
     </>

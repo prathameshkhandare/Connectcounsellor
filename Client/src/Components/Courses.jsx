@@ -8,10 +8,13 @@ const Courses = () => {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('All');
 
+  // Define the base API URL
+  const API_URL = import.meta.env.VITE_API_URL;
+
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/courses/read');
+        const response = await axios.get(`${API_URL}/api/courses/read`);
         setCourses(response.data);
 
         // Extract unique categories from courses
@@ -22,7 +25,7 @@ const Courses = () => {
       }
     };
     fetchCourses();
-  }, []);
+  }, [API_URL]);
 
   const filteredCourses = selectedCategory === 'All'
     ? courses
@@ -54,7 +57,6 @@ const Courses = () => {
               {/* <p className="card-text">{course.shortdescription}</p> */}
             </div>
             <div className="card-footer">
-              
               <Link to={`/courseInfo/${course._id}`} className="Details-btn-primary">Details</Link>
             </div>
           </div>

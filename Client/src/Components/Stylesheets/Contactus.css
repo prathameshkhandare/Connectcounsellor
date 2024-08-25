@@ -55,11 +55,20 @@
   border-radius: 20px;
   cursor: pointer;
   font-size: 14px;
+  background-image: linear-gradient(90deg, #0056b3 50%, #007bff 50%);
+  background-size: 200%;
+  background-position: right;
+  transition: background-position 0.5s ease-in-out;
 }
 
 .contact-submit-button:hover {
-  background-color: #0056b3;
+  background-position: left;
 }
+
+.contact-submit-button:not(:hover) {
+  transition: none;
+}
+
 
 .contact-info-item {
   margin-bottom: 20px;

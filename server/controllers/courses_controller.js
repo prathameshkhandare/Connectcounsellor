@@ -11,7 +11,10 @@ const writeCourse = async (req, res) => {
             shortdescription: req.body.shortdescription,
             description: req.body.description,
             content: req.body.content,
-            category: req.body.category
+            category: req.body.category,
+            price : req.body.price,
+            author :req.body.author,
+            youtubeLink :req.body.youtubeLink,
         });
         res.status(201).json(course);
     } catch (error) {

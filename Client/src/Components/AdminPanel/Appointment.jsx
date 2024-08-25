@@ -1,25 +1,40 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './AdminPanel.css'; // Make sure to import the CSS file
+import './AdminPanel.css'; // CSS file import kiya gaya hai
 
 const Appointment = () => {
   const [appointments, setAppointments] = useState([]);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const fetchAppointments = async () => {
+      const API_URL = import.meta.env.VITE_API_URL; // Base API URL ko define kiya gaya hai
+      
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:3000/api/appointments/get', {
+        if (!token) {
+          throw new Error('No token found in localStorage');
+        }
+
+        const response = await axios.get(`${API_URL}/api/appointments/get`, {
           headers: {
-            'Authorization': `Bearer ${token}`
-          }
+            'Authorization': `Bearer ${token}`,
+          },
         });
 
-        // Sort appointments by date in descending order
-        const sortedAppointments = response.data.sort((a, b) => new Date(b.date) - new Date(a.date));
-        setAppointments(sortedAppointments);
+        console.log('Fetched appointments:', response.data); // Debug log
+
+        // Ensure response data is an array
+        if (Array.isArray(response.data)) {
+          // Appointments ko date ke hisaab se descending order mein sort kiya
+          const sortedAppointments = response.data.sort((a, b) => new Date(b.date) - new Date(a.date));
+          setAppointments(sortedAppointments);
+        } else {
+          throw new Error('Response data is not an array');
+        }
       } catch (error) {
-        console.error('Error fetching appointments', error);
+        console.error('Error fetching appointments:', error);
+        setError('Failed to fetch appointments. Please try again later.'); // Error message set kiya
       }
     };
 
@@ -34,56 +49,50 @@ const Appointment = () => {
     }
 
     try {
-      await axios.post(`http://localhost:3000/api/appointments/${id}`, { status }, {
+      await axios.post(`${import.meta.env.VITE_API_URL}/api/appointments/${id}`, { status }, {
         headers: {
-          'Authorization': `Bearer ${token}`
-        }
+          'Authorization': `Bearer ${token}`,
+        },
       });
 
-      // Update appointments state to reflect the status change
-      const updatedAppointments = appointments.map(app => app._id === id ? { ...app, status } : app);
+      // Appointments state ko update kiya
+      const updatedAppointments = appointments.map(app => 
+        app._id === id ? { ...app, status } : app
+      );
 
-      // Sort the updated appointments by date in descending order
+      // Updated appointments ko date ke hisaab se descending order mein sort kiya
       const sortedUpdatedAppointments = updatedAppointments.sort((a, b) => new Date(b.date) - new Date(a.date));
       setAppointments(sortedUpdatedAppointments);
     } catch (error) {
-      if (error.response) {
-        console.error('Response error:', error.response.data);
-        console.error('Response status:', error.response.status);
-        console.error('Response headers:', error.response.headers);
-      } else if (error.request) {
-        console.error('Request error:', error.request);
-      } else {
-        console.error('Error:', error.message);
-      }
-      console.error('Config:', error.config);
+      console.error('Error updating appointment status:', error);
     }
   };
 
   return (
     <>
-    
       <h1 className="admin_appointment_title">Appointment Requests</h1>
-    <div className="admin_appointment_container">
-      <ul className="admin_appointment_list">
-        {appointments.map(app => (
-          <li key={app._id} className="admin_appointment_item">
-            <div className="admin_appointment_details">
-              <p className="admin_appointment_user">User: {app.userId.username}</p>
-              <p className="admin_appointment_date">Date: {new Date(app.date).toLocaleString()}</p>
-              <p className="admin_appointment_reason">Reason: {app.reason}</p>
-              <p className="admin_appointment_status">Status: {app.status}</p>
-              {app.status === 'pending' && (
-                <div className="admin_appointment_buttons">
-                  <button className="admin_appointment_button accept" onClick={() => handleStatusChange(app._id, 'accepted')}>Accept</button>
-                  <button className="admin_appointment_button reject" onClick={() => handleStatusChange(app._id, 'rejected')}>Reject</button>
-                </div>
-              )}
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
+      {error && <p className="error-message">{error}</p>} {/* Error message dikhaye agar exist kare */}
+      <div className="admin_appointment_container">
+        <ul className="admin_appointment_list">
+          {appointments.map(app => (
+            <li key={app._id} className="admin_appointment_item">
+              <div className="admin_appointment_details">
+                {/* User ID ko sahi se access karna */}
+                <p className="admin_appointment_user">User: {app.userId ? app.userId._id : 'N/A'}</p>
+                <p className="admin_appointment_date">Date: {new Date(app.date).toLocaleString()}</p>
+                <p className="admin_appointment_reason">Reason: {app.reason}</p>
+                <p className="admin_appointment_status">Status: {app.status}</p>
+                {app.status === 'pending' && (
+                  <div className="admin_appointment_buttons">
+                    <button className="admin_appointment_button accept" onClick={() => handleStatusChange(app._id, 'accepted')}>Accept</button>
+                    <button className="admin_appointment_button reject" onClick={() => handleStatusChange(app._id, 'rejected')}>Reject</button>
+                  </div>
+                )}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 };

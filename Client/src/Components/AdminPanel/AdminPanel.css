@@ -11,6 +11,7 @@
   padding: 10px 20px;
   text-align: center;
   position: relative;
+  height: 80px;
   border-bottom: 2px solid black;
   font-family: 'Poppins', sans-serif; /* Example of a good-looking font */
 }
@@ -78,6 +79,15 @@
   font-weight: bold;
 }
 
+.admin-logout-btn{
+  background-color: red;
+    color: white;
+    border: none; 
+    padding: 10px 20px;
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px;
+}
 
 
 
@@ -169,7 +179,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #dff0d8;
-  color: #3c763d;
+  color: #030303;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -192,6 +202,8 @@
   z-index: 1000;
 }
 
+
+
 /* admin panel course  css*/
 
 * .admin-panel-course-management {
@@ -206,7 +218,6 @@
 
 * .admin-panel-new-course {
   display: flex;
-
   flex-direction: column;
   width: 50%;
   margin-left: 50px;
@@ -231,12 +242,14 @@
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  width: 100%;
 }
 
 * .admin-panel-new-course textarea {
   resize: none;
 }
 
+/* admin panel course right side */
 * .admin-panel-course-list ul {
   list-style: none;
   padding: 0;
@@ -317,15 +330,87 @@
   margin-top: 10px;
   margin-left: 60px;
 }
-.admin-logout-btn{
-      background-color: red;
-        color: white;
-        border: none; 
-        padding: 10px 20px;
-        border-radius: 5px; 
-        cursor: pointer; 
-        font-size: 16px;
+
+
+
+.category-dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%; /* Ensure the dropdown is responsive */
 }
+
+.category-dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%; /* Ensures the input is responsive */
+}
+
+.category-dropdown input {
+  width: calc(100% - 42px); /* Adjust input width to leave space for the button */
+  padding-right: 42px; /* Ensure the text doesn't go under the button */
+  box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.drop-down-button {
+ 
+ 
+ 
+  border: 1px solid #ccc; /* Match the input border */
+  border-left: none; /* Remove the left border to connect with the input */
+  border-radius: 0 4px 4px 0; /* Rounded corners on the right side only */
+  background-color: white; /* Match the background color with input */
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+ padding-bottom: 20px;
+}
+
+.dropdown-arrow {
+  position: absolute;
+  right: 10px;
+  top: 40%;
+  transform: translateY(-50%);
+  pointer-events: all;
+  margin-left: 2px;
+  border: 1px solid rgb(190, 186, 186);
+ border-radius: 5px;
+  padding: 6px;
+  cursor: pointer;
+  height: 44px;
+  width: 30px;
+ 
+}
+
+
+.dropdown-menu {
+  display: none; /* Hidden by default */
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 100%;
+  max-height: 200px; /* Set a max-height for the dropdown */
+  overflow-y: auto; /* Enable vertical scrolling */
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+}
+
+.dropdown-menu li {
+  padding: 12px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd; /* Add border bottom for each category */
+}
+
+.dropdown-menu li:hover {
+  background-color: #f1f1f1;
+}
+
+.category-dropdown.open .dropdown-menu {
+  display: block;
+}
+
+
 
 
 /*edit course css */

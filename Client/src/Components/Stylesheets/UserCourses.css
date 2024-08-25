@@ -1,31 +1,65 @@
 .user-courses {
-    padding: 20px;
+  padding: 20px;
+}
+
+.course-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.course-item {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  transition: transform 0.3s ease; /* Add a transition for hover effect */
+}
+
+.course-item:hover {
+  transform: scale(1.02); /* Slightly scale up on hover */
+}
+
+.course-item h4 {
+  margin: 0 0 10px;
+}
+
+.course-item p {
+  margin: 0 0 5px;
+}
+
+.course-item span {
+  display: block;
+  color: #888;
+  font-size: 0.9em;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .user-courses {
+      padding: 10px; /* Reduce padding on smaller screens */
   }
-  
-  .course-list {
-    list-style-type: none;
-    padding: 0;
-  }
-  
+
   .course-item {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 15px;
-    margin-bottom: 10px;
-    background-color: #f9f9f9;
+      padding: 10px; /* Reduce padding for course items */
   }
-  
+
   .course-item h4 {
-    margin: 0 0 10px;
+      font-size: 1.2rem; /* Adjust heading size */
   }
-  
-  .course-item p {
-    margin: 0 0 5px;
-  }
-  
+
+  .course-item p,
   .course-item span {
-    display: block;
-    color: #888;
-    font-size: 0.9em;
+      font-size: 0.85em; /* Adjust paragraph and span size */
   }
-  
+}
+
+@media (max-width: 480px) {
+  .course-item {
+      margin-bottom: 15px; /* Increase margin for better spacing on small screens */
+  }
+
+  .course-item h4 {
+      font-size: 1.1rem; /* Further adjust heading size */
+  }
+}

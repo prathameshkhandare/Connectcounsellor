@@ -1,101 +1,135 @@
 .account-settings-container {
-    max-width: 400px;
-    margin: 50px auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
-    box-shadow: 0px 0px 20px 5px rgba(192, 192, 192, 0.7);
-    border-radius: 15px;
-    background-color: #ffffff;
-    animation: fadeIn 0.8s ease-in-out;
+  display: flex;
+  max-width: 800px;
+  min-height: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  padding-top: 40px;
+  font-family: Arial, sans-serif;
+  box-shadow: 0px 0px 20px 5px rgba(234, 233, 233, 0.7);
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  background-color: #ffffff;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Left side with image */
+.account-settings-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+  padding-right: 20px;
+}
+
+.account-settings-image img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+/* Right side with form */
+.account-settings-form-container {
+  flex: 1;
+  padding-left: 20px;
+}
+
+/* Form and form elements */
+.account-settings-container h3 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  margin-top: 20px;
+
+}
+
+.account-settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.account-settings-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.account-settings-form-group label {
+  font-weight: bold;
+  color: #333;
+}
+
+.account-settings-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.account-settings-button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #007bff; /* Base color */
+  color: #fff;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-position 0.5s ease-in-out; /* Animation effect */
+  background-image: linear-gradient(90deg, #0056b3 50%, #007bff 50%); /* Gradient background */
+  background-size: 200%; /* Allow for animation */
+  background-position: right; /* Start position */
+}
+
+.account-settings-button:hover {
+  background-position: left; /* Change position on hover */
+}
+
+.account-settings-button:not(:hover) {
+  transition: none; /* Reset transition when not hovering */
+}
+
+
+.account-settings-button:hover {
+  background-color: #72c5FF;
+}
+
+.account-settings-message {
+  text-align: center;
+  color: #d9534f;
+  margin-top: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .account-settings-container {
+    flex-direction: column;
   }
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .account-settings-container h3 {
-    text-align: center;
-    color: #333;
+
+  .account-settings-image {
+    border-right: none;
+    padding-right: 0;
     margin-bottom: 20px;
   }
-  
-  .account-settings-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+
+  .account-settings-form-container {
+    padding-left: 0;
   }
-  
-  .account-settings-form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .account-settings-form-group label {
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .account-settings-input {
+}
+
+@media (max-width: 480px) {
+  .account-settings-container {
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    box-sizing: border-box;
   }
-  
+
+  .account-settings-input {
+    font-size: 14px;
+  }
+
   .account-settings-button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #092fb7;
-    color: #fff;
-    font-size: 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    padding: 10px;
   }
-  
-  .account-settings-button:hover {
-    background-color: #555;
-  }
-  
-  .account-settings-message {
-    text-align: center;
-    color: #d9534f;
-    margin-top: 20px;
-  }
-  
-  @media (max-width: 768px) {
-    .account-settings-container {
-      width: 90%;
-    }
-  
-    .account-settings-button {
-      width: 100%;
-      padding: 15px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .account-settings-container {
-      padding: 10px;
-    }
-  
-    .account-settings-input {
-      font-size: 14px;
-    }
-  
-    .account-settings-button {
-      padding: 10px;
-    }
-  }
-  
+}

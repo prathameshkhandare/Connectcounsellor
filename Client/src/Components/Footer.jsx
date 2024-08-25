@@ -18,13 +18,13 @@ function Footer() {
             <li><a href="#advisors">Our Advisors</a></li>
           </ul>
           <div className="social-icons">
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+            <a href="#" target="_blank" rel="noopener noreferrer">
               <FaLinkedin />
             </a>
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+            <a href="#" target="_blank" rel="noopener noreferrer">
               <FaInstagram />
             </a>
-            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+            <a href="#" target="_blank" rel="noopener noreferrer">
               <FaFacebook />
             </a>
           </div>
@@ -55,7 +55,8 @@ function Footer() {
           Copyright © 2024 All rights reserved by
           <span className="website-name"> Connect Counsellor</span>
         </p>
-        <span>Developed and maintained by <b>Bhavesh Rathod & Prathmesh Khandare</b></span>
+        
+        <span>Designed and Developed By <b>Bhavesh Rathod & Prathmesh Khandare</b></span>
       </div>
     </div>
   );
