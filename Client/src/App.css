@@ -978,3 +978,139 @@ border-bottom: 1px #ccc;
 
 
 /* reset password end */
+
+
+
+
+/* webinar info css */
+
+/* Container for the webinar info */
+.webinar_info_container {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333333;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading and error messages */
+.webinar_info_loading, .webinar_info_error {
+  font-size: 18px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Main content of the webinar info */
+.webinar_info_content {
+  text-align: left;
+}
+
+/* Title of the webinar */
+.webinar_info_title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+/* Webinar details like presenter, date, time, etc. */
+.webinar_info_presenter,
+.webinar_info_date,
+.webinar_info_time,
+.webinar_info_description,
+.webinar_info_link,
+.webinar_info_platform,
+.webinar_info_meetingId,
+.webinar_info_meetingPass {
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+/* Link for the meeting */
+.webinar_info_link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.webinar_info_link a:hover {
+  text-decoration: underline;
+}
+
+/* Back button styling */
+.webinar_info_back_button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.webinar_info_back_button:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .webinar_info_container {
+      padding: 15px;
+  }
+
+  .webinar_info_title {
+      font-size: 24px;
+  }
+
+  .webinar_info_presenter,
+  .webinar_info_date,
+  .webinar_info_time,
+  .webinar_info_description,
+  .webinar_info_link,
+  .webinar_info_platform,
+  .webinar_info_meetingId,
+  .webinar_info_meetingPass {
+      font-size: 14px;
+  }
+
+  .webinar_info_back_button {
+      font-size: 14px;
+      padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .webinar_info_container {
+      padding: 10px;
+  }
+
+  .webinar_info_title {
+      font-size: 20px;
+  }
+
+  .webinar_info_presenter,
+  .webinar_info_date,
+  .webinar_info_time,
+  .webinar_info_description,
+  .webinar_info_link,
+  .webinar_info_platform,
+  .webinar_info_meetingId,
+  .webinar_info_meetingPass {
+      font-size: 12px;
+  }
+
+  .webinar_info_back_button {
+      font-size: 12px;
+      padding: 6px 12px;
+  }
+}
+
+
+/* webinar info css ends */
