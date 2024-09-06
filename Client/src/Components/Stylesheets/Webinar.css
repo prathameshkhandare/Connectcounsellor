@@ -1,0 +1,153 @@
+.webinar_container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333333;
+    background-color: white;
+  }
+  
+  .webinar_h2 {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+  }
+  
+  .webinar_loading {
+    font-size: 18px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .webinar_error {
+    font-size: 18px;
+    color: red;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .webinar_list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .webinar_item {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .webinar_item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .webinar_h3 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #34495e;
+  }
+  
+  .webinar_presenter,
+  .webinar_date {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #7f8c8d;
+  }
+  
+  .webinar_price {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #27ae60;
+  }
+  
+  .webinar_enroll_button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .webinar_button:hover {
+    background-color: #c0392b;
+  }
+  
+  .webinar_paymentStatus {
+    font-size: 14px;
+    color: #2980b9;
+    margin-top: 10px;
+  }
+  
+  /* Tablet styles (768px and below) */
+  @media (max-width: 768px) {
+    .webinar_container {
+      padding: 15px;
+    }
+  
+    .webinar_h2 {
+      font-size: 24px;
+    }
+  
+    .webinar_item {
+      padding: 15px;
+    }
+  
+    .webinar_h3 {
+      font-size: 20px;
+    }
+  
+    .webinar_presenter,
+    .webinar_date,
+    .webinar_price {
+      font-size: 14px;
+    }
+  
+    .webinar_enroll_button {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  }
+  
+  /* Mobile styles (480px and below) */
+  @media (max-width: 480px) {
+    .webinar_container {
+      padding: 10px;
+    }
+  
+    .webinar_h2 {
+      font-size: 20px;
+    }
+  
+    .webinar_item {
+      padding: 10px;
+    }
+  
+    .webinar_h3 {
+      font-size: 18px;
+    }
+  
+    .webinar_presenter,
+    .webinar_date,
+    .webinar_price {
+      font-size: 12px;
+    }
+  
+    .webinar_enroll_button {
+      font-size: 12px;
+      padding: 6px 12px;
+    }
+  
+    .webinar_paymentStatus {
+      font-size: 12px;
+    }
+  }

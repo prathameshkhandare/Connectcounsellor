@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-
+import  "../Components/StyleSheets/Webinar.css"
 const Webinars = () => {
   const [webinars, setWebinars] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -35,11 +35,11 @@ const Webinars = () => {
 
     try {
       // Check if the user has already paid for the webinar
-      const paymentCheckResponse = await axios.post(`http://localhost:3000/api/checkEnrollmentStatus`, {
+      const paymentCheckResponse = await axios.post(`${API_URL}/api/checkEnrollmentStatus`, {
         webinarId: webinar._id,
       },{
-        headers: {
-          Authorization: `Bearer ${token}`,
+        headers: { 
+          'Authorization': `Bearer ${token}`,
         },
       });
       console.log('Payment status:', paymentCheckResponse.data);
@@ -56,8 +56,12 @@ const Webinars = () => {
         }
       }
     } catch (error) {
-      console.error('Error checking payment status:', error);
-      alert('Error checking payment status. Please try again.');
+      if(!token){
+        navigate('/login')
+      } 
+      else{
+        alert('Error checking payment status. Please try again.');
+      }
     }
   };
 
@@ -74,7 +78,7 @@ const Webinars = () => {
         receiptId: webinar._id,
       },{
         headers: {
-          Authorization: `Bearer ${token}`,
+         ' Authorization': `Bearer ${token}`,
         },
       });
       console.log('Order created:', response.data);
@@ -100,9 +104,10 @@ const Webinars = () => {
 
           // Verify the payment with your backend
           try {
+            
             console.log('Verifying payment...');
             const paymentVerificationResponse = await axios.post(
-              `http://localhost:3000/api/confirmpayment`,
+              `${API_URL}/api/confirmpayment`,
               {
                 webinarId: webinar._id,
                 paymentId: response.razorpay_payment_id,
@@ -110,7 +115,7 @@ const Webinars = () => {
                 signature: response.razorpay_signature,
               },{
                 headers: {
-                  Authorization: `Bearer ${token}`,
+                 'Authorization': `Bearer ${token}`,
                 },
               }
             );
@@ -143,29 +148,28 @@ const Webinars = () => {
   };
 
   return (
-    <div className="webinars">
-      <h2>Upcoming Webinars</h2>
+    <div className="webinar_container">
+      <h2 className="webinar_h2">Upcoming Webinars</h2>
       {loading ? (
-        <p>Loading...</p>
+        <p className="webinar_loading">Loading...</p>
       ) : error ? (
-        <p>{error}</p>
+        <p className="webinar_error">{error}</p>
       ) : (
-        <ul>
+        <ul className="webinar_list">
           {webinars.map((webinar) => (
-            <li key={webinar._id}>
-              <h3>{webinar.title}</h3>
-              <p>Presenter: {webinar.presenter}</p>
-              <p>Date: {new Date(webinar.date).toLocaleDateString()}</p>
-              <p>Price: {webinar.price === "0" ? 'Free' : `₹${webinar.price}`}</p>
-              <button onClick={() => handleEnroll(webinar)}>
+            <li className="webinar_item" key={webinar._id}>
+              <h3 className="webinar_title">{webinar.title}</h3>
+              <p className="webinar_presenter">Presenter: {webinar.presenter}</p>
+              <p className="webinar_date">Date: {new Date(webinar.date).toLocaleDateString()}</p>
+              <p className="webinar_price">Price: {webinar.price === "0" ? 'Free' : `₹${webinar.price}`}</p>
+              <button className="webinar_enroll_button" onClick={() => handleEnroll(webinar)}>
                 {webinar.price === "0" ? 'Enroll Now' : 'Pay & Enroll'}
               </button>
+              {paymentStatus && <p className="webinar_payment_status">{paymentStatus}</p>}
             </li>
           ))}
         </ul>
       )}
-
-      {paymentStatus && <p>{paymentStatus}</p>}
     </div>
   );
 };
