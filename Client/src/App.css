@@ -1114,3 +1114,12 @@ border-bottom: 1px #ccc;
 
 
 /* webinar info css ends */
+
+
+
+
+.slot-button:disabled {
+  background-color: grey;
+  color: #ccc;
+  cursor: not-allowed;
+}

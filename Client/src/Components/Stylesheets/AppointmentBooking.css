@@ -1,9 +1,9 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
 
 .appointment-booking {
-  max-width: 500px;
+  max-width: 70%;
   margin: auto;
-  margin-top:30px;
+  margin-top: 30px;
   margin-bottom: 30px;
   padding: 20px;
   border: 1px solid #ccc;
@@ -53,6 +53,7 @@
 .appointment-booking .date-picker:focus {
   border-color: #007bff;
 }
+
 .appointment-booking button {
   display: block;
   width: 100%;
@@ -92,7 +93,7 @@
   flex: 1 1 calc(33.33% - 20px); /* Three buttons per row, accounting for the gap */
   padding: 8px 15px; /* Smaller padding for smaller buttons */
   border: 2px solid #003073; /* Blue border */
-  background-color: #ffffff ; /* White background */
+  background-color: #ffffff; /* White background */
   color: #003073; /* Blue text */
   cursor: pointer;
   border-radius: 5px;
@@ -120,4 +121,19 @@
   color: #4caf50; /* Green text for selected slot */
 }
 
+/* Disabled Slot Button */
 
+
+.slot-button.disabled {
+  
+  color: #767171;
+
+  cursor: not-allowed;
+  pointer-events: none; /* Indicate it's not clickable */
+}
+
+.wrapper_date_slot{
+  display:flex;
+  flex-direction:row;
+  gap:100px;
+}

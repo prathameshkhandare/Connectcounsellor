@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import axios from 'axios';
 import '../Components/StyleSheets/AppointmentBooking.css';
 import DatePicker from 'react-datepicker';
@@ -15,9 +15,15 @@ const AppointmentBooking = () => {
 const [paymentStatus,setPaymentStatus]=useState('')
   const token = localStorage.getItem('token');
   const [message, setMessage] = useState('');
-
+  const [bookedAppointments, setBookedAppointments] = useState([]);
   const API_URL ="http://localhost:3000";
   
+
+
+
+
+
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -39,10 +45,32 @@ const [paymentStatus,setPaymentStatus]=useState('')
 
 
 
- 
+ useEffect(() => {
+    const fetchBookedAppointments = async () => {
+      try {
+        const response = await axios.get(`${API_URL}/api/appointments/get`,{
+          headers: {
+            'Authorization': `Bearer ${token}`,
+          },
+        });
+        setBookedAppointments(response.data);
+        console.log('Fetched booked appointments:', response.data);
+      } catch (error) {
+        console.error('Error fetching booked appointments:', error);
+      }
+    };
 
+    fetchBookedAppointments();
+  }, []);
 
-
+  const isSlotBooked = (slot, date) => {
+    const booked = bookedAppointments.some(appointment =>
+      new Date(appointment.date).toDateString() === date.toDateString() &&
+      appointment.slot === slot
+    );
+    console.log(`Slot ${slot} on ${date.toDateString()} is booked:`, booked);
+    return booked;
+  };
 
 
 
@@ -159,8 +187,8 @@ console.log(response)
 
       setMessage('Appointment booking requested successfully');
       setTimeout(() => {
-        // navigate('/');
-        alert("Appointment booking requested successfully")
+        navigate('/');
+     
       }, 3000);
     } else if(response.status=== 409){
       setMessage("Appointment already exits");
@@ -197,7 +225,9 @@ console.log(response)
             required
           />
         </div>
-        <div className="form-group">
+      <div className="wrapper_date_slot">
+
+      <div className="form-group">
           <label>Date:</label>
           <DatePicker
             selected={formData.date}
@@ -216,17 +246,21 @@ console.log(response)
                 key={slot}
                 className={`slot-button ${formData.slot === slot ? 'selected' : ''}`}
                 onClick={() => handleSlotSelect(slot)}
+                disabled={isSlotBooked(slot, formData.date)}
               >
                 {slot}
               </button>
             ))}
           </div>
-          {/* Display the selected slot */}
-          
-        </div>
-        <button type="submit" className="animated pulse infinite">
+       
+          <button type="submit" className="animated pulse infinite">
           Book Appointment
         </button>
+        </div>
+
+      </div>
+     
+        
       </form>
       {message && <p>{message}</p>}
     </div>
