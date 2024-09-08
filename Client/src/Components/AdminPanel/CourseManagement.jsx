@@ -42,7 +42,7 @@ const CourseManagement = () => {
     try {
       const contentArray = newCourse.content.split(',').map((item) => item.trim());
       const response = await axios.post(
-        `http://localhost:3000/api/courses/write`,
+        `${API_URL}/api/courses/write`,
         { ...newCourse, content: contentArray },
         {
           headers: {
@@ -103,7 +103,7 @@ const CourseManagement = () => {
           : editCourse.content; // 
   
       const response = await axios.put(
-        `http://localhost:3000/api/courses/update/${editCourse._id}`,
+        `${API_URL}/api/courses/update/${editCourse._id}`,
         { ...editCourse, content: contentArray },
         {
           headers: {

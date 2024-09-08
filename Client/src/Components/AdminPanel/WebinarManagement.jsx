@@ -57,7 +57,7 @@ const WebinarManagement = () => {
         description: '',
         date: '',
         time: '',
-        duration: '',
+        
         meetingLink: '',
         meetingId: '',
         meetingPass: '',
@@ -157,12 +157,7 @@ const WebinarManagement = () => {
             value={newWebinar.time}
             onChange={(e) => setNewWebinar({ ...newWebinar, time: e.target.value })}
           />
-          <input
-            type="text"
-            placeholder="Duration"
-            value={newWebinar.duration}
-            onChange={(e) => setNewWebinar({ ...newWebinar, duration: e.target.value })}
-          />
+          
           <input
             type="text"
             placeholder="Meeting Link"
