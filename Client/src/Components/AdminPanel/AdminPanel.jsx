@@ -6,6 +6,7 @@ import BlogManagement from './BlogManagement';
 import AdminNav from './AdminNav';
 import './AdminPanel.css';
 import AdminBanner from './AdminBanner';
+import WebinarManagement from './WebinarManagement'
 
 const AdminPanel = () => {
   return (

@@ -29,6 +29,7 @@ const AdminNav = () => {
         <Link to="/admin/courses" onClick={toggleMenu}>Manage Courses</Link>
         <Link to="/admin/blogs" onClick={toggleMenu}>Manage Blogs</Link>
         <Link to="/admin/Appointment" onClick={toggleMenu}>Check Appointments</Link>
+        <Link to = "/admin/webinar" onClick={toggleMenu}>Manage Webinar </Link>
       </div>
       <button onClick={() => { handleLogout(); toggleMenu(); }} className='admin-logout-btn'>
         Logout
