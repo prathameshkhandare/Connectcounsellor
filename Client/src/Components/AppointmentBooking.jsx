@@ -28,11 +28,9 @@ const AppointmentBooking = () => {
   };
 
   const handleSlotSelect = (slot) => {
-    if (slot < 9) {
-      slot = parseInt(slot);
-      slot += 12;
-    }
-    setFormData({ ...formData, slot });
+    const formattedSlot = slot < 9 ? parseInt(slot) + 12 : slot;
+    setFormData({ ...formData, slot: formattedSlot });
+    console.log(formattedSlot)
   };
 
   useEffect(() => {
@@ -58,6 +56,28 @@ const AppointmentBooking = () => {
       appointment.slot === slot
     );
   };
+
+const bookappointment =async(req,res)=>{
+ 
+    const response = await fetch(`${API_URL}/api/appointments/book`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify(formData),
+    });
+    if (response.status === 200) {
+      setMessage('Appointment booking requested successfully');
+      setTimeout(() => {
+        navigate('/');
+      }, 3000);
+    } else if (response.status === 409) {
+      setMessage("Appointment already exists");
+    }
+  
+}
+
 
   const initiatePayment = async () => {
     let receiptId = token.toString().slice(0, 25);
@@ -99,6 +119,9 @@ const AppointmentBooking = () => {
             );
             if (paymentVerificationResponse.data.success) {
               setPaymentStatus('200');
+              console.log(" staus 200 seted")
+              console.log(paymentStatus);
+             await  bookappointment();
             } else {
               alert("Payment verification failed. Please try again.");
             }
@@ -129,40 +152,20 @@ const AppointmentBooking = () => {
     try {
       await initiatePayment();
 
-      if (paymentStatus !== '200') {
-        alert("Payment failed. Please try again.");
-      } else {
-        const response = await fetch(`${API_URL}/api/appointments/book`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-          },
-          body: JSON.stringify(formData),
-        });
-        if (response.status === 200) {
-          setMessage('Appointment booking requested successfully');
-          setTimeout(() => {
-            navigate('/');
-          }, 3000);
-        } else if (response.status === 409) {
-          setMessage("Appointment already exists");
-        }
-      }
+   
     } catch (error) {
       setMessage('Error booking appointment');
     }
   };
 
   const slots = [
-    "9", "10", "11",
-    "12", "1", "2", "3", "4",
-    "5", "6", "7", "8"
+    "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20"
   ];
-
+  
   return (
     <div className="appointment-booking">
       <h3 className="animated fadeInDown">Book an Appointment</h3>
+      <label className='Notelable1'>All booking dates and times are in Indian Standard Time(IST)</label>
       <form onSubmit={handleSubmit} className="animated fadeInUp">
      
 
@@ -184,77 +187,107 @@ const AppointmentBooking = () => {
             <label>Date: <span className="selected-date">
               {formData.date.toDateString()}
             </span> </label>
-            <DatePicker
-              selected={formData.date}
+            <DatePicker  selected={formData.date}
               onChange={handleDateChange}
               dateFormat="MMMM d, yyyy"
               inline
               className="date-picker"
               minDate={new Date()} // Prevent selecting dates before today
-            />
+              maxDate={new Date(new Date().setDate(new Date().getDate() + 7))} // Limit selection to next 7 days
+              />
+
           </div>
-          <div className="wrapper_date_slot">
-  <div className="slots-section">
-    {/* Morning Slots (9 to 12) */}
-    <label className="slot-group-label">Morning</label>
-    <div className="slots-container">
-      {slots.filter(slot => slot >= 9 && slot < 12).map((slot) => (
-        <button
-          type="button"
-          key={slot}
-          className={`slot-button ${formData.slot === slot ? 'selected' : ''}`}
-          onClick={() => handleSlotSelect(slot)}
-          disabled={isSlotBooked(slot, formData.date)}
-        >
-          {slot}
-        </button>
-      ))}
-    </div>
-  </div>
+       
+                {/*  here we can add below to visible on right */}
+        
+          <div className="rightwrapper">
+            
 
-  <div className="slots-section">
-    {/* Afternoon Slots (1 to 5) */}
-    <label className="slot-group-label">Afternoon</label>
-    <div className="slots-container">
-      {slots.filter(slot => slot >= 12 && slot <= 5).map((slot) => (
-        <button
-          type="button"
-          key={slot}
-          className={`slot-button ${formData.slot === slot ? 'selected' : ''}`}
-          onClick={() => handleSlotSelect(slot)}
-          disabled={isSlotBooked(slot, formData.date)}
-        >
-          {slot}
-        </button>
-      ))}
-    </div>
-  </div>
 
-  <div className="slots-section">
-    {/* Evening Slots (6 to 8) */}
-    <label className="slot-group-label">Evening</label>
-    <div className="slots-container">
-      {slots.filter(slot => slot >= 6 && slot <= 8).map((slot) => (
-        <button
-          type="button"
-          key={slot}
-          className={`slot-button ${formData.slot === slot ? 'selected' : ''}`}
-          onClick={() => handleSlotSelect(slot)}
-          disabled={isSlotBooked(slot, formData.date)}
-        >
-          {slot}
-        </button>
-      ))}
-    </div>
+
+
+
+
+
+
+
+          <div className="rightcontainerslot">
+          <div className="slots-section">
+  {/* Morning Slots (8 to 12) */}
+  <label className="slot-group-label">Morning</label>
+  <div className="slots-container">
+    {slots.filter(slot => slot >= 9 && slot < 12).map((slot) => (
+      <button
+        type="button"
+        key={slot}
+        className={`slot-button ${formData.slot === slot ? 'selected' : ''}`}
+        onClick={() => handleSlotSelect(slot)}
+        disabled={isSlotBooked(slot, formData.date)}
+      >
+        {slot} AM
+      </button>
+    ))}
   </div>
 </div>
 
+<div className="afternoon-slot-section">
+  <label className="afternoon-slot-group-label">Afternoon</label>
+  <div className="afternoon-slot-container">
+    {slots.filter(slot => slot >= 12 && slot < 18).map((slot) => (
+      <button
+        type="button"
+        key={slot}
+        className={`afternoon-slot-button ${formData.slot === slot ? 'selected' : ''}`}
+        onClick={() => handleSlotSelect(slot)}
+        disabled={isSlotBooked(slot, formData.date)}
+      >
+        {slot < 13 ? slot : slot - 12} {slot < 13 ? 'PM' : 'PM'}
+      </button>
+    ))}
+  </div>
+</div>
+
+<div className="slots-section">
+  {/* Evening Slots (18 to 20) */}
+  <label className="slot-group-label">Evening</label>
+  <div className="slots-container_eve">
+    {slots.filter(slot => slot >= 18 && slot <= 20).map((slot) => (
+      <button
+        type="button"
+        key={slot}
+        className={`slot-button ${formData.slot === slot ? 'selected' : ''}`}
+        onClick={() => handleSlotSelect(slot)}
+        disabled={isSlotBooked(slot, formData.date)}
+      >
+        {slot - 12} PM
+      </button>
+    ))}
+  </div>
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+    
+        <label className='Notelable'>Note: 1 slot is equivalent to 40 mins </label>
+
+      {message && <p className='message'>{message}</p>}
+          </div>
+      
+   
         </div>
-      <button type="submit" className="submit-btn">
+        <button type="submit" className="submit-btn">
         Book Appointment
       </button>
       </form>
-      {message && <p>{message}</p>}
     </div>
   );
 };
