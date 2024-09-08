@@ -71,6 +71,7 @@ const WebinarManagement = () => {
 
   const deleteWebinar = async (webinar_id) => {
     // const API_URL = import.meta.env.VITE_API_URL;
+    // const
     
     try {
       console.log(webinar_id)
