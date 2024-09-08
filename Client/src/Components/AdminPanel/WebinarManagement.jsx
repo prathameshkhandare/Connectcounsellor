@@ -7,13 +7,14 @@ Modal.setAppElement('#root');
 
 const WebinarManagement = () => {
   const [webinars, setWebinars] = useState([]);
+  const API_URL = "http://localhost:3000";
   const [newWebinar, setNewWebinar] = useState({
     title: '',
     presenter: '',
     description: '',
     date: '',
     time: '',
-    duration: '',
+
     meetingLink: '',
     meetingId: '',
     meetingPass: '',
@@ -29,7 +30,7 @@ const WebinarManagement = () => {
   }, []);
 
   const fetchWebinars = async () => {
-    const API_URL = import.meta.env.VITE_API_URL;
+   
     try {
       const response = await axios.get(`${API_URL}/api/getwebinar`);
       setWebinars(response.data);
@@ -39,7 +40,7 @@ const WebinarManagement = () => {
   };
 
   const addWebinar = async () => {
-    const API_URL = import.meta.env.VITE_API_URL;
+    // const API_URL = import.meta.env.VITE_API_URL;
     try {
       const response = await axios.post(
         `${API_URL}/api/postwebinar`,
@@ -57,7 +58,6 @@ const WebinarManagement = () => {
         description: '',
         date: '',
         time: '',
-        duration: '',
         meetingLink: '',
         meetingId: '',
         meetingPass: '',
@@ -69,12 +69,12 @@ const WebinarManagement = () => {
     }
   };
 
-  const deleteWebinar = async (webinarId) => {
-    const API_URL = import.meta.env.VITE_API_URL;
+  const deleteWebinar = async (webinar_id) => {
+    // const API_URL = import.meta.env.VITE_API_URL;
     
     try {
-      console.log(webinarId)
-      await axios.delete(`${API_URL}/api/webinars/delete/`,webinarId,
+      console.log(webinar_id)
+      await axios.delete(`${API_URL}/api/webinar/delete/${webinar_id}`,
          {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -82,7 +82,7 @@ const WebinarManagement = () => {
         
       });
       
-      const updatedWebinars = webinars.filter((webinar) => webinar._id !== webinarId);
+      const updatedWebinars = webinars.filter((webinar) => webinar._id !== webinar_id);
       setWebinars(updatedWebinars);
     } catch (error) {
       console.error('Error deleting webinar:', error);
@@ -100,7 +100,7 @@ const WebinarManagement = () => {
   };
 
   const updateWebinar = async () => {
-    const API_URL = import.meta.env.VITE_API_URL;
+    // const API_URL = import.meta.env.VITE_API_URL;
     try {
       const response = await axios.put(
         `${API_URL}/api/webinars/update/${editWebinar._id}`,
@@ -157,12 +157,7 @@ const WebinarManagement = () => {
             value={newWebinar.time}
             onChange={(e) => setNewWebinar({ ...newWebinar, time: e.target.value })}
           />
-          <input
-            type="text"
-            placeholder="Duration"
-            value={newWebinar.duration}
-            onChange={(e) => setNewWebinar({ ...newWebinar, duration: e.target.value })}
-          />
+         
           <input
             type="text"
             placeholder="Meeting Link"
@@ -249,12 +244,7 @@ const WebinarManagement = () => {
                 value={editWebinar.time}
                 onChange={(e) => setEditWebinar({ ...editWebinar, time: e.target.value })}
               />
-              <input
-                type="text"
-                placeholder="Duration"
-                value={editWebinar.duration}
-                onChange={(e) => setEditWebinar({ ...editWebinar, duration: e.target.value })}
-              />
+         
               <input
                 type="text"
                 placeholder="Meeting Link"
