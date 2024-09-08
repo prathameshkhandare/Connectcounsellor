@@ -14,6 +14,11 @@ const WebinarManagement = () => {
     date: '',
     time: '',
     duration: '',
+    meetingLink: '',
+    meetingId: '',
+    meetingPass: '',
+    platform: '',
+    price: '',
   });
   const [editWebinar, setEditWebinar] = useState(null);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -26,7 +31,7 @@ const WebinarManagement = () => {
   const fetchWebinars = async () => {
     const API_URL = import.meta.env.VITE_API_URL;
     try {
-      const response = await axios.get(`${API_URL}/api/webinars/read`);
+      const response = await axios.get(`${API_URL}/api/getwebinar`);
       setWebinars(response.data);
     } catch (error) {
       console.error('Error fetching webinars:', error);
@@ -37,7 +42,7 @@ const WebinarManagement = () => {
     const API_URL = import.meta.env.VITE_API_URL;
     try {
       const response = await axios.post(
-        `${API_URL}/api/webinars/write`,
+        `${API_URL}/api/postwebinar`,
         newWebinar,
         {
           headers: {
@@ -53,6 +58,11 @@ const WebinarManagement = () => {
         date: '',
         time: '',
         duration: '',
+        meetingLink: '',
+        meetingId: '',
+        meetingPass: '',
+        platform: '',
+        price: '',
       });
     } catch (error) {
       console.error('Error adding webinar:', error);
@@ -61,12 +71,17 @@ const WebinarManagement = () => {
 
   const deleteWebinar = async (webinarId) => {
     const API_URL = import.meta.env.VITE_API_URL;
+    
     try {
-      await axios.delete(`${API_URL}/api/webinars/delete/${webinarId}`, {
+      console.log(webinarId)
+      await axios.delete(`${API_URL}/api/webinars/delete/`,webinarId,
+         {
         headers: {
           Authorization: `Bearer ${token}`,
         },
+        
       });
+      
       const updatedWebinars = webinars.filter((webinar) => webinar._id !== webinarId);
       setWebinars(updatedWebinars);
     } catch (error) {
@@ -148,6 +163,36 @@ const WebinarManagement = () => {
             value={newWebinar.duration}
             onChange={(e) => setNewWebinar({ ...newWebinar, duration: e.target.value })}
           />
+          <input
+            type="text"
+            placeholder="Meeting Link"
+            value={newWebinar.meetingLink}
+            onChange={(e) => setNewWebinar({ ...newWebinar, meetingLink: e.target.value })}
+          />
+          <input
+            type="text"
+            placeholder="Meeting ID"
+            value={newWebinar.meetingId}
+            onChange={(e) => setNewWebinar({ ...newWebinar, meetingId: e.target.value })}
+          />
+          <input
+            type="text"
+            placeholder="Meeting Password"
+            value={newWebinar.meetingPass}
+            onChange={(e) => setNewWebinar({ ...newWebinar, meetingPass: e.target.value })}
+          />
+          <input
+            type="text"
+            placeholder="Platform"
+            value={newWebinar.platform}
+            onChange={(e) => setNewWebinar({ ...newWebinar, platform: e.target.value })}
+          />
+          <input
+            type="text"
+            placeholder="Price"
+            value={newWebinar.price}
+            onChange={(e) => setNewWebinar({ ...newWebinar, price: e.target.value })}
+          />
           <button className="admin-panel-button" onClick={addWebinar}>Add Webinar</button>
         </div>
 
@@ -210,11 +255,38 @@ const WebinarManagement = () => {
                 value={editWebinar.duration}
                 onChange={(e) => setEditWebinar({ ...editWebinar, duration: e.target.value })}
               />
-
-              <div className="button-group">
-                <button className="admin-panel-button" onClick={updateWebinar}>Update Webinar</button>
-                <button className="admin-panel-button" onClick={closeEditModal}>Cancel</button>
-              </div>
+              <input
+                type="text"
+                placeholder="Meeting Link"
+                value={editWebinar.meetingLink}
+                onChange={(e) => setEditWebinar({ ...editWebinar, meetingLink: e.target.value })}
+              />
+              <input
+                type="text"
+                placeholder="Meeting ID"
+                value={editWebinar.meetingId}
+                onChange={(e) => setEditWebinar({ ...editWebinar, meetingId: e.target.value })}
+              />
+              <input
+                type="text"
+                placeholder="Meeting Password"
+                value={editWebinar.meetingPass}
+                onChange={(e) => setEditWebinar({ ...editWebinar, meetingPass: e.target.value })}
+              />
+              <input
+                type="text"
+                placeholder="Platform"
+                value={editWebinar.platform}
+                onChange={(e) => setEditWebinar({ ...editWebinar, platform: e.target.value })}
+              />
+              <input
+                type="text"
+                placeholder="Price"
+                value={editWebinar.price}
+                onChange={(e) => setEditWebinar({ ...editWebinar, price: e.target.value })}
+              />
+              <button className="admin-panel-button" onClick={updateWebinar}>Update Webinar</button>
+              <button className="admin-panel-button" onClick={closeEditModal}>Cancel</button>
             </div>
           </Modal>
         )}

@@ -58,13 +58,13 @@
   display: block;
   width: 100%;
   padding: 10px;
-  background-color: #323ac9;
+  background-color: #af3208 !important;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
-  background-image: linear-gradient(90deg, #003073 50%, #323ac9 50%);
+  /* background-image: linear-gradient(90deg, #dde2e9 50%, #d5d6e8 50%); */
   background-size: 200%;
   background-position: right;
   transition: background-position 0.5s ease-in-out;
