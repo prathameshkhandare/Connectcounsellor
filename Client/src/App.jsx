@@ -43,8 +43,9 @@ const Home = () => {
     <>
       <CustomNavbar />
       <Banner />
-      <Webinars/>
-      <Courses />
+
+      {/* <Webinars/> */}
+      {/* <Courses /> */}
       <AppInfo/>
       <Footer />
     </>
