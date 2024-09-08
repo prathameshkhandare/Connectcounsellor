@@ -41,7 +41,133 @@ function Banner() {
       </div>
       
     </div>
-    <img src={ccadvertise} className="connectcounselloradvertise" alt="" />
+    {/* <img src={ccadvertise} className="connectcounselloradvertise" alt="" /> */}
+
+    {/* new one  */}
+
+    <div className='main-container'>
+    <div className='trust-outer-container'>
+        <h1>Why you should trust us?</h1>
+        <h1>
+          Get know about us
+        </h1>
+        <div className='trust-inner-container'>
+          <div className='trust-inner-flex-container'>
+          <i class="fa-solid fa-user-doctor"></i>
+          <p className='bold'>All Specialist</p>
+          <p className='thin2'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, quae.</p>
+
+          </div>
+          <div className='trust-inner-flex-container'>
+          <i class="fa-solid fa-user-doctor"></i>
+          <p className='bold'>Private & secure</p>
+          <p className='thin2'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, quae.</p>
+
+          </div>
+          <div className='trust-inner-flex-container'>
+          <i class="fa-solid fa-user-doctor"></i>
+          <p className='bold'>Trusted by users</p>
+          <p className='thin2'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, quae.</p>
+
+          </div>
+          <div className='trust-inner-flex-container'>
+          <i class="fa-solid fa-user-doctor"></i>
+          <p className='bold'>24x7 support</p>
+          <p className='thin2'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, quae.</p>
+
+          </div>
+
+        </div>
+
+
+      </div>
+     
+      <div  className='steps-outer-container'>
+        <div className='steps-outer-flex-container'>
+        <div  className='steps-inner-container1'>
+          <p>Our Appoinment Booking process</p>
+          <h1>Four easy steps to get your solution</h1>
+
+        </div>
+        <div  className='steps-inner-container2'>
+          <div className='steps-inner-flex-container2'>
+            <h1>1</h1>
+            <i class="fa-solid fa-stethoscope"></i>
+            <p className='bold-white'>Search Doctor</p>
+            <p className='thin-white'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste repellendus ipsa culpa!</p>
+
+          </div>
+          <div className='steps-inner-flex-container2'>
+            <h1>2</h1>
+            <i class="fa-solid fa-stethoscope"></i>
+            <p className='bold-white'>Search Doctor</p>
+            <p className='thin-white'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste repellendus ipsa culpa!</p>
+
+          </div>
+          <div className='steps-inner-flex-container2'>
+            <h1>3</h1>
+            <i class="fa-solid fa-stethoscope"></i>
+            <p className='bold-white'>Search Doctor</p>
+            <p className='thin-white'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste repellendus ipsa culpa!</p>
+
+          </div>
+          <div className='steps-inner-flex-container2'>
+            <h1>4</h1>
+            <i class="fa-solid fa-stethoscope"></i>
+            <p className='bold-white'>Search Doctor</p>
+            <p className='thin-white'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste repellendus ipsa culpa!</p>
+
+          </div>
+
+        </div>
+
+        </div>
+        
+
+      </div>
+
+      <div  className='our-speciality-outer-container'>
+        <p style={{color:'blue'}}>Our Speciality</p>
+        <h1>
+          We provide following counselling services with best counsellor team!
+        </h1>
+        <div className='our-speciality-inner-container'>
+          <div className='our-speciality-container' >
+          <i class="fa-solid fa-face-sad-tear"></i>
+          <p className='bold'>Depression</p>
+          <p className='thin'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quaerat veniam illo.</p>
+
+          </div>
+          <div className='our-speciality-container' >
+          <i class="fa-solid fa-face-sad-tear"></i>
+          <p className='bold'>Depression</p>
+          <p className='thin'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quaerat veniam illo.</p>
+
+          </div>
+          <div className='our-speciality-container' >
+          <i class="fa-solid fa-face-sad-tear"></i>
+          <p className='bold'>Depression</p>
+          <p className='thin'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quaerat veniam illo.</p>
+
+          </div>
+          <div className='our-speciality-container' >
+          <i class="fa-solid fa-face-sad-tear"></i>
+          <p className='bold'>Depression</p>
+          <p className='thin'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quaerat veniam illo.</p>
+
+          </div>
+          <div className='our-speciality-container' >
+          <i class="fa-solid fa-face-sad-tear"></i>
+          <p className='bold'>Depression</p>
+          <p className='thin'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate quaerat veniam illo.</p>
+
+          </div>
+        </div>
+        
+
+      </div>
+     
+    </div>
     </>
   );
 }
