@@ -5,7 +5,7 @@ import './AdminPanel.css';
 
 const BlogManagement = () => {
   const [blogs, setBlogs] = useState([]);
-  const [newBlog, setNewBlog] = useState({ title: '', content: '', author: '', image: '' });
+  const [newBlog, setNewBlog] = useState({ title: '', content: '', author: '', image: '', category: '' });
   const [message, setMessage] = useState('');
   const [showMessage, setShowMessage] = useState(false);
   const navigate = useNavigate();
@@ -34,7 +34,7 @@ const BlogManagement = () => {
         }
       });
       setBlogs([...blogs, response.data]);
-      setNewBlog({ title: '', content: '', author: '', image: '' });
+      setNewBlog({ title: '', content: '', author: '', image: '' ,category :''});
     } catch (error) {
       console.error('Error adding blog:', error);
     }
@@ -109,6 +109,10 @@ const BlogManagement = () => {
           value={newBlog.image}
           onChange={(e) => setNewBlog({ ...newBlog, image: e.target.value })}
         />
+        <input type="text"
+        placeholder='category' 
+        value={newBlog.category}
+        onChange = {(e)=> setNewBlog({...newBlog,category:e.target.value})}/>
         <button className="admin-panel-button" onClick={addBlog}>Add Blog</button>
       </div>
     </div>
