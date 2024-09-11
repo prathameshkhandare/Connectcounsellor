@@ -4,7 +4,7 @@
   color: rgb(14, 14, 133);
   font-size: 24px;
   font-weight: bold;
-  background-image: url('../../assets/Img/ribbon.png'); /* Path to the ribbon image */
+  /* background-image: url('../../assets/Img/ribbon.png'); */
   background-repeat: no-repeat;
   background-size: 270px; /* Ensure the image scales properly */
   background-position: center;

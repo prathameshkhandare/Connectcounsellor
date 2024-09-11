@@ -14,8 +14,6 @@ const Courses = () => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        
-       
         const response = await axios.get(`${API_URL}/api/courses/read`);
         setCourses(response.data);
 

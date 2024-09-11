@@ -5,7 +5,7 @@ export default function FloatWebinar() {
     const navigate = useNavigate();
 
     const handleClick =()=>{
-        navigate('/')
+        navigate('/Webinar')
     }
   return (
    

@@ -600,16 +600,29 @@ color: aliceblue;
 
 /* Float Webinar */
 
-.floatwebinar-container{
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* Move up by 10px */
+  }
+  100% {
+    transform: translateY(0); /* Move back down */
+  }
+}
+
+.floatwebinar-container {
   position: fixed;
   bottom: 0;
   right: 0;
   z-index: 99;
-cursor: pointer;
-background-color: transparent;
-
+  cursor: pointer;
+  background-color: transparent;
+  animation: floatUpDown 1s ease-in-out infinite; /* Floating animation */
 }
-.floatwebinar-outer-container{
+
+.floatwebinar-outer-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -621,7 +634,8 @@ background-color: transparent;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.082);
   margin: 10px;
 }
-.floatwebinar-outer-container i{
+
+.floatwebinar-outer-container i {
   color: white;
   margin-right: 5px;
   font-size: 18px;
@@ -630,13 +644,14 @@ background-color: transparent;
   align-content: center;
 }
 
-.floatwebinar-outer-container p{
+.floatwebinar-outer-container p {
   color: white;
   margin-right: 5px;
   background-color: blue;
   align-content: center;
   margin-top: 12px;
 }
+
 
 
 

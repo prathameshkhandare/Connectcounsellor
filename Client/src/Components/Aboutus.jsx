@@ -13,10 +13,10 @@ const Aboutus = () => {
       <div className="ceo-section">
         <img src={aboutusimg1} alt="CEO" className="ceo-image" />
         <div className="ceo-info">
-          <h3>Sienna Hewitt</h3>
+          <h3>Dr. Nikhil Surjuse</h3>
           <p>Founder & CEO</p>
           <p>
-            Former co-founder of Opendoor. Early staff at Spotify and Clearbit.
+            Former co-founder of Connect Consellor. Experience counsellor .
           </p>
         </div>
       </div>
@@ -27,24 +27,25 @@ const Aboutus = () => {
       <div className="aboutus-section">
         <div className="aboutus-card">
           <img src={aboutusimg2} alt="Doctor2" />
-          <h3>Ashwin Santiago</h3>
-          <p>Engineering Manager</p>
-          <p>Lead engineering teams at Netflix, Pitch, and Protocol Labs.</p>
+          <h3>Dr. Rajashree Navthale</h3>
+          <p>Depression counsellor </p>
+          <div className="italic-text">
+          <p>Experience Depression counsellor work at connect counsellor with Experience of 3 years</p></div>
         </div>
 
         <div className="aboutus-card">
           <img src={aboutusimg2} alt="Doctor3" />
-          <h3>Person Name</h3>
-          <p>Job Title</p>
+          <h3>Dr. Shweta Surjuse</h3>
+          <p>Couple Counsellor</p>
           <p className="italic-text">
-            "An inspirational quote or line in italic."
+            "Having Experience of 2.5 years in counsellings."
           </p>
         </div>
         
         <div className="aboutus-card">
           <img src={aboutusimg2} alt="Doctor4" />
-          <h3>Bhavesh Rathod</h3>
-          <p>Senior Doctor</p>
+          <h3>Dr. Parimal yenkar</h3>
+          <p>parenting counsellor having Experience with more than 3.5 years </p>
           <p className="italic-text">
             Hr 
           </p>

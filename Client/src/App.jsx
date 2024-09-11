@@ -61,6 +61,7 @@ const BookNow = () => {
       <CustomNavbar />
      
       <AppointmentBooking/>
+      <FloatWebinar/>
       <Footer />
     </>
   );
@@ -78,6 +79,7 @@ function App() {
               <>
                 <CustomNavbar />
                 <Aboutus />
+                <FloatWebinar/>
                 <Footer />
               </>
             }
@@ -88,6 +90,7 @@ function App() {
               <>
                 <CustomNavbar />
                 <Contactus />
+                <FloatWebinar/>
                 <Footer />
               </>
             }
@@ -98,6 +101,7 @@ function App() {
               <>
                 <CustomNavbar />
                 <Blog />
+                <FloatWebinar/>
                 <Footer />
               </>
             }
@@ -109,6 +113,7 @@ function App() {
               <>
                 <CustomNavbar />
                 <CookiePolicy />
+                <FloatWebinar/>
                 <Footer />
               </>
             }
@@ -119,6 +124,7 @@ function App() {
               <>
                 <CustomNavbar />
                 <PrivacyPolicy />
+                <FloatWebinar/>
                 <Footer />
               </>
             }
@@ -130,6 +136,7 @@ function App() {
               <>
                 <CustomNavbar />
                 <TermsAndConditions />
+                <FloatWebinar/>
                 <Footer />
               </>
             }
@@ -140,6 +147,7 @@ function App() {
               <>
                 <CustomNavbar />
                 <RefundAndCancellationPolicy />
+                <FloatWebinar/>
                 <Footer />
               </>
             }
@@ -150,15 +158,16 @@ function App() {
               <>
                 <CustomNavbar />
                 <DisclaimerPolicy />
+                <FloatWebinar/>
                 <Footer />
               </>
             }
             />
           <Route element={<PrivateRoute requiredRole="user" />}>
           <Route
-          path="/webinarinfo/:id" element ={<> <CustomNavbar/><WebinarInfo/> <Footer/></>}></Route>
+          path="/webinarinfo/:id" element ={<> <CustomNavbar/><WebinarInfo/> <FloatWebinar/> <Footer/></>}></Route>
           <Route
-          path="/profile" element ={<> <CustomNavbar/><UserProfile/> <Footer/></>}></Route>
+          path="/profile" element ={<> <CustomNavbar/><UserProfile/> <FloatWebinar/><Footer/></>}></Route>
           <Route
             path="/courseInfo/:courseId"
             element={
@@ -170,17 +179,19 @@ function App() {
             }
           />
           <Route
-          path="/account-setting" element ={<> <CustomNavbar/><AccountSetting/> <Footer/></>}></Route>
+          path="/account-setting" element ={<> <CustomNavbar/><AccountSetting/> <FloatWebinar/> <Footer/></>}></Route>
           {/* <Route path = '/UserCourses' element = {<> <CustomNavbar/> <UserCourses/>  <Footer/> </>}></Route> */}
           <Route
          
-          path="/Notifications" element ={<> <CustomNavbar/><Notifications/> <Footer/></>}></Route>
+          path="/Notifications" element ={<> <CustomNavbar/><Notifications/> <FloatWebinar/> <Footer/></>}></Route>
           <Route path="/booknow" element={<BookNow />} />
+
+
        
           </Route>
-          <Route path="/courses" element={<><CustomNavbar/> <Courses/> <Footer/> </> }/>
-      
-          <Route path="/Help" element={<>  <CustomNavbar /> <Help /> <Footer /> </> } />
+          <Route path="/courses" element={<><CustomNavbar/><Courses/><FloatWebinar/>  <Footer/></>}/>
+      <Route path = '/Webinar' element={<><CustomNavbar/> <Webinars/> <Footer/> </>}/>
+          <Route path="/Help" element={<>  <CustomNavbar /> <Help /> <FloatWebinar/> <Footer /> </> } />
           <Route path="/login" element={<Login />} />
           <Route element={<PrivateRoute requiredRole="admin" />}/>
             <Route path="/adminpanel" element={<>   <AdminPanel /> </> } />
