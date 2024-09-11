@@ -101,7 +101,7 @@ const WebinarManagement = () => {
   };
 
   const updateWebinar = async () => {
-    // const API_URL = import.meta.env.VITE_API_URL;
+    const API_URL = import.meta.env.VITE_API_URL;
     try {
       const response = await axios.put(
         `${API_URL}/api/webinars/update/${editWebinar._id}`,

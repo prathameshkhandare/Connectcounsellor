@@ -38,6 +38,7 @@ import WebinarInfo from "./Components/WebinarInfo";
 import Webinars from "./Components/Webinar";
 import WebinarManagement from "./Components/AdminPanel/WebinarManagement";
 import FloatWebinar from "./Components/FloatWebinar";
+import LandingPageBlog from "./Components/LandingPageBlog";
 // Example components for routes
 const Home = () => {
   return (
@@ -50,6 +51,7 @@ const Home = () => {
       {/* <Webinars/> */}
       {/* <Courses /> */}
       <AppInfo/>
+      <LandingPageBlog/>
       <Footer />
     </>
   );
