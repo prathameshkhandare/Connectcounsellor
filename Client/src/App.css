@@ -432,6 +432,7 @@ border-bottom: 1px #ccc;
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-top: 50px;
 }
 .our-speciality-outer-container h1{
   text-align: center;
@@ -484,9 +485,6 @@ border-bottom: 1px #ccc;
 .steps-outer-flex-container{
   display: flex;
   justify-content: space-between;
-  
-  
-  
   width: 90%;
   background-color: blue;
   padding: 30px;
@@ -600,6 +598,45 @@ color: aliceblue;
 
 
 
+/* Float Webinar */
+
+.floatwebinar-container{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 99;
+cursor: pointer;
+background-color: transparent;
+
+}
+.floatwebinar-outer-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  padding: 0px;
+  border-radius: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.082);
+  margin: 10px;
+}
+.floatwebinar-outer-container i{
+  color: white;
+  margin-right: 5px;
+  font-size: 18px;
+  margin-left: 5px;
+  background-color: blue;
+  align-content: center;
+}
+
+.floatwebinar-outer-container p{
+  color: white;
+  margin-right: 5px;
+  background-color: blue;
+  align-content: center;
+  margin-top: 12px;
+}
 
 
 

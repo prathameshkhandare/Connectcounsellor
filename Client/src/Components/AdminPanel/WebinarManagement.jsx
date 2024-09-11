@@ -7,7 +7,7 @@ Modal.setAppElement('#root');
 
 const WebinarManagement = () => {
   const [webinars, setWebinars] = useState([]);
-  const API_URL = "http://localhost:3000";
+  const API_URL = import.meta.env.VITE_API_URL;
   const [newWebinar, setNewWebinar] = useState({
     title: '',
     presenter: '',

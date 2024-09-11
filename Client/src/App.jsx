@@ -37,12 +37,15 @@ import OtpVerification from "./Components/OtpVerification";
 import WebinarInfo from "./Components/WebinarInfo";
 import Webinars from "./Components/Webinar";
 import WebinarManagement from "./Components/AdminPanel/WebinarManagement";
+import FloatWebinar from "./Components/FloatWebinar";
 // Example components for routes
 const Home = () => {
   return (
     <>
       <CustomNavbar />
       <Banner />
+      <FloatWebinar/>
+
 
       {/* <Webinars/> */}
       {/* <Courses /> */}
@@ -175,6 +178,7 @@ function App() {
           <Route path="/booknow" element={<BookNow />} />
        
           </Route>
+          <Route path="/courses" element={<><CustomNavbar/> <Courses/> <Footer/> </> }/>
       
           <Route path="/Help" element={<>  <CustomNavbar /> <Help /> <Footer /> </> } />
           <Route path="/login" element={<Login />} />

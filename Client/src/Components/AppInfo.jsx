@@ -23,9 +23,7 @@ const AppInfo = () => {
           <a href="#">
             <img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" alt="Google Play" className='Android-play-store' />
           </a>
-          <a href="#">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvzJASvP_DUtrXr3e-pFLajZYQ8NUOP-g46g&s" alt="App Store" className='ios-play-store'/>
-          </a>
+         
         </div>
       </div>
       <div className="app-images">

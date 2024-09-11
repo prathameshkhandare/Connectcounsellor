@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 .app-info {
-    width: 72%;
+    width: 90%;
     margin: 40px auto;
     padding: 20px;
     background-color: #ffffff;
@@ -77,11 +77,11 @@
   
   .app-store-buttons {
     margin-top: 20px;
-    text-align: center;
+    /* text-align: center; */
   }
   
   .app-store-buttons a {
-    margin: 0 10px;
+    margin: 0 ;
   }
 
  .Android-play-store{
@@ -90,13 +90,7 @@
   /* margin: 0 2px  ; */
   
  }
- .ios-play-store{
-  height: 6vh;
-  width: auto;
-  /* margin: 0 2px; */
 
- }
-  
   .app-store-logo {
     width: 20%;
     margin: 10px;
