@@ -643,9 +643,9 @@
   margin-top: 20px;
   width: 80%;
   margin-left: 150px;
-  background-color: #f0f0f0; /* Sharp container background */
+  background-color: #ffffff; /* Sharp container background */
   padding: 20px; /* Add padding around the container */
-  border: 2px solid #ccc; /* Border around the container */
+  border: 1px solid #ccc; /* Border around the container */
   border-radius: 8px; /* Sharpen the container */
 }
 
@@ -666,7 +666,7 @@
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border: 2px solid #3a95ce; /* Add border to each box */
+  border: 1px #ccc; 
 }
 
 .admin-panel-new-webinar {
@@ -679,6 +679,7 @@
   flex: 1 1 50%; /* Webinar list occupies 50% of the width */
   max-width: 600px;
   min-width: 300px;
+  margin-top: 6px;
 }
 
 /* Input fields styling */
@@ -712,14 +713,18 @@
 .admin-panel-webinar-list ul {
   list-style-type: none;
   padding: 0;
+  
 }
 
 .admin-panel-webinar-list li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px solid #ddd;
+  padding: 5px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+
 }
 
 .admin-panel-button-container {
@@ -772,6 +777,8 @@
   .admin-panel-webinar-list {
     width: 100%;
   }
+
+
 
   .admin-panel-button-container {
     flex-direction: column;

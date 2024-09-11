@@ -432,6 +432,7 @@ border-bottom: 1px #ccc;
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-top: 50px;
 }
 .our-speciality-outer-container h1{
   text-align: center;
@@ -463,6 +464,7 @@ border-bottom: 1px #ccc;
   padding: 10px;
   border-radius: 500px;
   color: blue;
+  background-color: transparent;
 }
 .bold{
   font-weight: 800;
@@ -477,16 +479,13 @@ border-bottom: 1px #ccc;
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 50px;
+  margin-bottom: 70px;
  
 }
 .steps-outer-flex-container{
   display: flex;
   justify-content: space-between;
-  
-  
-  
   width: 90%;
   background-color: blue;
   padding: 30px;
@@ -516,13 +515,15 @@ color: aliceblue;
 
 }
 .steps-inner-flex-container2 h1{
-  transform: translate(-10px,20px);
+  transform: translate(-25px,45px);
   color: rgb(129, 129, 255);
   z-index: 0;
+
   background-color: blue;
 }
 .steps-inner-container1 h1{
   background-color: blue;
+  width: 500px;
 }
 .steps-inner-container1 p{
   background-color: blue;
@@ -589,16 +590,71 @@ color: aliceblue;
 }
 .trust-inner-flex-container i{
   color: blue;
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
+
   text-align: center;
   align-content: center;
-  background-color: rgba(233, 233, 233, 0.382);
+  background-color: transparent;
   padding: 10px;
   border-radius: 20px;
 }
 
 
+
+/* Float Webinar */
+
+@keyframes floatUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* Move up by 10px */
+  }
+  100% {
+    transform: translateY(0); /* Move back down */
+  }
+}
+
+.floatwebinar-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 99;
+  cursor: pointer;
+  background-color: transparent;
+  animation: floatUpDown 1s ease-in-out infinite; /* Floating animation */
+}
+
+.floatwebinar-outer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  padding: 0px;
+  border-radius: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.082);
+  margin: 10px;
+}
+
+.floatwebinar-outer-container i {
+  color: white;
+  margin-right: 5px;
+  font-size: 18px;
+  margin-left: 5px;
+  background-color: blue;
+  align-content: center;
+}
+
+.floatwebinar-outer-container p {
+  color: white;
+  margin-right: 5px;
+  background-color: blue;
+  align-content: center;
+  margin-top: 12px;
+}
 
 
 

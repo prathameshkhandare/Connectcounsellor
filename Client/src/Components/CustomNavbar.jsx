@@ -74,6 +74,7 @@ function CustomNavbar() {
             <Nav.Link as={Link} to="/contact" className='nav-element'>Contact</Nav.Link>
             <Nav.Link as={Link} to="/blog" className='nav-element'>Blog</Nav.Link>
             <Nav.Link as={Link} to="/booknow" className='nav-element'>Book Now</Nav.Link>
+            <Nav.Link as={Link}  to= "/courses" className='nav-element'>Courses</Nav.Link>
           </Nav>
         </Navbar.Collapse>
 

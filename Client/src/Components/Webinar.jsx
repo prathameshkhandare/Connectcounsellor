@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import webinar_img from "../assets/Img/webinar_img.jpg"
 import  "../Components/StyleSheets/Webinar.css"
 const Webinars = () => {
   const [webinars, setWebinars] = useState([]);
@@ -18,7 +19,10 @@ const Webinars = () => {
         console.log('Fetching webinars...');
         const response = await axios.get(`${API_URL}/api/getwebinar`);
         console.log('Webinars fetched:', response.data);
-        setWebinars(response.data);
+        
+        // Only keep the last 5 webinars
+        const lastFiveWebinars = response.data.slice(-5);
+        setWebinars(lastFiveWebinars);
       } catch (error) {
         console.error('Error fetching webinars:', error);
         setError('Error fetching webinars.');
@@ -148,30 +152,40 @@ const Webinars = () => {
   };
 
   return (
-    <div className="webinar_container">
-      <h2 className="webinar_h2">Upcoming Webinars</h2>
-      {loading ? (
-        <p className="webinar_loading">Loading...</p>
-      ) : error ? (
-        <p className="webinar_error">{error}</p>
-      ) : (
-        <ul className="webinar_list">
-          {webinars.map((webinar) => (
-            <li className="webinar_item" key={webinar._id}>
-              <h3 className="webinar_title">{webinar.title}</h3>
-              <p className="webinar_presenter">Presenter: {webinar.presenter}</p>
-              <p className="webinar_date">Date: {new Date(webinar.date).toLocaleDateString()}</p>
-              <p className="webinar_price">Price: {webinar.price === "0" ? 'Free' : `₹${webinar.price}`}</p>
-              <button className="webinar_enroll_button" onClick={() => handleEnroll(webinar)}>
-                {webinar.price === "0" ? 'Enroll Now' : 'Pay & Enroll'}
-              </button>
-              {paymentStatus && <p className="webinar_payment_status">{paymentStatus}</p>}
-            </li>
-          ))}
-        </ul>
-      )}
+    <> <img src={webinar_img} alt="Webinar Banner" className="webinar_banner" />
+    <div className="webinar_outer_container">
+      
+      <div className="webinar_inner_container">
+        
+        <h2 className="webinar_h2">Upcoming Webinars</h2>
+        {loading ? (
+          <p className="webinar_loading">Loading...</p>
+        ) : error ? (
+          <p className="webinar_error">{error}</p>
+        ) : (
+          <div className="webinar_grid">
+            {webinars.map((webinar) => (
+              <div className="webinar_card" key={webinar._id}>
+                <h3 className="webinar_title">{webinar.title}</h3>
+                <p className="webinar_presenter">Presenter: {webinar.presenter}</p>
+                <p className="webinar_date">Date: {new Date(webinar.date).toLocaleDateString()}</p>
+                <p className="webinar_price">Price: {webinar.price === "0" ? 'Free' : `₹${webinar.price}`}</p>
+                <button className="webinar_enroll_button" onClick={() => handleEnroll(webinar)}>
+                  {webinar.price === "0" ? 'Enroll Now' : 'Pay & Enroll'}
+                </button>
+                {paymentStatus && <p className="webinar_payment_status">{paymentStatus}</p>}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
     </div>
+    </>
   );
+  
+
+  
+  
 };
 
 export default Webinars;

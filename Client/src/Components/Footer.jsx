@@ -43,7 +43,7 @@ function Footer() {
           <h3>Contact Info</h3>
           <ul>
             <li>7666838821</li>
-            <li>admin@CounselingHub.com</li>
+            <li>connectcounsellor@gmail.com</li>
             <li>Therapies and Enviro Trust</li>
             <li>Banjara Nagar Koulkhed</li>
             <li>Akola 44402, India</li>
