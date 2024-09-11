@@ -16,7 +16,7 @@ const AppointmentBooking = () => {
   const token = localStorage.getItem('token');
   const [message, setMessage] = useState('');
   const [bookedAppointments, setBookedAppointments] = useState([]);
-  const API_URL = "http://localhost:3000";
+  const API_URL = import.meta.env.VITE_API_URL;
 
   const handleChange = (e) => {
     const { name, value } = e.target;

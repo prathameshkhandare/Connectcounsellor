@@ -5,10 +5,19 @@ import './AdminPanel.css'; // CSS file import kiya gaya hai
 const Appointment = () => {
   const [appointments, setAppointments] = useState([]);
   const [error, setError] = useState('');
+  const API_URL = import.meta.env.VITE_API_URL;
+
+
+
+  
+
+
+
 
   useEffect(() => {
     const fetchAppointments = async () => {
-      const API_URL = import.meta.env.VITE_API_URL; // Base API URL ko define kiya gaya hai
+      // const API_URL = import.meta.env.VITE_API_URL; 
+      // Base API URL ko define kiya gaya hai
       
       try {
         const token = localStorage.getItem('token');
@@ -49,7 +58,7 @@ const Appointment = () => {
     }
 
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/api/appointments/${id}`, { status }, {
+      await axios.post(`${API_URL}/api/appointments/${id}`, { status }, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
@@ -78,8 +87,10 @@ const Appointment = () => {
             <li key={app._id} className="admin_appointment_item">
               <div className="admin_appointment_details">
                 {/* User ID ko sahi se access karna */}
-                <p className="admin_appointment_user">User: {app.userId ? app.userId._id : 'N/A'}</p>
-                <p className="admin_appointment_date">Date: {new Date(app.date).toLocaleString()}</p>
+                <p className="admin_appointment_user">user: {app.userId.firstName}</p>
+                <p className="admin_appointment_user">Email: {app.userId.email}</p>
+                <p className="admin_appointment_date">Date: {new Date(app.date).toISOString().split('T')[0]}</p>
+                <p className="admin_appointment_date">Slot: {app.slot}-{parseInt(app.slot) +1}</p>
                 <p className="admin_appointment_reason">Reason: {app.reason}</p>
                 <p className="admin_appointment_status">Status: {app.status}</p>
                 {app.status === 'pending' && (
