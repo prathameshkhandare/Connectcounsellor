@@ -7,8 +7,9 @@ const Courses = () => {
   const [courses, setCourses] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [loading,setLoading] = useState(true)
+  
 const navigate = useNavigate();
-  // Define the base API URL
+ 
   const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
@@ -18,6 +19,7 @@ const navigate = useNavigate();
         setCourses(response.data);
         setLoading(false); // Set loading state to false when data is fetched successfully
 
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching courses:', error);
         setLoading(false);
@@ -102,7 +104,7 @@ const navigate = useNavigate();
                 </div>
 
                 <div className="flex-webinar">
-                  <p id="topic-webinar-discription">
+                  <p id="topic-webinar-discription-rating">
                   <i className="fa-solid fa-star"></i>
                     <i className="fa-solid fa-star"></i>
                     <i className="fa-solid fa-star"></i>

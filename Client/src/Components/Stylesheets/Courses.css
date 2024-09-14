@@ -30,6 +30,7 @@
   justify-content: space-between;
   /* align-items: center; */
   box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .course-card-img-container {
@@ -95,11 +96,23 @@
 }
 #topic-webinar-discription i {
   color: #0096ff;
+  
+
+}
+#topic-webinar-discription-rating{
+  position:absolute;
+  bottom: 0;
+  margin-bottom: 10px;
 }
 #webinar-view-btn {
   font-size: 25px;
   color: #0096ff;
+  position: absolute;
+ right: 0;
+  bottom: 0;
   cursor: pointer;
+  margin-right: 15px;
+  margin-bottom: 10px;
 }
 
 #course-category-btn.selected {

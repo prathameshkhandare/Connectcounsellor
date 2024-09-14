@@ -77,6 +77,7 @@
 }
 #webinar-creator i{
  color: #0096FF;
+ background-color: transparent;
 
 }
 .webinar-flex-container p{
@@ -93,13 +94,14 @@
 }
 .webinar-enroll-btn i{
   background-color: transparent;
+  color: white;
 }
 
 .webinar-enroll-btn:hover{
   background-color: #009e5fc8;
 }
 .webinar-enroll-expire-btn{
-  /* margin-top: 20px; */
+  
   background-color: rgb(64, 64, 64);
   border: none;
   padding: 10px;

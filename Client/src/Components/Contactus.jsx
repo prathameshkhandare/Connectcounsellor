@@ -30,7 +30,7 @@ const Contactus = () => {
         <h3 className='send-msg-heading'>Send Us a Message</h3>
         <form onSubmit={handleSubmit}>
           <div className="contact-form-group">
-            <input type="text" id="name" name="name" placeholder="Name" required value={formData.name} onChange={handleChange} />
+            <input type="text" id="email" name="name" placeholder="Name" required value={formData.name} onChange={handleChange} />
           </div>
           <div className="contact-form-group">
             <input type="email" id="email" name="email" placeholder="Email" required value={formData.email} onChange={handleChange} />

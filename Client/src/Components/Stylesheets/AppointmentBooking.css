@@ -30,7 +30,7 @@ h3 {
   margin-bottom: 15px;
 }
 
-input[type="text"] {
+.appointment-booking-input {
   width:360px;
   padding: 10px;
   border: 1px solid #ddd;

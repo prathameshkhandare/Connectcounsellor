@@ -36,6 +36,7 @@ const Blog = () => {
           <img src={blog.image} alt={blog.title} className="blog-image" />
           <div className="blog-content">
             <div>
+<<<<<<< HEAD
               <p id='blog-category'>{blog.category}</p>
               <p id='blog-title'>{blog.title}</p>
               <p>{blog.content}</p>
