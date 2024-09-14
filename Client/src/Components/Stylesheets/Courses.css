@@ -1,204 +1,108 @@
-
-.heading-4 {
-  padding: 15px 20px;
-  color: rgb(14, 14, 133);
-  font-size: 24px;
-  font-weight: bold;
-  /* background-image: url('../../assets/Img/ribbon.png'); */
-  background-repeat: no-repeat;
-  background-size: 270px; /* Ensure the image scales properly */
-  background-position: center;
-  background-color: white;
-  text-align: center;
-  display: flex; /* Flexbox for alignment */
-  align-items: center; /* Vertical alignment */
-  justify-content: center; /* Horizontal alignment */
-  height: 80px; /* Adjust height to match the ribbon image */
-  width: 300px; /* Adjust width to match the ribbon image */
-  margin: 0 auto; /* Center the heading horizontally */
-  position: relative; /* For fine-tuning text position */
-
-  line-height: 1.2;
-  
-
-}
-
-
-
-.categories-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 20px;
-  background-color: white;
-}
-
-.category-button {
-  display: inline-block;
-  padding: 10px 20px;
-  margin: 10px; /* Adjust the margin to create space around the buttons */
-  color: white;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  background-image: linear-gradient(90deg, #0663c7 50%, #0096ff 50%); /* Gradient effect */
-  background-size: 200%; /* Allow for the animation */
-  background-position: right; /* Start with the hover effect off-screen */
-  transition: background-position 0.5s ease-in-out; /* Smooth transition */
-}
-
-.category-button:hover {
-  background-position: left; /* Slide in the hover effect */
-}
-
-.category-button:not(:hover) {
-  transition: none; /* Remove transition when not hovering */
-}
-
-
-.category-button.active{
-  background-color: #0663c7;
-}
-
-
-.card-container {
- 
-  display: flex;
-
-  flex-wrap: wrap;
-  justify-content: center;
-  background-color: white;
-}
-
-.card {
-  width: 21%;
-  margin: 20px;
-  border: none;
-  border-radius: 20px;
-  display: inline-block;
-  background-color: white;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  box-shadow: -1px  5px 15px 1px rgb(176, 176, 176);
-}
-
-.card-img-wrapper {
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-top: 10px;
-}
-
-.card-img {
+/* course */
+.course-outer-container {
   width: 100%;
-  height: 180px;
-  object-fit: cover;
-  margin-top: 12px;
-  border-radius: 10px;
-}
-
-.card-body {
-  padding: 30px;
-  flex-grow: 1;
-  background-color: white;
-}
-
-.card-title {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
+  margin-top: 50px;
+   }
+.course-outer-container h1 {
   text-align: center;
 }
-
-.card-text {
-  font-size: 14px;
-  color: #666;
-  margin-bottom: 20px;
+.course-outer-container p {
+  text-align: center;
+  margin: 3px 10px 3px 10px;
   
 }
-
-.card-footer {
-  padding: 10px;
+.course-inner-container {
+  margin-top: 50px;
+  margin-bottom: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color:white;
+  flex-wrap: wrap;
+  
 }
-
-.Details-btn-primary {
-  display: inline-block;
-  padding: 10px 35px;
-  font-size: 16px;
-  color: #fff;
-  border: none;
+.course-card-container {
+  width: 450px;
+  /* background-color: transparent; */
   border-radius: 20px;
-  text-decoration: none;
-  cursor: pointer;
-  background-image: linear-gradient(90deg, #0663c7 50%, #0096ff 50%); /* Gradient effect */
-  background-size: 200%; /* Allow for the animation */
-  background-position: right; /* Start with the hover effect off-screen */
-  transition: background-position 0.5s ease-in-out; /* Smooth transition */
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.Details-btn-primary:hover {
-  background-position: left; /* Slide in the hover effect */
+.course-card-img-container {
+  width: 150px;
+  height: 150px;
 }
-
-.Details-btn-primary:not(:hover) {
-  transition: none; /* Remove transition when not hovering */
+.course-card-img-container img {
+  width: 150px;
+  height: 150px;
+  border-radius: 15px;
+  object-fit: cover;
 }
-
-
-
-/* Tablet styles (max-width: 768px) */
-@media (max-width: 768px) {
-  .card {
-    width: 33.33%;
-  }
-  .card-img {
+@media (max-width: 800px) {
+  .course-card-img-container {
+    width: 120px;
     height: 120px;
   }
-  .card-body {
-    padding: 20px;
-  }
-  .card-title {
-    font-size: 16px;
-  }
-  .card-text {
-    font-size: 12px;
-  }
-  .btn-primary {
-    padding: 8px 16px;
-    font-size: 14px;
-  }
-  .popup-content {
-    width: 60%;
+  .course-card-img-container img {
+    width: 120px;
+    height: 120px;
+    border-radius: 15px;
+    object-fit: cover;
   }
 }
+.course-category-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+#course-category-btn {
+  text-decoration: none;
+  border-radius: 30px;
+  border: 1px solid #0096ff;
+  color: #0096ff;
+  padding: 3px 15px 3px 15px;
+  margin: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+#course-category-btn:hover {
+  border: 1px solid #0096ff;
+  color: white;
+  background-color: #0096ff;
+}
+.course-card-detail-container {
+  text-align: left;
+  width: 100%;
+}
+#topic-webinar {
+  font-weight: 900;
+  text-align: left;
+}
+#topic-webinar-discription {
+  font-size: 13px;
+  text-align: left;
+}
+.flex-webinar {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+#topic-webinar-discription i {
+  color: #0096ff;
+}
+#webinar-view-btn {
+  font-size: 25px;
+  color: #0096ff;
+  cursor: pointer;
+}
 
-/* Mobile styles (max-width: 480px) */
-@media (max-width: 480px) {
-  .card {
-    width: 50%;
-  }
-  .card-img {
-    height: 100px;
-  }
-  .card-body {
-    padding: 15px;
-  }
-  .card-title {
-    font-size: 14px;
-  }
-  .card-text {
-    font-size: 10px;
-  }
-  .btn-primary {
-    padding: 6px 12px;
-    font-size: 12px;
-  }
-  .popup-content {
-    width: 80%;
-  }
+#course-category-btn.selected {
+  background-color: #007bff; /* Blue background color */
+  color: #fff; /* White text color */
 }

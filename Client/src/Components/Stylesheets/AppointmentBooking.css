@@ -1,402 +1,185 @@
-/* @import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css'); */
+/* AppointmentBooking.css */
 
-
+/* General Styles */
 .appointment-booking {
-  max-width: 80%;
-  margin: auto;
-  margin-top: 30px;
-  margin-bottom: 10px;
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  animation: fadeIn 1s ease-in-out;
+ /* border: 0.2px solid gray;
+  */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.appointment-booking h3 {
+h3 {
   text-align: center;
+  font-size: 24px;
   margin-bottom: 20px;
 }
 
-.appointment-booking form .form-group {
-  margin-bottom: 5px;
-}
-
-.appointment-booking label {
-  color: #007bff ;
-  padding-left: 20px;
+.Notelable1 {
   display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
+  text-align: center;
+  font-size: 14px;
+  color: #007bff;
+  margin-bottom: 20px;
 }
 
-.appointment-booking_input
- {
-  width: 77%;
-  margin-left: 45px;
-  /* padding: 40px; */
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  transition: border-color 0.3s;
+.form-group {
+  margin-bottom: 15px;
 }
 
-.appointment-booking input:focus,
-.appointment-booking .date-picker:focus {
-  border-color: #434547;
-}
-
-.appointment-booking button {
-  display: block;
-  width: 100%;
+input[type="text"] {
+  width:360px;
   padding: 10px;
-  background-color: #f9f9f9;
-  color: rgb(0, 0, 0);
-  border: 1px solid rgb(142, 138, 152);
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  /* background-image: linear-gradient(90deg, #003073 50%, #323ac9 50%); */
-  background-size: 200%;
-  background-position: right;
-  transition: background-position 0.5s ease-in-out;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
-.appointment-booking button:hover {
-  background-position: left;
-  color: white;
+/* Adjusted Button Width */
+.submit-button {
+  display: inline-block;
+  width: auto;
+  padding: 10px 20px;
   background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  align-items: center;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.message {
+  text-align: center;
+  color: #007bff;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+/* DatePicker Styles */
+.date-picker {
+  width: 100%;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+}
+.react-datepicker__day--selected {
+  background-color: #007bff;  /* Custom background color */
+  color: white;               /* Text color */
+  font-weight: bold;          /* Bold text for emphasis */
+  border-radius: 50%;         /* Make it circular */
+  border: 2px solid #007bff;  /* Border around the selected date */
+}
+
+.react-datepicker__day--selected:hover {
+  background-color: #007bff;  /* Darken the background color when hovered */
+  border-color: #007bff;      /* Darken the border on hover */
+}
+
+.react-datepicker__header {
+  text-align: center;
+  background-color: #ffffff;
+  /* border-bottom: 1px solid #aeaeae; */
+  border-top-left-radius: 0.3rem;
+  padding: 0px 0;
+  position: relative;
+}
+
+.react-datepicker__current-month{
+    margin-top: -9px;
+    padding-top: 0px;
+    /* background-color: white; */
+}
+
+/* Slot Buttons */
+.slot-button,
+.afternoon-slot-button {
+  width: 96px;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.slot-button:hover,
+.afternoon-slot-button:hover {
+  background-color: #e2e6ea;
+}
+
+.slot-button.selected,
+.afternoon-slot-button.selected {
+  background-color: #007bff;
+  color: #fff;
   border-color: #007bff;
 }
 
-.appointment-booking button:not(:hover) {
-  transition: none;
-  background-position: 0.2s ease-in-out;
-}
-
-/* Slot Buttons Container */
-.slots-container {
-  margin-left: 20px;
-  display: flex;
-  flex-direction: row;
-  /* flex-wrap: wrap; */
-  gap: 10px;
-  justify-content: space-around; /* Ensure the buttons are spaced evenly */
-  margin-bottom: 10px; /* Add some space below the slot buttons */
-}
-
-/* Individual Slot Button */
-
-/*  */
-/* Ensure three buttons per row */
-.slots-container .slot-button:nth-child(3n) {
-  margin-right: 0; /* Remove margin for the last button in each row */
-}
-
-
-.afternoon-slot-button:hover{
-  color: white;
-  background-color: #007bff;
-  border-color: #003073;
-}
-.slot-button:hover {
-  background-color: #273fc8;
-  border-color: #003073;
-}
-.selected-date{
-  font-weight: 600;
-}
-
-
-/* .afternoon-slot-button.selected{
-background-color: #007bff;
-} */
-
-
-/* Disabled Slot Button */
-.slot-button.disabled {
-  color: #808080;
+.slot-button:disabled,
+.afternoon-slot-button:disabled {
+  background-color: #e9ecef;
   cursor: not-allowed;
-  pointer-events: none; /* Indicate it's not clickable */
 }
 
-.slot-button:disabled:hover {
-  background-color: #808080;
-  border-color: #868d98;
-}
-
-
+/* Flexbox Layout for Date and Slot */
 .wrapper_date_slot {
-
-    padding-left: 50px;
-    display: flex;
-    flex-direction: row;
-    gap: 100px;
-    
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
-.date-picker-wrapper {
+.form-group,
+.rightwrapper {
   flex: 1;
 }
 
-.slots-wrapper {
-  flex: 1;
-}
-
-
-.message{
-  color: #007bff;
-}
-/* Custom DatePicker styles */
-.date-picker {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 10px;
-  background: #007bff;
-}
-/* Custom DatePicker styles */
-.react-datepicker-wrapper .react-datepicker__header {
-  background-color: #250202 !important; /* Ensure header background color */
-}
-
-.react-datepicker__current-month {
-  color: #000000 !important; /* Ensure month color */
-}
-
-.react-datepicker__navigation {
-  background-color: #ffffff !important; /* Ensure navigation color */
-}
-
-.react-datepicker__day--selected {
-  background-color: #007bff !important; /* Ensure selected day color */
-  color: #ffffff !important; /* Ensure selected day text color */
-}
-
-
-.slotwrapper{
+.rightcontainerslot {
   display: flex;
   flex-direction: column;
 }
 
-
-
-.slots-container {
-  margin-left: 30px;
- 
-  display: flex;
-  flex-wrap: wrap;  /* Allow buttons to wrap onto the next line */
-  gap: 10px;        /* Add space between buttons */
-}
-.slots-container_eve {
-  margin-left: 30px;
- 
-  display: flex;
-  flex-wrap: wrap;  /* Allow buttons to wrap onto the next line */
-  gap: 10px;        /* Add space between buttons */
-}
-
-
-
-.slots-section {
-  
-  margin-bottom: 20px; 
-  height: 30%;
-  width:100px;
-}
-
-.slot-group-label {
-  margin-left: 15px;
-  font-weight: bold;
-  display: block;
-  margin-bottom: 10px;
-}
-
-
-.rightcontainerslot{
-  margin-top: 15px;
-  margin-bottom: 0px !important;
-  padding-bottom: 0px !important;
-  display:flex;
-  flex-direction: row;
-}
-
-
-
-
+.slots-section,
 .afternoon-slot-section {
-  
-  margin-bottom: 20px; /* Adjust spacing as needed */
+  margin-bottom: 5px;
 }
-
+i{
+  color:#007bff;
+}
+.slot-group-label,
 .afternoon-slot-group-label {
-  margin-left: 38px;
-  font-size: 16px;
   font-weight: bold;
   margin-bottom: 10px;
   display: block;
+  color:#007bff
 }
 
-.afternoon-slot-container {
-  margin-left: 30px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two columns */
-  gap: 10px; /* Adjust the gap between buttons */
+.slots-container,
+.afternoon-slot-container,
+.slots-container_eve {
+  display: flex;
+  flex-wrap: wrap;
 }
-
-.afternoon-slot-button {
-
-  min-width: 78px !important;
-  padding: 10px;
-  text-align: center;
-  background-color: #f0f0f0; /* Default background color */
-  border: 1px solid #ccc; /* Default border color */
-  cursor: pointer;
-}
-
-
-
-.afternoon-slot-button:disabled {
-  color: white;
-  background-color: #808080; /* Background color when disabled */
-  cursor: not-allowed;
-}
-
-.afternoon-slot-button:disabled:hover {
-  background-color: #808080;
-  border-color: #868d98;
-}
-
-
-.submit-btn{
-  color: white !important;
-  border:0px solid #0000 !important; ;
-  background-color: #007bff !important;
-  margin-top: 0px;
-  margin-left: 420px;
-  flex: wrap;
-max-width: 160px !important;
-height: 40px;
-}
-
-
-.Notelable{
-
-  font-weight: 200  !important;
-  margin-left: 10px;
-  color: black !important;
-}
-.Notelable1{
-  margin-left: 30px !important;
-  margin-top: 0px !important;
-  font-weight: 200  !important;
-  margin-left: 10px;
-  color: black !important;
-  margin-bottom: 10px;
-}
-
-
-.slot-group-label{
-  color: #007bff !important;
-}
-
-
-.slot-button.selected, .afternoon-slot-button.selected {
-  background-color: #007bff ; 
-  color: white;
-  border: 2px solid #007bff;
-}
-
-
-
-
 
 @media (max-width: 768px) {
   .wrapper_date_slot {
     flex-direction: column;
   }
 
-  .rightcontainerslot {
-    gap: 10px;
-  }
-
-  .slots-container,
-  .slots-container_eve,
-  .afternoon-slot-container {
-    flex-direction: column;
-  }
-
-  .slot-button,
-  .afternoon-slot-button {
-    width: 100%;
-    font-size: 16px;
-    padding: 12px;
-  }
-
   .rightwrapper {
-    width: 100%;
-  }
-
-
-}
-
-.submit-btn {
-  width: 100%;
-  font-size: 18px;
-  display: inline-block;
-  padding: 10px;
-  font-size: 1rem; /* Ensure consistent font size */
-  color: #fff;
-  background-color: #007bff; /* Fallback color */
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  background-image: linear-gradient(90deg, #0056b3 50%,  #007bff 50%);
-  background-size: 200%; /* Control the size for the animation effect */
-  background-position: right; /* Start from the right */
-  transition: background-position 0.5s ease-in-out, color 0.5s ease-in-out; /* Animation transition */
-}
-
-.submit-btn:hover {
-  background-position: left; /* Move to the left on hover */
-}
-
-.submit-btn:not(:hover) {
-  transition: none; /* Disable transition when not hovering */
-}
-
-
-
-/* Extra Small Devices (Phones) */
-@media (max-width: 412px) {
-
-  .submit-btn{
     margin-top: 20px;
   }
-
-  .slots-container,
-  .slots-container_eve,
-  .afternoon-slot-container {
-    gap: 8px;
-  }
-
-  .slot-button,
-  .afternoon-slot-button {
-    padding: 10px;
-    font-size: 14px;
-  }
-
-  .appointment-booking h3 {
-    font-size: 22px;
-  }
 }
 
+@media (max-width: 480px) {
+  .submit-button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}

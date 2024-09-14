@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Stylesheets/Courses.css';
-import { Link } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 const Courses = () => {
   const [courses, setCourses] = useState([]);
-  const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('All');
-
+const navigate = useNavigate();
   // Define the base API URL
   const API_URL = import.meta.env.VITE_API_URL;
 
@@ -16,10 +14,6 @@ const Courses = () => {
       try {
         const response = await axios.get(`${API_URL}/api/courses/read`);
         setCourses(response.data);
-
-        // Extract unique categories from courses
-        const uniqueCategories = [...new Set(response.data.map(course => course.category))];
-        setCategories(['All', ...uniqueCategories]);
       } catch (error) {
         console.error('Error fetching courses:', error);
       }
@@ -27,40 +21,102 @@ const Courses = () => {
     fetchCourses();
   }, [API_URL]);
 
-  const filteredCourses = selectedCategory === 'All'
-    ? courses
-    : courses.filter(course => course.category === selectedCategory);
+  const filteredCourses =
+    selectedCategory === 'All'
+      ? courses
+      : courses.filter(course => course.category === selectedCategory);
 
   return (
     <>
-      <h4 className='heading-4'> Courses </h4>
+      <div className="course-outer-container">
+        <h1>Courses</h1>
+        <p>
+        Unlock the tools to heal, grow, and thrive in every aspect of your personal and emotional life.
+        </p>
 
-      <div className="categories-container">
-        {categories.map((category) => (
+        {/* Categories */}
+        <div className="course-category-container">
           <button
-            key={category}
-            className={`category-button ${selectedCategory === category ? 'active' : ''}`}
-            onClick={() => setSelectedCategory(category)}
+            id="course-category-btn"
+            className={selectedCategory === 'All' ? 'selected' : ''}
+            onClick={() => setSelectedCategory('All')}
           >
-            {category}
+            All
           </button>
-        ))}
-      </div>
-      <div className="card-container">
-        {filteredCourses.map((course, index) => (
-          <div key={course._id} className={`card ${index % 3 === 0 ? 'card-first' : ''}`}>
-            <div className="card-img-wrapper">
-              <img src={course.image} alt={course.name} className="card-img" />
+          <button
+            id="course-category-btn"
+            className={selectedCategory === 'Couple' ? 'selected' : ''}
+            onClick={() => setSelectedCategory('Couple')}
+          >
+            Couple
+          </button>
+          <button
+            id="course-category-btn"
+            className={selectedCategory === 'Parenting' ? 'selected' : ''}
+            onClick={() => setSelectedCategory('Parenting')}
+          >
+            Parenting
+          </button>
+          <button
+            id="course-category-btn"
+            className={selectedCategory === 'Anxiety and Depression'? 'selected' : ''}
+            onClick={() => setSelectedCategory('Anxiety and Depression')}
+          >
+            Anxiety and Depression
+          </button>
+          <button
+            id="course-category-btn"
+            className={selectedCategory === 'Sexual'? 'selected' : ''}
+            onClick={() => setSelectedCategory('Sexual')}
+          >
+            Sexual
+          </button>
+          <button
+            id="course-category-btn"
+            className={selectedCategory === 'Career'? 'selected' : ''}
+            onClick={() => setSelectedCategory('Career')}
+          >
+            Career
+          </button>
+        </div>
+
+        {/* Display Courses */}
+        <div className="course-inner-container">
+          {filteredCourses.map(course => (
+            <div key={course.id} className="course-card-container">
+              <div className="course-card-img-container">
+                <img src={course.image} alt={course.title} />
+              </div>
+              <div className="course-card-detail-container">
+                <div>
+                  <p id="topic-webinar">{course.name}</p>
+                  <p id="topic-webinar-discription">{course.shortdescription}</p>
+                </div>
+
+                <div className="flex-webinar">
+                  <p id="topic-webinar-discription">
+                  <i className="fa-solid fa-star"></i>
+                    <i className="fa-solid fa-star"></i>
+                    <i className="fa-solid fa-star"></i>
+                    <i className="fa-solid fa-star"></i>
+                  </p>
+                  <a
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigate(`/courseInfo/${course._id}`); // Navigate to courseinfo/:id
+                    }}
+                  >
+                    <i
+                      id="webinar-view-btn"
+                      className="fa-solid fa-circle-arrow-right"
+                    ></i>
+                  </a>
+                </div>
+              </div>
             </div>
-            <div className="card-body">
-              <h5 className="card-title">{course.name}</h5>
-              {/* <p className="card-text">{course.shortdescription}</p> */}
-            </div>
-            <div className="card-footer">
-              <Link to={`/courseInfo/${course._id}`} className="Details-btn-primary">Details</Link>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </>
   );

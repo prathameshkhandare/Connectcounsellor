@@ -143,7 +143,7 @@ const CourseInfo = () => {
       try {
         console.log("Fetching course with courseId:", courseId);
         const response = await axios.get(
-          `http://localhost:3000/api/courses/read/${courseId}`
+          `${API_URL}/api/courses/read/${courseId}`
         );
         console.log("Response:", response.data);
         setCourse(response.data);
@@ -160,16 +160,19 @@ const CourseInfo = () => {
   }
 
   return (
-    <div className="course-info-container">
-      <div className="course-details">
-        <div className="course-header">
-          <h1 className="course-title">{course.name}</h1>
-          <p className="course-subtitle">{course.shortdescription}</p>
-        </div>
-        
-        <div className="course-image">
+    <div className="course-details-by-id-outer-container">
+    <h1 className="course-details-by-id-outer-container-h1">
+      {course.name}
+    </h1>
+    <p className="course-details-by-id-outer-container-p">
+      {course.shortdescription}
+    </p>
+    <div className="course-details-by-id-inner-container">
+      <div className="course-details-by-id-flex-container1">
+      <div className="course-image">
   {course.youtubeLink ? (
     <iframe
+    id="course-video"
       src={course.youtubeLink.replace("watch?v=", "embed/")}
       title="YouTube video player"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -179,63 +182,57 @@ const CourseInfo = () => {
     <img src={course.image} alt={course.name} />
   )}
 </div>
-
-
-
-        
-        <div className="course-content">
-          <h6 className="course-title">This course includes:</h6>
-          <ul className="course-learn-list">
-            {course.content &&
-              course.content.map((item, index) => <li key={index}>{item}</li>)}
-          </ul>
+        <div className="course-details-by-id-flex">
+          <h1 id="course-details-by-id-head">{course.name}</h1>
+          <p>
+            <i class="fa-solid fa-indian-rupee-sign"></i>{course.price? course.price:"0"}
+          </p>
         </div>
-        
-        <div className="course-content">
-          <h6 className="course-title">Course Description</h6>
-          <p className="course-description">{course.description}</p>
+
+        <p id="course-details-by-id-description">
+          {course.shortdescription }
+        </p>
+        <p id="course-details-by-id-created">Created by {course.author ? course.author : 'Unknown'}</p>
+        <p id="course-details-by-id-posted">
+          <i class="fa-solid fa-circle-exclamation"></i> Posted On  {course.date ?course.date.split("T")[0]:"--"}
+        </p>
+        <p id="course-details-by-id-star">
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+          <i class="fa-solid fa-star"></i>
+        </p>
+        <div>
+          <h1 id="course-details-by-id-des-head">Description</h1>
+          <p id="course-details-by-id-description-long">
+            {course.description}
+          </p>
         </div>
       </div>
-      
-      <hr />
-      
-      <div className="course-sidebar">
-        <div className="course-instructor">
-          <h3>Price</h3>
-          <p>{course.price}</p>
+      <div className="course-details-by-id-flex-container2">
+        <div className="course-details-by-id-flex-inner1-container2">
+        <h1>Category</h1>
+        <p>{course.category}</p>
+          <h1 className='course-details-by-id-flex-inner1-container2-h1'>Topics Covered</h1>
+
+          {course.content.map((topic, index) => (
+        <p key={index}>
+          <i id="topic-icon" className="fa-solid fa-folder"></i> {topic}
+        </p>
+      ))}
+
+
         </div>
-        
-        <div className="course-category">
-          <h3>Category</h3>
-          <p>{course.category}</p>
-        </div>
-        
-        <div className="course-author">
-          <h3>Author</h3>
-          <p>{course.author}</p>
-        </div>
-        
-        
-        <div className="course-ratings">
-          <h3>Rating</h3>
-          <p>4.5 (10,400 ratings)</p>
-        </div>
-        
-        <div className="course-students">
-          <h3>Clients</h3>
-          <p>1200</p>
-        </div>
-        
-        <div className="course-action">
-          <button className="btn btn-primary" onClick={handleEnrollment}>
-            Enroll Now
+        <div className="course-details-by-id-flex-inner2-container2">
+          <button className="course-details-by-id-flex-inner2-container2-btn" onClick={handleEnrollment}>
+            Enroll Course
           </button>
         </div>
       </div>
     </div>
-  );
-  
-  
-};
+ 
 
+
+  </div>
+  )}
 export default CourseInfo;
