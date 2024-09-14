@@ -1,31 +1,33 @@
-<>
-      <h4 className='heading-4'> Courses </h4>
 
-      <div className="categories-container">
-        {categories.map((category) => (
-          <button
-            key={category}
-            className={`category-button ${selectedCategory === category ? 'active' : ''}`}
-            onClick={() => setSelectedCategory(category)}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
-      <div className="card-container">
-        {filteredCourses.map((course, index) => (
-          <div key={course._id} className={`card ${index % 3 === 0 ? 'card-first' : ''}`}>
-            <div className="card-img-wrapper">
-              <img src={course.image} alt={course.name} className="card-img" />
+
+//webinar card
+     <div className="webinar-card-container">
+              <img id='webinar-meet-img' src="https://logos-world.net/wp-content/uploads/2022/05/Google-Meet-Symbol.png" alt=""/>
+              <div className='webinar-flex-container'>
+              <p id='webinar-title'>
+               title of webinar
+              </p>
+              <i class="fa-solid fa-circle-play"></i>
+              </div>
+              <p id='webinar-discription'>
+              <i class="fa-regular fa-lightbulb"></i> Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur nostrum assumenda ad laborum voluptatem.
+              </p>
+              <p id='webinar-time-date'><i class="fa-regular fa-clock"></i> time</p>
+              <p id='webinar-time-date'><i class="fa-solid fa-calendar-days"></i> date</p>
+              <div  className='webinar-flex-container'>
+                <p id='webinar-status'>
+                <i id='upcoming' class="fa-solid fa-circle-check"></i> Upcomimg
+
+                </p>
+              
+              
+             
+              <p id='webinar-creator'>  <i class="fa-solid fa-user-doctor"></i> name of doctor</p>
+              
+              </div>
+              <button href="#" className='webinar-enroll-btn'>Pay <i class="fa-solid fa-indian-rupee-sign"></i>499 to Enroll</button>
+              
+
+
+
             </div>
-            <div className="card-body">
-              <h5 className="card-title">{course.name}</h5>
-              {/* <p className="card-text">{course.shortdescription}</p> */}
-            </div>
-            <div className="card-footer">
-              <Link to={`/courseInfo/${course._id}`} className="Details-btn-primary">Details</Link>
-            </div>
-          </div>
-        ))}
-      </div>
-    </>

@@ -37,7 +37,7 @@ const Blog = () => {
           <div className="blog-content">
             <div>
               <h3 className='Blog-category'>{blog.category}</h3>
-              <h3>{blog.title}</h3>
+              <h3 className='blog-title'>{blog.title}</h3>
               <p>{blog.content}</p>
             </div>
             <div className="blog-meta">

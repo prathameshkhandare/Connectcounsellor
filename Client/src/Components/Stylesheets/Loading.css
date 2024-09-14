@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #f5f7fa;
+    /* background-color: #f5f7fa; */
   }
   
   .loading-spinner {
@@ -46,5 +46,6 @@
     color: #4f4f4f;
     text-align: center;
     font-weight: 500;
+    background: transparent;
   }
   

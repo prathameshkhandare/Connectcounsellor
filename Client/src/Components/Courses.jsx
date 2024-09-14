@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Stylesheets/Courses.css';
 import { useNavigate } from 'react-router-dom';
+import Loading from './Loading';
 const Courses = () => {
   const [courses, setCourses] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [loading,setLoading] = useState(true);
 const navigate = useNavigate();
-  // Define the base API URL
+ 
   const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
@@ -14,6 +16,7 @@ const navigate = useNavigate();
       try {
         const response = await axios.get(`${API_URL}/api/courses/read`);
         setCourses(response.data);
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching courses:', error);
         setLoading(false);
@@ -98,7 +101,7 @@ const navigate = useNavigate();
                 </div>
 
                 <div className="flex-webinar">
-                  <p id="topic-webinar-discription">
+                  <p id="topic-webinar-discription-rating">
                   <i className="fa-solid fa-star"></i>
                     <i className="fa-solid fa-star"></i>
                     <i className="fa-solid fa-star"></i>
