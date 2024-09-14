@@ -42,78 +42,68 @@ const Webinars = () => {
   if (loading) {
     return <Loading />;
   }
-
   const handleEnroll = async (webinar) => {
-    console.log("Handling enroll for webinar:", webinar);
+    console.log('Handling enroll for webinar:', webinar);
     setSelectedWebinar(webinar);
 
     try {
       // Check if the user has already paid for the webinar
-      const paymentCheckResponse = await axios.post(
-        `${API_URL}/api/checkEnrollmentStatus`,
-        {
-          webinarId: webinar._id,
+      const paymentCheckResponse = await axios.post(`${API_URL}/api/checkEnrollmentStatus`, {
+        webinarId: webinar._id,
+      },{
+        headers: { 
+          'Authorization': `Bearer ${token}`,
         },
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      console.log("Payment status:", paymentCheckResponse.data);
+      });
+      console.log('Payment status:', paymentCheckResponse.data);
       if (paymentCheckResponse.data.alreadyPaid) {
-        console.log(
-          "User has already paid for this webinar. Redirecting to webinar details..."
-        );
+        console.log('User has already paid for this webinar. Redirecting to webinar details...');
         navigate(`/webinarinfo/${webinar._id}`);
       } else {
         if (webinar.price === "0") {
-          console.log("Webinar is free. Navigating to webinar details page...");
+          console.log('Webinar is free. Navigating to webinar details page...');
           navigate(`/webinarinfo/${webinar._id}`);
         } else {
-          console.log("Webinar is paid. Initiating payment...");
+          console.log('Webinar is paid. Initiating payment...');
           initiatePayment(webinar);
         }
       }
     } catch (error) {
-      if (!token) {
-        navigate("/login");
-      } else {
-        alert("Error checking payment status. Please try again.");
+      if(!token){
+        navigate('/login')
+      } 
+      else{
+        alert('Error checking payment status. Please try again.');
       }
     }
   };
 
   const initiatePayment = async (webinar) => {
     if (!webinar) {
-      console.log("No webinar selected for payment.");
+      console.log('No webinar selected for payment.');
       return;
     }
 
     try {
-      console.log("Creating payment order...");
-      const response = await axios.post(
-        `${API_URL}/api/create`,
-        {
-          amount: webinar.price,
-          receiptId: webinar._id,
+      console.log('Creating payment order...');
+      const response = await axios.post(`${API_URL}/api/create`, {
+        amount: webinar.price,
+        receiptId: webinar._id,
+      },{
+        headers: {
+         ' Authorization': `Bearer ${token}`,
         },
-        {
-          headers: {
-            " Authorization": `Bearer ${token}`,
-          },
-        }
-      );
-      console.log("Order created:", response.data);
+      });
+      console.log('Order created:', response.data);
       const { orderId: razorpayOrderId } = response.data;
 
-      console.log("Fetching Razorpay key...");
+      console.log('Fetching Razorpay key...');
       const keyResponse = await axios.get(`${API_URL}/api/getkey`);
-      console.log("Razorpay key fetched:", keyResponse.data);
+      console.log('Razorpay key fetched:', keyResponse.data);
       const { key } = keyResponse.data;
 
       const amountInPaise = parseInt(webinar.price, 10) * 100;
-      console.log("Amount in paise:", amountInPaise);
+      console.log('Amount in paise:', amountInPaise);
 
       const options = {
         key, // Your Razorpay key ID
@@ -123,11 +113,12 @@ const Webinars = () => {
         description: "Enrollment for Webinar",
         order_id: razorpayOrderId,
         handler: async function (response) {
-          console.log("Payment successful:", response);
+          console.log('Payment successful:', response);
 
           // Verify the payment with your backend
           try {
-            console.log("Verifying payment...");
+            
+            console.log('Verifying payment...');
             const paymentVerificationResponse = await axios.post(
               `${API_URL}/api/confirmpayment`,
               {
@@ -135,29 +126,23 @@ const Webinars = () => {
                 paymentId: response.razorpay_payment_id,
                 orderId: razorpayOrderId,
                 signature: response.razorpay_signature,
-              },
-              {
+              },{
                 headers: {
-                  Authorization: `Bearer ${token}`,
+                 'Authorization': `Bearer ${token}`,
                 },
               }
             );
-            console.log(
-              "Payment verification response:",
-              paymentVerificationResponse.data
-            );
+            console.log('Payment verification response:', paymentVerificationResponse.data);
             if (paymentVerificationResponse.data.success) {
-              console.log(
-                "Payment verification successful. Navigating to webinar details..."
-              );
-              setPaymentStatus("Payment successful!");
+              console.log('Payment verification successful. Navigating to webinar details...');
+              setPaymentStatus('Payment successful!');
               navigate(`/webinarinfo/${webinar._id}`);
             } else {
-              console.error("Payment verification failed.");
+              console.error('Payment verification failed.');
               alert("Payment verification failed. Please try again.");
             }
           } catch (verificationError) {
-            console.error("Payment verification error:", verificationError);
+            console.error('Payment verification error:', verificationError);
             alert("Payment verification failed. Please try again.");
           }
         },
@@ -166,15 +151,14 @@ const Webinars = () => {
         },
       };
 
-      console.log("Opening Razorpay payment...");
+      console.log('Opening Razorpay payment...');
       const payment = new window.Razorpay(options);
       payment.open();
     } catch (error) {
-      console.error("Error initiating payment:", error);
-      setPaymentStatus("Error initiating payment.");
+      console.error('Error initiating payment:', error);
+      setPaymentStatus('Error initiating payment.');
     }
   };
-
 
  
 
@@ -257,7 +241,7 @@ const Webinars = () => {
                 webinar?.date?.split("T")[0].split("-")[2] -
                   date?.split("T")[0].split("-")[2] >
                   0 ?<button className='webinar-enroll-expire-btn'>Expired</button> :
-              <button href="#" className='webinar-enroll-btn' onClick={handleEnroll}>Pay <i class="fa-solid fa-indian-rupee-sign"></i>499 to Enroll</button>
+              <button href="#" className='webinar-enroll-btn' onClick={()=>{handleEnroll(webinar)}}>Pay <i class="fa-solid fa-indian-rupee-sign"></i>499 to Enroll</button>
           }
             </div>;
               </>
