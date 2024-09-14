@@ -74,14 +74,14 @@
   width: 21%;
   margin: 20px;
   border: none;
-  border-radius: 20px;
+  border-radius: 15px;
   display: inline-block;
   background-color: white;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: -1px  5px 15px 1px rgb(176, 176, 176);
+  box-shadow: -1px  5px 15px 1px rgb(228, 228, 228);
 }
 
 .card-img-wrapper {

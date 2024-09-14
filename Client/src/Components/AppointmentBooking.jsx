@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../Components/StyleSheets/AppointmentBooking.css';
+import Loading from './Loading';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { useNavigate } from 'react-router-dom';
 // import './Stylesheets/AppointmentBooking.css'
 const AppointmentBooking = () => {
   const navigate = useNavigate();
+  const [loading,setLoading] = useState(true);
   const [formData, setFormData] = useState({
     date: new Date(),
     reason: '',
@@ -42,13 +44,19 @@ const AppointmentBooking = () => {
           },
         });
         setBookedAppointments(response.data);
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching booked appointments:', error);
+        setLoading(false);
       }
     };
 
     fetchBookedAppointments();
   }, []);
+
+  // if(loading){
+  //   return <Loading/>
+  // }
 
   const isSlotBooked = (slot, date) => {
     return bookedAppointments.some(appointment =>
@@ -77,8 +85,6 @@ const bookappointment =async(req,res)=>{
     }
   
 }
-
-
   const initiatePayment = async () => {
     let receiptId = token.toString().slice(0, 25);
     let price = 500;
@@ -201,16 +207,6 @@ const bookappointment =async(req,res)=>{
                 {/*  here we can add below to visible on right */}
         
           <div className="rightwrapper">
-            
-
-
-
-
-
-
-
-
-
           <div className="rightcontainerslot">
           <div className="slots-section">
   {/* Morning Slots (8 to 12) */}

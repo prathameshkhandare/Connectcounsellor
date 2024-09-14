@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Stylesheets/Courses.css';
 import { Link } from 'react-router-dom';
+import Loading from './Loading';
 
 const Courses = () => {
   const [courses, setCourses] = useState([]);
+  const [loading,setLoading] = useState(true);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('All');
 
@@ -16,16 +18,21 @@ const Courses = () => {
       try {
         const response = await axios.get(`${API_URL}/api/courses/read`);
         setCourses(response.data);
+        setLoading(false);
 
         // Extract unique categories from courses
         const uniqueCategories = [...new Set(response.data.map(course => course.category))];
         setCategories(['All', ...uniqueCategories]);
       } catch (error) {
         console.error('Error fetching courses:', error);
+        setLoading(false);
       }
     };
     fetchCourses();
   }, [API_URL]);
+  if(loading){
+    return <Loading/>
+  }
 
   const filteredCourses = selectedCategory === 'All'
     ? courses

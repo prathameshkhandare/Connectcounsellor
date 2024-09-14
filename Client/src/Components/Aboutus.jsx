@@ -8,7 +8,11 @@ const Aboutus = () => {
   return (
     <div className="aboutus-container">
      
-
+    <div className="about-us-descrption">
+      <h3>Connect Counsellor</h3>
+      <p>
+      "Our platform is committed to delivering high-quality, compassionate counseling through live webinars. We connect you with experienced and certified professionals who provide expert advice on a range of topics including mental health, parenting, relationships, and personal growth. Our goal is to offer accessible and effective support in a safe, virtual environment, allowing you to gain valuable insights and practical guidance from the comfort of your home. Whether you're seeking help with managing stress, navigating family dynamics, or improving your emotional well-being, our dedicated counselors are here to support you every step of the way."</p>
+    </div>
       {/* CEO Section */}
       <div className="ceo-section">
         <img src={aboutusimg1} alt="CEO" className="ceo-image" />

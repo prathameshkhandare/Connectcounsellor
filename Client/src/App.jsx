@@ -39,6 +39,7 @@ import Webinars from "./Components/Webinar";
 import WebinarManagement from "./Components/AdminPanel/WebinarManagement";
 import FloatWebinar from "./Components/FloatWebinar";
 import LandingPageBlog from "./Components/LandingPageBlog";
+import Loading from "./Components/Loading";
 // Example components for routes
 const Home = () => {
   return (
@@ -61,7 +62,7 @@ const BookNow = () => {
   return (
     <>
       <CustomNavbar />
-     
+    
       <AppointmentBooking/>
       <FloatWebinar/>
       <Footer />
@@ -93,7 +94,7 @@ function App() {
                 <CustomNavbar />
                 <Contactus />
                 <FloatWebinar/>
-                <Footer />
+               
               </>
             }
           />

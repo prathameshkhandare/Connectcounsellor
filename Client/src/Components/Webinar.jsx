@@ -3,11 +3,14 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import webinar_img from "../assets/Img/webinar_img.jpg"
 import  "../Components/StyleSheets/Webinar.css"
+import "./Loading";
+import Loading from './Loading';
 const Webinars = () => {
   const [webinars, setWebinars] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [selectedWebinar, setSelectedWebinar] = useState(null);
+
   const [paymentStatus, setPaymentStatus] = useState('');
   const navigate = useNavigate();
   const API_URL = import.meta.env.VITE_API_URL;
@@ -22,16 +25,22 @@ const Webinars = () => {
         
         // Only keep the last 5 webinars
         const lastFiveWebinars = response.data.slice(-5);
-        setWebinars(lastFiveWebinars);
+        setWebinars(lastFiveWebinars.reverse());
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching webinars:', error);
         setError('Error fetching webinars.');
+       
       } finally {
         setLoading(false);
       }
     };
     fetchWebinars();
   }, []);
+
+  if(loading){
+    return <Loading/>
+  }
 
   const handleEnroll = async (webinar) => {
     console.log('Handling enroll for webinar:', webinar);
@@ -152,34 +161,107 @@ const Webinars = () => {
   };
 
   return (
-    <> <img src={webinar_img} alt="Webinar Banner" className="webinar_banner" />
-    <div className="webinar_outer_container">
-      
-      <div className="webinar_inner_container">
-        
-        <h2 className="webinar_h2">Upcoming Webinars</h2>
-        {loading ? (
-          <p className="webinar_loading">Loading...</p>
-        ) : error ? (
-          <p className="webinar_error">{error}</p>
-        ) : (
-          <div className="webinar_grid">
-            {webinars.map((webinar) => (
-              <div className="webinar_card" key={webinar._id}>
-                <h3 className="webinar_title">{webinar.title}</h3>
-                <p className="webinar_presenter">Presenter: {webinar.presenter}</p>
-                <p className="webinar_date">Date: {new Date(webinar.date).toLocaleDateString()}</p>
-                <p className="webinar_price">Price: {webinar.price === "0" ? 'Free' : `₹${webinar.price}`}</p>
-                <button className="webinar_enroll_button" onClick={() => handleEnroll(webinar)}>
-                  {webinar.price === "0" ? 'Enroll Now' : 'Pay & Enroll'}
-                </button>
-                {paymentStatus && <p className="webinar_payment_status">{paymentStatus}</p>}
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
+    <> 
+    <div className="webinae-head-description">
+    <h1 className='webinar-heading'>LIVE WEBINARS</h1>
+    <p>
+    "Join our live webinars for expert counseling on topics like mental health, parenting, and relationships. Get real-time advice from certified professionals!"</p>
     </div>
+    <div className="webinar-outer-container">
+          <div className="webinar-inner-container">
+            <div className="webinar-card-container">
+              <img id='webinar-meet-img' src="https://lh6.googleusercontent.com/3qQY88BkqF6IF9cBs_AGmlCh04ZaNsctNAIjuNL38qC8etWll6mSxzoDz0Ka8XVDyY-yCTcxlkNSpWHN09PbUNqh4-dB26kdswGPrpKVOIdjhYWv5UpR-TAfazI4QNJu8-nzO7o1wFA9SbtweUs7DVk" alt=""/>
+              <div className='webinar-flex-container'>
+              <p id='webinar-title'>
+               Title of webinar
+              </p>
+              <i class="fa-solid fa-circle-play"></i>
+              </div>
+              <p id='webinar-discription'>
+              <i class="fa-regular fa-lightbulb"></i> Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur nostrum assumenda ad laborum voluptatem.
+              </p>
+              <p id='webinar-time-date'><i class="fa-regular fa-clock"></i> time</p>
+              <p id='webinar-time-date'><i class="fa-solid fa-calendar-days"></i> date</p>
+              <div  className='webinar-flex-container'>
+                <p id='webinar-status'>
+                <i id='expired' class="fa-solid fa-circle-xmark"></i> Expired
+
+                </p>
+              
+              
+             
+              <p id='webinar-creator'>  <i class="fa-solid fa-user-doctor"></i> name of doctor</p>
+              
+              </div>
+              <button href="#" className='webinar-enroll-expire-btn'>Pay <i class="fa-solid fa-indian-rupee-sign"></i>499 to Enroll</button>
+              
+
+
+
+            </div>
+            <div className="webinar-card-container">
+              <img id='webinar-meet-img' src="https://logos-world.net/wp-content/uploads/2022/05/Google-Meet-Symbol.png" alt=""/>
+              <div className='webinar-flex-container'>
+              <p id='webinar-title'>
+               title of webinar
+              </p>
+              <i class="fa-solid fa-circle-play"></i>
+              </div>
+              <p id='webinar-discription'>
+              <i class="fa-regular fa-lightbulb"></i> Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur nostrum assumenda ad laborum voluptatem.
+              </p>
+              <p id='webinar-time-date'><i class="fa-regular fa-clock"></i> time</p>
+              <p id='webinar-time-date'><i class="fa-solid fa-calendar-days"></i> date</p>
+              <div  className='webinar-flex-container'>
+                <p id='webinar-status'>
+                <i id='upcoming' class="fa-solid fa-circle-check"></i> Upcomimg
+
+                </p>
+              
+              
+             
+              <p id='webinar-creator'>  <i class="fa-solid fa-user-doctor"></i> name of doctor</p>
+              
+              </div>
+              <button href="#" className='webinar-enroll-btn'>Pay <i class="fa-solid fa-indian-rupee-sign"></i>499 to Enroll</button>
+              
+
+
+
+            </div>
+            <div className="webinar-card-container">
+              <img id='webinar-meet-img' src="https://logos-world.net/wp-content/uploads/2022/05/Google-Meet-Symbol.png" alt=""/>
+              <div className='webinar-flex-container'>
+              <p id='webinar-title'>
+               title of webinar
+              </p>
+              <i class="fa-solid fa-circle-play"></i>
+              </div>
+              <p id='webinar-discription'>
+              <i class="fa-regular fa-lightbulb"></i> Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur nostrum assumenda ad laborum voluptatem.
+              </p>
+              <p id='webinar-time-date'><i class="fa-regular fa-clock"></i> time</p>
+              <p id='webinar-time-date'><i class="fa-solid fa-calendar-days"></i> date</p>
+              <div  className='webinar-flex-container'>
+                <p id='webinar-status'>
+                <i id='expired' class="fa-solid fa-circle-xmark"></i> Expired
+
+                </p>
+              
+              
+             
+              <p id='webinar-creator'>  <i class="fa-solid fa-user-doctor"></i> name of doctor</p>
+              
+              </div>
+              <button href="#" className='webinar-enroll-btn'>Pay <i class="fa-solid fa-indian-rupee-sign"></i>499 to Enroll</button>
+              
+
+
+
+            </div>
+
+          </div>
+        </div>
     </>
   );
   
