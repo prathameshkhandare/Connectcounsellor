@@ -1358,3 +1358,66 @@ color: aliceblue;
   color: #ccc;
   cursor: not-allowed;
 }
+
+
+
+/* 404 error page css*/
+
+/* General container for centering */
+.error_404_page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color:white; /* Light blue background */
+  text-align: center;
+  padding: 20px;
+}
+
+/* Styling for the error image */
+.error_404_page-image {
+  max-width: 400px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* Styling for the large 404 error code */
+.error_404_page-code {
+  font-size: 150px;
+  font-weight: bold;
+  color: #007bff; /* Primary blue color */
+  margin: 0;
+}
+
+/* Main error message */
+.error_404_page-message {
+  font-size: 24px;
+  color: #007bff; /* Darker blue */
+  margin-top: 20px;
+}
+
+/* Description under the error message */
+.error_404_page-description {
+  font-size: 18px;
+  color: #007bff; /* Medium blue */
+  margin-bottom: 40px;
+}
+
+/* Styling for the home button */
+.error_404_page-home-button {
+  padding: 10px 20px;
+  background-color: #007bff; /* Button blue */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.error_404_page-home-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+/* 404 error page css ends */

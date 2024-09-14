@@ -64,6 +64,24 @@
   margin-left: 10%; /* Adjust date margin */
 }
 
+
+#blog-title{
+  font-weight: 700;
+  line-height: 1;
+}
+
+#blog-category {
+  width: 40%;
+  /* text-align: center; */
+
+  padding: 3px;
+  line-height: 1;
+  /* background-color: #3896fa31; */
+  border-radius: 20px;
+  color: #007bff;
+}
+
+
 @media (max-width: 768px) {
   .blog-card {
       flex-direction: column;
