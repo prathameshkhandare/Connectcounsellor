@@ -1,0 +1,50 @@
+/* Loading Component CSS */
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f5f7fa;
+  }
+  
+  .loading-spinner {
+    display: flex;
+    justify-content: space-around;
+    width: 80px;
+    margin-bottom: 20px;
+  }
+  
+  .loading-dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #6c63ff;
+    animation: bounce 1.5s infinite ease-in-out;
+  }
+  
+  .loading-dot:nth-child(2) {
+    animation-delay: 0.3s;
+  }
+  
+  .loading-dot:nth-child(3) {
+    animation-delay: 0.6s;
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  .loading-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    color: #4f4f4f;
+    text-align: center;
+    font-weight: 500;
+  }
+  

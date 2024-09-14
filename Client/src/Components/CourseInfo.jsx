@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./Stylesheets/courseinfo.css";
 import { useParams } from "react-router-dom";
+import Loading from "./Loading"
 
 const CourseInfo = () => {
   const [course, setCourse] = useState(null);
   const { courseId } = useParams();
+  const [loading ,setLoading] = useState(true);
   const [userid, setUserid] = useState("null");
 
   // Store the API URL in a variable
@@ -147,8 +149,10 @@ const CourseInfo = () => {
         );
         console.log("Response:", response.data);
         setCourse(response.data);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching course:", error);
+        setLoading(false);
       }
     };
     fetchCourse();
@@ -156,7 +160,7 @@ const CourseInfo = () => {
   }, [courseId]);
 
   if (!course) {
-    return <div>Loading...</div>;
+    return <div><Loading/></div>;
   }
 
   return (

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
+import Loading from './Loading';
 import axios from 'axios';
+import CustomNavbar from './CustomNavbar';
+import Footer from './Footer';
 
 const PrivateRoute = ({ requiredRole }) => {
   const token = localStorage.getItem('token');
@@ -42,7 +45,7 @@ const PrivateRoute = ({ requiredRole }) => {
   }, [token]);
 
   if (isValid === null) {
-    return <div>Loading...</div>;
+    return <div> {<><CustomNavbar/> <Loading/> <Footer/></>}</div>;
   }
 
   // Check if the user's role matches the required role

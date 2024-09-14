@@ -1,6 +1,9 @@
 import React from 'react';
 import './Stylesheets/Help.css'; // Assuming you have a HelpPage.css for styling
 
+
+
+
 const Help = () => {
   return (
     <div className="help-container">

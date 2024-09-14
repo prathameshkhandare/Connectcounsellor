@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Loading from './Loading';
 
 import './Stylesheets/Blog.css';
 const apiurl = import.meta.env.VITE_API_URL;
 const Blog = () => {
   const [blogs, setBlogs] = useState([]);
+  const [loading,setLoading] = useState(true);
   
 
   useEffect(() => {
@@ -12,22 +14,29 @@ const Blog = () => {
       try {
 
         const response = await axios.get(`${apiurl}/api/blog/read`);
-        setBlogs(response.data);
+        setBlogs(response.data.reverse());
+        setLoading(false);
+        
       } catch (err) {
         console.error(err);
+        setLoading(false);
       }
     };
 
     fetchBlogs();
   }, []);
+  if(loading){
+    return<Loading/>;
+  }
 
   return (
     <div className="blog-list">
-      {blogs.map(blog => (
+      {blogs?.reverse().map(blog => (
         <div className="blog-card" key={blog._id}>
           <img src={blog.image} alt={blog.title} className="blog-image" />
           <div className="blog-content">
             <div>
+              <h3 className='Blog-category'>{blog.category}</h3>
               <h3>{blog.title}</h3>
               <p>{blog.content}</p>
             </div>

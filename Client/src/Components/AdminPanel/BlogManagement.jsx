@@ -5,7 +5,7 @@ import './AdminPanel.css';
 
 const BlogManagement = () => {
   const [blogs, setBlogs] = useState([]);
-  const [newBlog, setNewBlog] = useState({ title: '', content: '', author: '', image: '' });
+  const [newBlog, setNewBlog] = useState({ title: '', content: '', author: '', image: '' ,category : ''});
   const [message, setMessage] = useState('');
   const [showMessage, setShowMessage] = useState(false);
   const navigate = useNavigate();
@@ -34,7 +34,7 @@ const BlogManagement = () => {
         }
       });
       setBlogs([...blogs, response.data]);
-      setNewBlog({ title: '', content: '', author: '', image: '' });
+      setNewBlog({ title: '', content: '', author: '', image: '',category:'' });
     } catch (error) {
       console.error('Error adding blog:', error);
     }
@@ -91,24 +91,33 @@ const BlogManagement = () => {
           placeholder="Blog Title"
           value={newBlog.title}
           onChange={(e) => setNewBlog({ ...newBlog, title: e.target.value })}
+          required
         />
         <textarea
           placeholder="Content"
           value={newBlog.content}
           onChange={(e) => setNewBlog({ ...newBlog, content: e.target.value })}
+          required
         />
         <input
           type="text"
           placeholder="Author"
           value={newBlog.author}
           onChange={(e) => setNewBlog({ ...newBlog, author: e.target.value })}
+          required
         />
         <input
           type="text"
           placeholder="Image URL"
           value={newBlog.image}
           onChange={(e) => setNewBlog({ ...newBlog, image: e.target.value })}
+          required
         />
+        <input type='text'
+        placeholder='enter Category'
+        value={newBlog.category}
+        onChange={(e)=> setNewBlog({...newBlog,category :e.target.value})}
+        required/>
         <button className="admin-panel-button" onClick={addBlog}>Add Blog</button>
       </div>
     </div>

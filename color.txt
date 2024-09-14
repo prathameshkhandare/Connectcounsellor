@@ -1,0 +1,31 @@
+button color  : #007bff;
+
+button on hover :#0056b3;
+
+{
+
+
+
+to use for gpt for applying hover ;
+.get-started-btn {
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #007bff; /* Base color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-position 0.5s ease-in-out; /* Animation effect */
+  background-image: linear-gradient(90deg, #0056b3 50%, #007bff 50%); /* Gradient background */
+  background-size: 200%; /* Allow for animation */
+  background-position: right; /* Start position */
+}
+
+.get-started-btn:hover {
+  background-position: left; /* Change position on hover */
+}
+
+.get-started-btn:not(:hover) {
+  transition: none; /* Reset transition when not hovering */
+}
+}

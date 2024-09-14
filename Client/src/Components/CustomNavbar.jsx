@@ -4,6 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faBell } from '@fortawesome/free-solid-svg-icons';
 import { Link ,useNavigate} from 'react-router-dom';
 import mind_logo from '../assets/Img/mind_logo.png';
+import CClogo1 from "../assets/Img/CCLogo.png"
+import CCLogo from "../assets/img/CCLogo2.png"
+import CCLOGO3 from "../assets/Img/connectcounsellor.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function CustomNavbar() {
@@ -61,9 +64,9 @@ function CustomNavbar() {
         <Navbar.Brand>
           <img
             className='Logo-img'
-            src={mind_logo}
+            src={CCLOGO3}
             alt="Mind Logo"
-            style={{ maxHeight: '60px', width: 'auto' }}
+            style={{ maxHeight: '50px', width: 'auto' }}
           />
         </Navbar.Brand>
 

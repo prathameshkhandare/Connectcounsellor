@@ -24,7 +24,7 @@ const LandinPageBlog = () => {
       <div className="blogs-landingpage-outer-container">
         <h1>Read Our Blogs</h1>
         <p id="blog-findblog-discription">
-          You can find the latest blogs posted by the Counsell Hub team here:
+          You can find the latest blogs posted by the Connect Counsellor team here:
         </p>
         <div className="blogs-landingpage-inner-container">
           {webinars.slice().reverse().slice(0, 3).map((webinar) => (

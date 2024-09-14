@@ -16,10 +16,14 @@ const navigate = useNavigate();
         setCourses(response.data);
       } catch (error) {
         console.error('Error fetching courses:', error);
+        setLoading(false);
       }
     };
     fetchCourses();
   }, [API_URL]);
+  if(loading){
+    return <Loading/>
+  }
 
   const filteredCourses =
     selectedCategory === 'All'
