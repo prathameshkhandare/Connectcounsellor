@@ -160,14 +160,27 @@ border-bottom: 1px #ccc;
   margin-right: 20px;
 }
 
+.navbar-collapse.show {
+  display: flex;
+}
+
+.navbar-collapse {
+  display: none;
+}
+
+.hamburger {
+  cursor: pointer;
+}
+
 .user-icon {
   background-color: white !important; /* Initial background color */
   border: 2px solid rgb(216, 213, 207);
   border-radius: 50%;
-  margin-right: 40px;
+  margin-right: 10px;
   transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
   color: black !important; /* Initial icon color */
 }
+
 
 
 
