@@ -215,14 +215,17 @@ const Webinars = () => {
                 webinar?.date?.split("T")[0].split("-")[2] -
                   date?.split("T")[0].split("-")[2] >
                   0 ? (
+
+                    <p id="webinar-status">
+                    <i id="upcoming" class="fa-solid fa-circle-check"></i>{" "}
+                    upcoming
+                  </p>
+
+                ) : (
+                 
                   <p id="webinar-status">
                     <i id="expired" class="fa-solid fa-circle-xmark"></i>{" "}
                     Expired
-                  </p>
-                ) : (
-                  <p id="webinar-status">
-                    <i id="upcoming" class="fa-solid fa-circle-check"></i>{" "}
-                    upcoming
                   </p>
                 )}
 
@@ -240,10 +243,10 @@ const Webinars = () => {
                   0 ||
                 webinar?.date?.split("T")[0].split("-")[2] -
                   date?.split("T")[0].split("-")[2] >
-                  0 ?<button className='webinar-enroll-expire-btn'>Expired</button> :
-              <button href="#" className='webinar-enroll-btn' onClick={()=>{handleEnroll(webinar)}}>Pay <i class="fa-solid fa-indian-rupee-sign"></i>499 to Enroll</button>
+                  0 ?  <button href="#" className='webinar-enroll-btn' onClick={()=>{handleEnroll(webinar)}}>Pay <i class="fa-solid fa-indian-rupee-sign"></i>499 to Enroll</button>:
+              <button className='webinar-enroll-expire-btn'>Expired</button> 
           }
-            </div>;
+            </div>
               </>
             )
           })}

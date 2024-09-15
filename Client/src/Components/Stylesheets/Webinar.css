@@ -57,6 +57,10 @@
 #webinar-discription{
   font-size: 14px;
   /* margin-top: 10px; */
+  white-space: nowrap; /* Keeps the text on a single line */
+    max-width: 250px;    /* Limits the width of the element */
+    overflow: hidden;    /* Hides the overflow text */
+    text-overflow: ellipsis;
 }
 .webinae-head-description{
   text-align: center;
