@@ -101,7 +101,7 @@
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px #0000001a;
 }
 
 * .admin-panel-new-blog {
@@ -112,6 +112,12 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+}
+.select-blog-category{
+   margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
 * .admin-panel-new-blog input,
@@ -577,16 +583,18 @@
 @media (max-width: 768px) {
   .admin-panel-navbar .menu-icon {
     display: block;
+    margin-right: 80px;
   }
+
 
   .admin-panel-navbar .nav-links {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 50px;
+    top: 70px;
     left: 0;
     width: 100%;
-    background-color: #333;
+    background-color: #077;
     text-align: center;
   }
 
@@ -594,9 +602,15 @@
     display: flex;
   }
 
-  .admin-panel-navbar a,
+  .admin-panel-navbar a
+  {
+    margin: 10px 0;
+    background-color: transparent;
+    color: white;
+  }
   .admin-logout-btn {
     margin: 10px 0;
+    
   }
 }
 /* ---- */
@@ -671,12 +685,22 @@
   min-width: 300px;
 }
 
+.Select-platform{
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
 .admin-panel-webinar-list {
   flex: 1 1 50%; /* Webinar list occupies 50% of the width */
   max-width: 600px;
   min-width: 300px;
   margin-top: 6px;
 }
+
 
 /* Input fields styling */
 .admin-panel-new-webinar input,

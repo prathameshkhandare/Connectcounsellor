@@ -20,7 +20,7 @@ const AdminNav = () => {
 
   return (
     <div className="admin-panel-navbar">
-      <img src={CCLOGO} alt="Logo" className="logo" /> {/* Logo added */}
+      <img src={CCLOGO} alt="Logo" className="logo" /> 
       <div className="menu-icon" onClick={toggleMenu}>
         {isMenuOpen ? '✖' : '☰'}
       </div>

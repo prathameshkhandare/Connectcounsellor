@@ -113,11 +113,17 @@ const BlogManagement = () => {
           onChange={(e) => setNewBlog({ ...newBlog, image: e.target.value })}
           required
         />
-        <input type='text'
-        placeholder='enter Category'
+        <select className='select-blog-category'
         value={newBlog.category}
         onChange={(e)=> setNewBlog({...newBlog,category :e.target.value})}
-        required/>
+        required>
+          <option value=" ">Select category</option>
+            <option value="Couple">Couple</option>
+            <option value="Parenting">Parenting</option>
+            <option value="Depression">Depression</option>
+            <option value="Sexual">Sexual</option>
+            <option value="career">Career</option>
+        </select>
         <button className="admin-panel-button" onClick={addBlog}>Add Blog</button>
       </div>
     </div>
