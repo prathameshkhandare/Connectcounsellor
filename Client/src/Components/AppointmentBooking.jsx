@@ -195,7 +195,8 @@ const AppointmentBooking = () => {
       </label>
       <form onSubmit={handleSubmit} className="animated fadeInUp">
         <div className="form-group appointment-booking_input">
-          <input
+          <input 
+            id="appointment-booking_input"
             type="text"
             name="reason"
             placeholder="Reason for Appointment"
@@ -221,6 +222,13 @@ const AppointmentBooking = () => {
               minDate={new Date()}
               maxDate={new Date(new Date().setDate(new Date().getDate() + 7))}
             />
+
+ <div className="button-container">
+          <button type="submit" className="submit-button">
+            Book Appointment
+          </button>
+        </div>
+
           </div>
           <div className="rightwrapper">
             <div className="rightcontainerslot">
@@ -289,12 +297,10 @@ const AppointmentBooking = () => {
               </div>
             </div>
           </div>
+          
         </div>
-        <div className="button-container">
-          <button type="submit" className="submit-button">
-            Book Appointment
-          </button>
-        </div>
+       
+      
         {message && <p className="message">{message}</p>}
       </form>
     </div>

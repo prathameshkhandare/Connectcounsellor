@@ -5,12 +5,7 @@ import "../Components/StyleSheets/Notifications.css";
 function Notifications() {
   // Dummy notifications data
   const notifications = [
-    // { id: 1, message: 'You have a new message from John Doe.', time: '2 mins ago' },
-    // { id: 2, message: 'Your appointment is confirmed for tomorrow.', time: '1 hour ago' },
-    // { id: 3, message: 'Your password was successfully changed.', time: '3 hours ago' },
-    // { id: 4, message: 'New blog post: Mental Health Awareness Tips.', time: 'Yesterday' },
-    // { id: 5, message: 'Your subscription will expire soon.', time: '2 days ago' },
-    {message : 'No new notification'}
+    {id:1,message : 'No new notification'}
   ];
 
   return (

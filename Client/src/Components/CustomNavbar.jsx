@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Navbar, Nav, Dropdown, Badge, Popover, OverlayTrigger } from 'react-bootstrap';
+import { Navbar, Nav, Dropdown, Badge, Popover, OverlayTrigger,Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faBell,faBars } from '@fortawesome/free-solid-svg-icons';
 import { Link ,useNavigate} from 'react-router-dom';
@@ -44,14 +44,34 @@ function CustomNavbar() {
 
   const popover = (
     <Popover id="popover-notifications" className="notifications-popover">
-      <Popover.Header as="h3" style={{ backgroundColor: 'black', color: 'white' }}>Notifications</Popover.Header>
+      <Popover.Header
+        as="h3"
+        style={{ backgroundColor: 'black', color: 'white', position: 'relative' }}
+      >
+        Notifications
+        {/* Close Button */}
+        <Button
+          variant="light"
+          size="sm"
+          onClick={handleNotificationsClick}
+          style={{
+            position: 'absolute',
+            right: '10px',
+            top: '5px',
+            padding: '0',
+            border: 'none',
+            fontSize: '1.2rem',
+            background: 'transparent',
+            color: 'white',
+            cursor: 'pointer'
+          }}
+        >
+          &times;
+        </Button>
+      </Popover.Header>
       <Popover.Body style={{ maxHeight: '500px', overflowY: 'auto' }}>
-        <p>You have new notifications:</p>
-        <ul>
-          <li>Notification 1: Lorem ipsum dolor sit amet.</li>
-          <li>Notification 2: Consectetur adipiscing elit.</li>
-          <li>Notification 3: Nulla vitae elit libero.</li>
-        </ul>
+        <p>You have no new notifications</p>
+        <ul></ul>
       </Popover.Body>
     </Popover>
   );
