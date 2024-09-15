@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar, Nav, Dropdown, Badge, Popover, OverlayTrigger } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faBell } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faBell,faBars } from '@fortawesome/free-solid-svg-icons';
 import { Link ,useNavigate} from 'react-router-dom';
-
-
 import CCLOGO3 from "../assets/Img/connectcounsellor.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -12,6 +10,7 @@ function CustomNavbar() {
   const [loggedIn, setLoggedIn] = useState(false); // Initial state is false
   const [scrolled, setScrolled] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
+  const [showNavElements,setShowNavElements] = useState(false);
   
   const navigate = useNavigate();
 
@@ -57,6 +56,12 @@ function CustomNavbar() {
     </Popover>
   );
 
+  // test 
+
+  const toggleNavElements = () => {
+    setShowNavElements(!showNavElements);
+  };
+
   return (
     <>
       <Navbar expand="lg" className={`navbar-bg ${scrolled ? 'navbar-scrolled' : ''}`} style={{ minHeight: '60px' }}>
@@ -69,7 +74,10 @@ function CustomNavbar() {
           />
         </Navbar.Brand>
 
-        <Navbar.Collapse id="basic-navbar-nav">
+       
+
+        <Navbar.Collapse id="basic-navbar-nav" className={`navbar-collapse ${showNavElements ? 'show' : ''} d-lg-flex`}>
+          
           <Nav className="me-auto nav-elements mb-lg-0">
             <Nav.Link as={Link} to="/" className='nav-element'>Home</Nav.Link>
             <Nav.Link as={Link} to="/aboutus" className='nav-element'>About us</Nav.Link>
@@ -107,6 +115,13 @@ function CustomNavbar() {
                   <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
+
+              {/* for fabars test */}
+              <div className="hamburger d-lg-none" onClick={toggleNavElements}>
+          <FontAwesomeIcon icon={faBars} style={{ color: 'black', fontSize: '24px' }} />
+        </div>
+
+      {/* ----- */}
             </>
           ) : (
             <Nav.Link as={Link} to="/login"className="navbar-login-button">Login</Nav.Link>

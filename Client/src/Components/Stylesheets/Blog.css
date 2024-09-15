@@ -36,6 +36,13 @@
   flex-direction: column;
   justify-content: space-between;
 }
+.blog-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+  text-align: justify; /* This will justify the text */
+}
+
 
 .blog-card h3 {
   font-size: 1.5rem;
