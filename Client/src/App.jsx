@@ -40,6 +40,7 @@ import WebinarManagement from "./Components/AdminPanel/WebinarManagement";
 import FloatWebinar from "./Components/FloatWebinar";
 import LandingPageBlog from "./Components/LandingPageBlog";
 import Loading from "./Components/Loading";
+import NotFoundPage from "./Components/NotFoundPage";
 // Example components for routes
 const Home = () => {
   return (
@@ -87,6 +88,9 @@ function App() {
               </>
             }
           />
+
+<Route path="*" element={<NotFoundPage/>} />
+
           <Route
             path="/contact"
             element={

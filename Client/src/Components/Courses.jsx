@@ -6,7 +6,8 @@ import Loading from './Loading';
 const Courses = () => {
   const [courses, setCourses] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [loading,setLoading] = useState(true);
+  const [loading,setLoading] = useState(true)
+  
 const navigate = useNavigate();
  
   const API_URL = import.meta.env.VITE_API_URL;
@@ -16,6 +17,8 @@ const navigate = useNavigate();
       try {
         const response = await axios.get(`${API_URL}/api/courses/read`);
         setCourses(response.data);
+        setLoading(false); // Set loading state to false when data is fetched successfully
+
         setLoading(false);
       } catch (error) {
         console.error('Error fetching courses:', error);

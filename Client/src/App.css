@@ -470,7 +470,7 @@ border-bottom: 1px #ccc;
   background-color: rgba(233, 233, 233, 0.382);
   padding: 10px;
   border-radius: 500px;
-  color: blue;
+  color: #007bff;
   background-color: transparent;
 }
 .bold{
@@ -494,7 +494,7 @@ border-bottom: 1px #ccc;
   display: flex;
   justify-content: space-between;
   width: 90%;
-  background-color: blue;
+  background-color:#007bff;
   padding: 30px;
   padding-top: 50px;
   padding-bottom: 50px;
@@ -510,7 +510,7 @@ color: aliceblue;
   display: grid;
   grid-template-columns: 1fr 1fr;
  width: 50%;
- background-color: blue;
+ background-color: #007bff;
  
 }
 .steps-inner-flex-container2{
@@ -518,22 +518,22 @@ color: aliceblue;
   flex-direction: column;
   justify-content: center;
   margin: 10px;
-  background-color: blue;
+  background-color: #007bff;
 
 }
 .steps-inner-flex-container2 h1{
   transform: translate(-25px,46px);
-  color: rgb(129, 129, 255);
+  color: rgb(255, 255, 255);
   z-index: 0;
 
-  background-color: blue;
+  background-color: #007bff;
 }
 .steps-inner-container1 h1{
-  background-color: blue;
+  background-color: #007bff;
   width: 500px;
 }
 .steps-inner-container1 p{
-  background-color: blue;
+  background-color: #007bff;
 }
 .steps-inner-flex-container2 i{
   background-color: aliceblue;
@@ -544,15 +544,15 @@ color: aliceblue;
   align-content: center;
   border-radius: 5px;
   z-index: 1;
-  color: blue;
+  color: #007bff;
   
 }
 .steps-inner-flex-container2 p{
-  background-color: blue;
+  background-color: #007bff;
 }
 .steps-inner-container1{
   margin-top: 50px;
-  background-color:blue;
+  background-color:#007bff;
 }
 .bold-white{
   font-weight: 800;
@@ -596,7 +596,7 @@ color: aliceblue;
   margin: 20px;
 }
 .trust-inner-flex-container i{
-  color: blue;
+  color: #007bff;
   width: 40px;
   height: 40px;
 
@@ -638,7 +638,7 @@ color: aliceblue;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: blue;
+    background-color: #007bff;
     padding: 10px 15px; /* Reduced padding for better control */
     border-radius: 40px;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.082);
@@ -652,7 +652,7 @@ color: aliceblue;
     color: white;
     margin: 0 5px; /* Adjust margins for icons and text */
     font-size: 18px;
-    background-color: blue;
+    background-color: transparent;
   }
 
 
@@ -1364,3 +1364,66 @@ color: aliceblue;
   color: #ccc;
   cursor: not-allowed;
 }
+
+
+
+/* 404 error page css*/
+
+/* General container for centering */
+.error_404_page-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color:white; /* Light blue background */
+  text-align: center;
+  padding: 20px;
+}
+
+/* Styling for the error image */
+.error_404_page-image {
+  max-width: 400px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* Styling for the large 404 error code */
+.error_404_page-code {
+  font-size: 150px;
+  font-weight: bold;
+  color: #007bff; /* Primary blue color */
+  margin: 0;
+}
+
+/* Main error message */
+.error_404_page-message {
+  font-size: 24px;
+  color: #007bff; /* Darker blue */
+  margin-top: 20px;
+}
+
+/* Description under the error message */
+.error_404_page-description {
+  font-size: 18px;
+  color: #007bff; /* Medium blue */
+  margin-bottom: 40px;
+}
+
+/* Styling for the home button */
+.error_404_page-home-button {
+  padding: 10px 20px;
+  background-color: #007bff; /* Button blue */
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+}
+
+.error_404_page-home-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+/* 404 error page css ends */
