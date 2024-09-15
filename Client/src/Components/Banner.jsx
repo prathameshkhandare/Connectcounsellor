@@ -139,7 +139,7 @@ function Banner() {
         </div>
 
         <div className="our-speciality-outer-container">
-          <p style={{ color: "blue" }}>Our Speciality</p>
+          <p style={{ color: "#007bff" }}>Our Speciality</p>
           <h1>
             We provide following counselling services with best counsellor team!
           </h1>
