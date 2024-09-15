@@ -510,7 +510,7 @@ color: aliceblue;
   display: grid;
   grid-template-columns: 1fr 1fr;
  width: 50%;
- background-color: #007bff;
+ background-color:#007bff;
  
 }
 .steps-inner-flex-container2{
@@ -865,14 +865,12 @@ color: aliceblue;
 .footer {
   padding: 20px;
   margin-bottom: -26px;
-  text-align: left; /* Ensure text alignment */
 }
 
 .footer-col-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-start; /* Ensure columns start from the top */
   flex-wrap: wrap;
   margin-left: 10%;
 }
@@ -881,13 +879,11 @@ color: aliceblue;
   flex: 1;
   margin: 10px;
   min-width: 200px;
-  text-align: left; /* Ensure text starts from the left */
 }
-
 
 .footer-column h3 {
   margin-bottom: 10px;
-  text-align: left; /* Ensure the header aligns with the content */
+  margin-right: 70%;
 }
 
 .footer-column ul {
@@ -895,7 +891,6 @@ color: aliceblue;
   padding: 0;
   margin: 0;
 }
-
 
 .footer-column ul li {
   margin-bottom: 5px;
