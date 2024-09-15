@@ -37,12 +37,12 @@
 
 .admin-panel-navbar a {
   color: rgb(4, 2, 46);
-  margin: 0 15px;
+  margin: 0 10px;
   text-decoration: none;
   position: relative;
   overflow: hidden;
   font-size: 16px;
-  font-weight:600;
+  font-weight:400;
 }
 
 .admin-panel-navbar a::after {
@@ -67,23 +67,16 @@
 
 .admin-panel-navbar .logo {
   margin-right: auto;
+  width: 130px;
 }
 
-.admin-logout-btn {
-  background: none;
-  border: none;
-  color: black;
-  cursor: pointer;
-  margin-left: auto;
-  font-size: 16px;
-  font-weight: bold;
-}
+
 
 .admin-logout-btn{
   background-color: red;
     color: white;
     border: none; 
-    padding: 10px 20px;
+    padding: 5px 15px;
     border-radius: 5px; 
     cursor: pointer; 
     font-size: 16px;
@@ -157,10 +150,11 @@
 * .admin-panel-blog-list ul {
   list-style: none;
   padding: 0;
+  
 }
 
 * .admin-panel-blog-list li {
-  background-color: #f7f7f7;
+  background-color: white;
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 5px;
@@ -221,7 +215,7 @@
   flex-direction: column;
   width: 50%;
   margin-left: 50px;
-  background-color: #fff;
+  background-color: white;
   padding: 10px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -230,11 +224,13 @@
 * .admin-panel-course-list {
   width: 50%;
   margin-right: 50px;
-  background-color: #fff;
-  padding: 20px;
+  background-color: white;
+  padding: 10px;
+  
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 
 * .admin-panel-new-course input,
 * .admin-panel-new-course textarea {
@@ -256,8 +252,8 @@
 }
 
 .admin-panel-course-list li {
-  background-color: #f7f7f7;
-  padding: 10px;
+  background-color: white;
+  padding: 5px;
   margin-bottom: 10px;
   border-radius: 5px;
   border: 1px solid #ddd;
@@ -352,8 +348,7 @@
 }
 
 .drop-down-button {
- 
- 
+
  
   border: 1px solid #ccc; /* Match the input border */
   border-left: none; /* Remove the left border to connect with the input */
@@ -427,6 +422,7 @@
 .edit-course-container h3 {
   text-align: center;
   margin-bottom: 20px;
+  background-color: transparent;
 }
 
 .form-group {
@@ -475,7 +471,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh; /* Ensures the container takes at least the full height of the viewport */
-  background-color: #f8f9fa;
+  background-color: white;
 }
 
 * .admin_appointment_content {
@@ -640,7 +636,7 @@
   flex-wrap: wrap; /* Ensures responsiveness */
   justify-content: space-between;
   gap: 20px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   width: 80%;
   margin-left: 150px;
   background-color: #ffffff; /* Sharp container background */
@@ -732,7 +728,15 @@
   gap: 10px;
 }
 
-.admin-panel-edit-button,
+.admin-panel-edit-button{
+  background-color: #007bff;
+  background-color: #007bff;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 .admin-panel-delete-button {
   background-color: #007bff;
   color: white;

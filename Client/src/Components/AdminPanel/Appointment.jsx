@@ -8,12 +8,6 @@ const Appointment = () => {
   const API_URL = import.meta.env.VITE_API_URL;
 
 
-
-  
-
-
-
-
   useEffect(() => {
     const fetchAppointments = async () => {
       // const API_URL = import.meta.env.VITE_API_URL; 

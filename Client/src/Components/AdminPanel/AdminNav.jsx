@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './AdminPanel.css';
 import { useAuth } from '../../store/AuthContex';
-import logo from '../../assets/Img/mind_logo.png'; 
+import CCLOGO from '../../assets/Img/connectcounsellor.png'; 
 
 const AdminNav = () => {
   const { removeTokenLS } = useAuth();
@@ -20,7 +20,7 @@ const AdminNav = () => {
 
   return (
     <div className="admin-panel-navbar">
-      <img src={logo} alt="Logo" className="logo" /> {/* Logo added */}
+      <img src={CCLOGO} alt="Logo" className="logo" /> {/* Logo added */}
       <div className="menu-icon" onClick={toggleMenu}>
         {isMenuOpen ? '✖' : '☰'}
       </div>
