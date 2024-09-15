@@ -1,3 +1,4 @@
+/* Blog Container */
 .blog-list {
   display: grid;
   grid-template-columns: 1fr;
@@ -5,65 +6,55 @@
   padding: 20px;
 }
 
+/* Blog Card */
 .blog-card {
   display: flex;
   flex-direction: row;
   background-color: #ffffff;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for subtle depth */
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition for transform and box-shadow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   overflow: hidden;
-  margin: 0 60px; /* Margin around the box */
-  padding: 20px; /* Padding inside the box */
+  margin: 0 60px;
+  padding: 20px;
 }
 
+/* Blog Card Hover Effect */
 .blog-card:hover {
-  transform: translateY(-5px); /* Lift card on hover */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase box shadow on hover for depth effect */
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+/* Blog Image */
 .blog-image {
   width: 350px;
   height: 350px;
   object-fit: cover;
-  margin-right: 40px; /* Space between image and content */
+  margin-right: 40px;
 }
 
+/* Blog Content */
 .blog-content {
   flex: 1;
-  padding: 0 20px; /* Padding inside the content box */
+  padding: 0 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
-.blog-content p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #444;
   text-align: justify; /* This will justify the text */
 }
 
-
+/* Blog Title */
 .blog-card h3 {
   font-size: 1.5rem;
   margin-bottom: 10px;
   color: #0044cc;
-  
-  
 }
 
-.blog-card p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #444;
-  
-}
-
-
+/* Blog Meta */
 .blog-meta {
   display: flex;
-  align-items: center; 
-  margin-top: 5px; /* Decrease the space between author name and date */
+  align-items: center;
+  margin-top: 5px;
 }
 
 .blog-meta small {
@@ -72,41 +63,53 @@
 }
 
 .blog-date {
-  margin-left: 10%; /* Adjust date margin */
+  margin-left: 10%;
 }
 
-
-#blog-title{
-  font-weight: 700;
-  line-height: 1;
-}
-
-#blog-category {
-  width: 40%;
-  /* text-align: center; */
-
-  padding: 3px;
-  line-height: 1;
-  /* background-color: #3896fa31; */
+/* Category Badge */
+#inner-blog-category {
+  width: 18%;
+  text-align: center;
+  padding: 1px;
+  background-color: rgba(0, 0, 255, 0.13);
   border-radius: 20px;
-  color: #007bff;
+  color: blue;
 }
 
-
+/* Mobile Responsive Adjustments */
 @media (max-width: 768px) {
+  /* Blog Card Stacking */
   .blog-card {
-      flex-direction: column;
+    flex-direction: column;
+    padding: 10px; /* Reduce padding for smaller screens */
+    margin: 0 20px; /* Reduce side margins */
   }
 
-  .blog-card .blog-image {
-      width: 100%;
-      height: auto;
-      margin: 0; /* Remove margins for smaller screens */
-      margin-bottom: 20px; /* Space between image and content in mobile view */
+  /* Full-width Blog Image */
+  .blog-image {
+    width: 100%; /* Full width on smaller screens */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 20px;
   }
 
+  /* Adjust Blog Content Padding */
   .blog-content {
-      width: 100%;
-      padding: 0; /* Remove padding for smaller screens */
+    width: 100%;
+    padding: 10px 0; /* Reduce padding on smaller screens */
+  }
+
+  /* Adjust Blog Meta Alignment */
+  .blog-meta {
+    flex-direction: column;
+    align-items: flex-start; /* Align meta content to the start */
+  }
+
+  .blog-date {
+    margin-left: 0; /* Remove extra margin on smaller screens */
+  }
+
+  /* Adjust Category Badge Size */
+  #inner-blog-category {
+    width: 40%; /* Make category badge smaller on mobile */
   }
 }

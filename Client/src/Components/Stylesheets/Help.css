@@ -1,34 +1,50 @@
+/* General Help Container */
 .help-container {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
-  background-color: #f9f9f9;
+  max-width: 900px; /* Increased width */
+  margin: 50px auto;
+  padding: 30px;
+  background-color: white;
   border: 1px solid #ddd;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Slightly larger shadow */
   font-size: 16px;
+  line-height: 1.6;
 }
 
-.help-title {
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 10px;
-  font-size: 1.2em;
-}
-
+/* Main Title */
 .help-main-title {
-  font-size: 1.5em;
+  font-size: 2.5rem; /* Larger font size */
+  font-weight: bold;
+  color: #0044cc; /* Accent color */
+  text-align: center; /* Center the main title */
+  margin-bottom: 30px; /* More space below the title */
 }
 
-.help-faq-section {
+/* Section Headings */
+.help-title-main {
+  font-size: 2rem; /* Larger heading size */
+  color: #0056b3; /* Different shade for headings */
+  font-weight: 600;
   margin-bottom: 20px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #ccc;
 }
 
-.help-faq-section:last-child {
-  border-bottom: none;
+/* FAQ and Resource Titles */
+.help-title {
+  font-size: 1.5rem; /* Slightly larger sub-headings */
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 10px;
+  margin-right: 70%;
 }
 
+/* Paragraph Styling */
+.help-paragraph {
+  font-size: 1rem; /* Standardized paragraph font size */
+  color: #555; /* Softer color for body text */
+  margin-bottom: 25px;
+  text-align: justify; /* Justified text for a clean look */
+}
+
+/* List Styling */
 .help-list {
   list-style: none;
   padding: 0;
@@ -36,8 +52,8 @@
 }
 
 .help-list-item {
-  margin-bottom: 10px;
-  padding-left: 20px;
+  margin-bottom: 15px; /* Increased spacing between items */
+  padding-left: 25px; /* Increase padding */
   position: relative;
 }
 
@@ -45,25 +61,30 @@
   content: "";
   position: absolute;
   left: 0;
-  top: 10px;
-  width: 10px;
-  height: 10px;
-  background-color: #337ab7;
+  top: 12px;
+  width: 12px;
+  height: 12px;
+  background-color: #0044cc; /* Same color as main title */
   border-radius: 50%;
 }
 
+/* Links */
 .help-link {
   text-decoration: none;
-  color: #337ab7;
+  color: #0044cc;
+  font-weight: 500; /* Bolded links */
   transition: color 0.2s ease;
 }
 
 .help-link:hover {
-  color: #23527c;
+  color: #002d70; /* Darker color on hover */
 }
 
-.help-paragraph {
-  margin-bottom: 20px;
+/* FAQ Section */
+.help-faq-section {
+  margin-bottom: 40px; /* Larger bottom margin */
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
 }
 
 /* Responsive Styles */
@@ -71,35 +92,56 @@
 /* Tablet styles (max-width: 768px) */
 @media (max-width: 768px) {
   .help-container {
-      padding: 15px; /* Adjust padding for smaller screens */
-  }
-  .help-title {
-      font-size: 1.1em; /* Slightly smaller font size */
+    padding: 20px; /* Adjust padding for tablets */
   }
   .help-main-title {
-      font-size: 1.4em; /* Slightly smaller font size */
+    font-size: 2rem; /* Slightly smaller font for main title */
+  }
+  .help-title-main {
+    font-size: 1.8rem; /* Adjusted section title size */
+  }
+  .help-title {
+    font-size: 1.3rem;
+    margin-right: 50%;
+  }
+  .help-paragraph {
+    font-size: 0.95rem;
   }
   .help-list-item {
-      padding-left: 15px; /* Reduce padding for list items */
+    padding-left: 20px; /* Adjust padding for smaller screens */
+  }
+  .help-list-item:before {
+    width: 10px;
+    height: 10px;
   }
 }
 
 /* Mobile styles (max-width: 480px) */
 @media (max-width: 480px) {
   .help-container {
-      margin: 20px auto; /* Reduce margin for mobile */
-      padding: 10px; /* Further reduce padding for mobile */
-  }
-  .help-title {
-      font-size: 1em; /* Smaller font size for titles */
+    margin: 20px auto;
+    padding: 15px;
   }
   .help-main-title {
-      font-size: 1.2em; /* Smaller font size for main titles */
+    font-size: 1.8rem;
   }
-  .help-list-item {
-      padding-left: 10px; /* Further reduce padding for list items */
+  .help-title-main {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+  }
+  .help-title {
+    font-size: 1.2rem;
+    margin-right: 30%;
   }
   .help-paragraph {
-      font-size: 14px; /* Slightly smaller font size for paragraphs */
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+  }
+  .help-list-item {
+    padding-left: 15px;
+  }
+  .help-list-item:before {
+    width: 8px;
+    height: 8px;
   }
 }

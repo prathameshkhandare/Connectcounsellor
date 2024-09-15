@@ -10,7 +10,7 @@ const Help = () => {
       <h1 className="help-main-title">Help Center</h1>
       <p className="help-paragraph">Welcome to our help center! Here, you'll find answers to frequently asked questions, tutorials, and guides to help you get the most out of our product.</p>
       <section className="help-faq-section">
-        <h2 className="help-title">Frequently Asked Questions</h2>
+        <h2 className="help-title-main">Frequently Asked Questions</h2>
         <ul className="help-list">
           <li className="help-list-item">
             <h3 className="help-title">What is this product?</h3>
