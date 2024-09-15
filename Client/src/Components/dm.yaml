@@ -1,152 +1,95 @@
-<>
-      <h4 className='heading-4'> Courses </h4>
+ <div>
+      <header>
+        <div className="">
+          <h3>Terms & Conditions</h3>
+        </div>
+      </header>
+      <main>
+        <section>
+          <h4>Introduction</h4>
+          <p>
+            These Terms and Conditions ("Terms") govern your use of our website and services. Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde eos totam atque odio. Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo officiis suscipit ipsam at.
+          </p>
+        </section>
+        <section>
+          <h4>Acceptance of Terms</h4>
+          <p>
+            By using our website and services, you agree to be bound by these Terms. Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo itaque distinctio ipsam laboriosam?
+          </p>
+        </section>
+        <section>
+          <h4>Intellectual Property</h4>
+          <p>
+            Our website and services are protected by intellectual property laws. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum soluta alias in error beatae magnam tempore impedit dolores, quo tenetur?
+          </p>
+        </section>
+      </main>
+      <footer>
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+      </footer>
+    </div>
 
-      <div className="categories-container">
-        {categories.map((category) => (
-          <button
-            key={category}
-            className={`category-button ${selectedCategory === category ? 'active' : ''}`}
-            onClick={() => setSelectedCategory(category)}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
-      <div className="card-container">
-        {filteredCourses.map((course, index) => (
-          <div key={course._id} className={`card ${index % 3 === 0 ? 'card-first' : ''}`}>
-            <div className="card-img-wrapper">
-              <img src={course.image} alt={course.name} className="card-img" />
-            </div>
-            <div className="card-body">
-              <h5 className="card-title">{course.name}</h5>
-              {/* <p className="card-text">{course.shortdescription}</p> */}
-            </div>
-            <div className="card-footer">
-              <Link to={`/courseInfo/${course._id}`} className="Details-btn-primary">Details</Link>
-            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    import React, { useState } from "react";
+
+const TermsAndConditions = () => {
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const toggleAccordion = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
+
+  return (
+    <div className="accordion-container">
+      <div className="accordion-item">
+        <div className="accordion-header" onClick={() => toggleAccordion(0)}>
+          <h3>Terms and Conditions</h3>
+        </div>
+        {activeIndex === 0 && (
+          <div className="accordion-content">
+            <p>
+              By using this website or making a purchase, you agree to the following terms:
+            </p>
+            <ul>
+              <li>Content may change without notice. Use information at your own risk.</li>
+              <li>Ensure products meet your requirements. We are not liable for issues.</li>
+              <li>All materials are owned or licensed by us. Reproduction is prohibited.</li>
+              <li>Unauthorized use may lead to legal action.</li>
+              <li>Links to other sites are provided for convenience. We are not responsible for their content.</li>
+              <li>Disputes are subject to Indian law.</li>
+              <li>We are not liable for declined transactions due to cardholder limits.</li>
+            </ul>
           </div>
-        ))}
+        )}
       </div>
-    </>
 
+      <div className="accordion-item">
+        <div className="accordion-header" onClick={() => toggleAccordion(1)}>
+          <h3>Refund and Cancellation Policy</h3>
+        </div>
+        {activeIndex === 1 && (
+          <div className="accordion-content">
+            <p>
+              - No refunds will be provided after the purchase.<br />
+              - Cancellations are not allowed after the purchase is complete.
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
 
-
-  # webinar
-    const handleEnroll = async (webinar) => {
-    console.log('Handling enroll for webinar:', webinar);
-    setSelectedWebinar(webinar);
-
-    try {
-      // Check if the user has already paid for the webinar
-      const paymentCheckResponse = await axios.post(`${API_URL}/api/checkEnrollmentStatus`, {
-        webinarId: webinar._id,
-      },{
-        headers: { 
-          'Authorization': `Bearer ${token}`,
-        },
-      });
-      console.log('Payment status:', paymentCheckResponse.data);
-      if (paymentCheckResponse.data.alreadyPaid) {
-        console.log('User has already paid for this webinar. Redirecting to webinar details...');
-        navigate(`/webinarinfo/${webinar._id}`);
-      } else {
-        if (webinar.price === "0") {
-          console.log('Webinar is free. Navigating to webinar details page...');
-          navigate(`/webinarinfo/${webinar._id}`);
-        } else {
-          console.log('Webinar is paid. Initiating payment...');
-          initiatePayment(webinar);
-        }
-      }
-    } catch (error) {
-      if(!token){
-        navigate('/login')
-      } 
-      else{
-        alert('Error checking payment status. Please try again.');
-      }
-    }
-  };
-
-  const initiatePayment = async (webinar) => {
-    if (!webinar) {
-      console.log('No webinar selected for payment.');
-      return;
-    }
-
-    try {
-      console.log('Creating payment order...');
-      const response = await axios.post(`${API_URL}/api/create`, {
-        amount: webinar.price,
-        receiptId: webinar._id,
-      },{
-        headers: {
-         ' Authorization': `Bearer ${token}`,
-        },
-      });
-      console.log('Order created:', response.data);
-      const { orderId: razorpayOrderId } = response.data;
-
-      console.log('Fetching Razorpay key...');
-      const keyResponse = await axios.get(`${API_URL}/api/getkey`);
-      console.log('Razorpay key fetched:', keyResponse.data);
-      const { key } = keyResponse.data;
-
-      const amountInPaise = parseInt(webinar.price, 10) * 100;
-      console.log('Amount in paise:', amountInPaise);
-
-      const options = {
-        key, // Your Razorpay key ID
-        amount: amountInPaise, // Amount in paise
-        currency: "INR",
-        name: webinar.title,
-        description: "Enrollment for Webinar",
-        order_id: razorpayOrderId,
-        handler: async function (response) {
-          console.log('Payment successful:', response);
-
-          // Verify the payment with your backend
-          try {
-            
-            console.log('Verifying payment...');
-            const paymentVerificationResponse = await axios.post(
-              `${API_URL}/api/confirmpayment`,
-              {
-                webinarId: webinar._id,
-                paymentId: response.razorpay_payment_id,
-                orderId: razorpayOrderId,
-                signature: response.razorpay_signature,
-              },{
-                headers: {
-                 'Authorization': `Bearer ${token}`,
-                },
-              }
-            );
-            console.log('Payment verification response:', paymentVerificationResponse.data);
-            if (paymentVerificationResponse.data.success) {
-              console.log('Payment verification successful. Navigating to webinar details...');
-              setPaymentStatus('Payment successful!');
-              navigate(`/webinarinfo/${webinar._id}`);
-            } else {
-              console.error('Payment verification failed.');
-              alert("Payment verification failed. Please try again.");
-            }
-          } catch (verificationError) {
-            console.error('Payment verification error:', verificationError);
-            alert("Payment verification failed. Please try again.");
-          }
-        },
-        theme: {
-          color: "#F37254",
-        },
-      };
-
-      console.log('Opening Razorpay payment...');
-      const payment = new window.Razorpay(options);
-      payment.open();
-    } catch (error) {
-      console.error('Error initiating payment:', error);
-      setPaymentStatus('Error initiating payment.');
-    }
-  };
+export default TermsAndConditions;

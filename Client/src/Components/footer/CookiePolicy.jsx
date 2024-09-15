@@ -1,89 +1,276 @@
-import React from 'react';
-import './Styles.css';
+import React, { useState } from 'react';
+
 
 const CookiePolicy = () => {
+    const [open, setOpen] = useState(null);
+
     return (
-        <div>
-            <main>
-                <div className="header-container">
-                    <p>Cookie Policy for Connect Counsellor</p>
-                </div>
+        <>
 
-                <section>
-                    <h4>Effective Date: [Insert Date]</h4>
-                </section>
 
-                <section>
-                    <h4>1. Introduction</h4>
-                    <p>Welcome to Connect Counsellor! This Cookie Policy explains how we use cookies and similar technologies on our website. By using our website, you consent to the use of cookies as outlined in this policy.</p>
-                </section>
+<div className="privacy-policy-outer-container">
+          <h1 id="privacy-policy-outer-container-h1">Privacy policy</h1>
+          <p id="privacy-policy-outer-container-p">Effective Date: 15-09-2024</p>
+          
+          <div className="privacy-policy-outer-flex-container">
+            <p>Privacy is Precious</p>
+            <i class="fa-solid fa-user-secret"></i>
+          </div>
+          <div className="privacy-policy-inner-container">
+            <div className="privacy-policy-container">
+              <div className="privacy-policy-flex-container">
+                <p>WHAT INFORMATION DO WE COLLECT ABOUT YOU</p>
+                {open != 1 ? (
+                  <a onClick={() => setOpen(1)}>
+                    <i class="fa-solid fa-plus"></i>
+                  </a>
+                ) : (
+                  <a onClick={() => setOpen(0)}>
+                    <i class="fa-solid fa-minus"></i>
+                  </a>
+                )}
+              </div>
+              {open === 1 ? (
+                <p id="privacy-content">
+                  During registration, we collect information such as your name,
+                  email address, phone number, and any profile details you save
+                  on our website
+                </p>
+              ) : null}
+            </div>
 
-                <section>
-                    <h4>2. What Are Cookies?</h4>
-                    <p>Cookies are small text files that are stored on your device (computer, tablet, or mobile) when you visit a website. They help us enhance your experience by remembering your preferences and providing insights into how our website is used.</p>
-                </section>
+            <div className="privacy-policy-container">
+              <div className="privacy-policy-flex-container">
+                <p>HOW WE USE YOUR PERSONAL INFORMATION</p>
+                {open != 2 ? (
+                  <a onClick={() => setOpen(2)}>
+                    <i class="fa-solid fa-plus"></i>
+                  </a>
+                ) : (
+                  <a onClick={() => setOpen(0)}>
+                    <i class="fa-solid fa-minus"></i>
+                  </a>
+                )}
+              </div>
+              {open === 2 ? (
+                <p id="privacy-content">
+                  We use the collected information to make your experience more
+                  convenient, allowing you to avoid filling in details
+                  repeatedly on our website.
+                </p>
+              ) : null}
+            </div>
+            <div className="privacy-policy-container">
+              <div className="privacy-policy-flex-container">
+                <p>SHARING OF PERSONALINFORMATION WITH THIRD PARTIES</p>
+                {open != 3 ? (
+                  <a onClick={() => setOpen(3)}>
+                    <i class="fa-solid fa-plus"></i>
+                  </a>
+                ) : (
+                  <a onClick={() => setOpen(0)}>
+                    <i class="fa-solid fa-minus"></i>
+                  </a>
+                )}
+              </div>
+              {open === 3 ? (
+                <p id="privacy-content">
+                  We do not share user data with any third parties. The
+                  information is used solely for enhancing your experience on
+                  our website.
+                </p>
+              ) : null}
+            </div>
 
-                <section>
-                    <h4>3. Types of Cookies We Use</h4>
-                    <ul>
-                        <li><strong>Essential Cookies:</strong> These cookies are necessary for the proper functioning of our website. They allow you to navigate our site and use its features, such as accessing secure areas.</li>
-                        <li><strong>Performance Cookies:</strong> We use these cookies to collect information about how you interact with our website, helping us improve its performance and your experience. For example, we may use Google Analytics to analyze website traffic.</li>
-                        <li><strong>Functional Cookies:</strong> These cookies remember your preferences (e.g., language selection) to enhance your experience when using our services.</li>
-                        <li><strong>Targeting/Advertising Cookies:</strong> If applicable, we may use these cookies to deliver personalized advertisements based on your interests and to measure the effectiveness of our marketing campaigns.</li>
-                    </ul>
-                </section>
+            <div className="privacy-policy-container">
+              <div className="privacy-policy-flex-container">
+                <p>SECURING OF YOUR PERSONAL INFORMATION</p>
+                {open != 4 ? (
+                  <a onClick={() => setOpen(4)}>
+                    <i class="fa-solid fa-plus"></i>
+                  </a>
+                ) : (
+                  <a onClick={() => setOpen(0)}>
+                    <i class="fa-solid fa-minus"></i>
+                  </a>
+                )}
+              </div>
+              {open === 4 ? (
+                <p id="privacy-content">
+                  We prioritize your security by storing your data in a secure
+                  database using hashing techniques. We respect your privacy and
+                  take measures to protect your information.
+                </p>
+              ) : null}
+            </div>
 
-                <section>
-                    <h4>4. Third-Party Cookies</h4>
-                    <p>Our website may also contain cookies set by third-party services, such as analytics providers and social media platforms. These cookies are governed by the respective privacy policies of those third parties.</p>
-                </section>
-
-                <section>
-                    <h4>5. Purpose of Cookies</h4>
-                    <ul>
-                        <li>To improve website functionality and user experience.</li>
-                        <li>To analyze website traffic and usage patterns.</li>
-                        <li>To personalize content and advertisements.</li>
-                        <li>To remember user preferences.</li>
-                    </ul>
-                </section>
-
-                <section>
-                    <h4>6. User Consent</h4>
-                    <p>Upon your first visit to our website, you will be presented with a cookie banner requesting your consent to use cookies. You can choose to accept all cookies or manage your preferences through the settings provided.</p>
-                </section>
-
-                <section>
-                    <h4>7. Managing Cookies</h4>
-                    <p>You can manage your cookie preferences at any time by adjusting your browser settings. Most web browsers allow you to refuse cookies or delete them. For instructions on how to manage cookies, please refer to your browser’s help documentation.</p>
-                </section>
-
-                <section>
-                    <h4>8. Duration of Cookies</h4>
-                    <p>Cookies may be classified as session cookies or persistent cookies. Session cookies expire when you close your browser, while persistent cookies remain on your device for a specified period or until you delete them.</p>
-                </section>
-
-                <section>
-                    <h4>9. Changes to This Cookie Policy</h4>
-                    <p>We may update our Cookie Policy from time to time to reflect changes in our practices or for legal reasons. Any changes will be posted on this page with a new effective date.</p>
-                </section>
-
-                <section>
-                    <h4>10. Contact Us</h4>
-                    <p>If you have any questions or concerns about our Cookie Policy, please contact us at:</p>
-                    <ul>
-                        <li>Email: [Insert Email Address]</li>
-                        <li>Phone: [Insert Phone Number]</li>
-                        <li>Address: [Insert Address]</li>
-                    </ul>
-                </section>
-
-                <footer>
-                    <p>&copy; 2024 Your Company. All rights reserved.</p>
-                </footer>
-            </main>
+            <div className="privacy-policy-container">
+              <div className="privacy-policy-flex-container">
+                <p>USER RIGHTS</p>
+                {open != 5 ? (
+                  <a onClick={() => setOpen(5)}>
+                    <i class="fa-solid fa-plus"></i>
+                  </a>
+                ) : (
+                  <a onClick={() => setOpen(0)}>
+                    <i class="fa-solid fa-minus"></i>
+                  </a>
+                )}
+              </div>
+              {open === 5 ? (
+                <p id="privacy-content">
+                  You have the right to logout at any time, change your
+                  password, and contact us if you encounter any issues.
+                </p>
+              ) : null}
+            </div>
+          </div>
         </div>
-    );
-};
+
+        <div className="privacy-policy-outer-container">
+          <h1 id="privacy-policy-outer-container-h1">Cookie policy</h1>
+          <p id="privacy-policy-outer-container-p">Effective Date: 15-09-2024</p>
+          <div className="privacy-policy-outer-flex-container">
+            <p>Secure Cookies</p>
+            <i class="fa-solid fa-cookie-bite"></i>
+          </div>
+          <div className="privacy-policy-inner-container">
+            <div className="privacy-policy-container">
+              <div className="privacy-policy-flex-container">
+                <p>ESSENTIAL COOKIES</p>
+                {open != 6 ? (
+                  <a onClick={() => setOpen(6)}>
+                    <i class="fa-solid fa-plus"></i>
+                  </a>
+                ) : (
+                  <a onClick={() => setOpen(0)}>
+                    <i class="fa-solid fa-minus"></i>
+                  </a>
+                )}
+              </div>
+              {open === 6 ? (
+                <p id="privacy-content">
+                  These cookies are necessary for the proper functioning of our
+                  website. They allow you to navigate our site and use its
+                  features, such as accessing secure areas.
+                </p>
+              ) : null}
+            </div>
+
+            <div className="privacy-policy-container">
+              <div className="privacy-policy-flex-container">
+                <p>PERFORMANCE COOKIES</p>
+                {open != 7 ? (
+                  <a onClick={() => setOpen(7)}>
+                    <i class="fa-solid fa-plus"></i>
+                  </a>
+                ) : (
+                  <a onClick={() => setOpen(0)}>
+                    <i class="fa-solid fa-minus"></i>
+                  </a>
+                )}
+              </div>
+              {open === 7 ? (
+                <p id="privacy-content">
+                  We use these cookies to collect information about how you
+                  interact with our website, helping us improve its performance
+                  and your experience. For example, we may use Google Analytics
+                  to analyze website traffic.
+                </p>
+              ) : null}
+            </div>
+            <div className="privacy-policy-container">
+              <div className="privacy-policy-flex-container">
+                <p>THIRD-PARTY COOKIES</p>
+                {open != 8 ? (
+                  <a onClick={() => setOpen(8)}>
+                    <i class="fa-solid fa-plus"></i>
+                  </a>
+                ) : (
+                  <a onClick={() => setOpen(0)}>
+                    <i class="fa-solid fa-minus"></i>
+                  </a>
+                )}
+              </div>
+              {open === 8 ? (
+                <p id="privacy-content">
+                  • Our website may also contain cookies set by third-party
+                  services, such as analytics providers and social media
+                  platforms. These cookies are governed by the respective
+                  privacy policies of those third parties.
+                </p>
+              ) : null}
+            </div>
+
+            <div className="privacy-policy-container">
+              <div className="privacy-policy-flex-container">
+                <p>PURPOSE OF COOKIES</p>
+                {open != 9 ? (
+                  <a onClick={() => setOpen(9)}>
+                    <i class="fa-solid fa-plus"></i>
+                  </a>
+                ) : (
+                  <a onClick={() => setOpen(0)}>
+                    <i class="fa-solid fa-minus"></i>
+                  </a>
+                )}
+              </div>
+              {open === 9 ? (
+                <p id="privacy-content">
+                  • To improve
+                  website functionality and user experience.<br/> • To analyze
+                  website traffic and usage patterns. <br/> • To personalize content
+                  and advertisements. <br/> • To remember user preferences.
+                </p>
+              ) : null}
+            </div>
+
+            <div className="privacy-policy-container">
+              <div className="privacy-policy-flex-container">
+                <p>CHANGES TO THIS COOKIE POLICY</p>
+                {open != 10 ? (
+                  <a onClick={() => setOpen(10)}>
+                    <i class="fa-solid fa-plus"></i>
+                  </a>
+                ) : (
+                  <a onClick={() => setOpen(0)}>
+                    <i class="fa-solid fa-minus"></i>
+                  </a>
+                )}
+              </div>
+              {open === 10 ? (
+                <p id="privacy-content">
+                 We may update our Cookie Policy from time to time to reflect changes in our practices or for legal reasons. Any changes will be posted on this page with a new effective date.
+                </p>
+              ) : null}
+            </div>
+            <div className="privacy-policy-container">
+              <div className="privacy-policy-flex-container">
+                <p>CONTACT US</p>
+                {open != 11 ? (
+                  <a onClick={() => setOpen(11)}>
+                    <i class="fa-solid fa-plus"></i>
+                  </a>
+                ) : (
+                  <a onClick={() => setOpen(0)}>
+                    <i class="fa-solid fa-minus"></i>
+                  </a>
+                )}
+              </div>
+              {open === 11 ? (
+                <p id="privacy-content">
+                 •	If you have any questions or concerns about our Cookie Policy, please contact us at: <br/>
+                 • Email: connectcounsellor24x7@gmail.com <br/>
+                 • Phone: +91-9923287168<br/>
+                 • Address: Hingna Road, Akola, Maharashtra, India.<br/>
+•	Thank you for visiting Connect Counsellor!
+
+                </p>
+              ) : null}
+            </div>
+          </div>
+        </div>
+           </>
+)};
 
 export default CookiePolicy;

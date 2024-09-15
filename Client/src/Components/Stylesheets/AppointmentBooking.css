@@ -43,7 +43,7 @@ h3 {
 /* Adjusted Button Width */
 .submit-button {
   display: inline-block;
-  width: auto;
+  width: 312px;
   padding: 10px 20px;
   background-color: #007bff;
   color: #fff;

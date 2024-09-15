@@ -47,12 +47,11 @@ const Contactus = () => {
       <div className="contact-info">
         <h3 className='contactus-heading'>Contact Us</h3>
         <h4><FaMapMarkerAlt /> Address</h4>
-        <p>Mind Therapy and Enviro Trust, house No 773, Koulkhed, BSES Office,<br /> Main Road 
-           Near Pocket 'A', Akola, Maharashtra 44407, India</p>
+        <p>Mind Therapy and Enviro Trust, house No 773,Hingana Road,Akola 444004<br /> Maharashtra, India</p>
         <h4><FaWhatsapp /> WhatsApp</h4>
-        <p>+91 76668238821, +91 9923287168, +91 7972398801</p>
+        <p>+91-9923287168, +91-9822575684, +91-7756928130</p>
         <h4><FaEnvelope /> Email</h4>
-        <p>connectcounsellor@gmail.com, nikhil.surjuse@gmail.com,<br /></p>
+        <p>connectcounsellor@gmail.com, connectcounsellor24x7@gmail.com ,<br /></p>
       </div>
     </div>
   );

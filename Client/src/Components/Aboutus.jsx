@@ -15,7 +15,7 @@ const Aboutus = () => {
     </div>
       {/* CEO Section */}
       <div className="ceo-section">
-        <img src={aboutusimg1} alt="CEO" className="ceo-image" />
+        <img src="https://static.vecteezy.com/system/resources/previews/036/594/092/original/man-empty-avatar-photo-placeholder-for-social-networks-resumes-forums-and-dating-sites-male-and-female-no-photo-images-for-unfilled-user-profile-free-vector.jpg" alt="CEO" className="ceo-image" />
         <div className="ceo-info">
           <h3>Dr. Nikhil Surjuse</h3>
           <p>Founder & CEO</p>
@@ -56,7 +56,7 @@ const Aboutus = () => {
         </div>
         
         <div className="aboutus-card">
-          <img src={aboutusimg2} alt="Doctor4" />
+          <img src="https://static.vecteezy.com/system/resources/previews/036/594/092/original/man-empty-avatar-photo-placeholder-for-social-networks-resumes-forums-and-dating-sites-male-and-female-no-photo-images-for-unfilled-user-profile-free-vector.jpg" alt="Doctor4" />
           <h3>Dr. Parimal yenkar</h3>
           <p> counsellor  </p>
           <p className="italic-text">

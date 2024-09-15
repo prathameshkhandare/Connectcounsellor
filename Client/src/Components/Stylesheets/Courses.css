@@ -71,6 +71,7 @@
   margin: 10px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+  background-color: white;
 }
 #course-category-btn:hover {
   border: 1px solid #0096ff;

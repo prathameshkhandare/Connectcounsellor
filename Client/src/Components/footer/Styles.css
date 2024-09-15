@@ -74,3 +74,84 @@ footer {
     margin: 0 auto;
 }
 
+
+
+/* css for terms and cond */
+#terms-conditions-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 85%;
+    margin: 0 auto;
+  }
+  
+  .terms-conditions-heading {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #333;
+  }
+  
+  .terms-conditions-item {
+    width: 100%;
+    margin: 10px 0;
+    /* background-color: #f1f1f1; */
+    border-radius: 10px;
+    overflow: hidden; /* Ensure content stays within the same container */
+    transition: background-color 0.3s ease;
+  }
+  
+  .terms-conditions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    cursor: pointer;
+    /* background-color: #f1f1f1; */
+    background-color:#BEBEBE3B;
+    transition: background-color 0.3s ease;
+  }
+  
+  .terms-conditions-header h5 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    background-color: transparent;
+}
+
+
+
+/* Adjust the icon to be on the right end */
+.terms-conditions-header .fa-plus,
+.terms-conditions-header .fa-minus {
+      background-color: transparent;
+    margin-left: auto;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .terms-conditions-content {
+    padding-top: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    /* background-color: #fff; */
+    background-color: #BEBEBE3B;
+    border-radius: 0 0 20px 20px; /* Only round the bottom when expanded */
+    font-size: 13px;
+    color: black;
+    line-height: 1.6;
+    display: none; /* Hide the content by default */
+    /* border-top: 1px solid #ddd; */
+  }
+  
+  .active .terms-conditions-content {
+    display: block; /* Show the content when active */
+  }
+  
+  .terms-conditions-content p {
+    margin: 10px 0;
+    background-color: transparent;
+  }
+  
