@@ -193,7 +193,7 @@ const CourseManagement = () => {
               onChange={(e) =>
                 setNewCourse({ ...newCourse, category: e.target.value })
               }
-              onClick={handleDropdownToggle} // Updated
+              onClick={handleDropdownToggle} 
             />
             <div className="dropdown-arrow" onClick={handleDropdownToggle}>
               ▼

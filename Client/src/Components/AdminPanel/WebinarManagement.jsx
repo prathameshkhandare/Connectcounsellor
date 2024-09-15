@@ -178,12 +178,15 @@ const WebinarManagement = () => {
             value={newWebinar.meetingPass}
             onChange={(e) => setNewWebinar({ ...newWebinar, meetingPass: e.target.value })}
           />
-          <input
-            type="text"
-            placeholder="Platform"
-            value={newWebinar.platform}
+
+         <select className='Select-platform' value={newWebinar.platform}
             onChange={(e) => setNewWebinar({ ...newWebinar, platform: e.target.value })}
-          />
+          > 
+          <option value="" disabled>Select Platform</option>
+          <option value="meet">Google meet</option>
+          <option value="zoom"> Zoom</option>
+          </select>
+            
           <input
             type="text"
             placeholder="Price"
@@ -265,12 +268,19 @@ const WebinarManagement = () => {
                 value={editWebinar.meetingPass}
                 onChange={(e) => setEditWebinar({ ...editWebinar, meetingPass: e.target.value })}
               />
-              <input
-                type="text"
-                placeholder="Platform"
+
+
+              
+              
+              <select className='Select-platform'
                 value={editWebinar.platform}
-                onChange={(e) => setEditWebinar({ ...editWebinar, platform: e.target.value })}
-              />
+                onChange={(e) => setEditWebinar({ ...editWebinar, platform: e.target.value })} >
+                  <option value=" "disabled>Select Platform</option>
+                  <option value="meet">Google Meet</option>
+                  <option value="zoom"> Zoom</option>
+                </select>
+
+
               <input
                 type="text"
                 placeholder="Price"

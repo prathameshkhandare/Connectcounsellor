@@ -4,7 +4,6 @@ import axios from 'axios';
 import '../Components/Stylesheets/Login.css';
 import { useAuth } from '../store/AuthContex';
 import signinGif from "../assets/Img/signinGif.gif";
-import logo from "../assets/Img/mind_logo.png";
 
 const LoginForm = () => {
     const navigate = useNavigate();
