@@ -32,15 +32,24 @@ const Aboutus = () => {
         <div className="aboutus-card">
           <img src={aboutusimg2} alt="Doctor2" />
           <h3>Dr. Rajashree Navthale</h3>
-          <p>Depression counsellor </p>
+          <p>counsellor and psychotherapist</p>
           <div className="italic-text">
-          <p>Experience Depression counsellor work at connect counsellor with Experience of 3 years</p></div>
+          <p>Experience counsellor and psychotherapist with more than 2 years of experience</p></div>
         </div>
+
+        <div className="aboutus-card">
+          <img src={aboutusimg2} alt="Doctor2" />
+          <h3>Anupma Joshirao</h3>
+          <p>counsellor</p>
+          <div className="italic-text">
+          <p>Experience counsellor</p></div>
+        </div>
+        
 
         <div className="aboutus-card">
           <img src={aboutusimg2} alt="Doctor3" />
           <h3>Dr. Shweta Surjuse</h3>
-          <p>Couple Counsellor</p>
+          <p>Counsellor</p>
           <p className="italic-text">
             "Having Experience of 2.5 years in counsellings."
           </p>
@@ -49,13 +58,13 @@ const Aboutus = () => {
         <div className="aboutus-card">
           <img src={aboutusimg2} alt="Doctor4" />
           <h3>Dr. Parimal yenkar</h3>
-          <p>parenting counsellor having Experience with more than 3.5 years </p>
+          <p> counsellor  </p>
           <p className="italic-text">
-            Hr 
+          having Experience with more than 3.5 years
           </p>
         </div>
       </div>
-      
+  
       <div className="thought-section">
         <p>
           "We are a dedicated team of experienced doctors committed to providing exceptional care and support to enhance the well-being of our community."

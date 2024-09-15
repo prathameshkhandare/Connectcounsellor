@@ -126,6 +126,7 @@
 }
 
 /* Responsive Styles */
+/* Updated CSS for smaller screens */
 @media (max-width: 768px) {
   .login-form-container {
     flex-direction: column; /* Stack items vertically on small screens */
@@ -135,8 +136,9 @@
 
   .login-image {
     max-width: 100%; /* Full width for images */
+    height: auto; /* Adjust height automatically to maintain aspect ratio */
     border-radius: 10px 10px 0 0; /* Adjust corners for top */
-    height: 200px; /* Set a fixed height for smaller screens */
+    margin-bottom: 10px; /* Add margin for spacing */
   }
 
   .login-form {
@@ -167,3 +169,5 @@
     font-size: 1.2rem; /* Adjust heading size for mobile */
   }
 }
+
+

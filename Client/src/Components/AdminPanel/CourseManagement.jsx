@@ -205,7 +205,7 @@ const CourseManagement = () => {
                   Parenting
                 </li>
                 <li onClick={() => handleCategorySelect("Depression")}>
-                  Depression
+                 Anxiety & Depression
                 </li>
                 <li onClick={() => handleCategorySelect("Sexual")}>Sexual</li>
                 <li onClick={() => handleCategorySelect("Career")}>Career</li>
