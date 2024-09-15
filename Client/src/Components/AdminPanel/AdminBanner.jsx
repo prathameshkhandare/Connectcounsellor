@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './AdminPanel.css';
-
+import Loading from "../Loading"
 const AdminBanner = () => {
     const [admin, setAdmin] = useState(null);
     const [loading, setLoading] = useState(true);
+   
 
     useEffect(() => {
         const fetchAdminData = async () => {
-            const API_URL = import.meta.env.VITE_API_URL; // Define the base API URL
+            const API_URL = import.meta.env.VITE_API_URL; 
             
             try {
                 const token = localStorage.getItem('token');
@@ -39,7 +40,7 @@ const AdminBanner = () => {
     }, []);
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <div><Loading/></div>;
     }
 
     return (

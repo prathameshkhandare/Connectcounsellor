@@ -1,27 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import Modal from 'react-modal';
-import './AdminPanel.css';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Modal from "react-modal";
+import "./AdminPanel.css";
 
-Modal.setAppElement('#root');
+Modal.setAppElement("#root");
 
 const CourseManagement = () => {
   const [courses, setCourses] = useState([]);
   const [newCourse, setNewCourse] = useState({
-    name: '',
-    image: '',
-    shortdescription: '',
-    description: '',
-    content: '',
-    category: '',
-    price: '',
-    author : '',
-    youtubeLink : '',
+    name: "",
+    image: "",
+    shortdescription: "",
+    description: "",
+    content: "",
+    category: "",
+    price: "",
+    author: "",
+    youtubeLink: "",
   });
   const [editCourse, setEditCourse] = useState(null);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false);
-  const token = localStorage.getItem('token'); // Get token from local storage
+  const token = localStorage.getItem("token"); // Get token from local storage
 
   useEffect(() => {
     fetchCourses();
@@ -33,14 +33,16 @@ const CourseManagement = () => {
       const response = await axios.get(`${API_URL}/api/courses/read`);
       setCourses(response.data);
     } catch (error) {
-      console.error('Error fetching courses:', error);
+      console.error("Error fetching courses:", error);
     }
   };
 
   const addCourse = async () => {
     const API_URL = import.meta.env.VITE_API_URL;
     try {
-      const contentArray = newCourse.content.split(',').map((item) => item.trim());
+      const contentArray = newCourse.content
+        .split(",")
+        .map((item) => item.trim());
       const response = await axios.post(
         `${API_URL}/api/courses/write`,
         { ...newCourse, content: contentArray },
@@ -52,18 +54,18 @@ const CourseManagement = () => {
       );
       setCourses([...courses, response.data]);
       setNewCourse({
-        name: '',
-        image: '',
-        shortdescription: '',
-        description: '',
-        content: '',
-        category: '',
-        price : '',
-        author : '',
-        youtubeLink : '',
+        name: "",
+        image: "",
+        shortdescription: "",
+        description: "",
+        content: "",
+        category: "",
+        price: "",
+        author: "",
+        youtubeLink: "",
       });
     } catch (error) {
-      console.error('Error adding course:', error);
+      console.error("Error adding course:", error);
     }
   };
 
@@ -75,10 +77,12 @@ const CourseManagement = () => {
           Authorization: `Bearer ${token}`,
         },
       });
-      const updatedCourses = courses.filter((course) => course._id !== courseId);
+      const updatedCourses = courses.filter(
+        (course) => course._id !== courseId
+      );
       setCourses(updatedCourses);
     } catch (error) {
-      console.error('Error deleting course:', error);
+      console.error("Error deleting course:", error);
     }
   };
 
@@ -95,13 +99,12 @@ const CourseManagement = () => {
   const updateCourse = async () => {
     try {
       const API_URL = import.meta.env.VITE_API_URL;
-      
-    
-      const contentArray = 
-        typeof editCourse.content === 'string' 
-          ? editCourse.content.split(',').map((item) => item.trim()) 
-          : editCourse.content; // 
-  
+
+      const contentArray =
+        typeof editCourse.content === "string"
+          ? editCourse.content.split(",").map((item) => item.trim())
+          : editCourse.content; //
+
       const response = await axios.put(
         `${API_URL}/api/courses/update/${editCourse._id}`,
         { ...editCourse, content: contentArray },
@@ -111,18 +114,17 @@ const CourseManagement = () => {
           },
         }
       );
-      
+
       const updatedCourses = courses.map((course) =>
         course._id === editCourse._id ? response.data : course
       );
-      
+
       setCourses(updatedCourses);
       closeEditModal();
     } catch (error) {
-      console.error('Error updating course:', error);
+      console.error("Error updating course:", error);
     }
   };
-  
 
   const handleCategorySelect = (category) => {
     setNewCourse({ ...newCourse, category });
@@ -132,11 +134,10 @@ const CourseManagement = () => {
     setIsCategoryDropdownOpen(!isCategoryDropdownOpen);
     // console.log("Dropdown state:", !isCategoryDropdownOpen); // Add this line
   };
-  
 
   return (
     <>
-      <h2 className='manage-course-heading'>Manage Courses</h2>
+      <h2 className="manage-course-heading">Manage Courses</h2>
       <div className="admin-panel-course-management">
         <div className="admin-panel-new-course">
           <h3>Add New Course</h3>
@@ -144,81 +145,124 @@ const CourseManagement = () => {
             type="text"
             placeholder="Course Name"
             value={newCourse.name}
-            onChange={(e) => setNewCourse({ ...newCourse, name: e.target.value })}
+            onChange={(e) =>
+              setNewCourse({ ...newCourse, name: e.target.value })
+            }
           />
           <input
             type="text"
             placeholder="Image URL"
             value={newCourse.image}
-            onChange={(e) => setNewCourse({ ...newCourse, image: e.target.value })}
+            onChange={(e) =>
+              setNewCourse({ ...newCourse, image: e.target.value })
+            }
           />
           <input
             type="text"
             placeholder="Short Description"
             value={newCourse.shortdescription}
-            onChange={(e) => setNewCourse({ ...newCourse, shortdescription: e.target.value })}
+            onChange={(e) =>
+              setNewCourse({ ...newCourse, shortdescription: e.target.value })
+            }
           />
           <textarea
             placeholder="Description"
             value={newCourse.description}
-            onChange={(e) => setNewCourse({ ...newCourse, description: e.target.value })}
+            onChange={(e) =>
+              setNewCourse({ ...newCourse, description: e.target.value })
+            }
           />
           <textarea
             placeholder="Content (comma separated)"
             value={newCourse.content}
-            onChange={(e) => setNewCourse({ ...newCourse, content: e.target.value })}
+            onChange={(e) =>
+              setNewCourse({ ...newCourse, content: e.target.value })
+            }
             rows={5}
           />
-<div className={`category-dropdown ${isCategoryDropdownOpen ? 'open' : ''}`}>
-  <input
-    type="text"
-    className="category-input"  // Add this class
-    placeholder="Category"
-    value={newCourse.category}
-    onChange={(e) => setNewCourse({ ...newCourse, category: e.target.value })}
-    onClick={handleDropdownToggle} // Updated
-  />
-  <div className="dropdown-arrow" onClick={handleDropdownToggle}>
-    ▼  
-  </div>
-  {isCategoryDropdownOpen && (
-    <ul className="dropdown-menu">
-      <li onClick={() => handleCategorySelect('Couple')}>Couple</li>
-      <li onClick={() => handleCategorySelect('Parenting')}>Parenting</li>
-      <li onClick={() => handleCategorySelect('Depression')}>Depression</li>
-      <li onClick={() => handleCategorySelect('Sexual')}>Sexual</li>
-      <li onClick={() => handleCategorySelect('Career')}>Career</li>
-    </ul>
-  )}
-</div>
+          <div
+            className={`category-dropdown ${
+              isCategoryDropdownOpen ? "open" : ""
+            }`}
+          >
+            <input
+              type="text"
+              className="category-input" // Add this class
+              placeholder="Category"
+              value={newCourse.category}
+              onChange={(e) =>
+                setNewCourse({ ...newCourse, category: e.target.value })
+              }
+              onClick={handleDropdownToggle} // Updated
+            />
+            <div className="dropdown-arrow" onClick={handleDropdownToggle}>
+              ▼
+            </div>
+            {isCategoryDropdownOpen && (
+              <ul className="dropdown-menu">
+                <li onClick={() => handleCategorySelect("Couple")}>Couple</li>
+                <li onClick={() => handleCategorySelect("Parenting")}>
+                  Parenting
+                </li>
+                <li onClick={() => handleCategorySelect("Depression")}>
+                  Depression
+                </li>
+                <li onClick={() => handleCategorySelect("Sexual")}>Sexual</li>
+                <li onClick={() => handleCategorySelect("Career")}>Career</li>
+              </ul>
+            )}
+          </div>
           <input
             type="text"
             placeholder="Price"
             value={newCourse.price}
-            onChange={(e) => setNewCourse({ ...newCourse, price: e.target.value })}
+            onChange={(e) =>
+              setNewCourse({ ...newCourse, price: e.target.value })
+            }
           />
 
-          <input type="text"
-          placeholder='Author'
-          value = {newCourse.author}
-          onChange={(e)=> setNewCourse ({...newCourse,author :e.target.value})} 
+          <input
+            type="text"
+            placeholder="Author"
+            value={newCourse.author}
+            onChange={(e) =>
+              setNewCourse({ ...newCourse, author: e.target.value })
+            }
           />
 
-          <input type="text"
-          placeholder='Youtube Link' 
-          value={newCourse.youtubeLink}
-          onChange={(e)=> setNewCourse({...newCourse,youtubeLink :e.target.value})}/>
-          <button className="admin-panel-button" onClick={addCourse}>Add Course</button>
+          <input
+            type="text"
+            placeholder="Youtube Link"
+            value={newCourse.youtubeLink}
+            onChange={(e) =>
+              setNewCourse({ ...newCourse, youtubeLink: e.target.value })
+            }
+          />
+          <button className="admin-panel-button" onClick={addCourse}>
+            Add Course
+          </button>
         </div>
         <div className="admin-panel-course-list">
           <h3>Course List</h3>
           <ul>
             {courses.map((course) => (
               <li key={course._id}>
+                
                 <span>{course.name}</span>
                 <div className="admin-panel-button-container">
-                  <button className="admin-panel-edit-button" onClick={() => openEditModal(course)}>Edit</button>
-                  <button className="admin-panel-delete-button" onClick={() => deleteCourse(course._id)}>Delete</button>
+                  <button
+                    className="admin-panel-edit-button"
+                    onClick={() => openEditModal(course)}
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="admin-panel-delete-button"
+                    onClick={() => deleteCourse(course._id)}
+                  >
+                    Delete
+                  </button>
+              
                 </div>
               </li>
             ))}
@@ -229,100 +273,128 @@ const CourseManagement = () => {
           <Modal
             isOpen={isEditModalOpen}
             onRequestClose={closeEditModal}
-            contentLabel='Edit Course'
+            contentLabel="Edit Course"
           >
             <div className="edit-course-container">
               <h3>Edit Course Details</h3>
               <div className="form-group">
-                
                 <input
                   type="text"
                   placeholder="Course Name"
                   value={editCourse.name}
-                  onChange={(e) => setEditCourse({ ...editCourse, name: e.target.value })}
+                  onChange={(e) =>
+                    setEditCourse({ ...editCourse, name: e.target.value })
+                  }
                 />
               </div>
 
               <div className="form-group">
-              
                 <input
                   type="text"
                   placeholder="Image URL"
                   value={editCourse.image}
-                  onChange={(e) => setEditCourse({ ...editCourse, image: e.target.value })}
+                  onChange={(e) =>
+                    setEditCourse({ ...editCourse, image: e.target.value })
+                  }
                 />
               </div>
 
               <div className="form-group">
-                
                 <input
                   type="text"
                   placeholder="Short Description"
                   value={editCourse.shortdescription}
-                  onChange={(e) => setEditCourse({ ...editCourse, shortdescription: e.target.value })}
+                  onChange={(e) =>
+                    setEditCourse({
+                      ...editCourse,
+                      shortdescription: e.target.value,
+                    })
+                  }
                 />
               </div>
 
               <div className="form-group">
-                
                 <input
                   type="text"
                   placeholder="Description"
                   value={editCourse.description}
-                  onChange={(e) => setEditCourse({ ...editCourse, description: e.target.value })}
+                  onChange={(e) =>
+                    setEditCourse({
+                      ...editCourse,
+                      description: e.target.value,
+                    })
+                  }
                 />
               </div>
 
               <div className="form-group">
-               
                 <textarea
                   placeholder="Content (comma separated)"
                   value={editCourse.content}
-                  onChange={(e) => setEditCourse({ ...editCourse, content: e.target.value })}
+                  onChange={(e) =>
+                    setEditCourse({ ...editCourse, content: e.target.value })
+                  }
                   rows={5}
                 ></textarea>
               </div>
 
               <div className="form-group">
-              
                 <input
                   type="text"
                   placeholder="Category"
                   value={editCourse.category}
-                  onChange={(e) => setEditCourse({ ...editCourse, category: e.target.value })}
+                  onChange={(e) =>
+                    setEditCourse({ ...editCourse, category: e.target.value })
+                  }
                 />
 
                 <div className="form-group">
-                 
-                  <input type="text"
-                  placeholder='price'
-                  value={editCourse.price}
-                  onChange={(e)=> setEditCourse({...editCourse,price:e.target.value})}
-                   />
+                  <input
+                    type="text"
+                    placeholder="price"
+                    value={editCourse.price}
+                    onChange={(e) =>
+                      setEditCourse({ ...editCourse, price: e.target.value })
+                    }
+                  />
                 </div>
                 <div className="form-group">
-                <input type="text"
-                placeholder='author'
-                value={editCourse.author}
-                onChange={(e)=> setEditCourse({...editCourse,author :e.target.value})} />
+                  <input
+                    type="text"
+                    placeholder="author"
+                    value={editCourse.author}
+                    onChange={(e) =>
+                      setEditCourse({ ...editCourse, author: e.target.value })
+                    }
+                  />
                 </div>
                 <div className="form-group">
-                  <input type="text"
-                  placeholder='Youtube Link'
-                  value={editCourse.youtubeLink}
-                  onChange={(e)=> setEditCourse({...editCourse,youtubeLink : e.target.value})} />
+                  <input
+                    type="text"
+                    placeholder="Youtube Link"
+                    value={editCourse.youtubeLink}
+                    onChange={(e) =>
+                      setEditCourse({
+                        ...editCourse,
+                        youtubeLink: e.target.value,
+                      })
+                    }
+                  />
                 </div>
               </div>
 
               <div className="button-group">
-                <button className="admin-panel-button" onClick={updateCourse}>Update Course</button>
-                <button className="admin-panel-button" onClick={closeEditModal}>Cancel</button>
+                <button className="admin-panel-button" onClick={updateCourse}>
+                  Update Course
+                </button>
+                <button className="admin-panel-button" onClick={closeEditModal}>
+                  Cancel
+                </button>
               </div>
             </div>
           </Modal>
         )}
       </div>
-
     </>
   );
 };

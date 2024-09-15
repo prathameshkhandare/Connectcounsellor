@@ -3,9 +3,8 @@ import { Navbar, Nav, Dropdown, Badge, Popover, OverlayTrigger } from 'react-boo
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faBell } from '@fortawesome/free-solid-svg-icons';
 import { Link ,useNavigate} from 'react-router-dom';
-import mind_logo from '../assets/Img/mind_logo.png';
-import CClogo1 from "../assets/Img/CCLogo.png"
-import CCLogo from "../assets/img/CCLogo2.png"
+
+
 import CCLOGO3 from "../assets/Img/connectcounsellor.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
 

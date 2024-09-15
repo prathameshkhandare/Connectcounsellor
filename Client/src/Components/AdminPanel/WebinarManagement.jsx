@@ -124,6 +124,7 @@ const WebinarManagement = () => {
 
   return (
     <>
+    <div className="admin-panel-outer-container">
       <h2 className='manage-webinar-heading'>Manage Webinars</h2>
       <div className="admin-panel-webinar-management">
         <div className="admin-panel-new-webinar">
@@ -281,6 +282,7 @@ const WebinarManagement = () => {
             </div>
           </Modal>
         )}
+      </div>
       </div>
     </>
   );

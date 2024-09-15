@@ -85,7 +85,7 @@ const BlogManagement = () => {
         </ul>
       </div>
       <div className="admin-panel-new-blog">
-        <h2>Add New Blog</h2>
+        <h3>Add New Blog</h3>
         <input
           type="text"
           placeholder="Blog Title"
