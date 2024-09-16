@@ -1,220 +1,152 @@
-
 * {
-  /* body: 0; */
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
 .app-info {
-    width: 90%;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: flex-start; /* Ensure both text and image align at the top */
-  }
-  
-  .app-images {
-    flex: 1;
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Align items at the start */
-    align-items: center;
-    max-width: 30%;
-    height: 30%;
-    
-  }
-  
-  .app-images img {
-    max-width: 100%;
-    height: 40%;
-    margin-bottom: 10px;
-    margin-left: 60%;
-    border-radius: 10px;
-    object-fit: contain;
-    background: transparent;
-  }
-  
-  .app-content {
-    flex: 2;
-    margin: 20px;
-  }
-  
-  .app-content h2 {
-    margin-top: 0;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .app-content p {
-    margin-bottom: 20px;
-    font-size: 16px;
-    color: #666;
-  }
-  
-  .app-content ul {
-    /* list-style: none; */
-    padding: 0;
-    margin: 0;
-    margin-left: 15px;
-    
-  }
-  
-  
-  .app-content li {
-    margin-bottom: 10px;
-    font-size: 16px;
-    color: #666;
-    
-  }
-  
+  width: 90%;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+}
 
-  
-  .app-store-buttons {
-    margin-top: 20px;
-    /* text-align: center; */
-  }
-  
-  .app-store-buttons a {
-    margin: 0 ;
-  }
+.app-images {
+  flex: 1;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
 
- .Android-play-store{
-  height: 9vh;
+.app-images img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+.app-content {
+  flex: 2;
+  margin: 20px;
+}
+
+.app-content h2 {
+  margin-top: 0;
+  font-weight: bold;
+  color: #333;
+}
+
+.app-content p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #666;
+}
+
+.app-content ul {
+  padding: 0;
+  margin: 0 0 0 15px;
+}
+
+.app-content li {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #666;
+}
+
+/* Align play store buttons at the start */
+.app-store-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start; /* Aligns to the start of the container */
+}
+
+.app-store-buttons a {
+  margin-right: 10px; /* Space between icons */
+}
+
+.Android-play-store,
+.ios-play-store {
+  height: 50px;
   width: auto;
-  /* margin: 0 2px  ; */
-  
- }
+}
 
-  .app-store-logo {
-    width: 20%;
-    margin: 10px;
-  }
-  
-  .app-store-logo img {
-    width: 100%;
-    height: auto;
-  }
-  .fas.fa-star {
-    color: #FFD700; /* Gold color for the stars */
-    margin-right: 8px;
-  }
-  
-  /* Tablet styles (max-width: 768px) */
+.app-store-logo img {
+  width: 100%;
+  height: auto;
+}
+
+.fas.fa-star {
+  color: #ffd700;
+  margin-right: 8px;
+}
+
+/* Tablet styles (max-width: 768px) */
 @media (max-width: 768px) {
   .app-info {
-    flex-direction: row;
+    flex-direction: column;
     width: 100%;
-    height: 60%;
   }
-  .app-images, .app-content {
-    max-width: 100%;
+
+  .app-content {
     margin: 10px 0;
+    padding-left: 60px;
   }
+
   .app-images img {
-    width: 300% !important;
-   height: 200% !important;
-   margin-left:100%;
-   margin-top: 40px;
-    object-fit: cover;
+    width: 60%;
+    margin-top: 20px;
   }
 
-  .Android-play-store{
-    height: 5cqh;
-    width: auto;
-    /* margin: 0 2px  ; */
-    
-   }
-   .ios-play-store{
-    height: 3vh;
-    width: auto;
-    /* margin: 0 2px; */
-  
-   }
-
-
-  .app-store-logo {
-    width: 30%;
-    margin: 10px 0;
-  }
   .app-store-buttons {
-    margin: 20px 20px;
-    display: flex;
-    height: 50px;
-    width: 50px;
+    margin-top: 20px;
   }
-  .Android-play-store{
-    height: 55px !important;
-    width: auto;
-    margin: -7px 10px ;
-    
-   }
-    
-   .ios-play-store{
-    height: 38px;
-    width: auto;
-    margin: 0 5px;
-    /* margin-right: 50px; */
-   }
-  .Android-play-store {
-    margin-left: -5px;
+
+  .Android-play-store,
+  .ios-play-store {
+    height: 45px;
   }
 }
 
-  /* Mobile styles (max-width: 480px) */
-  @media (max-width: 480px) {
-    .app-info {
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      height: 60%;
-      padding-bottom: 10px;
-    }
-    .app-images, .app-content {
-      max-width: 100%;
-      margin: 10px 0;
-    
-    }
-    .app-images img {
-      width: 80% !important;
-    height: 80% !important;
-    margin-right: 100% !important;
-   
-      
-    }
-    .app-store-buttons {
-      margin: 20px 20px;
-      display: flex;
-      text-align: center;
-    }
-     .Android-play-store{
-      height: 43px !important;
-      width: auto;
-      margin: -5px 10px ;
-      
-     }
-      
-     .ios-play-store{
-      height: 40px;
-      width: auto;
-      margin: 0 5px;
-      /* margin-right: 50px; */
-     }
-    .app-content p, .app-content li {
-      font-size: 14px;
-    }
-    .app-store-logo {
-      width: 40%;
-      margin: 10px 0;
-    }
-    .app-store-buttons img {
-      height: 30px;
-    }
+/* Mobile styles (max-width: 480px) */
+@media (max-width: 480px) {
+  .app-info {
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
   }
-  
+
+  .app-images img {
+    width: 90%;
+    height: auto;
+    margin-top: 10px;
+  }
+
+  .app-content p,
+  .app-content li {
+    font-size: 14px;
+  }
+
+  .app-store-buttons {
+    justify-content: flex-start; /* Aligns icons to the left for mobile */
+    margin-top: 15px;
+  }
+
+  .Android-play-store,
+  .ios-play-store {
+    height: 40px;
+  }
+
+  .app-store-logo {
+    width: 40%;
+  }
+}
