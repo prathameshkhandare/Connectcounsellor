@@ -33,8 +33,8 @@ function Footer() {
           <h3>Legal</h3>
           <ul>
             <li className="footer-list-item"><Link to="/cookiepolicy">Cookie Policy</Link></li>
-            <li className="footer-list-item"><Link to="/privacy-policy">Privacy Policy</Link></li>
-            <li className="footer-list-item"><Link to="/refund-cancellation">Refund and Cancellation</Link></li>
+            <li className="footer-list-item"><Link to="/cookiepolicy">Privacy Policy</Link></li>
+            <li className="footer-list-item"><Link to="/terms-conditions">Refund and Cancellation</Link></li>
             <li className="footer-list-item"><Link to="/terms-conditions">Terms & Condition</Link></li>
             
           </ul>
