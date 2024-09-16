@@ -1,0 +1,14 @@
+# Allow all search engines to access everything except for sensitive directories
+User-agent: *
+Disallow: /admin/
+Disallow: /login/
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /config/
+Disallow: /AuthContext/
+
+# Allow search engines to access all other parts of the site
+Allow: /
+
+# Specify the location of the sitemap
+Sitemap: https://www.connectcounsellor.com/sitemap.xml
