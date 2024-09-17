@@ -119,12 +119,12 @@ const TermsAndConditions = () => {
           </div>
         )}
       </div>
-      <div className={`terms-conditions-item ${activeIndex === 6 ? 'active' : ''}`}>
-        <div className="terms-conditions-header" onClick={() => toggleAccordion(6)}>
+      <div className={`terms-conditions-item ${activeIndex === 7? 'active' : ''}`}>
+        <div className="terms-conditions-header" onClick={() => toggleAccordion(7)}>
           <h5>Cancellation Policy</h5>
-          <FontAwesomeIcon icon={activeIndex === 6 ? faMinus : faPlus} />
+          <FontAwesomeIcon icon={activeIndex === 7 ? faMinus : faPlus} />
         </div>
-        {activeIndex === 6 && (
+        {activeIndex === 7 && (
           <div className="terms-conditions-content">
            
             <p>Cancellations are not allowed after the purchase is complete.</p>
