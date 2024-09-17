@@ -53,7 +53,7 @@ function Footer() {
       <div className="Copyright-section">
         <p className="copyright">
           Copyright © 2024 All rights reserved by
-          <span className="website-name"> <br></br> Connect Counsellor</span>
+          <span className="website-name"> Connect Counsellor</span>
         </p>
         
         <span>Designed and Developed By  <b>Bhavesh Rathod & Prathmesh Khandare</b></span>
