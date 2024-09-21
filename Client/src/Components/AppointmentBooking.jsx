@@ -22,8 +22,8 @@ const AppointmentBooking = () => {
   const token = localStorage.getItem("token");
   const [message, setMessage] = useState("");
   const [bookedAppointments, setBookedAppointments] = useState([]);
-  // const API_URL = import.meta.env.VITE_API_URL;
-  const API_URL='http://localhost:3000'
+  const API_URL = import.meta.env.VITE_API_URL;
+  // const API_URL='http://localhost:3000'
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -223,11 +223,7 @@ const AppointmentBooking = () => {
               maxDate={new Date(new Date().setDate(new Date().getDate() + 7))}
             />
 
- <div className="button-container">
-          <button type="submit" className="submit-button">
-            Book Appointment
-          </button>
-        </div>
+
 
           </div>
           <div className="rightwrapper">
@@ -294,8 +290,14 @@ const AppointmentBooking = () => {
                       </button>
                     ))}
                 </div>
+              
               </div>
             </div>
+            <div className="button-container">
+          <button type="submit" className="submit-button">
+            Book Appointment
+          </button>
+        </div>
           </div>
           
         </div>

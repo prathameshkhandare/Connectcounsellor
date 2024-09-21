@@ -15,7 +15,7 @@ const Aboutus = () => {
     </div>
       {/* CEO Section */}
       <div className="ceo-section">
-        <img src={aboutusimg1} alt="CEO" className="ceo-image" />
+        <img src="https://static.vecteezy.com/system/resources/previews/036/594/092/original/man-empty-avatar-photo-placeholder-for-social-networks-resumes-forums-and-dating-sites-male-and-female-no-photo-images-for-unfilled-user-profile-free-vector.jpg" alt="CEO" className="ceo-image" />
         <div className="ceo-info">
           <h3>Dr. Nikhil Surjuse</h3>
           <p>Founder & CEO</p>
@@ -30,7 +30,7 @@ const Aboutus = () => {
 
       <div className="aboutus-section">
         <div className="aboutus-card">
-          <img src={aboutusimg2} alt="Doctor2" />
+          <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQoCdGQriUwz_gtaESlzplgRlBf4K3PQ4ffNA9O3-6jh3nMrngcpdl-cEdSLaIyOC3v68&usqp=CAU'alt="Doctor2" />
           <h3>Dr. Rajashree Navthale</h3>
           <p>counsellor and psychotherapist</p>
           <div className="italic-text">
@@ -38,7 +38,7 @@ const Aboutus = () => {
         </div>
 
         <div className="aboutus-card">
-          <img src={aboutusimg2} alt="Doctor2" />
+          <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQoCdGQriUwz_gtaESlzplgRlBf4K3PQ4ffNA9O3-6jh3nMrngcpdl-cEdSLaIyOC3v68&usqp=CAU' alt="Doctor2" />
           <h3>Anupma Joshirao</h3>
           <p>counsellor</p>
           <div className="italic-text">
@@ -47,7 +47,7 @@ const Aboutus = () => {
         
 
         <div className="aboutus-card">
-          <img src={aboutusimg2} alt="Doctor3" />
+          <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQoCdGQriUwz_gtaESlzplgRlBf4K3PQ4ffNA9O3-6jh3nMrngcpdl-cEdSLaIyOC3v68&usqp=CAU' alt="Doctor3" />
           <h3>Dr. Shweta Surjuse</h3>
           <p>Counsellor</p>
           <p className="italic-text">
@@ -56,7 +56,7 @@ const Aboutus = () => {
         </div>
         
         <div className="aboutus-card">
-          <img src={aboutusimg2} alt="Doctor4" />
+          <img src="https://static.vecteezy.com/system/resources/previews/036/594/092/original/man-empty-avatar-photo-placeholder-for-social-networks-resumes-forums-and-dating-sites-male-and-female-no-photo-images-for-unfilled-user-profile-free-vector.jpg" alt="Doctor4" />
           <h3>Dr. Parimal yenkar</h3>
           <p> counsellor  </p>
           <p className="italic-text">

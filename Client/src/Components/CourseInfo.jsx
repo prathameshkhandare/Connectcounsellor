@@ -188,9 +188,16 @@ const CourseInfo = () => {
 </div>
         <div className="course-details-by-id-flex">
           <h1 id="course-details-by-id-head">{course.name}</h1>
+          {course.price>0?
           <p>
-            <i class="fa-solid fa-indian-rupee-sign"></i>{course.price? course.price:"0"}
+            <i class="fa-solid fa-indian-rupee-sign"></i>{course.price}
           </p>
+          :
+          <p>
+          Free
+        </p>
+
+          }
         </div>
 
         <p id="course-details-by-id-description">
@@ -228,9 +235,18 @@ const CourseInfo = () => {
 
         </div>
         <div className="course-details-by-id-flex-inner2-container2">
+          {course.price>0?
           <button className="course-details-by-id-flex-inner2-container2-btn" onClick={handleEnrollment}>
-            Enroll Course
-          </button>
+          Enroll Course
+        </button>
+        :
+        <button className="course-details-by-id-flex-inner2-container2-btn">
+            Free Course
+          </button>  
+        
+        
+        
+        }
         </div>
       </div>
     </div>

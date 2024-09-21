@@ -214,7 +214,7 @@ const Webinars = () => {
                   date?.split("T")[0].split("-")[1] >
                   0 ||
                 webinar?.date?.split("T")[0].split("-")[2] -
-                  date?.split("T")[0].split("-")[2] >
+                  date?.split("T")[0].split("-")[2] >=
                   0 ? (
 
                     <p id="webinar-status">
@@ -243,7 +243,7 @@ const Webinars = () => {
                   date?.split("T")[0].split("-")[1] >
                   0 ||
                 webinar?.date?.split("T")[0].split("-")[2] -
-                  date?.split("T")[0].split("-")[2] >
+                  date?.split("T")[0].split("-")[2] >=
                   0 ?  <button href="#" className='webinar-enroll-btn' onClick={()=>{handleEnroll(webinar)}}>Pay <i class="fa-solid fa-indian-rupee-sign"></i>499 to Enroll</button>:
               <button className='webinar-enroll-expire-btn'>Expired</button> 
           }

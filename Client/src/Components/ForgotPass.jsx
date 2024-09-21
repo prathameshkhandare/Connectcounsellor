@@ -13,6 +13,8 @@ const ForgotPass = () => {
   const navigate = useNavigate();
 
   const API_URL = import.meta.env.VITE_API_URL;
+  
+
 
   const redirectToLogin = () => {
     navigate("/login");
@@ -24,7 +26,7 @@ const ForgotPass = () => {
     setError("");
 
     try {
-      const response = await axios.post(`https://backendhost-auin.onrender.com/api/forgot-password`, { email });
+      const response = await axios.post(`${API_URL}/api/forgot-password`, { email });
 
       setMessage(response.data.message);
       setTimeout(() => {

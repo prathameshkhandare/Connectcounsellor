@@ -1,0 +1,9 @@
+# Allow all search engines to access everything except for sensitive directories
+User-agent: *
+Disallow: /*?q=
+Disallow: /*?sort=
+Disallow: /*?limit=
+Disallow: /*?page=
+
+# Specify the location of the sitemap
+Sitemap: https://www.connectcounsellor.com/sitemap.xml

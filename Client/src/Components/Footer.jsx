@@ -21,7 +21,7 @@ function Footer() {
             <a href="#" target="_blank" rel="noopener noreferrer">
               <FaLinkedin />
             </a>
-            <a href="#" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/connectcounsellor/" target="_blank" rel="noopener noreferrer">
               <FaInstagram />
             </a>
             <a href="#" target="_blank" rel="noopener noreferrer">
@@ -33,20 +33,20 @@ function Footer() {
           <h3>Legal</h3>
           <ul>
             <li className="footer-list-item"><Link to="/cookiepolicy">Cookie Policy</Link></li>
-            <li className="footer-list-item"><Link to="/privacy-policy">Privacy Policy</Link></li>
-            <li className="footer-list-item"><Link to="/refund-cancellation">Refund and Cancellation</Link></li>
+            <li className="footer-list-item"><Link to="/cookiepolicy">Privacy Policy</Link></li>
+            <li className="footer-list-item"><Link to="/terms-conditions">Refund and Cancellation</Link></li>
             <li className="footer-list-item"><Link to="/terms-conditions">Terms & Condition</Link></li>
-            <li className="footer-list-item"><Link to="/disclaimer-policy">Disclaimer Policy</Link></li>
+            
           </ul>
         </div>
         <div className="footer-column">
           <h3>Contact Info</h3>
           <ul>
-            <li>7666838821</li>
+            <li>+919923287168</li>
             <li>connectcounsellor@gmail.com</li>
             <li>Therapies and Enviro Trust</li>
-            <li>Banjara Nagar Koulkhed</li>
-            <li>Akola 44402, India</li>
+            <li>Hingna road,Akola 444004</li>
+            <li>Maharashtra, India</li>
           </ul>
         </div>
       </div>
