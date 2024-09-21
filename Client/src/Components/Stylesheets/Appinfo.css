@@ -5,41 +5,46 @@
   padding: 0;
   box-sizing: border-box;
 }
+.app-info-main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
 .app-info {
-    width: 90%;
-    margin: 40px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: flex-start; /* Ensure both text and image align at the top */
-  }
-  
-  .app-images {
-    flex: 1;
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Align items at the start */
-    align-items: center;
-    max-width: 30%;
-    height: 30%;
-    
-  }
-  
-  .app-images img {
-    max-width: 100%;
-    height: 40%;
-    margin-bottom: 10px;
-    margin-left: 60%;
-    border-radius: 10px;
-    object-fit: contain;
-    background: transparent;
-  }
+  max-width: 1300px; /* Set a max width for the container */
+  width: 100%; /* Ensure the container can shrink on smaller screens */
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-start; /* Ensure both text and image align at the top */
+}
+
+.app-images {
+  flex: 1;
+  margin-left:  5px; /* Adjust margin to leave space from the left */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px; /* Set max width for the image container */
+}
+
+.app-images img {
+  width: 100%; /* Maintain the image size inside its container */
+  max-width: 300px; /* Control the image size */
+ max-height: 300px; /* Maintain aspect ratio */
+  margin-bottom: 10px;
+  margin-left: 250px;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
   
   .app-content {
     flex: 2;
@@ -110,8 +115,10 @@
 @media (max-width: 768px) {
   .app-info {
     flex-direction: row;
-    width: 100%;
+    width: 80%;
     height: 60%;
+    
+    margin-right: 10px;
   }
   .app-images, .app-content {
     max-width: 100%;
@@ -121,23 +128,9 @@
     width: 300% !important;
    height: 200% !important;
    margin-left:100%;
-   margin-top: 40px;
+   margin-top: 5px;
     object-fit: cover;
   }
-
-  .Android-play-store{
-    height: 5cqh;
-    width: auto;
-    /* margin: 0 2px  ; */
-    
-   }
-   .ios-play-store{
-    height: 3vh;
-    width: auto;
-    /* margin: 0 2px; */
-  
-   }
-
 
   .app-store-logo {
     width: 30%;
@@ -152,29 +145,30 @@
   .Android-play-store{
     height: 55px !important;
     width: auto;
-    margin: -7px 10px ;
+    margin: -0px 10px ;
     
    }
-    
-   .ios-play-store{
-    height: 38px;
-    width: auto;
-    margin: 0 5px;
-    /* margin-right: 50px; */
-   }
-  .Android-play-store {
-    margin-left: -5px;
+  
   }
-}
 
   /* Mobile styles (max-width: 480px) */
+
   @media (max-width: 480px) {
+    .app-info-main-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      margin-left: 10px;
+    }
+
     .app-info {
       flex-direction: column;
       align-items: center;
       width: 100%;
       height: 60%;
       padding-bottom: 10px;
+
     }
     .app-images, .app-content {
       max-width: 100%;
@@ -185,8 +179,8 @@
       width: 80% !important;
     height: 80% !important;
     margin-right: 100% !important;
+    margin-top: -30px;
    
-      
     }
     .app-store-buttons {
       margin: 20px 20px;
@@ -196,16 +190,10 @@
      .Android-play-store{
       height: 43px !important;
       width: auto;
-      margin: -5px 10px ;
+      margin: -5px ;
       
      }
-      
-     .ios-play-store{
-      height: 40px;
-      width: auto;
-      margin: 0 5px;
-      /* margin-right: 50px; */
-     }
+    
     .app-content p, .app-content li {
       font-size: 14px;
     }

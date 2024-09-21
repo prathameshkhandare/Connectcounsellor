@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import singupgif from "../assets/Img/signupgif.gif";
+import CCLOGO from "../assets/Img/connectcounsellor.png"
 
 const SignupForm = () => {
     const navigate = useNavigate();
@@ -64,6 +65,7 @@ const SignupForm = () => {
                     <img src={singupgif} alt="Signup Illustration" />
                 </div>
                 <div className="signup-form-right">
+                    <img src={CCLOGO} alt="" className='signup-CCLOGO' />
                     <p className='registration-heading'>Signup to Connect Counsellor</p>
                     {errorMessage && <p className="error-message">{errorMessage}</p>}
                     {successMessage && <p className="success-message">{successMessage}</p>}

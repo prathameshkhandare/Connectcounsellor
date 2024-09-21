@@ -74,4 +74,18 @@
     color: #007bff;
     font-size: 15px;
     margin-top: 5px;
+    text-align: center;
+  }
+
+  @media(max-width : 468px) {
+    .blogs-landingpage-outer-container{
+      padding-left: 10px;
+      padding-right: 10px;
+    
+    }
+    .blogs-landingpage-blogcard-container{
+      margin-top: 20px;
+    }
+    
+    
   }

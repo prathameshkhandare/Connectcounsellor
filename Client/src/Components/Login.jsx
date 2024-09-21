@@ -4,6 +4,7 @@ import axios from 'axios';
 import '../Components/Stylesheets/Login.css';
 import { useAuth } from '../store/AuthContex';
 import signinGif from "../assets/Img/signinGif.gif";
+import CCLOGO from "../assets/Img/connectcounsellor.png"
 
 const LoginForm = () => {
     const navigate = useNavigate();
@@ -97,11 +98,13 @@ const LoginForm = () => {
 
     return (
         <>
-            
+            <div className="login-form-outer-container">
             <div className="login-form-container">
                 <img src={signinGif} alt="Login Image" className="login-image" />
+
                 <form onSubmit={handleLogin} className="login-form">
                     {errorMessage && <p className="error-message">{errorMessage}</p>}
+                    <img src={CCLOGO} alt=""className='Login-CCLOGO' />
                     <p className="login-heading">Login to connect counsellor</p>
                     <div className="login-form-group">
                         <input
@@ -128,10 +131,11 @@ const LoginForm = () => {
                         <button onClick={redirecttoForgotpassword} className="login-forgotpass-link">Forgot password?</button>
                         <div className="login-signup-redirect">
                             <span>Don't have an account?</span>
-                            <button onClick={redirectToSignup} className="login-signup-link">Create an account</button>
+                            <button onClick={redirectToSignup} className="login-signup-link">Create an Account</button>
                         </div>
                     </div>
                 </form>
+            </div>
             </div>
         </>
     );

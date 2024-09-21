@@ -56,7 +56,7 @@ function Footer() {
           <span className="website-name"> Connect Counsellor</span>
         </p>
         
-        <span>Designed and Developed By <b>Bhavesh Rathod & Prathmesh Khandare</b></span>
+        <span>Developed and Maintained by <br /><b>Bhavesh Rathod & Prathmesh Khandare</b></span>
       </div>
     </div>
   );

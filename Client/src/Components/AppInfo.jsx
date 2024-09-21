@@ -9,6 +9,7 @@ import Appinfo from "../assets/Img/appInfo.png"
 
 const AppInfo = () => {
   return (
+    <div className="app-info-main-container">
     <div className="app-info">
       <div className="app-content">
         <h2>Get the Connect Counsellor App</h2>
@@ -33,6 +34,7 @@ const AppInfo = () => {
       <div className="app-store-logo">
         {/* <img src={logo} alt="Counsillhub Logo" /> */}
       </div>
+    </div>
     </div>
   );
 };

@@ -29,6 +29,7 @@ const Webinars = () => {
         // Only keep the last 5 webinars
         const lastFiveWebinars = response.data.slice(-5);
         setWebinars(lastFiveWebinars);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching webinars:", error);
         setError("Error fetching webinars.");

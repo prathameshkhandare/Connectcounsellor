@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 // import forgotPassImage from "../assets/Img/forgotpass.png"; // Make sure to add the correct image path
 import ForgotPassGif from "../assets/Img/Forgotpassword1.gif"
 
+import CCLOGO from "../assets/Img/connectcounsellor.png"
+
 const ForgotPass = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -41,6 +43,7 @@ const ForgotPass = () => {
         <img src={ForgotPassGif} className="forgotpass-image" alt="Forgot Password" />
       </div>
       <div className="forgotpass-right">
+        <img src={CCLOGO} alt="" className="forgot-CCLOGO"/>
         <p className="forgot-pass-head">Forgot Password</p>
         <div className="forgotpass-form-container">
           <form onSubmit={handleSubmit} className="forgotpass-form">

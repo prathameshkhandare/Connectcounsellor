@@ -649,13 +649,14 @@
   display: flex;
   flex-wrap: wrap; /* Ensures responsiveness */
   justify-content: space-between;
+ margin-left: 20px;
   gap: 20px;
-  /* margin-top: 20px; */
+  
   width: 80%;
-  margin-left: 150px;
+  
   background-color: #ffffff; /* Sharp container background */
-  padding: 20px; /* Add padding around the container */
-  border: 1px solid #ccc; /* Border around the container */
+  padding: 20px; 
+  border: 1px solid #ccc; 
   border-radius: 8px; /* Sharpen the container */
 }
 

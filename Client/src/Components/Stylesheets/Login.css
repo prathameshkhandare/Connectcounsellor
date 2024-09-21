@@ -1,3 +1,9 @@
+.login-form-outer-container{
+display: flex;
+justify-content: center;
+align-content: center;
+}
+
 .login-form-container {
   display: flex;
   max-width: 800px;
@@ -8,21 +14,21 @@
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   align-items: center;
-  flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+  flex-wrap: wrap; 
 }
 
 .login-heading {
   font-size: 1.5rem;
   text-align: center;
   margin-bottom: 20px;
-  flex-basis: 100%; /* Full width on smaller screens */
+  flex-basis: 100%;
 }
 
 .login-image {
   flex: 1;
   height: 100%;
   object-fit: cover;
-  border-radius: 10px 0 0 10px; /* Rounded corners on the left side */
+  border-radius: 10px 0 0 10px; 
   max-width: 50%;
 }
 
@@ -31,6 +37,10 @@
   width: 60px;
   display: flex;
   margin: 60px auto;
+}
+
+.Login-CCLOGO{
+  display: none;
 }
 
 .login-form {
@@ -49,19 +59,22 @@
 .login-form-group input {
   width: 100%;
   padding: 8px;
+  padding-left: 15px;
   box-sizing: border-box;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 20px;
+
 }
 
 .login-button {
   display: inline-block;
   padding: 10px;
+  width: 100%;
   font-size: 1rem; /* Ensure consistent font size */
   color: #fff;
   background-color: #007bff; /* Fallback color */
   border: none;
-  border-radius: 5px;
+  border-radius: 50px;
   cursor: pointer;
   background-image: linear-gradient(90deg, #0056b3 50%, #007bff 50%);
   background-size: 200%; /* Control the size for the animation effect */
@@ -79,14 +92,15 @@
 
 
 .login-extra-container {
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   margin-top: 15px;
-  border-radius: 5px;
+  border-radius: 15px;
 }
 
 .login-signup-redirect {
   display: flex;
-  margin-left: 15px;
+  justify-content: space-around;
+ 
   margin-top: 20px;
 }
 
@@ -112,7 +126,7 @@
   border: none;
   color: #007bff;
   cursor: pointer;
-  margin-left: 15px;
+  
 }
 
 .login-signup-link:hover {
@@ -167,6 +181,68 @@
 
   .login-heading {
     font-size: 1.2rem; /* Adjust heading size for mobile */
+  }
+}
+/* Responsive Styles for 468px screens */
+@media (max-width: 468px) {
+  .login-form-outer-container {
+    padding: 0 10px; 
+   height: 700px;
+
+  }
+
+  .login-form-container {
+    flex-direction: column;
+    min-height: auto;
+    border: none;
+   
+    width: 120%; 
+    box-sizing: border-box;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+
+  .login-image {
+    
+    display: none;
+  }
+
+  .Login-CCLOGO{
+    height: 200px;
+    width: 200px;
+   display: block;
+   margin-left: 60px;
+  }
+
+
+  .login-form {
+    width: 120%;
+    padding: 8px;
+    margin-bottom: 200px;
+  }
+
+  .login-button {
+    padding: 10px;
+    font-size: 0.9rem; /* Slightly reduce font size for narrower screens */
+  }
+
+  .login-signup-redirect {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+  }
+
+  .login-signup-redirect span {
+    margin-bottom: 8px; /* Adjust spacing for mobile */
+  }
+
+  .login-form-group input {
+    padding: 10px;
+    padding-right: 20px;
+  }
+
+  .login-heading {
+    font-size: 1rem; /* Smaller font for headings */
+    margin-bottom: -75px; 
   }
 }
 

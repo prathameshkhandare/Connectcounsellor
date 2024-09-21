@@ -194,11 +194,6 @@ border-bottom: 1px #ccc;
   color: black !important; /* Initial icon color */
 }
 
-
-
-
-
-
 /* Login Button */
 .navbar-login-button {
   background-color: #f6f8fb; /* White-blue background */
@@ -216,43 +211,105 @@ border-bottom: 1px #ccc;
   color: white; /* White text on hover */
 }
 
+@keyframes slideInFromLeft{
+  0%{
+    right: -50%;
 
+  }
+  100%{
+    right :0;
+  }
+}
+
+@keyframes slideOutFromLeft{
+  100%{
+    right: 0;
+  }
+  0%{
+    right: -50%;
+  }
+}
 
 @media (max-width: 991.98px) {
   .navbar-collapse {
-    position: fixed;
+    position: absolute;
     top: 56px; 
-    left: 0;
-    right: 0;
-    background-color: #007bff; /* Background color for the collapsed menu */
+    right: -50%;
+    width: 50%;
+    background-color: #007bff; 
     padding: 10px 0;
     border-top: 1px solid #dee2e6;
     transition: top 0.3s ease;
-    max-height: calc(100vh - 56px); /* Adjust for space beneath Navbar */
+    max-height: calc(100vh - 56px); 
     overflow-y: auto;
+    transition: left 0.5 ease;
+    transition: right 0.5 ease;
+
+    
   }
 
- 
+  .nav-elements{
+    text-decoration: underline;
+    margin-left: 0;
+   
+  }
 
-  .navbar-collapse.show {
+  .nav-element{
+    position: relative;
+    margin-left: 5px;
+    font-size: 18px;
+    padding-bottom: 120px;
+   
+    
+  }
+ 
+  .navbar-collapse.show{
+    right:0;
+    animation: slideInFromLeft 0.5s forwards;
+    
+  }
+
+  .navbar-collapse.hide{
+    animation: slideOutFromLeft 0.5s forwards ;
+  }
+
+  /* .navbar-collapse.show {
     display: flex;
     justify-content: center;
     text-align: center;
     background-color: #fff; 
     padding: 10px;
+    padding-left: 2px;
     flex-direction: column;
     top: 80px;
+    left:140px;
     position: absolute;
 
+  } */
+
+  .nav-element::after{
+    content: " ";
+    display: block;
+    width: 0;
+  height: 10px;
+  background-color: #000;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  transition: width 0.5s;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
   }
 
   .navbar-nav {
     flex-direction: column;
     text-align: center;
+    
   }
 
   .nav-item {
-    margin-bottom: 5px; /* Adjust spacing between menu items */
+    margin-bottom: 5px;
+    text-decoration: underline; /* Adjust spacing between menu items */
   }
 }
 
@@ -801,6 +858,10 @@ color: aliceblue;
   margin-right: 40px;
 }
 
+.signup-CCLOGO{
+  display: none;
+}
+
 .signup-form-right {
   flex: 1;
   padding: 50px; /* Increased padding */
@@ -831,7 +892,7 @@ color: aliceblue;
   font-size: 16px; /* Reduced font size */
   box-sizing: border-box;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 20px;
 }
 
 .signup-button {
@@ -840,7 +901,7 @@ color: aliceblue;
   background-color: #007bff; /* Base color */
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 50px;
   cursor: pointer;
   margin-top: 10px;
   font-size: 15px;
@@ -926,19 +987,41 @@ color: aliceblue;
 
 @media (max-width: 480px) {
   .signup-container {
-    font-size: 18px; /* Adjust font size for very small screens */
+    font-size: 18px; 
+    border: none;
+    
   }
+.signup-form-container{
+  border: none;
+  width: 120%;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 254, 254, 0.1);
+}
 
   .signup-button {
     font-size: 14px; /* Adjust button font size */
   }
-
+  
+  .registration-heading{
+    font-size: 0.9rem;
+  }
+  .signup-form-left img{
+    display: none;
+  }
+  .signup-CCLOGO{
+    height: 80px;
+    width: 200px;
+    display: block;
+  }
   .signup-login-box {
     font-size: 14px; /* Adjust font size for login box */
   }
 
   .signup-form-group {
     margin-bottom: 15px; /* Reduce margin for inputs */
+    width: 120%;
+    border: 1px solid #ccc;
+    border-radius: 20px;
   }
 }
 
@@ -1094,6 +1177,9 @@ color: aliceblue;
   height: auto;
   border-radius: 10px;
 }
+.forgot-CCLOGO{
+  display: none;
+}
 
 .forgotpass-right {
   flex: 1;
@@ -1104,7 +1190,7 @@ color: aliceblue;
   text-align: center;
   font-size: 28px; /* Increased font size */
   margin-bottom: 30px;
-  color: #007bff; /* Matching the border color */
+  color: #0c0c0c; /* Matching the border color */
 }
 
 .forgotpass-form-container {
@@ -1131,9 +1217,11 @@ color: aliceblue;
 .forgot-pass-input {
   width: 100%;
   padding: 10px;
+  padding-left: 20px;
   box-sizing: border-box;
   border: 1px solid #ccc; /* Match the container border */
-  border-radius: 5px;
+  margin-bottom: 10px;
+  border-radius: 20px;
 }
 
 .forgotpass-button {
@@ -1142,7 +1230,7 @@ color: aliceblue;
   background-color: #007bff; /* Base color */
   color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
   cursor: pointer;
   font-size: 16px;
   background-image: linear-gradient(90deg, #0056b3 50%, #007bff 50%); /* Gradient background */
@@ -1206,6 +1294,67 @@ color: aliceblue;
     margin-bottom: 20px;
   }
 }
+@media (max-width: 468px) {
+  .forgotpass-container {
+    width: 90%;
+    padding: 15px; 
+    flex-direction: column; 
+    min-height: auto; 
+    box-shadow: 0px 4px 8px rgba(241, 241, 241, 0.1); 
+    border: none;
+  }
+
+  .forgotpass-left, .forgotpass-right {
+    flex: 1;
+    padding: 0;
+    margin: 0;
+    text-align: center; 
+  }
+
+  .forgotpass-left {
+    margin-bottom: 20px;
+
+  }
+  .forgot-pass-head{
+    font-size: 0.9rem;
+  }
+  .forgot-pass-input{
+    width: 115%;
+  }
+
+  .forgotpass-image {
+    display: none;
+  }
+  .forgot-CCLOGO{
+    height: 100px;
+    width: 200px;
+    display: block;
+    margin-left: 30px;
+  }
+.forgot-pass-input{
+  margin-left: -20px;
+  
+}
+  .forgot-pass-head {
+    font-size: 24px; /* Adjust the font size */
+    margin-bottom: 20px; /* Reduce the margin */
+  }
+
+  .forgotpass-button {
+    font-size: 14px; /* Decrease button font size */
+    padding: 10px; /* Adjust padding for the button */
+  }
+
+  .forgotpass-form-group {
+    margin-bottom: 10px; /* Reduce form group margin */
+  }
+
+  .forgotpass-login-redirect {
+    margin-top: 15px; /* Adjust spacing */
+    padding: 8px; /* Adjust padding */
+  }
+}
+
 
 
 /* forgot password end */
