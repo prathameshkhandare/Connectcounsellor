@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './AdminPanel.css';
 import Loading from "../Loading"
+import EnrolledData from './EnrolledData';
 const AdminBanner = () => {
     const [admin, setAdmin] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -44,9 +45,19 @@ const AdminBanner = () => {
     }
 
     return (
+        
+
+        <>
         <div>
             <h2 className='admin-panel-adminbaner-h2'> Welcome, {admin}! </h2>
         </div>
+        
+        <div className="adminbannerenrollmentdata">
+            <h3>Enrollment Data</h3>
+           
+            <EnrolledData></EnrolledData>
+        </div>
+        </>
     );
 };
 

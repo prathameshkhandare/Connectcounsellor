@@ -41,6 +41,7 @@ import FloatWebinar from "./Components/FloatWebinar";
 import LandingPageBlog from "./Components/LandingPageBlog";
 import Loading from "./Components/Loading";
 import NotFoundPage from "./Components/NotFoundPage";
+import UserCourses from "./Components/UserCourses";
 // Example components for routes
 const Home = () => {
   return (
@@ -187,7 +188,7 @@ function App() {
           />
           <Route
           path="/account-setting" element ={<> <CustomNavbar/><AccountSetting/> <FloatWebinar/> <Footer/></>}></Route>
-          {/* <Route path = '/UserCourses' element = {<> <CustomNavbar/> <UserCourses/>  <Footer/> </>}></Route> */}
+          <Route path = '/UserCourses' element = {<> <CustomNavbar/> <UserCourses/>  <Footer/> </>}></Route>
           <Route
          
           path="/Notifications" element ={<> <CustomNavbar/><Notifications/> <FloatWebinar/> <Footer/></>}></Route>
