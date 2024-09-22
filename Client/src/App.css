@@ -815,8 +815,9 @@ color: aliceblue;
 
   @media (max-width: 768px) {
     .floatwebinar-outer-container {
-      padding: 8px 12px; /* Reduce padding for tablet */
+      padding: 5px 10px; /* Reduce padding for tablet */
       border-radius: 35px; /* Slightly smaller border-radius */
+      margin-bottom: -5px;
     }
     
     .floatwebinar-outer-container i,

@@ -51,12 +51,14 @@ function Footer() {
         </div>
       </div>
       <div className="Copyright-section">
+
+      <span>Developed and Maintained by <br /><b>Bhavesh Rathod & Prathmesh Khandare</b></span>
         <p className="copyright">
           Copyright © 2024 All rights reserved by
           <span className="website-name"> Connect Counsellor</span>
         </p>
         
-        <span>Developed and Maintained by <br /><b>Bhavesh Rathod & Prathmesh Khandare</b></span>
+       
       </div>
     </div>
   );
