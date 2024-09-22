@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import "../Components/StyleSheets/LandingPageBlogs.css"
 
@@ -35,7 +36,8 @@ const LandinPageBlog = () => {
                 <p id="blog-topic">{webinar.title}</p>
                 <p id="blog-content">
                   {webinar.shortDescription}
-                 <a href="/blog"> <span id="blog-read-more" >Read more</span></a>
+              
+                 <Link to="/blog" ><span id="blog-read-more" >Read more</span></Link>
                 </p>
                 <div className="blogs-landingpage-flex-date-container">
                   <p id="blog-author">
