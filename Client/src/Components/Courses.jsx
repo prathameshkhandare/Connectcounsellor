@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Stylesheets/Courses.css';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Loading from './Loading';
 const Courses = () => {
   const [courses, setCourses] = useState([]);
@@ -110,18 +110,20 @@ const navigate = useNavigate();
                     <i className="fa-solid fa-star"></i>
                     <i className="fa-solid fa-star"></i>
                   </p>
-                  <a
-                    href="#"
+                  <Link
+                  
+                
                     onClick={(e) => {
                       e.preventDefault();
                       navigate(`/courseInfo/${course._id}`); // Navigate to courseinfo/:id
                     }}
-                  >
+                    >
                     <i
                       id="webinar-view-btn"
                       className="fa-solid fa-circle-arrow-right"
-                    ></i>
-                  </a>
+                      ></i>
+                  
+                      </Link>
                 </div>
               </div>
             </div>

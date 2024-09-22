@@ -5,6 +5,7 @@ import './Stylesheets/AppInfo.css';
 
 import app_info_1 from "../assets/Img/app-info-1n.png";
 import Appinfo from "../assets/Img/appInfo.png"
+import { Link } from 'react-router-dom';
 
 
 const AppInfo = () => {
@@ -21,9 +22,10 @@ const AppInfo = () => {
           <li> Download course materials with a single tap</li>
         </ul>
         <div className="app-store-buttons">
-          <a href="#">
+          
+          <Link to="#">
             <img src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" alt="Google Play" className='Android-play-store' />
-          </a>
+          </Link>
          
         </div>
       </div>
