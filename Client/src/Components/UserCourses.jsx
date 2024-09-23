@@ -100,7 +100,7 @@ const UserCourses = () => {
               <div key={index} className="course-card-container">
                 <div className="course-card-img-container">
                   
-                  <img 
+                  <img className='course-card-img-container'
                      src={
                       webinar.platform === "zoom"
                         ? "https://lh6.googleusercontent.com/3qQY88BkqF6IF9cBs_AGmlCh04ZaNsctNAIjuNL38qC8etWll6mSxzoDz0Ka8XVDyY-yCTcxlkNSpWHN09PbUNqh4-dB26kdswGPrpKVOIdjhYWv5UpR-TAfazI4QNJu8-nzO7o1wFA9SbtweUs7DVk"
