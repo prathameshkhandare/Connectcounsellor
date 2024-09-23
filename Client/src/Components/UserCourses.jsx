@@ -5,103 +5,112 @@ import { Link } from 'react-router-dom';
 const UserCourses = () => {
   const [courses, setCourses] = useState([]);
   const [webinars, setWebinars] = useState([]);
-  const [activeTab, setActiveTab] = useState('courses'); // For tab control
-  const API_URL = "http://localhost:3000";
+  const [activeTab, setActiveTab] = useState('courses');
+  const API_URL = import.meta.env.VITE_API_URL;
   const token = localStorage.getItem('token');
 
-  // Fetch enrolled courses when the component mounts
   useEffect(() => {
     const fetchEnrolledCourses = async () => {
       try {
         const response = await fetch(`${API_URL}/api/enrolled/courses`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+          headers: { Authorization: `Bearer ${token}` },
         });
-
         const data = await response.json();
-        if (Array.isArray(data)) {
-          setCourses(data);
-        }
+        if (Array.isArray(data)) setCourses(data);
       } catch (error) {
         console.error('Error fetching enrolled courses:', error);
       }
     };
-
     fetchEnrolledCourses();
   }, [API_URL, token]);
 
-  // Fetch enrolled webinars when the component mounts
   useEffect(() => {
     const fetchEnrolledWebinars = async () => {
       try {
         const response = await fetch(`${API_URL}/api/enrolled/webinars`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+          headers: { Authorization: `Bearer ${token}` },
         });
-
         const data = await response.json();
-        if (Array.isArray(data.webinars)) {
-          setWebinars(data.webinars);
-        }
+        if (Array.isArray(data.webinars)) setWebinars(data.webinars);
       } catch (error) {
         console.error('Error fetching enrolled webinars:', error);
       }
     };
-
     fetchEnrolledWebinars();
   }, [API_URL, token]);
 
   return (
-    <div className="usercourses-container">
-      <h2 className="usercourses-header">Your Dashboard</h2>
+    <div className="course-outer-container">
+      <h1>Your Dashboard</h1>
 
-      <div className="usercourses-tab-container">
-        <div
-          className={`usercourses-tab ${activeTab === 'courses' ? 'selected' : ''}`}
+      <div className="course-category-container">
+        <button
+          id="course-category-btn"
+          className={activeTab === 'courses' ? 'selected' : ''}
           onClick={() => setActiveTab('courses')}
         >
           Courses
-        </div>
-        <div
-          className={`usercourses-tab ${activeTab === 'webinars' ? 'selected' : ''}`}
+        </button>
+        <button
+          id="course-category-btn"
+          className={activeTab === 'webinars' ? 'selected' : ''}
           onClick={() => setActiveTab('webinars')}
         >
           Webinars
-        </div>
+        </button>
       </div>
 
-      {activeTab === 'courses' ? (
-        <div className="usercourses-grid">
-          {courses.length > 0 ? (
+      <div className="course-inner-container">
+        {activeTab === 'courses' ? (
+          courses.length > 0 ? (
             courses.map((course, index) => (
-              <div key={index} className="usercourses-card">
-                <p><strong>Course name:</strong> {course.courseName}</p>
-                <p><strong>Enrollment Date:</strong> {new Date(course.enrollmentDate).toLocaleDateString()}</p>
-                <p><Link to={`/courseInfo/${course.courseId}`}>Go to course</Link></p>
+              <div key={index} className="course-card-container">
+                <div className="course-card-img-container">
+                  <img
+                    src={`https://dummyimage.com/150x150/000/fff.png&text=${course.courseName}`}
+                    alt="course"
+                  />
+                </div>
+                <div className="course-card-detail-container">
+                  <p id="topic-webinar"><strong>{course.courseName}</strong></p>
+                  <p id="topic-webinar-discription">
+                    Enrollment Date: {new Date(course.enrollmentDate).toLocaleDateString()}
+                  </p>
+                  <div className="flex-webinar">
+                    <Link to={`/courseInfo/${course.courseId}`}>Go to course</Link>
+                  </div>
+                </div>
               </div>
             ))
           ) : (
             <p>No courses enrolled yet.</p>
-          )}
-        </div>
-      ) : (
-        <div className="usercourses-grid">
-          {webinars.length > 0 ? (
+          )
+        ) : (
+          webinars.length > 0 ? (
             webinars.map((webinar, index) => (
-              <div key={index} className="usercourses-card">
-                <p><strong>Webinar Title:</strong> {webinar.title}</p>
-                <p><strong>Presenter:</strong> {webinar.presenter}</p>
-                <p><strong>Date:</strong> {new Date(webinar.date).toLocaleDateString()}</p>
-                <p><Link to={`/webinarInfo/${webinar._id}`}>Go to webinar</Link></p>
+              <div key={index} className="course-card-container">
+                <div className="course-card-img-container">
+                  <img
+                    src={`${webinar.image}`}
+                    alt="webinar"
+                  />
+                </div>
+                <div className="course-card-detail-container">
+                  <p id="topic-webinar"><strong>{webinar.title}</strong></p>
+                  <p id="topic-webinar-discription">
+                    Presenter: {webinar.presenter} | Date: {new Date(webinar.date).toLocaleDateString()}
+                  </p>
+                  <div className="flex-webinar">
+                    <Link to={`/webinarInfo/${webinar._id}`}>Go to webinar</Link>
+                  </div>
+                </div>
               </div>
             ))
           ) : (
             <p>No webinars enrolled yet.</p>
-          )}
-        </div>
-      )}
+          )
+        )}
+      </div>
     </div>
   );
 };

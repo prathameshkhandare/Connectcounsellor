@@ -13,6 +13,7 @@ import {faMoon,faSun,faMountainSun
 const AppointmentBooking = () => {
   const navigate = useNavigate();
   const [loading,setLoading] = useState(true);
+  const [isLoading,setisLoading] = useState(false);
   const [formData, setFormData] = useState({
     date: new Date(),
     reason: "",
@@ -70,6 +71,7 @@ const AppointmentBooking = () => {
   };
 
   const bookAppointment = async () => {
+    setisLoading(true);
     try {
       const response = await fetch(`${API_URL}/api/appointments/book`, {
         method: "POST",
@@ -88,6 +90,9 @@ const AppointmentBooking = () => {
       }
     } catch (error) {
       setMessage("Error booking appointment");
+    }
+    finally{
+      setisLoading(false);
     }
   };
 
@@ -157,6 +162,7 @@ const AppointmentBooking = () => {
   };
 
   const handleSubmit = async (e) => {
+    setisLoading(true);
     e.preventDefault();
 
     if (!formData.slot) {
@@ -168,6 +174,9 @@ const AppointmentBooking = () => {
       await initiatePayment();
     } catch (error) {
       setMessage("Error booking appointment");
+    }
+    finally{
+      isLoading(false);
     }
   };
 
@@ -294,8 +303,8 @@ const AppointmentBooking = () => {
               </div>
             </div>
             <div className="button-container">
-          <button type="submit" className="submit-button">
-            Book Appointment
+          <button type="submit" className="submit-button" disabled={isLoading} >
+          {isLoading ? "Laoding..." : "Book appointment"}
           </button>
         </div>
           </div>

@@ -9,6 +9,7 @@ import CCLOGO from "../assets/Img/connectcounsellor.png"
 const LoginForm = () => {
     const navigate = useNavigate();
     const { storeTokenLS } = useAuth();
+    const [isLoading,setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
         emailorphone: '',
         password: ''
@@ -26,6 +27,7 @@ const LoginForm = () => {
     const handleLogin = async (event) => {
         event.preventDefault();
         setErrorMessage('');
+        setIsLoading(true);
         try {
             const response = await axios.post(`${API_URL}/api/login`, formData);
             if (response.status === 200) {
@@ -45,11 +47,14 @@ const LoginForm = () => {
                     emailorphone: '',
                     password: ''
                 });
-            } else {
-                setErrorMessage('Error logging in. Please try again.');
+            } 
             }
+            finally{
+                setIsLoading(false);
+            }
+            
         }
-    };
+    
 
     const fetchUserDetails = async () => {
         const token = localStorage.getItem('token');
@@ -126,7 +131,7 @@ const LoginForm = () => {
                             required
                         />
                     </div>
-                    <button type="submit" className="login-button">Login</button>
+                    <button type="submit" className="login-button" disabled={isLoading}>{isLoading ? "Loading..." : "Login"}</button>
                     <div className="login-extra-container">
                         <button onClick={redirecttoForgotpassword} className="login-forgotpass-link">Forgot password?</button>
                         <div className="login-signup-redirect">

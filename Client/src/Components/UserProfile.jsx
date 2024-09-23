@@ -5,7 +5,7 @@ import axios from 'axios';
 
 function UserProfile() {
   const [message, setMessage] = useState('');
-  
+  const[isLoading,setisLoading] = useState(false);
   const [profile, setProfile] = useState({
     firstName: '',
     lastName: '',
@@ -66,7 +66,7 @@ function UserProfile() {
   const handleSave = async (e) => {
     e.preventDefault();
     const API_URL = import.meta.env.VITE_API_URL; // Define the base API URL
-
+    setisLoading(true);
     try {
       const token = localStorage.getItem('token');
    
@@ -94,6 +94,9 @@ function UserProfile() {
       console.log('Error in saving profile:', error);
       setMessage('Error in saving profile');
       setTimeout(() => setMessage(''), 3000);
+    }
+    finally{
+      setisLoading(false);
     }
   };
 

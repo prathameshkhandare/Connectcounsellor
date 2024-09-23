@@ -15,6 +15,7 @@ const SignupForm = () => {
     });
     const [errorMessage, setErrorMessage] = useState('');
     const [successMessage, setSuccess] = useState('');
+    const [isLoading ,setIsLoading] = useState(false);
 
     // Store the API URL in a variable
     const API_URL = import.meta.env.VITE_API_URL;
@@ -25,6 +26,7 @@ const SignupForm = () => {
 
     const handleSignup = async (event) => {
         event.preventDefault();
+        setIsLoading(true);
         try {
             const API_URL = import.meta.env.VITE_API_URL;
             const response = await axios.post(`${API_URL}/api/register`, formData);
@@ -51,6 +53,9 @@ const SignupForm = () => {
                 setErrorMessage('Error registering. Please try again.');
             }
             console.error('Error registering user:', error);
+        }
+        finally{
+            setIsLoading(false);
         }
     };
 
@@ -118,7 +123,7 @@ const SignupForm = () => {
                                 required
                             />
                         </div>
-                        <button type="submit" className="signup-button">Sign Up</button>
+                        <button type="submit" className="signup-button" disabled={isLoading}> {isLoading ? "Loading.." : "Sign Up"}</button>
                     </form>
                     <div className="signup-login-box">
                         <span>Already have an account?</span>

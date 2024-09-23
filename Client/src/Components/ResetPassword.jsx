@@ -8,13 +8,14 @@ const ResetPassword = () => {
   const [otp, setOtp] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [message, setMessage] = useState('');
+  const [isLoading ,setisLoading] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
   
   const handleSubmit = async (e) => {
     e.preventDefault();
     const API_URL = import.meta.env.VITE_API_URL;
-
+    setisLoading(true);
     try {
       const response = await axios.post(`${API_URL}/api/reset-password`, { email, otp, newPassword });
       setMessage(response.data.message);
@@ -28,6 +29,9 @@ const ResetPassword = () => {
     } catch (err) {
       setError(err.response.data.error || 'Something went wrong. Please try again.');
       setMessage('');
+    }
+    finally{
+      setisLoading(false);
     }
   };
 
@@ -70,7 +74,7 @@ const ResetPassword = () => {
                 required
               />
             </div>
-            <button type="submit" className="reset-password-button">Reset Password</button>
+            <button type="submit" className="reset-password-button" disabled= {isLoading}>{isLoading ? "Loading..." : "Reset Password"}</button>
           </form>
         </div>
       </div>

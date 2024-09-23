@@ -8,6 +8,7 @@ import Loading from "./Loading";
 const Webinars = () => {
   const [webinars, setWebinars] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isLoading,setisLoading] = useState(false);
   const [error, setError] = useState("");
   const [selectedWebinar, setSelectedWebinar] = useState(null);
 
@@ -46,7 +47,7 @@ const Webinars = () => {
   const handleEnroll = async (webinar) => {
     console.log('Handling enroll for webinar:', webinar);
     setSelectedWebinar(webinar);
-
+    setisLoading(true);
     try {
       // Check if the user has already paid for the webinar
       const paymentCheckResponse = await axios.post(`${API_URL}/api/checkEnrollmentStatus`, {
@@ -76,6 +77,10 @@ const Webinars = () => {
       else{
         alert('Error checking payment status. Please try again.');
       }
+     
+    }
+    finally{
+        setisLoading(false);
     }
   };
 
@@ -244,8 +249,8 @@ const Webinars = () => {
                   0 ||
                 webinar?.date?.split("T")[0].split("-")[2] -
                   date?.split("T")[0].split("-")[2] >=
-                  0 ?  <button href="#" className='webinar-enroll-btn' onClick={()=>{handleEnroll(webinar)}}>Pay <i class="fa-solid fa-indian-rupee-sign"></i>499 to Enroll</button>:
-              <button className='webinar-enroll-expire-btn'>Expired</button> 
+                  0 ?  <button href="#" className='webinar-enroll-btn' onClick={()=>{handleEnroll(webinar)} } disabled={isLoading}>Pay <i class="fa-solid fa-indian-rupee-sign" ></i> {isLoading ? "Loading..." : "499 to Enroll"}</button>:
+              <button className='webinar-enroll-expire-btn' >Expired</button> 
           }
             </div>
               </>

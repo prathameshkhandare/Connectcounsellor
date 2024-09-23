@@ -3,6 +3,7 @@ import '../Components/StyleSheets/AccountSetting.css';
 import ResetpassGif from "../assets/Img/Resetpassword.gif"
 
 const AccountSetting = () => {
+  const [isLoading,SetisLoading] = useState(false);
   const [formData, setFormData] = useState({
     currentPassword: '',
     newPassword: '',
@@ -19,6 +20,7 @@ const AccountSetting = () => {
   };
 
   const handleSubmit = async (e) => {
+    SetisLoading(true);
     e.preventDefault();
 
     if (formData.newPassword !== formData.confirmNewPassword) {
@@ -46,6 +48,9 @@ const AccountSetting = () => {
     } catch (error) {
       console.error('Error changing password:', error);
       setMessage('Error changing password');
+    }
+    finally{
+      SetisLoading(false);
     }
   };
  
@@ -94,7 +99,8 @@ const AccountSetting = () => {
               required
             />
           </div>
-          <button type="submit" className='account-settings-button'>Change Password</button>
+          <button type="submit" className='account-settings-button' disabled={isLoading
+          }>{isLoading ? "Loading..." : "Change Password"}</button>
         </form>
         {message && <p className="account-settings-message">{message}</p>}
       </div>

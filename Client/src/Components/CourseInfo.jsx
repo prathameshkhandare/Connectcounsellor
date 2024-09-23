@@ -8,6 +8,7 @@ const CourseInfo = () => {
   const [course, setCourse] = useState(null);
   const { courseId } = useParams();
   const [loading ,setLoading] = useState(true);
+  const [isLoading,setisLoading] = useState(false);
   const [userid, setUserid] = useState("null");
 
   // Store the API URL in a variable
@@ -36,6 +37,7 @@ const CourseInfo = () => {
 
   // Function for Razorpay payment
   const handleEnrollment = async () => {
+    setisLoading(true);
     if (!course || !userid || userid === "null") return; // Ensure both course and userId are available
 
     const amount = course.price; // Get the course price
@@ -138,6 +140,9 @@ const CourseInfo = () => {
     } catch (error) {
       console.error("Error creating payment order:", error);
     }
+    finally{
+      setisLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -236,11 +241,11 @@ const CourseInfo = () => {
         </div>
         <div className="course-details-by-id-flex-inner2-container2">
           {course.price>0?
-          <button className="course-details-by-id-flex-inner2-container2-btn" onClick={handleEnrollment}>
-          Enroll Course
+          <button className="course-details-by-id-flex-inner2-container2-btn" onClick={handleEnrollment} disabled={isLoading}>
+          {isLoading ? "Loading..." : "Enroll Course"}
         </button>
         :
-        <button className="course-details-by-id-flex-inner2-container2-btn">
+        <button className="course-details-by-id-flex-inner2-container2-btn" onClick={handleEnrollment}>
             Free Course
           </button>  
         

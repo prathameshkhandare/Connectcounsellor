@@ -6,7 +6,7 @@
     padding: 20px;
   }
   
-  /* Sidebar */
+ 
   .profile-sidebar {
     width: 250px;
     background-color: #ffffff;
@@ -15,7 +15,7 @@
     margin-left: 13%;
   }
   
-  /* Profile Picture Container */
+ 
   .profile-pic-container {
     position: relative;
     width: 100px;
@@ -23,7 +23,7 @@
     margin: 0 auto 20px;
   }
   
-  /* Profile Picture */
+ 
   .profile-pic {
     width: 100px;
     height: 100px;
@@ -39,7 +39,7 @@
   }
    
   
-  /* Profile Name */
+ 
   .profile-name {
     text-align: center;
     color: rgb(1, 1, 47);

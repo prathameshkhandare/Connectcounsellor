@@ -9,6 +9,7 @@ import CCLOGO from "../assets/Img/connectcounsellor.png"
 const ForgotPass = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [isLoading,setisLoading] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
@@ -22,6 +23,7 @@ const ForgotPass = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    setisLoading(true);
     setMessage("");
     setError("");
 
@@ -36,6 +38,9 @@ const ForgotPass = () => {
       }, 3000);
     } catch (err) {
       setError(err.response?.data?.error || "Something went wrong. Please try again.");
+    }
+    finally{
+      setisLoading(false);
     }
   };
 
@@ -64,14 +69,14 @@ const ForgotPass = () => {
                 required
               />
             </div>
-            <button type="submit" className="forgotpass-button">
-              Submit
+            <button type="submit" className="forgotpass-button" disabled={isLoading}>
+            {isLoading ? "Loading..." : "Submit"}
             </button>
           </form>
           <div className="forgotpass-login-redirect">
             <span>Remembered your password?</span>
-            <button onClick={redirectToLogin} className="forgotpass-login-link">
-              Login
+            <button onClick={redirectToLogin} className="forgotpass-login-link" disabled={isLoading}>
+              {isLoading ? "Loading..." : "Login"}
             </button>
           </div>
         </div>
