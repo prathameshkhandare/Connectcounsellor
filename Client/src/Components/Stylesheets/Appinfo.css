@@ -157,7 +157,7 @@
     width: 80%;
     height: 60%;
     
-    margin-right: 10px;
+    margin-right: 8px;
   }
 
   .app-content {
@@ -196,7 +196,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px;
+     margin-left: 10px;
      
     }
 
