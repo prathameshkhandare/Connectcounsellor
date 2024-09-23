@@ -7,6 +7,7 @@ const UserCourses = () => {
   const [webinars, setWebinars] = useState([]);
   const [activeTab, setActiveTab] = useState('courses');
   const API_URL = import.meta.env.VITE_API_URL;
+
   const token = localStorage.getItem('token');
 
   useEffect(() => {
@@ -66,11 +67,19 @@ const UserCourses = () => {
             courses.map((course, index) => (
               <div key={index} className="course-card-container">
                 <div className="course-card-img-container">
-                  <img
-                    src={`https://dummyimage.com/150x150/000/fff.png&text=${course.courseName}`}
-                    alt="course"
-                  />
-                </div>
+  {course.courseId && course.courseId.image ? (
+    <img
+      key={course._id}
+      src={course.courseId.image}
+      alt={course.courseName || 'Course Image'}
+    />
+  ) : (
+    <div key={course._id} className="fallback-course-name">
+      {course.courseName}
+    </div>
+  )}
+</div>
+
                 <div className="course-card-detail-container">
                   <p id="topic-webinar"><strong>{course.courseName}</strong></p>
                   <p id="topic-webinar-discription">
@@ -90,10 +99,17 @@ const UserCourses = () => {
             webinars.map((webinar, index) => (
               <div key={index} className="course-card-container">
                 <div className="course-card-img-container">
-                  <img
-                    src={`${webinar.image}`}
+                  
+                  <img className='course-card-img-container'
+                     src={
+                      webinar.platform === "zoom"
+                        ? "https://lh6.googleusercontent.com/3qQY88BkqF6IF9cBs_AGmlCh04ZaNsctNAIjuNL38qC8etWll6mSxzoDz0Ka8XVDyY-yCTcxlkNSpWHN09PbUNqh4-dB26kdswGPrpKVOIdjhYWv5UpR-TAfazI4QNJu8-nzO7o1wFA9SbtweUs7DVk"
+                        : "https://logos-world.net/wp-content/uploads/2022/05/Google-Meet-Symbol.png"
+                    }
                     alt="webinar"
                   />
+
+                  
                 </div>
                 <div className="course-card-detail-container">
                   <p id="topic-webinar"><strong>{webinar.title}</strong></p>
