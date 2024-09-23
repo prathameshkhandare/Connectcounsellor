@@ -181,7 +181,7 @@ const Webinars = () => {
       <div className="webinar-outer-container">
         <div className="webinar-inner-container">
           {console.log("above map")}
-          {webinars.map((webinar) => {
+          {webinars.slice().reverse().map((webinar) => {
             return (
               <>
                <div  className="webinar-card-container">
