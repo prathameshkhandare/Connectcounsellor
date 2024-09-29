@@ -1145,6 +1145,9 @@ color: aliceblue;
 .copyright {
   margin-top: 15px;
 }
+.Copyright-section span a {
+  text-decoration: none;
+}
 
 .website-name {
   font-weight: bold;
