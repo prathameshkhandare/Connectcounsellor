@@ -104,9 +104,7 @@ const Webinars = () => {
       const { orderId: razorpayOrderId } = response.data;
 
       console.log('Fetching Razorpay key...');
-      const keyResponse = await axios.get(`${API_URL}/api/getkey`);
-      console.log('Razorpay key fetched:', keyResponse.data);
-      const { key } = keyResponse.data;
+      const key = import.meta.env.RAZORPAY_KEY_ID
 
       const amountInPaise = parseInt(webinar.price, 10) * 100;
       console.log('Amount in paise:', amountInPaise);

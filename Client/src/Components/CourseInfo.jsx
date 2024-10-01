@@ -73,8 +73,7 @@ const CourseInfo = () => {
       const { orderId: razorpayOrderId } = orderResponse.data;
 
       // Fetch Razorpay key
-      const keyResponse = await axios.get(`${API_URL}/api/getkey`);
-      const { key } = keyResponse.data;
+      const key = import.meta.env.RAZORPAY_KEY_ID
 
       // Initialize Razorpay
       const options = {
