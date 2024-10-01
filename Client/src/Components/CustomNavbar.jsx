@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar, Nav, Dropdown, Badge, Popover, OverlayTrigger,Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faBell,faBars } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faBell,faBars ,faTimes} from '@fortawesome/free-solid-svg-icons';
 import { Link ,useNavigate} from 'react-router-dom';
 import CCLOGO3 from "../assets/Img/connectcounsellor.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -119,7 +119,7 @@ function CustomNavbar() {
                 trigger="click"
               >
                 <Badge pill className="notification-badge" onClick={handleNotificationsClick}>
-                  <FontAwesomeIcon icon={faBell} style={{ color: 'black' }} /> {/* Example notification count */}
+                  <FontAwesomeIcon icon={faBell} style={{ color: 'black' }} /> 
                 </Badge>
               </OverlayTrigger>
 
@@ -131,15 +131,17 @@ function CustomNavbar() {
                   <Dropdown.Item as={Link} to="/profile">Profile</Dropdown.Item>
                   <Dropdown.Item as={Link} to="/account-setting">Account Setting</Dropdown.Item>
                   <Dropdown.Item as={Link} to="/notifications">Notifications</Dropdown.Item>
-                  <Dropdown.Item href="/help">Help</Dropdown.Item>
+                  <Dropdown.Item as={Link} to="/help">Help</Dropdown.Item>
                   <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
 
               {/* for fabars test */}
               <div className="hamburger d-lg-none" onClick={toggleNavElements}>
-          <FontAwesomeIcon icon={faBars} style={{ color: 'black', fontSize: '24px' }} />
+          <FontAwesomeIcon 
+          icon={showNavElements ? faTimes:faBars} style={{ color: 'black', fontSize: '24px' }} />
         </div>
+
 
       {/* ----- */}
             </>

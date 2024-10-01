@@ -199,7 +199,7 @@ function App() {
           </Route>
           <Route path="/courses" element={<><CustomNavbar/><Courses/><FloatWebinar/>  <Footer/></>}/>
       <Route path = '/Webinar' element={<><CustomNavbar/> <Webinars/> <Footer/> </>}/>
-          <Route path="/Help" element={<>  <CustomNavbar /> <Help /> <FloatWebinar/> <Footer /> </> } />
+          <Route path="/help" element={<>  <CustomNavbar /> <Help /> <FloatWebinar/> <Footer /> </> } />
           <Route path="/login" element={<Login />} />
           <Route element={<PrivateRoute requiredRole="admin" />}/>
             <Route path="/adminpanel" element={<>   <AdminPanel /> </> } />

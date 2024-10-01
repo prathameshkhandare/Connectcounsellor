@@ -1,7 +1,7 @@
 import React from 'react';
-import './Stylesheets/Help.css'; // Assuming you have a Help.css file for styling
+import './Stylesheets/Help.css';
 import HelpImg from "../assets/Img/Helpimg.png";
-import { FaEnvelope, FaPhone } from "react-icons/fa"; // Correct import for FontAwesome icons
+import { FaEnvelope, FaPhone } from "react-icons/fa"; 
 
 const Help = () => {
   return (
