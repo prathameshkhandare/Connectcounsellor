@@ -38,7 +38,7 @@ const CourseInfo = () => {
 
   const isUserEnrolled= async()=>{
     try{
-      const response = await axios.get('http://localhost:3000/api/checkenrollment', {
+      const response = await axios.get(`${API_URL}/api/checkenrollment`, {
         params: {
           courseId,
         },
