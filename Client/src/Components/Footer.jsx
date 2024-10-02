@@ -44,7 +44,6 @@ function Footer() {
           <ul>
             <li>+919923287168</li>
             <li>connectcounsellor@gmail.com</li>
-            <li>Therapies and Enviro Trust</li>
             <li>Hingna road,Akola 444004</li>
             <li>Maharashtra, India</li>
           </ul>
@@ -52,7 +51,7 @@ function Footer() {
       </div>
       <div className="Copyright-section">
 
-      <span>Developed and Maintained by <br /><b> <a href="www.linkedin.com/in/bhavesh-rathod-6946a2245">Bhavesh Rathod </a>& <a href="www.linkedin.com/in/prathmesh-khandare-24a116281">Prathmesh Khandare</a></b></span>
+      <span>Design, Developed and Maintained by <br /><b> <a href="www.linkedin.com/in/bhavesh-rathod-6946a2245">Bhavesh Rathod </a>& <a href="www.linkedin.com/in/prathmesh-khandare-24a116281">Prathmesh Khandare</a></b></span>
         <p className="copyright">
           Copyright © 2024 All rights reserved by
           <span className="website-name"> Connect Counsellor</span>

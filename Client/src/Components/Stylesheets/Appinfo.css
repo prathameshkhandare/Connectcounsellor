@@ -35,10 +35,10 @@
 
 .app-images img {
   width: 100%; /* Maintain the image size inside its container */
-  max-width: 300px; /* Control the image size */
- max-height: 300px; /* Maintain aspect ratio */
+  max-width: 400px; /* Control the image size */
+ max-height: 400px; /* Maintain aspect ratio */
   margin-bottom: 10px;
-  margin-left: 250px;
+  margin-left: 450px;
   border-radius: 10px;
   object-fit: contain;
 }
@@ -78,22 +78,15 @@
   }
   
 
-.app-images {
+/* .app-images {
   flex: 1;
   margin: 20px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-}
+} */
 
-.app-images img {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  object-fit: contain;
-}
 
 .app-content {
   flex: 2;

@@ -22,27 +22,35 @@
 }
 .course-card-container {
   width: 450px;
-  /* background-color: transparent; */
+  
   border-radius: 20px;
   padding: 10px;
   margin: 10px;
   display: flex;
   justify-content: space-between;
   /* align-items: center; */
+  align-items: stretch;
   box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
   position: relative;
 }
 
 .course-card-img-container {
   width: 150px;
-  height: 150px;
+  height: auto; 
 }
 .course-card-img-container img {
-  width: 150px;
-  height: 150px;
+  width: 100%;
+  height: 100%;
   border-radius: 15px;
   object-fit: cover;
 }
+.course-card-detail-container {
+  width: calc(100% - 160px); /* Adjust width to account for image width and spacing */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensure content is spaced properly */
+}
+
 @media (max-width: 800px) {
   .course-card-img-container {
     width: 120px;

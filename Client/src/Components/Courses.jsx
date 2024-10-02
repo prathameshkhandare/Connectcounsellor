@@ -115,7 +115,7 @@ const navigate = useNavigate();
                 
                     onClick={(e) => {
                       e.preventDefault();
-                      navigate(`/courseInfo/${course._id}`); // Navigate to courseinfo/:id
+                      navigate(`/courseInfo/${course._id}`); 
                     }}
                     >
                     <i
