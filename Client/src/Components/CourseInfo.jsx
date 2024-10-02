@@ -10,9 +10,10 @@ const CourseInfo = () => {
   const [loading ,setLoading] = useState(true);
   const [isLoading,setisLoading] = useState(false);
   const [userid, setUserid] = useState("null");
-
+  const [enrolled, setEnrolled]=useState(false);
   // Store the API URL in a variable
   const API_URL = import.meta.env.VITE_API_URL;
+  const token = localStorage.getItem("token");
 
   const userdata = async () => {
     try {
@@ -35,6 +36,30 @@ const CourseInfo = () => {
     }
   };
 
+  const isUserEnrolled= async()=>{
+    try{
+      const response = await axios.get('http://localhost:3000/api/checkenrollment', {
+        params: {
+          courseId,
+        },
+        headers: {
+          Authorization: `Bearer ${token}`,
+        }
+      });
+      
+     if(response.status===200){
+      console.log("the enrollment response is ",response.status)
+      setEnrolled(true)
+    }
+    else{
+       console.log("the enrollment response is ",response.status)
+      setEnrolled(false)
+     }
+    }
+    catch(error){
+      console.error("There was an error fetching the user enrollment status!", error);
+    }
+  }
   // Function for Razorpay payment
   const handleEnrollment = async () => {
     setisLoading(true);
@@ -161,6 +186,7 @@ const CourseInfo = () => {
     };
     fetchCourse();
     userdata();
+    isUserEnrolled();
   }, [courseId]);
 
   if (!course) {
@@ -240,9 +266,18 @@ const CourseInfo = () => {
         </div>
         <div className="course-details-by-id-flex-inner2-container2">
           {course.price>0?
+         enrolled ? (
+          // If the user is enrolled, show a disabled button
+          <button className="course-details-by-id-flex-inner2-container2-btn" disabled>
+            Already Enrolled
+          </button>
+        ) : (
+          // If not enrolled, show the enroll button with onClick
           <button className="course-details-by-id-flex-inner2-container2-btn" onClick={handleEnrollment} disabled={isLoading}>
-          {isLoading ? "Loading..." : "Enroll Course"}
-        </button>
+            {isLoading ? "Loading..." : "Enroll Course"}
+          </button>
+        )
+          
         :
         <button className="course-details-by-id-flex-inner2-container2-btn" onClick={handleEnrollment}>
             Free Course
