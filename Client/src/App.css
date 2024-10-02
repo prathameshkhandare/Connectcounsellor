@@ -6,6 +6,8 @@ body, html {
   margin: 0;
   padding: 0;
   overflow-x: hidden; 
+  scroll-behavior: smooth; 
+  transform: translate3d(0, 0, 0);
  
 }
 body::-webkit-scrollbar{width: 1px;}
@@ -1087,6 +1089,9 @@ color: aliceblue;
   align-items: flex-start; /* Ensure columns start from the top */
   flex-wrap: wrap;
   margin-left: 10%;
+  
+ 
+  
 }
 
 .footer-column {
@@ -1094,6 +1099,7 @@ color: aliceblue;
   margin: 10px;
   min-width: 200px;
   text-align: left; 
+  margin-bottom: -30px;
 }
 
 .footer-column h3 {
@@ -1136,10 +1142,11 @@ color: aliceblue;
 
 .Copyright-section {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 40px;
   border-top: 2px solid #007bff;
   padding-top: 10px;
   color: inherit;
+  margin-bottom: -25px;
 }
 
 .copyright {
@@ -1173,7 +1180,7 @@ color: aliceblue;
   content: "";
   position: absolute;
   left: 0;
-  top: 10px;
+  top: 13px;
   width: 10px;
   height: 10px;
   background-color: #337ab7;

@@ -18,7 +18,7 @@ const animateText = (text) => {
 function Banner() {
   useEffect(() => {
     const bannerContainer = document.querySelector(".banner-container");
-    bannerContainer.classList.add("active"); // Add 'active' class to trigger animations
+    bannerContainer.classList.add("active"); 
   }, []);
 
   return (

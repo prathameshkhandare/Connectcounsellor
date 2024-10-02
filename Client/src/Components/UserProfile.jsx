@@ -117,7 +117,7 @@ function UserProfile() {
         </ul>
       </aside>
       <main className="profile-main">
-        <h2>Public profile</h2>
+        <h2>Public Profile</h2>
         <p>Add information about yourself</p>
         <form onSubmit={handleSave}>
           <div className="form-group">

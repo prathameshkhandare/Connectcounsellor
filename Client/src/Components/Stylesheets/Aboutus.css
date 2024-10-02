@@ -55,7 +55,17 @@
   height: 380px; 
   text-align: center;
   animation: fadeInUp 1s ease-in-out;
+
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
+
+.animate-counsellor-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 
 .aboutus-card img {
   width: 150px;
