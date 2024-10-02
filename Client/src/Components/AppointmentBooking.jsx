@@ -113,9 +113,9 @@ const AppointmentBooking = () => {
         }
       );
       const { orderId: razorpayOrderId } = response.data;
-      const keyResponse = await axios.get(`${API_URL}/api/getkey`);
-      const { key } = keyResponse.data;
-
+      // const keyResponse = await axios.get(`${API_URL}/api/getkey`);
+      // const { key } = keyResponse.data;
+      const key = import.meta.env.RAZORPAY_KEY_ID
       const amountInPaise = parseInt(price) * 100;
       const options = {
         key,

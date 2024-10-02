@@ -104,9 +104,7 @@ const Webinars = () => {
       const { orderId: razorpayOrderId } = response.data;
 
       console.log('Fetching Razorpay key...');
-      const keyResponse = await axios.get(`${API_URL}/api/getkey`);
-      console.log('Razorpay key fetched:', keyResponse.data);
-      const { key } = keyResponse.data;
+      const key = import.meta.env.RAZORPAY_KEY_ID
 
       const amountInPaise = parseInt(webinar.price, 10) * 100;
       console.log('Amount in paise:', amountInPaise);
@@ -166,7 +164,11 @@ const Webinars = () => {
     }
   };
 
- 
+ const iswebinarupcomming= (webinarDate)=>{
+  const today = new Date();
+  const webinarDateObj = new Date(webinarDate);
+  return webinarDateObj >= today;
+ }
 
   return (
     <>
@@ -212,15 +214,7 @@ const Webinars = () => {
                 {webinar.date.split("T")[0]}
               </p>
               <div className="webinar-flex-container">
-                {webinar?.date?.split("T")[0].split("-")[0] -
-                  date.split("T")[0].split("-")[0] >
-                  0 ||
-                webinar?.date?.split("T")[0].split("-")[1] -
-                  date?.split("T")[0].split("-")[1] >
-                  0 ||
-                webinar?.date?.split("T")[0].split("-")[2] -
-                  date?.split("T")[0].split("-")[2] >=
-                  0 ? (
+                {iswebinarupcomming(webinar.date)? (
 
                     <p id="webinar-status">
                     <i id="upcoming" class="fa-solid fa-circle-check"></i>{" "}
@@ -241,15 +235,7 @@ const Webinars = () => {
                 </p>
                 
               </div>
-              { webinar?.date?.split("T")[0].split("-")[0] -
-                  date.split("T")[0].split("-")[0] >
-                  0 ||
-                webinar?.date?.split("T")[0].split("-")[1] -
-                  date?.split("T")[0].split("-")[1] >
-                  0 ||
-                webinar?.date?.split("T")[0].split("-")[2] -
-                  date?.split("T")[0].split("-")[2] >=
-                  0 ?  <button href="#" className='webinar-enroll-btn' onClick={()=>{handleEnroll(webinar)} } disabled={isLoading}>Pay <i class="fa-solid fa-indian-rupee-sign" ></i> {isLoading ? "Loading..." : "499 to Enroll"}</button>:
+              {iswebinarupcomming(webinar.date)?  <button href="#" className='webinar-enroll-btn' onClick={()=>{handleEnroll(webinar)} } disabled={isLoading}>Pay <i class="fa-solid fa-indian-rupee-sign" ></i> {isLoading ? "Loading..." :  `${webinar.price} to Enroll`}</button>:
               <button className='webinar-enroll-expire-btn' >Expired</button> 
           }
             </div>
