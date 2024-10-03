@@ -58,9 +58,7 @@ const AppointmentBooking = () => {
     fetchBookedAppointments();
   }, []);
 
-  // if(loading){
-  //   return <Loading/>
-  // }
+
 
   const isSlotBooked = (slot, date) => {
     return bookedAppointments.some(

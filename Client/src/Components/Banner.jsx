@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import mindTherapy from "../assets/Img/mindTherapy.webp";
 import doctorsymbol from "../assets/Img/doctor_symbol2.jpg";
 import ccadvertise from "../assets/Img/connectcounselloradvertise.png";
+import Land_page_img from "../assets/Img/Landing_page_img.png";
 
 const animateText = (text) => {
   return text.split(" ").map((word, index) => (
@@ -20,6 +21,33 @@ function Banner() {
     const bannerContainer = document.querySelector(".banner-container");
     bannerContainer.classList.add("active"); 
   }, []);
+
+  useEffect(() => {
+    const steps = document.querySelectorAll('.steps-inner-flex-container2');
+  
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in-up');
+          }
+        });
+      },
+      {
+        threshold: 0.7, 
+      }
+    );
+  
+    steps.forEach((step) => {
+      observer.observe(step);
+    });
+  
+   
+    return () => {
+      steps.forEach((step) => observer.unobserve(step));
+    };
+  }, []);
+  
 
   return (
     <>
@@ -99,7 +127,7 @@ function Banner() {
           <div className="steps-outer-flex-container">
             <div className="steps-inner-container1">
               <p>Our Appoinment Booking process</p>
-              <h1>Four easy steps to get your solution</h1>
+              <h1 >Four easy steps to get your solution</h1>
             </div>
             <div className="steps-inner-container2">
               <div className="steps-inner-flex-container2">
