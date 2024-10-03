@@ -24,9 +24,60 @@
   background-color: rgb(255, 255, 255);
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.11);
   display: flex;
-  flex-direction: column; /* Ensure the content stacks vertically */
-  justify-content: space-between; /* Add space between elements */
-  overflow: hidden; /* Hide overflow */
+  flex-direction: column; 
+  justify-content: space-between; 
+  overflow: hidden; 
+
+  opacity: 0; /* Initially hidden */
+  transform: translateY(100px); /* Move the element down initially */
+  transition: all 0.5s ease-in-out; /* Smooth transition */
+}
+.blogs-landingpage-blogcard-container.animate-blog {
+  opacity: 1; /* Fully visible when animated */
+  transform: translateY(0); /* Move into place */
+}
+@keyframes slideFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideFromBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.blogs-landingpage-blogcard-container:nth-child(1) {
+  animation-name: slideFromLeft;
+}
+
+.blogs-landingpage-blogcard-container:nth-child(2) {
+  animation-name: slideFromBottom;
+}
+
+.blogs-landingpage-blogcard-container:nth-child(3) {
+  animation-name: slideFromRight;
 }
 .blogs-landingpage-blogcard-container img{
 width: 350px;

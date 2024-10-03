@@ -1,10 +1,13 @@
 /* course */
 .course-outer-container {
   width: 100%;
-  margin-top: 50px;
+  
    }
 .course-outer-container h1 {
   text-align: center;
+  margin-top: -40px;
+ 
+  
 }
 .course-outer-container p {
   text-align: center;
@@ -12,7 +15,7 @@
   
 }
 .course-inner-container {
-  margin-top: 50px;
+  /* margin-top: 50px; */
   margin-bottom: 50px;
   display: flex;
   justify-content: center;
@@ -22,16 +25,35 @@
 }
 .course-card-container {
   width: 450px;
-  
   border-radius: 20px;
   padding: 10px;
   margin: 10px;
   display: flex;
   justify-content: space-between;
-  /* align-items: center; */
   align-items: stretch;
-  box-shadow: 1px 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 10px 8px rgba(0, 0, 0, 0.1);
   position: relative;
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0; 
+  
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0); 
+  }
+}
+
+.course-card-container:nth-child(n) {
+  animation-delay: calc(0.1s * var(--index)); 
+  border: 1px black;
+ 
+  
+
 }
 
 .course-card-img-container {
@@ -45,10 +67,11 @@
   object-fit: cover;
 }
 .course-card-detail-container {
-  width: calc(100% - 160px); /* Adjust width to account for image width and spacing */
+  width: calc(100% - 160px);
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Ensure content is spaced properly */
+  justify-content: space-between;
+
 }
 
 @media (max-width: 800px) {

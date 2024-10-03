@@ -22,7 +22,7 @@
 /* Blog Card Hover Effect */
 .blog-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 1px 8px 0px rgba(91, 91, 91, 0.2);
 }
 
 /* Blog Image */
@@ -31,6 +31,7 @@
   height: 350px;
   object-fit: cover;
   margin-right: 40px;
+  border-radius: 20px;
 }
 
 /* Blog Content */
