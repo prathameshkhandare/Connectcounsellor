@@ -10,7 +10,12 @@ const Aboutus = () => {
         if (entry.isIntersecting) {
           entry.target.classList.add("animate-counsellor-card");
         }
+       
       });
+    
+    }, 
+    {
+      threshold:0.5,
     });
 
     const cards = document.querySelectorAll(".aboutus-card");

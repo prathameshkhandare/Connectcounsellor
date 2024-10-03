@@ -69,7 +69,7 @@ const AccountSetting = () => {
               className='account-settings-input'
               type="password"
               name="currentPassword"
-              placeholder='current password'
+              placeholder='Current password'
               value={formData.currentPassword}
               onChange={handleChange}
               required
