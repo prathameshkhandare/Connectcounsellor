@@ -86,7 +86,8 @@ const UserCourses = () => {
                     Enrollment Date: {new Date(course.enrollmentDate).toLocaleDateString()}
                   </p>
                   <div className="flex-webinar">
-                    <Link to={`/courseInfo/${course.courseId}`}>Go to course</Link>
+                    {console.log("routing to : ",course?.courseId?._id)}
+                    <Link to={`/courseInfo/${course?.courseId?._id}`}>Go to course</Link>
                   </div>
                 </div>
               </div>

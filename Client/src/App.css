@@ -7,7 +7,7 @@ body, html {
   padding: 0;
   overflow-x: hidden; 
   scroll-behavior: smooth; 
-  transform: translate3d(0, 0, 0);
+  /* transform: translate3d(0, 0, 0); */
  
 }
 body::-webkit-scrollbar{width: 1px;}
