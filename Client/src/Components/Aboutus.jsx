@@ -4,6 +4,8 @@ import "../Components/StyleSheets/Aboutus.css"; // Import your CSS file for styl
 const Aboutus = () => {
   const aboutusRef = useRef(null);
 
+  // for animation
+
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
