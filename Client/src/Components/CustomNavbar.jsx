@@ -29,13 +29,13 @@ function CustomNavbar() {
 
   const checkLoginStatus = async () => {
     const token = localStorage.getItem('token');
-    setLoggedIn(!!token); // Update loggedIn state based on token presence
+    setLoggedIn(!!token); 
   }
 
   const handleLogout = () => {
-    localStorage.removeItem('token'); // Remove token from local storage
-    setLoggedIn(false); // Set logged in state to false on logout
-    navigate('/'); // Navigate to home or login page
+    localStorage.removeItem('token');
+    setLoggedIn(false); 
+    navigate('/'); 
   };
 
   const handleNotificationsClick = () => {
