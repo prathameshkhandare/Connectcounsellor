@@ -1,22 +1,27 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from "react-router-dom";
+
+import { useLocation, useNavigate } from 'react-router-dom';
 import resetpassGIf from "../assets/Img/Resetpassword.gif"
 
 const ResetPassword = () => {
-  const [email, setEmail] = useState('');
+  // const [email, setEmail] = useState('');
   const [otp, setOtp] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [message, setMessage] = useState('');
   const [isLoading ,setisLoading] = useState(false);
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const location = useLocation();
+  const email = location.state?.email;
   
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     const API_URL = import.meta.env.VITE_API_URL;
     setisLoading(true);
     try {
+      console.log(email)
       const response = await axios.post(`${API_URL}/api/reset-password`, { email, otp, newPassword });
       setMessage(response.data.message);
       setError('');
@@ -52,7 +57,8 @@ const ResetPassword = () => {
                 type="email"
                 placeholder="Email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                // onChange={(e) => setEmail(e.target.value)}
+                readOnly
                 required
               />
             </div>

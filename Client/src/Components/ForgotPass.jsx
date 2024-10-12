@@ -33,7 +33,8 @@ const ForgotPass = () => {
       setMessage(response.data.message);
       setTimeout(() => {
         if (response.status === 200) {
-          navigate("/resetPassword");
+          navigate("/resetPassword",{ state: { email } });
+    
         }
       }, 3000);
     } catch (err) {

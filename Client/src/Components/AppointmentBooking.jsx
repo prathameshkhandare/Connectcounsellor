@@ -302,7 +302,7 @@ const AppointmentBooking = () => {
             </div>
             <div className="button-container">
           <button type="submit" className="submit-button" disabled={isLoading} >
-          {isLoading ? "Laoding..." : "Book appointment"}
+          {isLoading ? "Loading..." : "Book appointment"}
           </button>
         </div>
           </div>

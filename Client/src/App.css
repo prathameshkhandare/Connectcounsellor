@@ -1485,13 +1485,14 @@ color: aliceblue;
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 20px;
+
 }
 
 .reset-password-button {
   padding: 10px 15px;
   border: none;
-  border-radius: 4px;
+  border-radius: 20px;
   background-color: #007bff; /* Base color */
   color: white;
   font-size: 16px;
