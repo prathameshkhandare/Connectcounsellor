@@ -48,11 +48,8 @@ const AdminBanner = () => {
         
 
         <>
-        <div>
-            <h2 className='admin-panel-adminbaner-h2'> Welcome, {admin}! </h2>
-        </div>
-        
-        <div className="adminbannerenrollmentdata">
+       
+                <div className="adminbannerenrollmentdata">
             <h3>Enrollment Data</h3>
            
             <EnrolledData></EnrolledData>

@@ -47,9 +47,9 @@ const Aboutus = () => {
           className="ceo-image"
         />
         <div className="ceo-info">
-          <h3>Dr. Nikhil Surjuse</h3>
+          <h3>Nikhil Surjuse</h3>
           <p>Founder & CEO</p>
-          <p>Former co-founder of Connect Counsellor. Experience counsellor.</p>
+          <p>Founder of Connect Counsellor. Experience counsellor.</p>
         </div>
       </div>
 
@@ -63,7 +63,7 @@ const Aboutus = () => {
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQoCdGQriUwz_gtaESlzplgRlBf4K3PQ4ffNA9O3-6jh3nMrngcpdl-cEdSLaIyOC3v68&usqp=CAU"
             alt="Doctor2"
           />
-          <h3>Dr. Rajashree Navthale</h3>
+          <h3> Rajashree Navthale</h3>
           <p>counsellor and psychotherapist</p>
           <div className="italic-text">
             <p>Experience counsellor and psychotherapist with more than 2 years of experience</p>
@@ -87,9 +87,9 @@ const Aboutus = () => {
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQoCdGQriUwz_gtaESlzplgRlBf4K3PQ4ffNA9O3-6jh3nMrngcpdl-cEdSLaIyOC3v68&usqp=CAU"
             alt="Doctor3"
           />
-          <h3>Dr. Shweta Surjuse</h3>
+          <h3>Shweta Surjuse</h3>
           <p>Counsellor</p>
-          <p className="italic-text">"Having Experience of 2.5 years in counsellings."</p>
+          <p className="italic-text">"Having Experience of 2.5 years in Counselling."</p>
         </div>
 
         <div className="aboutus-card">
